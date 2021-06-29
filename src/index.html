@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="5Sga5VqXk5CSqDeDLW6HaFP8dMFVAqdL0ikHLzs2ak8" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Rabby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main">
+    <header>
+      <div class="nav">
+        <img src="/assets/logo.png" alt="Rabby" class="logo" />
+        <a href="javascript:;" class="menu-btn">
+          <i></i>
+          <i></i>
+          <i></i>
+        </a>
+        <ul class="menu">
+          <li><a href="https://twitter.com/Rabby_io" target="_blank">Twitter</a></li>
+          <li><a href="https://twitter.com/Rabby_io" target="_blank">Discord</a></li>
+          <li><a href="https://github.com/RabbyHub/Rabby" target="_blank">Github</a></li>
+          <li><a class="menu-download round-button transparent" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">Download</a></li>
+        </ul>
+      </div>
+      <div class="header-content">
+        <div class="left">
+          <h1 class="white">A better plugin wallet for DeFi users</h1>
+          <div class="features">
+            <a href="/" target="_blank" class="feature-item">
+              <img src="/assets/slowmist.png" alt="SlowMist" class="icon" />
+              Audited by SlowMist
+            </a>
+            <a href="/" target="_blank" class="feature-item">
+              <img src="/assets/github.png" alt="Open Source" class="icon" />
+              Open Source
+            </a>
+          </div>
+          <div class="actions">
+            <a href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank" class="round-button orange">Download</a>
+            <a href="/" target="_blank" class="round-button border">
+              <img src="/assets/discord.png" alt="" class="icon-discord" />
+              Join the discussion
+            </a>
+          </div>
+          <div class="browsers">
+            <img src="/assets/chrome.png" alt="Chrome" />
+            <img src="/assets/firefox-gray.png" alt="Firefox" title="Comming Soon..." />
+            <img src="/assets/edge-gray.png" alt="Edge" title="Comming Soon..." />
+          </div>
+        </div>
+        <img src="/assets/hero.png" alt="Dashboard screenshot" class="hero-image" />
+      </div>
+    </header>
+    <div class="intro">
+      <h2 class="title">How is Rabby different from MetaMask</h2>
+      <div>
+        <div class="intro-content">
+          <img src="/assets/multi-chain.png" alt="Multi Chain" class="left intro-img" />
+          <div class="right text">
+            <div class="intro-title">Multi-chain</div>
+            <h3>Smooth multi-chain experience</h3>
+            <p>Automatically  switch to the corresponding chain based on your visited site</p>
+          </div>
+        </div>
+        <div class="intro-content">
+          <div class="left text">
+            <div class="intro-title">Security</div>
+            <h3>Pre-transaction potential risk scanning</h3>
+            <p>Supported by our security rule engine</p>
+          </div>
+          <img src="/assets/security-check.png" alt="Security" class="right intro-img" />
+        </div>
+        <div class="intro-content">
+          <img src="/assets/sign-tx.png" alt="Experience" class="left intro-img" />
+          <div class="right text">
+            <div class="intro-title">Experience</div>
+            <h3>You see exactly what you sign</h3>
+            <p>The first wallet seeing your upcoming balance change</p>
+          </div>
+        </div>
+      </div>
+      <div class="download">
+        <h3 class="white">Get Rabby and Start DeFi</h3>
+        <a href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank" class="round-button orange">Download</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <img src="/assets/logo.png" alt="logo" class="logo" />
+    <p class="copyright">© 2021 rabby.io  All rights reserved.</p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    (function() {
+      var btn = $('.menu-btn');
+      btn.on('click', function() {
+        btn.toggleClass('expand');
+        $('.menu').toggleClass('show')
+      });
+    })()
+  </script>
+</body>
+</html>

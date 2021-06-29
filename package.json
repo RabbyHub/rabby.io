@@ -1,0 +1,34 @@
+{
+  "name": "rabby.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RabbyHub/rabby.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RabbyHub/rabby.io/issues"
+  },
+  "homepage": "https://github.com/RabbyHub/rabby.io#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "gifsicle": "^5.2.0",
+    "gulp": "3.9.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-watch": "^5.0.1",
+    "run-sequence": "^2.2.1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
+  }
+}
