@@ -10,9 +10,11 @@ html {
 }
 
 body {
-  background-image: url(/assets/body-bg.png);
-  background-size: 100% 767px;
+  background-image: url(/assets/bg-1.png);
+  /* background-size: 100% 767px; */
   background-repeat: no-repeat;
+  background-size: 3840px 767px;
+  background-position: top right 50%;
 }
 
 ul {
@@ -101,9 +103,9 @@ h3 {
   margin: 0 auto;
 }
 header {
-  background-image: url(/assets/bg.png);
+  /* background-image: url(/assets/bg.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   width: 100%;
   height: 700px;
   padding: 24px;
@@ -152,7 +154,7 @@ header {
 }
 
 .hero-image {
-  max-width:100%;
+  max-width: 100%;
   position: absolute;
   width: 580px;
   right: -125px;
@@ -198,7 +200,7 @@ header {
   margin-right: 8px;
 }
 .actions .round-button.orange {
-  margin-right: 8px;
+  margin-right: 16px;
 }
 
 .browsers {
@@ -357,7 +359,8 @@ footer .copyright {
 
 @media screen and (max-width: 1440px) {
   body {
-    background: none;
+    /* background-image: url(/assets/bg.png); */
+    background-position: top right 50%;
   }
 }
 
@@ -368,6 +371,10 @@ footer .copyright {
 }
 
 @media screen and (max-width: 992px) {
+  .main {
+    max-width: 100vw;
+    overflow: hidden;
+  }
   h1 {
     font-size: 28px;
   }
@@ -392,6 +399,11 @@ footer .copyright {
   }
   .round-button.orange:after {
     display: none;
+  }
+  body {
+    background-position: top right 50%;
+    background-image: url(/assets/bg-mobile.png);
+    background-size: 1280px 700px;
   }
   header {
     height: 700px;
@@ -478,13 +490,16 @@ footer .copyright {
   .header-content .left h1 {
     text-align: center;
   }
+  .feature-item {
+    font-size: 12px;
+  }
   .actions {
     margin-top: 36px;
     flex-direction: column;
     align-items: center;
   }
   .actions a:nth-child(1) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .browsers {
     display: none;
@@ -493,6 +508,7 @@ footer .copyright {
     width: 460px;
     position: static;
     transform: translate(18px, -20px);
+    max-width: 460px;
   }
   .intro {
     width: 90%;
