@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
-const imagemin = require('gulp-imagemin');
+const tinypng = require('gulp-tinypng');
 const watch = require('gulp-watch');
 const runSequence = require('run-sequence');
 
@@ -25,7 +25,7 @@ gulp.task('copy-html',function(){
 gulp.task('copy-assets',function(){
 	return gulp.src([
 		'src/assets/**'])
-  .pipe(imagemin())
+  .pipe(tinypng(process.env.TINY_PNG_KEY))
 	.pipe(gulp.dest('dist/assets/'));
 });
 

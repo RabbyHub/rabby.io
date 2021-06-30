@@ -18,13 +18,12 @@
   },
   "homepage": "https://github.com/RabbyHub/rabby.io#readme",
   "dependencies": {
+    "gulp-tinypng": "^1.0.2",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "gifsicle": "^5.2.0",
     "gulp": "3.9.1",
     "gulp-clean-css": "^4.3.0",
-    "gulp-imagemin": "^7.1.0",
     "gulp-watch": "^5.0.1",
     "run-sequence": "^2.2.1"
   },
