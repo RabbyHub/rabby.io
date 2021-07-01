@@ -9,7 +9,7 @@ const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
 
 gulp.task('watch', function () {
-  watch(['src/*.css','src/*.html'], function () {
+  watch(['src/*.css','src/*.hbs'], function () {
     runSequence(['minify-css', 'compile-index-html'])
   });
 });
