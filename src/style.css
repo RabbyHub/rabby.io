@@ -190,9 +190,12 @@ header {
 }
 
 .actions {
-  margin-top: 66px;
+  margin-top: 40px;
   display: flex;
   align-items: flex-start;
+}
+.actions .download-btn {
+  display: none;
 }
 .actions .round-button .icon-discord {
   width: 24px;
@@ -205,13 +208,42 @@ header {
 
 .browsers {
   display: flex;
-  margin-top: 24px;
+  margin-top: 44px;
+  flex-wrap: wrap;
+}
+.browsers .browsers-title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, .6);
+  width: 100%;
 }
 .browsers .browser-item {
-  margin-right: 24px;
+  margin-right: 16px;
   position: relative;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(100px);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2D3033;
+  transition: background 0.3s;
+  width: 88px;
+  height: 88px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.browsers .browser-item::after {
+.browsers .browser-item:hover {
+  background: rgba(255, 255, 255, 1);
+}
+.browsers .browser-item p {
+  line-height: 17px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+/* .browsers .browser-item::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -239,12 +271,12 @@ header {
 }
 .browsers .browser-item:hover::after {
   opacity: 1;
-}
+} */
 .browsers img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 }
-.browsers img:nth-last-child(1) {
+.browsers .browser-item:nth-last-child(1) {
   margin-right: 0;
 }
 
@@ -355,6 +387,29 @@ footer .copyright {
   font-size: 14px;
   color: #FFFFFF;
   opacity: 0.6;
+}
+.toast {
+  position: fixed;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  color: #fff;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 8px 20px rgba(41, 43, 113, 0.2);
+  backdrop-filter: blur(40px);
+  border-radius: 4px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity .3s;
+  transition-delay: .1s;
+  text-align: center;
+  white-space: nowrap;
+  display: none;
+}
+.toast.show {
+  display: block;
 }
 
 @media screen and (max-width: 1440px) {
@@ -497,6 +552,9 @@ footer .copyright {
     margin-top: 36px;
     flex-direction: column;
     align-items: center;
+  }
+  .actions .download-btn {
+    display: block;
   }
   .actions a:nth-child(1) {
     margin-bottom: 10px;

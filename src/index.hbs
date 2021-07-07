@@ -56,23 +56,31 @@
               Open Source
             </a>
           </div>
+          <div class="browsers">
+            <p class="browsers-title">Download For</p>
+            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+              <img src="/assets/chrome.png" alt="Chrome" />
+              <p>Chrome</p>
+            </a>
+            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+              <img src="/assets/firefox.png" alt="Firefox" />
+              <p>Firefox</p>
+            </a>
+            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+              <img src="/assets/edge.png" alt="Edge" />
+              <p>Edge</p>
+            </a>
+            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+              <img src="/assets/brave.png" alt="Brave" />
+              <p>Brave</p>
+            </a>
+          </div>
           <div class="actions">
-            <a href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank" class="round-button orange">Download</a>
+            <a href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank" class="download-btn round-button orange">Download</a>
             <a href="https://discord.gg/seFBCWmUre" target="_blank" class="round-button border">
               <img src="/assets/discord.png" alt="" class="icon-discord" />
               Join the discussion
             </a>
-          </div>
-          <div class="browsers">
-            <div class="browser-item">
-              <img src="/assets/chrome.png" alt="Chrome" />
-            </div>
-            <div class="browser-item">
-              <img src="/assets/firefox-gray.png" alt="Firefox" title="Comming Soon..." />
-            </div>
-            <div class="browser-item">
-              <img src="/assets/edge-gray.png" alt="Edge" title="Comming Soon..." />
-            </div>
           </div>
         </div>
         <img src="/assets/hero.png" alt="Dashboard screenshot" class="hero-image" />
@@ -127,6 +135,7 @@
     <img src="/assets/logo.png" alt="logo" class="logo" />
     <p class="copyright">© 2021 rabby.io  All rights reserved.</p>
   </footer>
+  <div class="toast" style="opacity: 0;"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     (function() {
@@ -135,6 +144,26 @@
         btn.toggleClass('expand');
         $('.menu').toggleClass('show')
       });
+      var downloadBtn = $('.download-btn');
+      var toast = $('.toast')
+      downloadBtn.on('click', function (e) {
+        if (/mobile/i.test(navigator.userAgent)) {
+          e.preventDefault();
+          toast.text('Please visit this site from the desktop');
+          toast.addClass('show');
+          setTimeout(function() {
+            toast.css({ opacity: 1 })
+          })
+          setTimeout(function() {
+            toast.css({ opacity: 0 });
+            function onToastHide() {
+              toast.removeClass('show');
+              toast.off('transitionend', onToastHide)
+            }
+            toast.on('transitionend', onToastHide)
+          }, 2000)
+        }
+      })
     })()
   </script>
 </body>
