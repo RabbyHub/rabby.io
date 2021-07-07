@@ -9,20 +9,29 @@ const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
 
 gulp.task('watch', function () {
-  watch(['src/*.css','src/*.hbs'], function () {
-    runSequence(['minify-css', 'compile-index-html'])
+  watch(['src/*.css','src/*.hbs', 'src/*.js'], function () {
+    runSequence(['minify-css', 'copy-js', 'rev', 'compile-index-html'])
   });
 });
 
 gulp.task('minify-css',function(){
 	return gulp.src('src/*.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('dist'))
-		.pipe(rev())
-		.pipe(gulp.dest('dist'))
-		.pipe(rev.manifest())
 		.pipe(gulp.dest('dist'));
 });
+
+gulp.task('copy-js', function() {
+	return gulp.src(['src/*.js'])
+	.pipe(gulp.dest('dist'));
+})
+
+gulp.task('rev', function() {
+	return gulp.src(['dist/script.js', 'dist/style.css'])
+	.pipe(rev())
+	.pipe(gulp.dest('dist'))
+	.pipe(rev.manifest())
+	.pipe(gulp.dest('dist'))
+})
 
 gulp.task('copy-assets',function(){
 	return gulp.src([
@@ -45,6 +54,6 @@ gulp.task('compile-index-html', function() {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['minify-css', 'copy-assets', 'compile-index-html']);
+gulp.task('default', ['minify-css', 'copy-js', 'rev', 'copy-assets', 'compile-index-html']);
 
 gulp.task('dev', ['watch'])

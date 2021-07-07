@@ -58,19 +58,19 @@
           </div>
           <div class="browsers">
             <p class="browsers-title">Download For</p>
-            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+            <a class="browser-item" id="chrome" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
               <img src="/assets/chrome.png" alt="Chrome" />
               <p>Chrome</p>
             </a>
-            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+            <a class="browser-item" id="firefox" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
               <img src="/assets/firefox.png" alt="Firefox" />
               <p>Firefox</p>
             </a>
-            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+            <a class="browser-item" id="edge" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
               <img src="/assets/edge.png" alt="Edge" />
               <p>Edge</p>
             </a>
-            <a class="browser-item" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+            <a class="browser-item" id="brave-browser" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
               <img src="/assets/brave.png" alt="Brave" />
               <p>Brave</p>
             </a>
@@ -137,34 +137,6 @@
   </footer>
   <div class="toast" style="opacity: 0;"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    (function() {
-      var btn = $('.menu-btn');
-      btn.on('click', function() {
-        btn.toggleClass('expand');
-        $('.menu').toggleClass('show')
-      });
-      var downloadBtn = $('.download-btn');
-      var toast = $('.toast')
-      downloadBtn.on('click', function (e) {
-        if (/mobile/i.test(navigator.userAgent)) {
-          e.preventDefault();
-          toast.text('Please visit this site from the desktop');
-          toast.addClass('show');
-          setTimeout(function() {
-            toast.css({ opacity: 1 })
-          })
-          setTimeout(function() {
-            toast.css({ opacity: 0 });
-            function onToastHide() {
-              toast.removeClass('show');
-              toast.off('transitionend', onToastHide)
-            }
-            toast.on('transitionend', onToastHide)
-          }, 2000)
-        }
-      })
-    })()
-  </script>
+  <script src="{{ assetPath "script.js" }}"></script>
 </body>
 </html>
