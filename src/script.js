@@ -30,17 +30,28 @@
   var isBrave = /brave/i.test(navigator.userAgent);
   var isEdge = /edg\//i.test(navigator.userAgent)
   var isChrome = !isBrave && !isEdge && /chrome/i.test(navigator.userAgent)
-  console.log(isChrome)
-  if (isFirefox) {
-    $('#firefox').addClass('highlight');
+
+  function setHightlight () {
+    if (isFirefox) {
+      $('#firefox').addClass('highlight');
+    }
+    if (isBrave) {
+      $('#brave-browser').addClass('highlight');
+    }
+    if (isEdge) {
+      $('#edge').addClass('highlight')
+    }
+    if (isChrome) {
+      $('#chrome').addClass('highlight')
+    }
   }
-  if (isBrave) {
-    $('#brave-browser').addClass('highlight');
-  }
-  if (isEdge) {
-    $('#edge').addClass('highlight')
-  }
-  if (isChrome) {
-    $('#chrome').addClass('highlight')
-  }
+
+  setHightlight();
+
+  $('.browser-item').on('mouseover', function() {
+    $('.browser-item').removeClass('highlight')
+  })
+  $('.browser-item').on('mouseleave', function() {
+    setHightlight();
+  })
 })();

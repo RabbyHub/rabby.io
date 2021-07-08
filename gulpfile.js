@@ -10,7 +10,9 @@ const rename = require('gulp-rename');
 
 gulp.task('watch', function () {
   watch(['src/*.css','src/*.hbs', 'src/*.js'], function () {
-    runSequence(['minify-css', 'copy-js', 'rev', 'compile-index-html'])
+    runSequence(['minify-css', 'copy-js'], function() {
+			runSequence(['rev', 'compile-index-html'])
+		})
   });
 });
 
@@ -36,7 +38,7 @@ gulp.task('rev', function() {
 gulp.task('copy-assets',function(){
 	return gulp.src([
 		'src/assets/**'])
-  .pipe(tinypng(process.env.TINY_PNG_KEY))
+  // .pipe(tinypng(process.env.TINY_PNG_KEY))
 	.pipe(gulp.dest('dist/assets/'));
 });
 
@@ -48,12 +50,14 @@ const handlebarOpts = {
 
 gulp.task('compile-index-html', function() {
 	const manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8'));
-	gulp.src('src/index.hbs')
+	return gulp.src('src/index.hbs')
 		.pipe(handlebars(manifest, handlebarOpts))
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['minify-css', 'copy-js', 'rev', 'copy-assets', 'compile-index-html']);
+gulp.task('default', ['minify-css', 'copy-js', 'copy-assets'], function() {
+	runSequence('rev', 'compile-index-html')
+});
 
 gulp.task('dev', ['watch'])

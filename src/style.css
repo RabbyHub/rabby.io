@@ -208,10 +208,11 @@ header {
 /*1*/
 .browsers {
   display: flex;
-  margin-top: 44px;
+  margin-top: 38px;
   flex-wrap: wrap;
 }
 .browsers .browsers-title {
+  margin-top: 0;
   margin-bottom: 12px;
   font-size: 16px;
   color: rgba(255, 255, 255, .6);
@@ -220,7 +221,7 @@ header {
 .browsers .browser-item {
   margin-right: 16px;
   position: relative;
-  padding: 0 14px;
+  padding: 10px 14px 0;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(100px);
   border-radius: 8px;
@@ -232,7 +233,7 @@ header {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .browsers .browser-item:hover {
@@ -399,9 +400,8 @@ footer .copyright {
   padding: 10px 24px;
   color: #fff;
   font-size: 14px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(42, 45, 64, 0.96);
   box-shadow: 0px 8px 20px rgba(41, 43, 113, 0.2);
-  backdrop-filter: blur(40px);
   border-radius: 4px;
   z-index: 999;
   opacity: 0;
@@ -502,14 +502,13 @@ footer .copyright {
     position: absolute;
     top: 100%;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(42, 45, 64, 0.96);
     box-shadow: 0px 8px 20px rgba(41, 43, 113, 0.16);
-    backdrop-filter: blur(40px);
     border-radius: 4px;
     width: 100px;
     z-index: 999;
     padding-top: 23px;
-    right: 0;
+    right: 25px;
     display: none;
   }
   .menu.show {
@@ -561,6 +560,9 @@ footer .copyright {
   }
   .actions a:nth-child(1) {
     margin-bottom: 10px;
+  }
+  .actions .round-button.orange {
+    margin-right: 0;
   }
   .browsers {
     display: none;
