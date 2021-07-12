@@ -514,6 +514,7 @@ footer .copyright {
     width: 100px;
     z-index: 999;
     padding-top: 23px;
+    padding-bottom: 23px;
     right: 25px;
     display: none;
   }
