@@ -8,11 +8,7 @@ module.exports = {
   prevLinks: false,
   dest: path.resolve(__dirname, '../../dist/docs'),
   themeConfig: {
-    logo: '/logo.png',
-    sidebar: [
-      ['/', 'Guide'],
-      ['/privacy/', 'Privacy Policy']
-    ]
+    logo: '/logo.png'
   },
   head: [
     ['link', { rel: 'icon', href: `https://rabby.io/assets/favicon.png` }]
