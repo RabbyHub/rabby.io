@@ -11,6 +11,6 @@ module.exports = {
     logo: '/logo.png'
   },
   head: [
-    ['link', { rel: 'icon', href: `https://rabby.io/assets/favicon.png` }]
+    ['link', { rel: 'icon', href: `https://rabby.io/assets/images/favicon.png` }]
   ],
 }
