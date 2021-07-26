@@ -381,22 +381,78 @@ header {
 footer {
   width: 100%;
   background-color: #19233C;
-  height: 133px;
+  height: 104px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-footer .logo {
-  width: 128px;
-  height: 44px;
-  margin-bottom: 8px;
+  padding-left: 16%;
+  padding-right: 16%;
 }
 footer .copyright {
   font-weight: 500;
   font-size: 14px;
   color: #FFFFFF;
   opacity: 0.6;
+  margin: 0;
+}
+footer .left {
+  display: flex;
+}
+footer .left .debank-logo {
+  width: 160px;
+}
+footer .left .debank-logo::after {
+  content: '';
+  right: 0;
+  top: 50%;
+  margin-top: -11px;
+  position: absolute;
+  width: 1px;
+  height: 22px;
+  background-color: #C4C4C4;
+}
+footer .left .debank-logo, footer .left .rabby-logo {
+  position: relative;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+footer .left .rabby-logo {
+  width: 125px;
+}
+footer .left img {
+  width: 100%;
+}
+footer .right .footer-links {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+footer .right .footer-links a {
+  position: relative;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 8px;
+}
+footer .right .footer-links a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background-color: #A2A7B2;
+  height: 1.5px;
+  width: 3px;
+  margin-top: -0.75px;
+  margin-right: -1.5px;
+}
+footer .right .footer-links a:visited {
+  text-decoration: none;
+}
+footer .right .footer-links a:nth-last-child(1) {
+  padding-right: 0;
+}
+footer .right .footer-links a:nth-last-child(1)::after {
+  display: none;
 }
 .toast {
   position: fixed;
@@ -622,9 +678,17 @@ footer .copyright {
     top: 0px;
     max-height: 300px;
   }
-  footer .logo {
-    width: 80px;
-    height: 28px;
+  footer {
+    padding: 20px 0;
+    flex-direction: column;
+    height: auto;
+  }
+  footer .left {
+    margin-bottom: 12px;
+  }
+  footer .right {
+    display: flex;
+    flex-flow: row-reverse;
   }
 }
 
