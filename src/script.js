@@ -54,4 +54,10 @@
   $('.browser-item').on('mouseleave', function() {
     setHightlight();
   })
+
+  $('#download-btn').on('click', function() {
+    $.scrollTo(0, {
+      duration: 800
+    })
+  })
 })();

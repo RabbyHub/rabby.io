@@ -10,7 +10,7 @@
   <title>Rabby</title>
   <meta content="A better extension wallet for DeFi users" name="description">
   <meta content="A better extension wallet for DeFi users" property="twitter:description">
-  <meta content="https://rabby.io/assets/images/twitter-card.jpg" property="twitter:image">
+  <meta content="https://pbs.twimg.com/media/E7N3LxGVUAMy9OG?format=jpg&name=medium" property="twitter:image">
   <meta content="Rabby" property="twitter:title">
   <meta content="summary_large_image" name="twitter:card">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,25 +58,25 @@
             </a>
           </div>
           <div class="browsers">
-            {{!-- <p class="browsers-title">Download For</p> --}}
-            <p class="browsers-title">Download Coming Soon</p>
-            {{!-- <a class="browser-item" id="chrome" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank"> --}}
-            <a class="browser-item" id="chrome">
+            <p class="browsers-title">Download For</p>
+            {{!-- <p class="browsers-title">Download Coming Soon</p> --}}
+            <a class="browser-item enable" id="chrome" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">
+            {{!-- <a class="browser-item" id="chrome"> --}}
               <img src="/assets/images/chrome.png" alt="Chrome" />
               <p>Chrome</p>
             </a>
             {{!-- <a class="browser-item" id="firefox" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank"> --}}
-            <a class="browser-item" id="firefox">
+            <a class="browser-item" id="firefox" title="Coming Soon">
               <img src="/assets/images/firefox.png" alt="Firefox" />
               <p>Firefox</p>
             </a>
             {{!-- <a class="browser-item" id="edge" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank"> --}}
-            <a class="browser-item" id="edge">
+            <a class="browser-item" id="edge" title="Coming Soon">
               <img src="/assets/images/edge.png" alt="Edge" />
               <p>Edge</p>
             </a>
             {{!-- <a class="browser-item" id="brave-browser" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank"> --}}
-            <a class="browser-item" id="brave-browser">
+            <a class="browser-item" id="brave-browser" title="Coming Soon">
               <img src="/assets/images/brave.png" alt="Brave" />
               <p>Brave</p>
             </a>
@@ -89,14 +89,14 @@
             </a>
           </div>
         </div>
-        <img src="/assets/images/hero.png" alt="Dashboard screenshot" class="hero-image" />
+        <img src="/assets/images/hero-3.png" alt="Dashboard screenshot" class="hero-image" />
       </div>
     </header>
     <div class="intro">
       <h2 class="title">How is Rabby different from MetaMask</h2>
       <div>
         <div class="intro-content">
-          <img src="/assets/images/multi-chain.png" alt="Multi Chain" class="left intro-img" />
+          <img src="/assets/images/multi-chain-2.png" alt="Multi Chain" class="left intro-img" />
           <div class="right text">
             <div class="intro-title">Multi-chain</div>
             <h3>Smooth multi-chain experience</h3>
@@ -133,8 +133,8 @@
         <img src="/assets/images/download-bg.png" class="download-bg" />
         <img src="/assets/images/download-bg-mobile.png" class="download-bg-mobile" />
         <h3 class="white">Get Rabby and Start DeFi</h3>
-        {{!-- <a href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank" class="round-button orange">Download</a> --}}
-        <p style="font-size: 16px; opacity: 0.6; color: #fff;">Download Coming Soon</p>
+        <a id="download-btn" href="javascript:;" class="round-button orange">Download</a>
+        {{!-- <p style="font-size: 16px; opacity: 0.6; color: #fff;">Download Coming Soon</p> --}}
       </div>
     </div>
   </div>
@@ -157,6 +157,7 @@
   </footer>
   <div class="toast" style="opacity: 0;"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
   <script src="{{ assetPath "script.js" }}"></script>
 </body>
 </html>

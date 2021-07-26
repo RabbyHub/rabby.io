@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-image: url(/assets/bg-1.png);
+  background-image: url(/assets/images/bg-1.png);
   /* background-size: 100% 767px; */
   background-repeat: no-repeat;
   background-size: 3840px 767px;
@@ -223,7 +223,6 @@ header {
   margin-right: 16px;
   position: relative;
   padding: 10px 14px 0;
-  /* background: rgba(255, 255, 255, 0.5); */
   background: rgba(255, 255, 255, 1);
   backdrop-filter: blur(100px);
   border-radius: 8px;
@@ -237,6 +236,9 @@ header {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+}
+.browsers .browser-item.enable {
+  opacity: 1;
 }
 .browsers .browser-item:hover {
   background: rgba(255, 255, 255, 1);
@@ -359,9 +361,6 @@ header {
   flex-direction: column;
   padding-top: 64px;
   align-items: center;
-}
-.download .orange.round-button {
-  opacity: 0.5 !important;
 }
 .download h3 {
   /* margin-bottom: 50px; */
@@ -522,7 +521,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   body {
     background-position: top right 50%;
-    background-image: url(/assets/bg-mobile.png);
+    background-image: url(/assets/images/bg-mobile.png);
     background-size: 1280px 700px;
   }
   header {
