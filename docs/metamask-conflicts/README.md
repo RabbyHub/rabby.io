@@ -5,8 +5,9 @@ Disabling MetaMask does not delete any data you have stored in it. You can enabl
 
 ## Settings in Chrome
 
-1. Open the extensions page: chrome://extensions
+1. Open the extensions page: [chrome://extensions](chrome://extensions)
 2. Find MetaMask and click the switch button in the bottom right corner to disable it.
+3. If any dapp website is opened, refresh the website.
 
 ![Guide](./metamask-conflicts.png)
 ---
