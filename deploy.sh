@@ -7,6 +7,6 @@ server="hk-builder"
 
 yarn build
 
-rsync -avzz --delete dist ${server}:~/
+rsync -avzz --delete build ${server}:~/
 
-ssh ${server} 'sudo cp -r ~/dist /data/fe/rabby_prod/'
+ssh ${server} 'sudo cp -r ~/build /data/fe/rabby_prod/'
