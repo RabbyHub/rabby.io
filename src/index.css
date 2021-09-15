@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-image: url(/assets/images/bg-1.png);
+  background-image: url(https://rabby.io/assets/images/bg-1.png);
   /* background-size: 100% 767px; */
   background-repeat: no-repeat;
   background-size: 3840px 767px;
@@ -470,10 +470,6 @@ footer .right .footer-links a:nth-last-child(1)::after {
   transition-delay: .1s;
   text-align: center;
   white-space: nowrap;
-  display: none;
-}
-.toast.show {
-  display: block;
 }
 
 @media screen and (max-width: 1440px) {
@@ -521,7 +517,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   body {
     background-position: top right 50%;
-    background-image: url(/assets/images/bg-mobile.png);
+    background-image: url(https://rabby.io/assets/images/bg-mobile.png);
     background-size: 1280px 700px;
   }
   header {
