@@ -6,7 +6,7 @@ module.exports = {
   description: 'Document for Rabby',
   nextLinks: false,
   prevLinks: false,
-  dest: path.resolve(__dirname, '../../build/docs'),
+  dest: path.resolve(__dirname, '../../dist/docs'),
   themeConfig: {
     logo: '/logo.png'
   },
