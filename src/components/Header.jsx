@@ -143,13 +143,14 @@ const Header = () => {
               <p>Edge</p>
             </a>
             <a
-              className={clsx("browser-item", {
+              className={clsx("browser-item enable", {
                 highlight: mouseOver === "brave",
               })}
+              href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+              target="_blank"
               onMouseOver={() => setMouseOver("brave")}
               onMouseLeave={initMouseOver}
               id="brave-browser"
-              title="Coming Soon"
             >
               <img src="/assets/images/brave.png" alt="Brave" />
               <p>Brave</p>
