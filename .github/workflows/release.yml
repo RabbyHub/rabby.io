@@ -1,0 +1,45 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - release*
+
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ap-northeast-1
+  RABBY_PROD_BUCKET: rabby-fe
+  CI: true
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Use Node.js v15.14.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: v15.14.0
+
+    - name: Build source code
+      run: |
+        npm install -g yarn
+        yarn install
+        yarn build
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: ${{ env.AWS_REGION }}
+        aws-access-key-id: ${{ secrets.AWS_S3_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_KEY }}
+
+    - name: Copy dists to s3 
+      run: |
+        aws s3 sync . s3://${RABBY_PROD_BUCKET}/ --delete
+      working-directory: dist
