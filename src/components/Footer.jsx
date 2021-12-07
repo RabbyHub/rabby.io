@@ -13,10 +13,10 @@ const Footer = () => {
       </div>
       <div className="right">
         <div className="footer-links">
-          <a href="https://github.com/RabbyHub/logo" target="_blank">
+          <a href="https://github.com/RabbyHub/logo" target="_blank" rel="noreferrer">
             Brand
           </a>
-          <a href="https://debank.com/docs/privacy/" target="_blank">
+          <a href="https://debank.com/docs/privacy/" target="_blank" rel="noreferrer">
             Privacy Policy
           </a>
         </div>

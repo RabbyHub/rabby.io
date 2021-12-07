@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState, useCallback } from "react";
 import clsx from "clsx";
 import { showToast } from "../toast";
 
@@ -10,12 +12,12 @@ const Header = () => {
   const isEdge = /edg\//i.test(navigator.userAgent);
   const isChrome = !isBrave && !isEdge && /chrome/i.test(navigator.userAgent);
 
-  const initMouseOver = () => {
+  const initMouseOver = useCallback(() => {
     if (isChrome) setMouseOver("chrome");
     if (isEdge) setMouseOver("edge");
     if (isBrave) setMouseOver("brave");
     if (isFirefox) setMouseOver("firefox");
-  };
+  }, [isBrave, isChrome, isEdge, isFirefox]);
 
   const handleClickMenuBtn = () => {
     setIsExpand(!isExpand);
@@ -33,7 +35,7 @@ const Header = () => {
 
   useEffect(() => {
     initMouseOver();
-  }, []);
+  }, [initMouseOver]);
 
   return (
     <header>
@@ -50,27 +52,27 @@ const Header = () => {
         </a>
         <ul className={clsx("menu", { show: isExpand })}>
           <li>
-            <a href="https://twitter.com/Rabby_io" target="_blank">
+            <a href="https://twitter.com/Rabby_io" target="_blank" rel="noreferrer">
               Twitter
             </a>
           </li>
           <li>
-            <a href="https://medium.com/@rabby_io" target="_blank">
+            <a href="https://medium.com/@rabby_io" target="_blank" rel="noreferrer">
               Medium
             </a>
           </li>
           <li>
-            <a href="https://t.me/rabby_io" target="_blank">
+            <a href="https://t.me/rabby_io" target="_blank" rel="noreferrer">
               Telegram
             </a>
           </li>
           <li>
-            <a href="https://discord.gg/seFBCWmUre" target="_blank">
+            <a href="https://discord.gg/seFBCWmUre" target="_blank" rel="noreferrer">
               Discord
             </a>
           </li>
           <li>
-            <a href="https://github.com/RabbyHub/Rabby" target="_blank">
+            <a href="https://github.com/RabbyHub/Rabby" target="_blank" rel="noreferrer">
               GitHub
             </a>
           </li>
@@ -85,6 +87,7 @@ const Header = () => {
               href="https://github.com/RabbyHub/Rabby/blob/master/docs/Rabby%20chrome%20extension%20Penetration%20Testing%20Report.pdf"
               target="_blank"
               className="feature-item"
+              rel="noreferrer"
             >
               <img
                 src="/assets/images/slowmist.png"
@@ -97,6 +100,7 @@ const Header = () => {
               href="https://github.com/RabbyHub/Rabby"
               target="_blank"
               className="feature-item"
+              rel="noreferrer"
             >
               <img
                 src="/assets/images/github.png"
@@ -116,6 +120,7 @@ const Header = () => {
               target="_blank"
               onMouseOver={() => setMouseOver("chrome")}
               onMouseLeave={initMouseOver}
+              rel="noreferrer"
             >
               <img src="/assets/images/chrome.png" alt="Chrome" />
               <p>Chrome</p>
@@ -127,6 +132,7 @@ const Header = () => {
               onMouseOver={() => setMouseOver("firefox")}
               onMouseLeave={initMouseOver}
               title="Coming Soon"
+              href="/"
             >
               <img src="/assets/images/firefox.png" alt="Firefox" />
               <p>Firefox</p>
@@ -138,6 +144,7 @@ const Header = () => {
               onMouseOver={() => setMouseOver("edge")}
               onMouseLeave={initMouseOver}
               title="Coming Soon"
+              href="/"
             >
               <img src="/assets/images/edge.png" alt="Edge" />
               <p>Edge</p>
@@ -151,6 +158,7 @@ const Header = () => {
               onMouseOver={() => setMouseOver("brave")}
               onMouseLeave={initMouseOver}
               id="brave-browser"
+              rel="noreferrer"
             >
               <img src="/assets/images/brave.png" alt="Brave" />
               <p>Brave</p>
@@ -162,6 +170,7 @@ const Header = () => {
               target="_blank"
               className="download-btn round-button orange"
               onClick={handleClickDownloadBtn}
+              rel="noreferrer"
             >
               Download
             </a>
@@ -169,6 +178,7 @@ const Header = () => {
               href="https://discord.gg/seFBCWmUre"
               target="_blank"
               className="round-button border"
+              rel="noreferrer"
             >
               <img
                 src="/assets/images/discord.png"
