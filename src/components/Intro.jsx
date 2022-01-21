@@ -5,23 +5,31 @@ import React from "react";
 
 const Intro = () => {
   const chains = [
-    { name: 'ETH', icon: '/assets/images/eth.png' },
-    { name: 'BSC', icon: '/assets/images/bsc.png' },
-    { name: 'xDai', icon: '/assets/images/xDai.png' },
-    { name: 'Polygon', icon: '/assets/images/polygon.png' },
-    { name: 'Fantom', icon: '/assets/images/fantom.png' },
-    { name: 'OKExChain', icon: '/assets/images/okex.png' },
-    { name: 'Avalanche', icon: '/assets/images/avax.png' },
-    { name: 'Arbitrum', icon: '/assets/images/arb.png' },
-    { name: 'Optimism', icon: '/assets/images/op.png' },
-    { name: 'Celo', icon: '/assets/images/celo.png' },
+    { name: "ETH", icon: "/assets/images/eth.png" },
+    { name: "BSC", icon: "/assets/images/bsc.png" },
+    { name: "Gnosis", icon: "/assets/images/gnosis.png" },
+    { name: "Polygon", icon: "/assets/images/polygon.png" },
+    { name: "Fantom", icon: "/assets/images/fantom.png" },
+    { name: "OKExChain", icon: "/assets/images/okex.png" },
+    { name: "HECO", icon: "/assets/images/heco.png" },
+    { name: "Avalanche", icon: "/assets/images/avax.png" },
+    { name: "Arbitrum", icon: "/assets/images/arb.png" },
+    { name: "Optimism", icon: "/assets/images/op.png" },
+    { name: "Celo", icon: "/assets/images/celo.png" },
+    { name: "Moonriver", icon: "/assets/images/moonriver.png" },
+    { name: "Cronos", icon: "/assets/images/cronos.png" },
+    { name: "Bola", icon: "/assets/images/bola.png" },
+    { name: "Metis", icon: "/assets/images/metis.png" },
+    { name: "BTTC", icon: "/assets/images/bttc.png" },
+    { name: "Aurora", icon: "/assets/images/aurora.png" },
+    { name: "Moonbeam", icon: "/assets/images/moonbeam.png" },
   ];
 
   const handleClickDownload = () => {
     window.$.scrollTo(0, {
-      duration: 800
-    })
-  }
+      duration: 800,
+    });
+  };
 
   return (
     <div className="intro">
@@ -41,7 +49,10 @@ const Intro = () => {
               visited site
             </p>
             <div className="chains">
-              {chains.map(chain => <img src={chain.icon} alt={chain.name} key={chain.name} />)}
+              {chains.map((chain) => (
+                <img src={chain.icon} alt={chain.name} key={chain.name} />
+              ))}
+              <span>More to come</span>
             </div>
           </div>
         </div>

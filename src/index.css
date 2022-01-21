@@ -5,8 +5,8 @@
 }
 
 html {
-  background-color: #FAFBFC;
-  font-family: 'Lato', sans-serif;
+  background-color: #fafbfc;
+  font-family: "Lato", sans-serif;
 }
 
 body {
@@ -48,18 +48,18 @@ h3 {
 .round-button.transparent {
   width: 130px;
   line-height: 36px;
-  background-color: rgba(255, 255, 255, .2);
-  transition: background-color .2s;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s;
   color: #fff;
 }
 .round-button.transparent:hover {
-  background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .round-button.orange {
   width: 186px;
   line-height: 48px;
-  background: #FE815F;
+  background: #fe815f;
   box-shadow: 0px 5px 21px -2px rgba(255, 161, 20, 0.25);
   border-radius: 24px;
   font-size: 18px;
@@ -67,7 +67,7 @@ h3 {
   z-index: 1;
 }
 .round-button.orange::after {
-  content: '';
+  content: "";
   position: absolute;
   left: -3px;
   top: -3px;
@@ -77,7 +77,7 @@ h3 {
   border-radius: 26px;
   z-index: -1;
   opacity: 0;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 .round-button.orange:hover::after {
   opacity: 1;
@@ -86,12 +86,12 @@ h3 {
   width: 214px;
   line-height: 48px;
   height: 48px;
-  border: 1px solid rgba(255, 255, 255, .6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background .2s;
+  transition: background 0.2s;
   z-index: 1;
 }
 .round-button.border:hover {
@@ -136,12 +136,12 @@ header {
   margin-right: 0;
 }
 .menu li a {
-  color: #FFFFFF;
-  opacity: .6;
+  color: #ffffff;
+  opacity: 0.6;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 .menu li a:hover {
   opacity: 1;
@@ -199,7 +199,7 @@ header {
 }
 .actions .round-button .icon-discord {
   width: 24px;
-  height:  24px;
+  height: 24px;
   margin-right: 8px;
 }
 .actions .round-button.orange {
@@ -215,19 +215,25 @@ header {
   margin-top: 0;
   margin-bottom: 12px;
   font-size: 16px;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
   width: 100%;
+}
+.browsers .tooltip {
+  margin-right: 16px;
+}
+.browsers .tooltip .browser-item {
+  margin-right: 0;
 }
 .browsers .browser-item {
   opacity: 0.5;
   margin-right: 16px;
   position: relative;
   padding: 10px 14px 0;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(100px);
   border-radius: 8px;
   text-decoration: none;
-  color: #2D3033;
+  color: #2d3033;
   transition: background 0.3s;
   width: 88px;
   height: 88px;
@@ -237,14 +243,13 @@ header {
   /* justify-content: center; */
   align-items: center;
 }
+
 .browsers .browser-item.enable {
+  background-color: #fff;
   opacity: 1;
 }
-.browsers .browser-item:hover {
-  background: rgba(255, 255, 255, 1);
-}
-.browsers .browser-item.highlight {
-  background: rgba(255, 255, 255, 1);
+.browsers .browser-item.enable:hover {
+  box-shadow: 0px 8px 16px rgba(38, 42, 105, 0.2);
 }
 .browsers .browser-item p {
   line-height: 17px;
@@ -288,6 +293,44 @@ header {
   margin-right: 0;
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-text {
+  visibility: visible;
+  position: absolute;
+  padding: 8px 20px 10px 20px;
+  background: #2d3033;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s;
+  font-size: 12px;
+  line-height: 14px;
+  min-width: 112px;
+}
+.tooltip .tooltip-text.tooltip-top {
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip .tooltip-text.tooltip-top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2d3033 transparent transparent transparent;
+}
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
 .intro {
   width: 67%;
   padding-top: 180px;
@@ -295,7 +338,7 @@ header {
   padding-bottom: 120px;
 }
 .title {
-  color: #2D3033;
+  color: #2d3033;
   text-align: center;
   margin-bottom: 80px;
 }
@@ -324,12 +367,12 @@ header {
   font-size: 18px;
   display: inline-block;
   padding: 10px 16px;
-  background: linear-gradient(296.44deg, #8BB2FF 10.7%, #7A7CFF 86.81%);
+  background: linear-gradient(296.44deg, #8bb2ff 10.7%, #7a7cff 86.81%);
   box-shadow: inset 0px -20px 20px rgba(0, 0, 0, 0.02);
   border-radius: 6px;
 }
 .intro-content h3 {
-  color: #2D3033;
+  color: #2d3033;
   margin-bottom: 12px;
 }
 .intro-content p {
@@ -341,13 +384,21 @@ header {
 .intro-content .chains {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 436px;
+  gap: 12px;
 }
 .intro-content .chains img {
   width: 20px;
-  margin-right: 12px;
 }
-.intro-content .chains img:nth-last-child(1) {
-  margin-right: 0;
+.intro-content .chains span {
+  font-size: 13px;
+  line-height: 16px;
+  color: #7a8599;
+  background: #f0f2f8;
+  border-radius: 90px;
+  padding: 1px 12px 3px;
+  display: inline-block;
 }
 
 .download {
@@ -379,7 +430,7 @@ header {
 
 footer {
   width: 100%;
-  background-color: #19233C;
+  background-color: #19233c;
   height: 104px;
   display: flex;
   justify-content: space-between;
@@ -390,7 +441,7 @@ footer {
 footer .copyright {
   font-weight: 500;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 0.6;
   margin: 0;
 }
@@ -401,16 +452,17 @@ footer .left .debank-logo {
   width: 160px;
 }
 footer .left .debank-logo::after {
-  content: '';
+  content: "";
   right: 0;
   top: 50%;
   margin-top: -11px;
   position: absolute;
   width: 1px;
   height: 22px;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
-footer .left .debank-logo, footer .left .rabby-logo {
+footer .left .debank-logo,
+footer .left .rabby-logo {
   position: relative;
   padding-left: 18px;
   padding-right: 18px;
@@ -434,11 +486,11 @@ footer .right .footer-links a {
   padding: 0 8px;
 }
 footer .right .footer-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 50%;
-  background-color: #A2A7B2;
+  background-color: #a2a7b2;
   height: 1.5px;
   width: 3px;
   margin-top: -0.75px;
@@ -466,8 +518,8 @@ footer .right .footer-links a:nth-last-child(1)::after {
   border-radius: 4px;
   z-index: 999;
   opacity: 0;
-  transition: opacity .3s;
-  transition-delay: .1s;
+  transition: opacity 0.3s;
+  transition-delay: 0.1s;
   text-align: center;
   white-space: nowrap;
 }
@@ -502,14 +554,14 @@ footer .right .footer-links a:nth-last-child(1)::after {
   .round-button.border {
     border: none;
     text-decoration: underline;
-    opacity: .8 !important;
+    opacity: 0.8 !important;
   }
   .round-button.border:hover {
     background: transparent;
   }
   .round-button.orange {
     width: 120px;
-    line-height: 33px;;
+    line-height: 33px;
     font-size: 14px;
   }
   .round-button.orange:after {
@@ -541,7 +593,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     display: block;
     background-color: #fff;
     margin-bottom: 5px;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
   .menu-btn i:nth-last-child(1) {
     margin-bottom: 0;
@@ -577,7 +629,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     margin-right: 0;
     width: 100%;
     display: block;
-    margin-bottom: 23px
+    margin-bottom: 23px;
   }
   .menu li:nth-last-child(1) {
     margin-bottom: 0;
