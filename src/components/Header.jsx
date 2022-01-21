@@ -52,12 +52,20 @@ const Header = () => {
         </a>
         <ul className={clsx("menu", { show: isExpand })}>
           <li>
-            <a href="https://twitter.com/Rabby_io" target="_blank" rel="noreferrer">
+            <a
+              href="https://twitter.com/Rabby_io"
+              target="_blank"
+              rel="noreferrer"
+            >
               Twitter
             </a>
           </li>
           <li>
-            <a href="https://medium.com/@rabby_io" target="_blank" rel="noreferrer">
+            <a
+              href="https://medium.com/@rabby_io"
+              target="_blank"
+              rel="noreferrer"
+            >
               Medium
             </a>
           </li>
@@ -67,12 +75,20 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="https://discord.gg/seFBCWmUre" target="_blank" rel="noreferrer">
+            <a
+              href="https://discord.gg/seFBCWmUre"
+              target="_blank"
+              rel="noreferrer"
+            >
               Discord
             </a>
           </li>
           <li>
-            <a href="https://github.com/RabbyHub/Rabby" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/RabbyHub/Rabby"
+              target="_blank"
+              rel="noreferrer"
+            >
               GitHub
             </a>
           </li>
@@ -125,30 +141,35 @@ const Header = () => {
               <img src="/assets/images/chrome.png" alt="Chrome" />
               <p>Chrome</p>
             </a>
-            <a
-              className={clsx("browser-item", {
-                highlight: mouseOver === "firefox",
-              })}
-              onMouseOver={() => setMouseOver("firefox")}
-              onMouseLeave={initMouseOver}
-              title="Coming Soon"
-              href="/"
-            >
-              <img src="/assets/images/firefox.png" alt="Firefox" />
-              <p>Firefox</p>
-            </a>
-            <a
-              className={clsx("browser-item", {
-                highlight: mouseOver === "edge",
-              })}
-              onMouseOver={() => setMouseOver("edge")}
-              onMouseLeave={initMouseOver}
-              title="Coming Soon"
-              href="/"
-            >
-              <img src="/assets/images/edge.png" alt="Edge" />
-              <p>Edge</p>
-            </a>
+            <div className="tooltip">
+              <a
+                className={clsx("browser-item", {
+                  highlight: mouseOver === "firefox",
+                })}
+                onMouseOver={() => setMouseOver("firefox")}
+                onMouseLeave={initMouseOver}
+                href="#"
+              >
+                <img src="/assets/images/firefox.png" alt="Firefox" />
+                <p>Firefox</p>
+              </a>
+              <div className="tooltip-text tooltip-top">Coming Soon</div>
+            </div>
+            <div className="tooltip">
+              <a
+                className={clsx("browser-item", {
+                  highlight: mouseOver === "edge",
+                })}
+                onMouseOver={() => setMouseOver("edge")}
+                onMouseLeave={initMouseOver}
+                title="Coming Soon"
+                href="#"
+              >
+                <img src="/assets/images/edge.png" alt="Edge" />
+                <p>Edge</p>
+              </a>
+              <div className="tooltip-text tooltip-top">Coming Soon</div>
+            </div>
             <a
               className={clsx("browser-item enable", {
                 highlight: mouseOver === "brave",
@@ -190,7 +211,7 @@ const Header = () => {
           </div>
         </div>
         <img
-          src="/assets/images/hero-4.png"
+          src="/assets/images/hero-5.png"
           alt="Dashboard screenshot"
           className="hero-image"
         />
