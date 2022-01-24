@@ -211,7 +211,7 @@ const Header = () => {
           </div>
         </div>
         <img
-          src="/assets/images/hero-5.png"
+          src="/assets/images/hero-6.png"
           alt="Dashboard screenshot"
           className="hero-image"
         />
