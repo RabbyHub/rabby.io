@@ -201,7 +201,7 @@ header {
 
 .coming-soon img {
   width: 24px;
-  margin-right: 11px;
+  margin-right: 12px;
 }
 
 .actions {
@@ -303,8 +303,9 @@ header {
   opacity: 1;
 } */
 .browsers img {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
 }
 .browsers .browser-item:nth-last-child(1) {
   margin-right: 0;

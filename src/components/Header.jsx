@@ -137,7 +137,7 @@ const Header = () => {
               onMouseLeave={initMouseOver}
               rel="noreferrer"
             >
-              <img src="/assets/images/chrome.png" alt="Chrome" />
+              <img src="/assets/images/chrome-1.png" alt="Chrome" />
               <p>Download for Chrome</p>
             </a>
             <a
@@ -151,13 +151,13 @@ const Header = () => {
               id="brave-browser"
               rel="noreferrer"
             >
-              <img src="/assets/images/brave.png" alt="Brave" />
+              <img src="/assets/images/brave-1.png" alt="Brave" />
               <p>Download for Brave</p>
             </a>
           </div>
           <div className="coming-soon">
             <img src="/assets/images/firefox-small.png" alt="" />
-            <img src="/assets/images/edge-small.png" alt="" />
+            <img src="/assets/images/edge.svg" alt="" />
             <span>Firefox / Edge version coming soon</span>
           </div>
           <div className="actions">
