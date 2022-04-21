@@ -127,7 +127,6 @@ const Header = () => {
             </a>
           </div>
           <div className="browsers">
-            <p className="browsers-title">Download For</p>
             <a
               className={clsx("browser-item enable", {
                 highlight: mouseOver === "chrome",
@@ -139,37 +138,8 @@ const Header = () => {
               rel="noreferrer"
             >
               <img src="/assets/images/chrome.png" alt="Chrome" />
-              <p>Chrome</p>
+              <p>Download for Chrome</p>
             </a>
-            <div className="tooltip">
-              <a
-                className={clsx("browser-item", {
-                  highlight: mouseOver === "firefox",
-                })}
-                onMouseOver={() => setMouseOver("firefox")}
-                onMouseLeave={initMouseOver}
-                href="#"
-              >
-                <img src="/assets/images/firefox.png" alt="Firefox" />
-                <p>Firefox</p>
-              </a>
-              <div className="tooltip-text tooltip-top">Coming Soon</div>
-            </div>
-            <div className="tooltip">
-              <a
-                className={clsx("browser-item", {
-                  highlight: mouseOver === "edge",
-                })}
-                onMouseOver={() => setMouseOver("edge")}
-                onMouseLeave={initMouseOver}
-                title="Coming Soon"
-                href="#"
-              >
-                <img src="/assets/images/edge.png" alt="Edge" />
-                <p>Edge</p>
-              </a>
-              <div className="tooltip-text tooltip-top">Coming Soon</div>
-            </div>
             <a
               className={clsx("browser-item enable", {
                 highlight: mouseOver === "brave",
@@ -182,8 +152,13 @@ const Header = () => {
               rel="noreferrer"
             >
               <img src="/assets/images/brave.png" alt="Brave" />
-              <p>Brave</p>
+              <p>Download for Brave</p>
             </a>
+          </div>
+          <div className="coming-soon">
+            <img src="/assets/images/firefox-small.png" alt="" />
+            <img src="/assets/images/edge-small.png" alt="" />
+            <span>Firefox / Edge version coming soon</span>
           </div>
           <div className="actions">
             <a
