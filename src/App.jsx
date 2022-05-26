@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
@@ -22,10 +24,11 @@ function App() {
       <Security />
       <div className="intro no-padding">
         <div className="download">
-          <img src="/assets/images/download-bg.png" className="download-bg" />
+          <img src="/assets/images/download-bg.png" className="download-bg" alt="download bg" />
           <img
             src="/assets/images/download-bg-mobile.png"
             className="download-bg-mobile"
+            alt="download bg"
           />
           <h3 className="white">Get Rabby and Start DeFi</h3>
           <p>In "Watch Mode", no private key is needed. Experience all fancy features in a risk-free way.</p>
