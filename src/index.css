@@ -393,7 +393,7 @@ header {
 }
 
 .download {
-  width: 100%;
+  max-width: 965px;
   height: 285px;
   position: relative;
   display: flex;
@@ -401,10 +401,22 @@ header {
   padding-top: 64px;
   align-items: center;
   margin-bottom: 180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .download h3 {
   /* margin-bottom: 50px; */
-  margin-bottom: 32px;
+  margin-bottom: 0;
+}
+.download p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+  opacity: 0.8;
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 .download-bg {
   width: 100%;
@@ -537,14 +549,23 @@ footer .right .footer-links a:nth-last-child(1)::after {
 .security-content ol {
   width: 562px;
   margin-bottom: 16px;
-  padding-inline-start: 40px;
+  padding-inline-start: 20px;
+  margin-top: 0;
+}
+
+.security-content ol li {
+  margin-bottom: 20px;
+}
+
+.security-content ol li:nth-last-child(1) {
+  margin-bottom: 0;
 }
 
 .security-content .security-link {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  padding-inline-start: 40px;
+  padding-inline-start: 0;
   color: #7887FE;
   text-decoration: none;
   display: flex;
@@ -557,13 +578,13 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .security-audit {
   width: 357px;
+  margin-left: 40px;
 }
 
 .security-audit .security-audit-card {
   display: block;
   margin-bottom: 32px;
   width: 100%;
-  margin-left: 40px;
   line-height: 0;
   border-radius: 8px;
   overflow: hidden;
@@ -623,17 +644,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
   text-align: center;
   color: #525966;
   margin-bottom: 36px;
-  margin-right: 80px;
-  width: 100px;
+  margin-right: 58px;
+  width: 62px;
 }
 
 .chains ul li:nth-child(8n) {
   margin-right: 0;
-}
-
-.chains ul li:nth-child(8n + 1) {
-  width: 60px;
-  margin-right: 120px;
 }
 
 .chains ul li:nth-last-child(-n + 8) {
@@ -643,6 +659,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
 .chains ul li img {
   width: 32px;
   margin-bottom: 8px;
+}
+
+.chains, .signing-modes {
+  max-width: 965px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signing-modes {
@@ -670,7 +692,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   border-radius: 8px;
   margin-right: 33px;
   padding-top: 33px;
-  box-sizing: content-box;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card:nth-last-child(1) {
+  margin-right: 0;
 }
 
 .signing-modes .signing-modes-wrapper .signing-modes-card h3 {
@@ -688,7 +713,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .signing-modes .signing-modes-wrapper .signing-modes-card ul li {
-  width: 100px;
+  width: 95px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -710,6 +735,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   color: #525966;
 
   opacity: 0.8;
+}
+
+.signing-modes > p, .chains > p {
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -909,15 +938,20 @@ footer .right .footer-links a:nth-last-child(1)::after {
     height: 128px;
   }
   .download h3 {
-    margin-bottom: 20px;
     margin-top: 0;
+  }
+  .download p {
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 0 10px;
   }
   .download-bg {
     display: none;
   }
   .download-bg-mobile {
     display: block;
-    width: 100%;
+    width: 110%;
     z-index: -1;
     position: absolute;
     top: 0px;
@@ -951,6 +985,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .security-content ol {
     width: 315px;
+    padding-inline-start: 0;
   }
   .security-content ol li {
     margin-bottom: 15px;
@@ -964,13 +999,16 @@ footer .right .footer-links a:nth-last-child(1)::after {
     line-height: 14px;
     color: #7887FE;
     margin-bottom: 42px;
-    padding-inline-start: 25px;
+    margin-left: -10px;
   }
   .security-content .security-link .icon-arrow-right {
     width: 16px;
   }
   .security-content {
     flex-direction: column;
+  }
+  .security-audit {
+    margin-left: 0;
   }
   .security-audit .security-audit-card {
     margin-left: 0;

@@ -28,6 +28,7 @@ function App() {
             className="download-bg-mobile"
           />
           <h3 className="white">Get Rabby and Start DeFi</h3>
+          <p>In "Watch Mode", no private key is needed. Experience all fancy features in a risk-free way.</p>
           <a
             href="javascript:;"
             className="round-button orange"
