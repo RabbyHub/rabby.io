@@ -100,7 +100,7 @@ const Header = () => {
           <h1 className="white">A better extension wallet for DeFi users</h1>
           <div className="features">
             <a
-              href="https://github.com/RabbyHub/Rabby/blob/master/docs/Rabby%20chrome%20extension%20Penetration%20Testing%20Report.pdf"
+              href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20browser%20extension%20wallet-2022.03.18.pdf"
               target="_blank"
               className="feature-item"
               rel="noreferrer"
@@ -186,7 +186,7 @@ const Header = () => {
           </div>
         </div>
         <img
-          src="/assets/images/hero-6.png"
+          src="/assets/images/hero-7.png"
           alt="Dashboard screenshot"
           className="hero-image"
         />
