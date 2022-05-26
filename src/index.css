@@ -15,6 +15,8 @@ body {
   background-repeat: no-repeat;
   background-size: 3840px 767px;
   background-position: top right 50%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 ul {
@@ -273,35 +275,6 @@ header {
   margin-top: 2px;
   margin-bottom: 0;
 }
-/* .browsers .browser-item::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding: 10px 14px;
-  z-index: 10;
-  color: #fff;
-  font-size: 14px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 8px 20px rgba(41, 43, 113, 0.16);
-  backdrop-filter: blur(40px);
-  border-radius: 4px;
-  transition: opacity .5s;
-  opacity: 0;
-  white-space: nowrap;
-}
-.browsers .browser-item:nth-child(1)::after {
-  display: none;
-}
-.browsers .browser-item:nth-child(2)::after {
-  content: 'Firefox version is coming soon';
-}
-.browsers .browser-item:nth-child(3)::after {
-  content: 'Edge version is coming soon';
-}
-.browsers .browser-item:hover::after {
-  opacity: 1;
-} */
 .browsers img {
   width: 32px;
   height: 32px;
@@ -353,8 +326,8 @@ header {
   width: 67%;
   padding-top: 180px;
   margin: 0 auto;
-  padding-bottom: 120px;
 }
+
 .title {
   color: #2d3033;
   text-align: center;
@@ -420,20 +393,30 @@ header {
 }
 
 .download {
-  width: 100%;
+  max-width: 965px;
   height: 285px;
   position: relative;
-  /* background-image: url(/assets/download-bg.png);
-  background-size: 100%;
-  background-repeat: no-repeat; */
   display: flex;
   flex-direction: column;
   padding-top: 64px;
   align-items: center;
+  margin-bottom: 180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .download h3 {
   /* margin-bottom: 50px; */
-  margin-bottom: 32px;
+  margin-bottom: 0;
+}
+.download p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+  opacity: 0.8;
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 .download-bg {
   width: 100%;
@@ -542,10 +525,233 @@ footer .right .footer-links a:nth-last-child(1)::after {
   white-space: nowrap;
 }
 
+.security {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+  position: relative;
+  margin-bottom: 180px;
+  width: 100%;
+}
+
+.security .title {
+  margin-bottom: 120px;
+}
+
+.security-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 19px;
+  line-height: 30px;
+}
+
+.security-content ol {
+  width: 562px;
+  margin-bottom: 16px;
+  padding-inline-start: 20px;
+  margin-top: 0;
+}
+
+.security-content ol li {
+  margin-bottom: 20px;
+}
+
+.security-content ol li:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.security-content .security-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  padding-inline-start: 0;
+  color: #7887FE;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.security-content .security-link .icon-arrow-right {
+  margin-left: 6px;
+}
+
+.security-audit {
+  width: 357px;
+  margin-left: 40px;
+}
+
+.security-audit .security-audit-card {
+  display: block;
+  margin-bottom: 32px;
+  width: 100%;
+  line-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+
+.security-audit .security-audit-card:hover {
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1)
+}
+
+.security-audit .security-audit-card img {
+  width: 100%;
+}
+
+.security .rentage-bg {
+  width: 110vw;
+  height: 580px;
+  background: #EFF2F9;
+  opacity: 0.7;
+  transform: rotate(-4.37deg);
+  transform-origin: center right;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -40px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.chains {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #525966;
+  margin-bottom: 160px;
+}
+
+.chains .title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.chains ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chains ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #525966;
+  margin-bottom: 36px;
+  margin-right: 58px;
+  width: 62px;
+}
+
+.chains ul li:nth-child(8n) {
+  margin-right: 0;
+}
+
+.chains ul li:nth-last-child(-n + 8) {
+  margin-bottom: 0;
+}
+
+.chains ul li img {
+  width: 32px;
+  margin-bottom: 8px;
+}
+
+.chains, .signing-modes {
+  max-width: 965px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signing-modes {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #525966;
+  margin-bottom: 120px;
+}
+
+.signing-modes .title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.signing-modes .signing-modes-wrapper {
+  display: flex;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card {
+  width: 300px;
+  height: 300px;
+  background: #FFFFFF;
+  border: 0.5px solid #EAEAEC;
+  border-radius: 8px;
+  margin-right: 33px;
+  padding-top: 33px;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #2D3033;
+  margin: 0 0 30px 0;
+  padding-left: 24px;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card ul li {
+  width: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card ul li img {
+  width: 32px;
+  margin-bottom: 6px;
+}
+
+.signing-modes .signing-modes-wrapper .signing-modes-card ul li p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  margin: 0;
+
+  color: #525966;
+
+  opacity: 0.8;
+}
+
+.signing-modes > p, .chains > p {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 1440px) {
   body {
-    /* background-image: url(/assets/bg.png); */
     background-position: top right 50%;
+  }
+  .signing-modes, .chains {
+    padding-left: 24px;
+  }
+
+  .chains ul li {
+    width: 12.5% !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -732,15 +938,20 @@ footer .right .footer-links a:nth-last-child(1)::after {
     height: 128px;
   }
   .download h3 {
-    margin-bottom: 20px;
     margin-top: 0;
+  }
+  .download p {
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 0 10px;
   }
   .download-bg {
     display: none;
   }
   .download-bg-mobile {
     display: block;
-    width: 100%;
+    width: 110%;
     z-index: -1;
     position: absolute;
     top: 0px;
@@ -757,6 +968,95 @@ footer .right .footer-links a:nth-last-child(1)::after {
   footer .right {
     display: flex;
     flex-flow: row-reverse;
+  }
+  .security {
+    padding-top: 70px;
+  }
+  .security .title {
+    margin-bottom: 20px;
+  }
+  .security-content {
+    font-size: 14px;
+    line-height: 17px;
+    color: #525966;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .security-content ol {
+    width: 315px;
+    padding-inline-start: 0;
+  }
+  .security-content ol li {
+    margin-bottom: 15px;
+  }
+  .security-content ol li:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  .security-content .security-link {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7887FE;
+    margin-bottom: 42px;
+    margin-left: -10px;
+  }
+  .security-content .security-link .icon-arrow-right {
+    width: 16px;
+  }
+  .security-content {
+    flex-direction: column;
+  }
+  .security-audit {
+    margin-left: 0;
+  }
+  .security-audit .security-audit-card {
+    margin-left: 0;
+  }
+  .security .rentage-bg {
+    width: 120vw;
+  }
+  .chains ul li {
+    width: 25% !important;
+    margin-right: 0 !important;
+  }
+  .chains ul li:nth-last-child(-n + 8) {
+    margin-bottom: 36px;
+  }
+  .chains ul li:nth-last-child(-n + 4) {
+    margin-bottom: 0;
+  }
+  .signing-modes, .chains {
+    padding-left: 0;
+  }
+  .signing-modes .title, .chains .title {
+    margin-bottom: 12px;
+  }
+  .signing-modes .title, .chains .title, .signing-modes > p, .chains > p {
+    padding-left: 24px;
+  }
+  .signing-modes > p, .chains > p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #525966;
+    margin-bottom: 30px;
+  }
+  .signing-modes .signing-modes-wrapper {
+    flex-direction: column;
+    padding: 0 24px;
+  }
+  .signing-modes .signing-modes-wrapper .signing-modes-card {
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+    margin-bottom: 24px;
+  }
+  .signing-modes .signing-modes-wrapper .signing-modes-card:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  .signing-modes .signing-modes-wrapper .signing-modes-card ul li {
+    width: 33.3%;
   }
 }
 
