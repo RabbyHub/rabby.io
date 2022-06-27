@@ -8,6 +8,7 @@ const SigningModes = () => {
     { name: "Ledger", icon: "/assets/images/brand-logos/ledger.jpg" },
     { name: "OneKey", icon: "/assets/images/brand-logos/onekey.jpg" },
     { name: "Trezor", icon: "/assets/images/brand-logos/trezor.jpg" },
+    { name: "CoolWallet", icon: "/assets/images/brand-logos/cool.png" },
   ];
   const institutionalWallets = [
     { name: "Amber", icon: "/assets/images/brand-logos/amber.jpg" },
@@ -23,10 +24,14 @@ const SigningModes = () => {
       name: "Token Pocket",
       icon: "/assets/images/brand-logos/token-pocket.jpg",
     },
-    { name: "Trust Wallet", icon: "/assets/images/brand-logos/trust.jpg" },
+    { name: "Trust Wallet", icon: "/assets/images/brand-logos/trust.png" },
     {
       name: "MetaMask Mobile",
       icon: "/assets/images/brand-logos/metamask.jpg",
+    },
+    {
+      name: "Defiant",
+      icon: "/assets/images/brand-logos/defiant.png",
     },
   ];
   return (
