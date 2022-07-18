@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import clsx from "clsx";
 import { showToast } from "../toast";
+import AnimateScroll from "./AnimateScroll";
 
 const Header = () => {
   const [isExpand, setIsExpand] = useState(false);
@@ -97,99 +98,103 @@ const Header = () => {
       </div>
       <div className="header-content">
         <div className="left">
-          <h1 className="white">A better extension wallet for DeFi users</h1>
-          <div className="features">
-            <a
-              href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20browser%20extension%20wallet-2022.03.18.pdf"
-              target="_blank"
-              className="feature-item"
-              rel="noreferrer"
-            >
-              <img
-                src="/assets/images/slowmist.png"
-                alt="SlowMist"
-                className="icon"
-              />
-              Audited by SlowMist
-            </a>
-            <a
-              href="https://github.com/RabbyHub/Rabby"
-              target="_blank"
-              className="feature-item"
-              rel="noreferrer"
-            >
-              <img
-                src="/assets/images/github.png"
-                alt="Open Source"
-                className="icon"
-              />
-              Open Source
-            </a>
+          <h1 className="white">
+            The game-changing wallet for <AnimateScroll></AnimateScroll>
+          </h1>
+          <div className="container">
+            <div className="features">
+              <a
+                href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20browser%20extension%20wallet-2022.03.18.pdf"
+                target="_blank"
+                className="feature-item"
+                rel="noreferrer"
+              >
+                <img
+                  src="/assets/images/slowmist.png"
+                  alt="SlowMist"
+                  className="icon"
+                />
+                Audited by SlowMist
+              </a>
+              <a
+                href="https://github.com/RabbyHub/Rabby"
+                target="_blank"
+                className="feature-item"
+                rel="noreferrer"
+              >
+                <img
+                  src="/assets/images/github.png"
+                  alt="Open Source"
+                  className="icon"
+                />
+                Open Source
+              </a>
+            </div>
+            <div className="browsers">
+              <a
+                className={clsx("browser-item enable", {
+                  highlight: mouseOver === "chrome",
+                })}
+                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                target="_blank"
+                onMouseOver={() => setMouseOver("chrome")}
+                onMouseLeave={initMouseOver}
+                rel="noreferrer"
+              >
+                <img src="/assets/images/chrome-1.png" alt="Chrome" />
+                <p>Download for Chrome</p>
+              </a>
+              <a
+                className={clsx("browser-item enable", {
+                  highlight: mouseOver === "brave",
+                })}
+                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                target="_blank"
+                onMouseOver={() => setMouseOver("brave")}
+                onMouseLeave={initMouseOver}
+                id="brave-browser"
+                rel="noreferrer"
+              >
+                <img src="/assets/images/brave-1.png" alt="Brave" />
+                <p>Download for Brave</p>
+              </a>
+            </div>
+            <div className="coming-soon">
+              <img src="/assets/images/firefox-small.png" alt="" />
+              <img src="/assets/images/edge.svg" alt="" />
+              <span>Firefox / Edge version coming soon</span>
+            </div>
+            <div className="actions">
+              <a
+                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                target="_blank"
+                className="download-btn round-button orange"
+                onClick={handleClickDownloadBtn}
+                rel="noreferrer"
+              >
+                Download
+              </a>
+              <a
+                href="https://discord.gg/seFBCWmUre"
+                target="_blank"
+                className="round-button border"
+                rel="noreferrer"
+              >
+                <img
+                  src="/assets/images/discord.png"
+                  alt=""
+                  className="icon-discord"
+                />
+                Join the discussion
+              </a>
+            </div>
           </div>
-          <div className="browsers">
-            <a
-              className={clsx("browser-item enable", {
-                highlight: mouseOver === "chrome",
-              })}
-              href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-              target="_blank"
-              onMouseOver={() => setMouseOver("chrome")}
-              onMouseLeave={initMouseOver}
-              rel="noreferrer"
-            >
-              <img src="/assets/images/chrome-1.png" alt="Chrome" />
-              <p>Download for Chrome</p>
-            </a>
-            <a
-              className={clsx("browser-item enable", {
-                highlight: mouseOver === "brave",
-              })}
-              href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-              target="_blank"
-              onMouseOver={() => setMouseOver("brave")}
-              onMouseLeave={initMouseOver}
-              id="brave-browser"
-              rel="noreferrer"
-            >
-              <img src="/assets/images/brave-1.png" alt="Brave" />
-              <p>Download for Brave</p>
-            </a>
-          </div>
-          <div className="coming-soon">
-            <img src="/assets/images/firefox-small.png" alt="" />
-            <img src="/assets/images/edge.svg" alt="" />
-            <span>Firefox / Edge version coming soon</span>
-          </div>
-          <div className="actions">
-            <a
-              href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-              target="_blank"
-              className="download-btn round-button orange"
-              onClick={handleClickDownloadBtn}
-              rel="noreferrer"
-            >
-              Download
-            </a>
-            <a
-              href="https://discord.gg/seFBCWmUre"
-              target="_blank"
-              className="round-button border"
-              rel="noreferrer"
-            >
-              <img
-                src="/assets/images/discord.png"
-                alt=""
-                className="icon-discord"
-              />
-              Join the discussion
-            </a>
-          </div>
+          <img
+            src="/assets/images/hero-7.png"
+            alt="Dashboard screenshot"
+            className="hero-image"
+          />
         </div>
-        <img
-          src="/assets/images/hero-7.png"
-          alt="Dashboard screenshot"
-          className="hero-image"
-        />
       </div>
     </header>
   );
