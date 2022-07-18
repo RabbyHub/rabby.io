@@ -111,19 +111,20 @@ header {
   width: 100%;
   height: 700px;
   padding: 24px;
+  padding-top: 18px;
 }
 .nav {
   width: 67%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  align-items: center;
 }
 .menu-btn {
   display: none;
 }
 .logo {
-  width: 126px;
-  height: 44px;
+  width: 199px;
 }
 
 .menu {
@@ -448,6 +449,7 @@ footer .copyright {
 }
 footer .left {
   display: flex;
+  align-items: center;
 }
 footer .left .debank-logo {
   width: 160px;
@@ -469,7 +471,7 @@ footer .left .rabby-logo {
   padding-right: 18px;
 }
 footer .left .rabby-logo {
-  width: 125px;
+  width: 199px;
 }
 footer .left img {
   width: 100%;
@@ -800,8 +802,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     height: 700px;
   }
   .logo {
-    width: 69px;
-    height: 24px;
+    width: 115px;
   }
   .nav {
     position: relative;
@@ -866,11 +867,13 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .header-content {
     width: 100%;
-    padding: 0 20px;
     margin-top: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .header-content .container {
+    padding: 0 20px;
   }
   .header-content .left {
     width: 100%;
@@ -1064,4 +1067,59 @@ footer .right .footer-links a:nth-last-child(1)::after {
   .download-bg-mobile {
     top: -40px;
   }
+}
+
+@keyframes homeTextFadesIn {
+  from {
+      opacity: 0;
+      transform: translateY(50%)
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0)
+  }
+}
+
+@keyframes homeTextFadesOut {
+  from {
+      opacity: 1;
+      transform: translateY(0)
+  }
+
+  to {
+      opacity: 0;
+      transform: translateY(-50%)
+  }
+}
+
+.animate-word-list {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.animate-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(100%);
+  animation-timing-function: cubic-bezier(.19,1,.22,1);
+  animation-fill-mode: both;
+}
+.animate-word.placeholder {
+  visibility: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.animate-word.was-visible {
+  animation-name: homeTextFadesOut;
+  animation-duration: .4s
+}
+.animate-word.is-visible {
+  animation-name: homeTextFadesIn;
+  animation-delay: 250ms;
+  animation-duration: .4s
 }
