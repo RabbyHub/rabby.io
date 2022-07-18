@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <header>
       <div className="nav">
-        <img src="/assets/images/logo.png" alt="Rabby" className="logo" />
+        <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
         <a
           href="javascript:;"
           className={clsx("menu-btn", { expand: isExpand })}
