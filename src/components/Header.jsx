@@ -4,6 +4,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import clsx from "clsx";
 import { showToast } from "../toast";
 import AnimateScroll from "./AnimateScroll";
+import ReactGA from 'react-ga';
 
 const Header = () => {
   const [isExpand, setIsExpand] = useState(false);
@@ -24,6 +25,14 @@ const Header = () => {
     setIsExpand(!isExpand);
   };
 
+  const reportClickDownload = (label) => {
+    ReactGA.event({
+      category: 'User',
+      action: 'clickDownload',
+      label
+    })
+  }
+
   const handleClickDownloadBtn = (e) => {
     if (/mobile/i.test(navigator.userAgent)) {
       e.preventDefault();
@@ -32,6 +41,7 @@ const Header = () => {
         duration: 2000,
       });
     }
+    reportClickDownload();
   };
 
   useEffect(() => {
@@ -137,6 +147,7 @@ const Header = () => {
                 })}
                 href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
                 target="_blank"
+                onClick={() => reportClickDownload('Chrome')}
                 onMouseOver={() => setMouseOver("chrome")}
                 onMouseLeave={initMouseOver}
                 rel="noreferrer"
@@ -150,6 +161,7 @@ const Header = () => {
                 })}
                 href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
                 target="_blank"
+                onClick={() => reportClickDownload('Brave')}
                 onMouseOver={() => setMouseOver("brave")}
                 onMouseLeave={initMouseOver}
                 id="brave-browser"
