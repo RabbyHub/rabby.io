@@ -10,7 +10,7 @@ const IntergrateChains = () => {
         {chains
           .map((chain) => (
             <li key={chain.id}>
-              <img className="chain-logo" src={chain.icon} alt={chain.name} />
+              <img className="chain-logo" src={chain.logo} alt={chain.name} />
               {chain.name}
             </li>
           ))}
