@@ -6,6 +6,8 @@ import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-199755108-2');
 
+ReactGA.pageview('/');
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
