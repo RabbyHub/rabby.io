@@ -10,7 +10,7 @@ const Intro = () => {
       <div>
         <div className="intro-content">
           <img
-            src="/assets/images/multi-chain-2.png"
+            src="/assets/images/multi-chain-3.png"
             alt="Multi Chain"
             className="left intro-img"
           />
@@ -30,14 +30,14 @@ const Intro = () => {
             <p>Supported by our security rule engine</p>
           </div>
           <img
-            src="/assets/images/security-check.png"
+            src="/assets/images/security-check-2.png"
             alt="Security"
             className="right intro-img"
           />
         </div>
         <div className="intro-content">
           <img
-            src="/assets/images/sign-tx.png"
+            src="/assets/images/sign-tx-2.png"
             alt="Experience"
             className="left intro-img"
           />
