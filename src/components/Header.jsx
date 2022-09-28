@@ -202,7 +202,7 @@ const Header = () => {
             </div>
           </div>
           <img
-            src="/assets/images/hero-9.png"
+            src="/assets/images/hero-10.png"
             alt="Dashboard screenshot"
             className="hero-image"
           />
