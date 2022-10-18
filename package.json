@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "react-scripts build && yarn docs:build",
+    "build": "react-scripts build && yarn docs:build && yarn claims:build",
     "dev": "react-scripts start",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "claims:dev": "cd packages/claims && yarn dev",
+    "claims:build": "cd packages/claims && yarn build && cpy --cwd=.next . ../../../dist/claims"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "cpy-cli": "^4.2.0",
     "vuepress": "^1.8.2"
   },
   "eslintConfig": {
