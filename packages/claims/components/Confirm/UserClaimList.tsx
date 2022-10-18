@@ -3,10 +3,11 @@ import { getUserClaims } from '../../utils/api';
 import { useAccount } from 'wagmi';
 import { Table } from 'antd';
 import { ConfirmTable } from './ConfirmTable';
+import { CHAINS_BY_SERVER_ID } from '../../utils/chains';
 
 const { Column } = Table;
 
-export const LostList = () => {
+export const UserClaimList = () => {
   const { address = '0x0' } = useAccount();
   const userClaims = useAsync(getUserClaims, [address]);
 
@@ -14,14 +15,24 @@ export const LostList = () => {
 
   return (
     <ConfirmTable headline="Claim Payout">
-      <Table dataSource={data}>
+      <Table
+        dataSource={data}
+        pagination={false}
+        scroll={{
+          x: true
+        }}
+      >
         <Column
           title="Recipient Address"
           key="recipient_address"
           dataIndex="user_addr"
         />
-        <Column title="Chain" key="chain" dataIndex="chain" />
-
+        <Column
+          title="Chain"
+          key="chain"
+          dataIndex="chain"
+          render={(chain) => CHAINS_BY_SERVER_ID[chain].name}
+        />
         <Column title="Pay Token" key="pay_token" render={() => 'USDC'} />
         <Column title="Amount" key="amount" dataIndex="usdc_amount" />
       </Table>

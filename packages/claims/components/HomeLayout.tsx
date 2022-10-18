@@ -12,7 +12,7 @@ export const HomeLayout = () => {
   }, []);
 
   return (
-    <div className="max-w-[680px] container mx-auto md:pt-[80px] text-center p-4 md:p-0">
+    <div className="max-w-[680px] container mx-auto md:py-[80px] text-center p-4 md:p-0">
       <ClaimsSubmissionGuidelinesCard />
 
       {mounted && <WalletPanel />}

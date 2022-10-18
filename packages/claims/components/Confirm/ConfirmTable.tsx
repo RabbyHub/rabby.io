@@ -7,8 +7,8 @@ export const ConfirmTable: React.FC<ConfirmTableProps> = ({
   children
 }) => {
   return (
-    <div>
-      <h2 className="mb-0 text-sm">{headline}</h2>
+    <div className="text-left">
+      <h2 className="mb-5 text-sm">{headline}</h2>
       {children}
     </div>
   );

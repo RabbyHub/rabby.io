@@ -2,8 +2,8 @@ import { useAsync } from 'react-async-hook';
 import { getLostToken } from '../../utils/api';
 import { useAccount } from 'wagmi';
 import { Table } from 'antd';
-import { RABBY_SWAP_ROUTER } from '../../utils/chains';
 import { ConfirmTable } from './ConfirmTable';
+import { CHAINS_BY_SERVER_ID } from '../../utils/chains';
 
 const { Column } = Table;
 
@@ -15,8 +15,19 @@ export const LostList = () => {
 
   return (
     <ConfirmTable headline="Lost Assets">
-      <Table dataSource={data}>
-        <Column title="Chain" key="chain" dataIndex="chain" />
+      <Table
+        dataSource={data}
+        pagination={false}
+        scroll={{
+          x: true
+        }}
+      >
+        <Column
+          title="Chain"
+          key="chain"
+          dataIndex="chain"
+          render={(chain) => CHAINS_BY_SERVER_ID[chain].name}
+        />
         <Column
           title="Lost Token"
           key="token_symbol"
@@ -25,10 +36,7 @@ export const LostList = () => {
         <Column
           title="Token Contract Address"
           key="token_address"
-          dataIndex="token_symbol"
-          render={(tokenSymbol: string) => {
-            return RABBY_SWAP_ROUTER[tokenSymbol] ?? '';
-          }}
+          dataIndex="token_id"
         />
         <Column title="Amount" key="amount" dataIndex="amount" />
       </Table>

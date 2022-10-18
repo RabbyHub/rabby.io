@@ -34,4 +34,12 @@ export const CLAIM_CHIAN_LIST = [
   CHAINS[CHAINS_ENUM.GNOSIS].serverId
 ];
 
+export const CHAINS_BY_SERVER_ID = Object.values(CHAINS).reduce(
+  (acc, chain) => {
+    acc[chain.serverId] = chain;
+    return acc;
+  },
+  {} as Record<string, typeof CHAINS[keyof typeof CHAINS]>
+);
+
 export { CHAINS_ENUM };
