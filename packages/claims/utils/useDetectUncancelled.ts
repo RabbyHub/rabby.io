@@ -10,6 +10,9 @@ export const useDetectUncancelled = (address: string) => {
   const [uncancelledSwap, setUncancelledSwap] = React.useState(false);
 
   React.useEffect(() => {
+    // reset
+    setUncancelledSwap(false);
+
     const fetchData = async () => {
       for (const chainId of CLAIM_CHIAN_LIST) {
         const chain = CHAINS_BY_SERVER_ID[chainId];
