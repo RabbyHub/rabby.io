@@ -3,7 +3,7 @@ import { Card } from '../Card';
 export const ClaimsSubmissionGuidelinesCard = () => {
   return (
     <Card
-      headline="Claims Submission Guidelines for Rabby Insurance Fund"
+      headline="Claim Submission Guidelines for Rabby Insurance Fund"
       hasLogo
     >
       <p>
