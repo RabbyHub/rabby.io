@@ -45,7 +45,7 @@ export const ConfirmCard = () => {
           {claimCount ? (
             <span className="break-words">
               <span className="text-highlight">{address}</span> has {claimCount}{' '}
-              claims to confirm
+              {claimCount > 1 ? 'claims' : 'claim'} to confirm
             </span>
           ) : (
             <span className="break-words">
@@ -55,17 +55,22 @@ export const ConfirmCard = () => {
           )}
         </h2>
       </div>
-      {uncancelled ? (
-        <UncancelledTip />
-      ) : claimCount ? (
+      {claimCount ? (
         <div className="p-6 space-y-8 text-center">
           <LostList />
           <UserClaimList />
-          <ConfirmCheckbox onChecked={setChecked} />
-          <PostClaimButton
-            disabled={!checked}
-            onSubmit={() => setIsClaimed(true)}
-          />
+
+          {uncancelled ? (
+            <UncancelledTip />
+          ) : (
+            <>
+              <ConfirmCheckbox onChecked={setChecked} />
+              <PostClaimButton
+                disabled={!checked}
+                onSubmit={() => setIsClaimed(true)}
+              />
+            </>
+          )}
         </div>
       ) : null}
     </div>
