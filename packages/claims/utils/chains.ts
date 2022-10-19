@@ -41,5 +41,3 @@ export const CHAINS_BY_SERVER_ID = Object.values(CHAINS).reduce(
   },
   {} as Record<string, typeof CHAINS[keyof typeof CHAINS]>
 );
-
-export { CHAINS_ENUM };
