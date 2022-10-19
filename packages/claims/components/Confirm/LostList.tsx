@@ -13,6 +13,10 @@ export const LostList = () => {
 
   const data = lostTokens.result;
 
+  if (lostTokens.loading) {
+    return null;
+  }
+
   return (
     <ConfirmTable headline="Lost Assets">
       <Table

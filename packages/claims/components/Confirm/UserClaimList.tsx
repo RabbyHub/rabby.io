@@ -13,6 +13,10 @@ export const UserClaimList = () => {
 
   const data = userClaims.result;
 
+  if (userClaims.loading) {
+    return null;
+  }
+
   return (
     <ConfirmTable headline="Claim Payout">
       <Table
