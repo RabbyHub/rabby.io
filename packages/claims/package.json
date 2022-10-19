@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run open-browser && next dev -p 30910",
-    "build": "yarn && next build && next export",
+    "build": "next build && next export",
     "open-browser": "open http://localhost:30910/claims",
     "lint": "next lint"
   },
