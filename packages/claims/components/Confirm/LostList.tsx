@@ -13,15 +13,12 @@ export const LostList = () => {
 
   const data = lostTokens.result;
 
-  if (lostTokens.loading) {
-    return null;
-  }
-
   return (
     <ConfirmTable headline="Lost Assets">
       <Table
         dataSource={data}
         pagination={false}
+        loading={lostTokens.loading}
         rowKey={(record) => record.chain + record.amount}
         scroll={{
           x: 'max-content'

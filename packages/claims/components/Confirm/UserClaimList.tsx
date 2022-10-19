@@ -13,16 +13,13 @@ export const UserClaimList = () => {
 
   const data = userClaims.result;
 
-  if (userClaims.loading) {
-    return null;
-  }
-
   return (
     <ConfirmTable headline="Claim Payout">
       <Table
         dataSource={data}
         pagination={false}
         rowKey="chain"
+        loading={userClaims.loading}
         scroll={{
           x: 'max-content'
         }}
