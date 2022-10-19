@@ -17,7 +17,6 @@ export const ConfirmCardBody: React.FC<ConfirmCardBodyProps> = ({
   const { address = '0x0' } = useAccount();
   const uncancelled = useDetectUncancelled(address);
   const [checked, setChecked] = React.useState(false);
-  console.log('???');
   return (
     <div className="p-6 space-y-8 text-center">
       <LostList />
