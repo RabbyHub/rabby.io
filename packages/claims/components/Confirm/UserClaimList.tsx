@@ -36,7 +36,12 @@ export const UserClaimList = () => {
           render={(chain) => CHAINS_BY_SERVER_ID[chain].name}
         />
         <Column title="Pay Token" key="pay_token" render={() => 'USDC'} />
-        <Column title="Amount" key="amount" dataIndex="usdc_amount" />
+        <Column
+          align="right"
+          title="Amount"
+          key="amount"
+          dataIndex="usdc_amount"
+        />
       </Table>
     </ConfirmTable>
   );

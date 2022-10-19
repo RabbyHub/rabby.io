@@ -40,7 +40,7 @@ export const LostList = () => {
           key="token_address"
           dataIndex="token_id"
         />
-        <Column title="Amount" key="amount" dataIndex="amount" />
+        <Column align="right" title="Amount" key="amount" dataIndex="amount" />
       </Table>
     </ConfirmTable>
   );

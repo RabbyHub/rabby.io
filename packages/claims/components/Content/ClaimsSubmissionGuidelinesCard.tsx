@@ -13,9 +13,9 @@ export const ClaimsSubmissionGuidelinesCard = () => {
         confirmation.
       </p>
       <p>
-        Initial Funding: $1,000,000
-        <br></br>The total amount of this claim: $202607.90
-        <br></br>Balance of the Insurance Fund: $797392.1
+        Initial Funding: $1,000,000.00
+        <br></br>The total amount of this claim: $202,607.90
+        <br></br>Balance of the Insurance Fund: $797,392.10
       </p>
       <p className="font-bold">
         To start claim processing please follow the rules below:
