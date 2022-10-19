@@ -23,9 +23,7 @@ export const ConfirmCard = () => {
   const isLoading = claimStatus.loading || userClaims.loading;
 
   React.useEffect(() => {
-    if (claimStatus.result?.is_claimed) {
-      setIsClaimed(true);
-    }
+    setIsClaimed(!!claimStatus.result?.is_claimed);
   }, [claimStatus.result?.is_claimed]);
 
   if (isClaimed) {
