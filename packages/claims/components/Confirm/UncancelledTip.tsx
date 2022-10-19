@@ -16,6 +16,7 @@ export const UncancelledTip: React.FC<UncancelledTipProps> = ({ chains }) => {
           <a
             className="underline hover:text-[#EC5151] hover:underline"
             href="https://twitter.com/Rabby_io/status/1579877793642737665"
+            target="_blank"
           >
             Please revoke approvals first to continue the claim process.
           </a>
