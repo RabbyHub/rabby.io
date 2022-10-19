@@ -8,17 +8,36 @@ import { UserClaimList } from './UserClaimList';
 import { useDetectUncancelled } from '../../utils/useDetectUncancelled';
 import { UncancelledTip } from './UncancelledTip';
 import { PostClaimButton } from '../PostClaimButton';
+import { Spin } from 'antd';
+import { ConfirmCheckbox } from './ConfirmCheckbox';
 
 export const ConfirmCard = () => {
   const { address = '0x0' } = useAccount();
   const claimStatus = useAsync(getClaimStatus, [address]);
   const userClaims = useAsync(getUserClaims, [address]);
   const uncancelled = useDetectUncancelled(address);
+  const [isClaimed, setIsClaimed] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
 
   const claimCount = userClaims.result?.length;
+  const isLoading = claimStatus.loading || userClaims.loading;
 
-  if (claimStatus.result?.is_claimed) {
-    return <HasSubmittedCard />;
+  React.useEffect(() => {
+    if (claimStatus.result?.is_claimed) {
+      setIsClaimed(true);
+    }
+  }, [claimStatus.result?.is_claimed]);
+
+  if (isClaimed) {
+    return <HasSubmittedCard className="mt-4" />;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="mx-auto py-10">
+        <Spin />
+      </div>
+    );
   }
 
   return (
@@ -42,7 +61,11 @@ export const ConfirmCard = () => {
         <div className="p-6 space-y-8 text-center">
           <LostList />
           <UserClaimList />
-          <PostClaimButton />
+          <ConfirmCheckbox onChecked={setChecked} />
+          <PostClaimButton
+            disabled={!checked}
+            onSubmit={() => setIsClaimed(true)}
+          />
         </div>
       ) : null}
     </div>

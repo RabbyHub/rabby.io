@@ -1,24 +1,38 @@
+import { BASE_PATH } from '../utils/env';
+
 interface CardProps {
   headline?: string;
   children: React.ReactNode;
   hasLogo?: boolean;
+  className?: string;
 }
 
-export const Card: React.FC<CardProps> = ({ headline, children, hasLogo }) => {
+export const Card: React.FC<CardProps> = ({
+  headline,
+  children,
+  hasLogo,
+  className
+}) => {
   return (
-    <div className="relative">
-      <div className="bg-white border-line border rounded-lg px-6 py-[26px] text-left">
+    <div className={'relative ' + className}>
+      <div className="bg-white border-line border border-solid rounded-lg px-6 py-[26px] text-left">
         {headline && (
-          <h2 className="font-bold text-base text-text mb-4 mr-[110px]">
+          <h2 className="font-bold text-base text-headline mb-4 mr-[110px]">
             {headline}
           </h2>
         )}
         {hasLogo && (
           <div className="absolute right-4 top-4">
-            <img src="/logo.png" alt="Rabby" className="h-[34px]" />
+            <a href="//rabby.io">
+              <img
+                src={`${BASE_PATH}/logo.png`}
+                alt="Rabby"
+                className="h-[34px]"
+              />
+            </a>
           </div>
         )}
-        <div className="text-text">{children}</div>
+        <div className="text-headline">{children}</div>
       </div>
     </div>
   );

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "npm run open-browser && next dev -p 30910",
+    "build": "next build && next export",
+    "open-browser": "open http://localhost:30910/claims",
     "lint": "next lint"
   },
   "dependencies": {

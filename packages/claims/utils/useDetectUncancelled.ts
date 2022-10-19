@@ -18,6 +18,7 @@ export const useDetectUncancelled = (address: string) => {
         const uncancelledSwap = tokenList.find((token) =>
           token.spenders.find((spender) => spender.id === swapAddress)
         );
+
         if (uncancelledSwap) {
           setUncancelledSwap(true);
           return;

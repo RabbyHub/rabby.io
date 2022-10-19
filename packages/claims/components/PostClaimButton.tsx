@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 import React from 'react';
 import { getClaimStatus, postClaim } from '../utils/api';
 import { useAccount, useSignMessage } from 'wagmi';
@@ -6,10 +6,12 @@ import { useAsync } from 'react-async-hook';
 
 export interface PostClaimButtonProps {
   disabled?: boolean;
+  onSubmit?: () => void;
 }
 
 export const PostClaimButton: React.FC<PostClaimButtonProps> = ({
-  disabled
+  disabled,
+  onSubmit
 }) => {
   const [loading, setLoading] = React.useState(false);
   const { address = '0x' } = useAccount();
@@ -18,20 +20,38 @@ export const PostClaimButton: React.FC<PostClaimButtonProps> = ({
   const message = claimStatus.result?.text;
   const notAllowed = !address || disabled || loading || !message;
 
-  const handleClick = async () => {
+  const handleConfirm = async () => {
+    const modal = Modal.confirm({
+      content:
+        "I've confirmed that the information above is true and correct and I accept the claim.",
+      okText: 'Sign',
+      cancelText: 'Cancel',
+      onOk: () => {
+        handleSign();
+        modal.destroy();
+      }
+    });
+  };
+
+  const handleSign = async () => {
     if (notAllowed) {
       return;
     }
 
     setLoading(true);
 
-    const signature = await signMessageAsync({
-      message
-    });
+    try {
+      const signature = await signMessageAsync({
+        message
+      });
 
-    postClaim(address, signature).finally(() => {
+      await postClaim(address, signature);
+      onSubmit?.();
+    } catch (e) {
+      console.error(e);
+    } finally {
       setLoading(false);
-    });
+    }
   };
 
   return (
@@ -39,7 +59,7 @@ export const PostClaimButton: React.FC<PostClaimButtonProps> = ({
       type="primary"
       disabled={notAllowed}
       loading={loading}
-      onClick={handleClick}
+      onClick={handleConfirm}
     >
       Confirm the claim
     </Button>

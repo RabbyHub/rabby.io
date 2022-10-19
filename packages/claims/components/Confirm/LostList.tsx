@@ -19,7 +19,7 @@ export const LostList = () => {
         dataSource={data}
         pagination={false}
         scroll={{
-          x: true
+          x: 'max-content'
         }}
       >
         <Column

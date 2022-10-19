@@ -8,7 +8,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "claims:dev": "cd packages/claims && yarn dev",
-    "claims:build": "cd packages/claims && yarn build && cpy --cwd=.next . ../../../dist/claims"
+    "claims:build": "cd packages/claims && yarn build && cpy --cwd=out . ../../../dist/claims"
   },
   "repository": {
     "type": "git",
