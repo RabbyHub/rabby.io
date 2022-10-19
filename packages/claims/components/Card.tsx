@@ -17,7 +17,7 @@ export const Card: React.FC<CardProps> = ({
     <div className={'relative ' + className}>
       <div className="bg-white border-line border border-solid rounded-lg px-6 py-[26px] text-left">
         {headline && (
-          <h2 className="font-bold text-base text-headline mb-4 mr-[110px]">
+          <h2 className="font-bold text-base text-headline mb-4 mr-[110px] md:leading-none">
             {headline}
           </h2>
         )}

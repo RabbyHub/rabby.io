@@ -17,8 +17,10 @@ export const ClaimsSubmissionGuidelinesCard = () => {
         <br></br>The total amount of this claim: $202607.90
         <br></br>Balance of the Insurance Fund: $797392.1
       </p>
-      <p>To start claim processing please follow the rules below:</p>
-      <ol>
+      <p className="font-bold">
+        To start claim processing please follow the rules below:
+      </p>
+      <ol className="pl-4">
         <li>
           Loss caused by uncanceled or untimely cancellation of approvals by
           users is not qualified for a claim payout

@@ -61,7 +61,7 @@ export const PostClaimButton: React.FC<PostClaimButtonProps> = ({
       loading={loading}
       onClick={handleConfirm}
     >
-      Confirm the claim
+      Confirm the claim to apply
     </Button>
   );
 };

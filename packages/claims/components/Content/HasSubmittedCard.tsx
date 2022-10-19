@@ -19,7 +19,7 @@ export const HasSubmittedCard: React.FC<HasSubmittedCardProps> = ({
           progress
         </h2>
         <span>Claim payout recipient address:</span>{' '}
-        <span className="text-content break-words">{address}</span>
+        <span className="text-highlight break-words">{address}</span>
       </div>
     </Card>
   );

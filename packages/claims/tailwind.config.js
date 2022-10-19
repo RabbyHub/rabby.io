@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         line: '#e5e9ef',
         headline: '#13141a',
-        content: '#4B4D59'
+        content: '#4B4D59',
+        highlight: '#5089ff'
       }
     }
   },

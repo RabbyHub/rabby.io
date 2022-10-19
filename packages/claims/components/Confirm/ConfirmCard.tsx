@@ -44,11 +44,13 @@ export const ConfirmCard = () => {
         <h2 className="text-sm font-bold m-0">
           {claimCount ? (
             <span className="break-words">
-              <span>{address}</span> has {claimCount} claims to confirm
+              <span className="text-highlight">{address}</span> has {claimCount}{' '}
+              claims to confirm
             </span>
           ) : (
             <span className="break-words">
-              <span>{address}</span> has no claim request to be confirmed
+              <span className="text-highlight">{address}</span> has no claim
+              request to be confirmed
             </span>
           )}
         </h2>
