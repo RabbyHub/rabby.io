@@ -26,8 +26,8 @@ export const ClaimsSubmissionGuidelinesCard = () => {
           users is not qualified for a claim payout
         </li>
         <li>
-          By December 1, all the unconfirmed claims are deemed to have been
-          abandoned by the user.
+          By December 1, 2022, all the unconfirmed claims are deemed to have
+          been abandoned by the user.
         </li>
         <li>
           Claims will be processed within 3 business days after being confirmed
