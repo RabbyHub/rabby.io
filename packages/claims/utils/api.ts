@@ -5,9 +5,9 @@ import { setupCache } from 'axios-cache-interceptor';
 export const api = setupCache(
   axios.create({
     baseURL:
-      process.env.NODE_ENV === 'development'
-        ? 'https://alpha.rabby.io/'
-        : 'https://api.rabby.io'
+      typeof location !== 'undefined' && location.origin.includes('rabby.io')
+        ? 'https://api.rabby.io'
+        : 'https://alpha.rabby.io/'
   }),
   {
     ttl: 5000 // 5 seconds
