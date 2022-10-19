@@ -15,15 +15,15 @@ export const ConfirmCardBody: React.FC<ConfirmCardBodyProps> = ({
   onSubmit
 }) => {
   const { address = '0x0' } = useAccount();
-  const uncancelled = useDetectUncancelled(address);
+  const { hasUncancelled, uncancelledChains } = useDetectUncancelled(address);
   const [checked, setChecked] = React.useState(false);
   return (
     <div className="p-6 space-y-8 text-center">
       <LostList />
       <UserClaimList />
 
-      {uncancelled ? (
-        <UncancelledTip />
+      {hasUncancelled ? (
+        <UncancelledTip chains={uncancelledChains} />
       ) : (
         <>
           <ConfirmCheckbox onChecked={setChecked} />
