@@ -18,6 +18,7 @@ export const LostList = () => {
       <Table
         dataSource={data}
         pagination={false}
+        rowKey={(record) => record.chain + record.amount}
         scroll={{
           x: 'max-content'
         }}

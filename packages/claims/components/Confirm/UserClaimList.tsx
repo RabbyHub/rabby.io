@@ -18,6 +18,7 @@ export const UserClaimList = () => {
       <Table
         dataSource={data}
         pagination={false}
+        rowKey="chain"
         scroll={{
           x: 'max-content'
         }}
