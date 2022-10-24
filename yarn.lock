@@ -1803,15 +1803,15 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.1.tgz#75b4c27948c81e88ccd3a8902047bcd797f38d32"
   integrity sha512-ej5oVy6lykXsvieQtqZxCOaLT+xD4+QNarq78cIYISHmZXshCvROLudpQN3lfL8G0NL7plMSSK+zlyvCaIJ4Iw==
 
-"@debank/common@^0.2.13":
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.2.13.tgz#b9fb496a4cc776073ec35504611e190c04425e82"
-  integrity sha512-LfIub3nwNQfKZiSFydPWVfkQ1WMwrzLOlTkj74y88BJ5+9566lNi4K8C4PXHvCNMhsTktxwnHBUyp1/Is8x3kQ==
-
 "@debank/common@^0.2.14":
   version "0.2.14"
   resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.2.14.tgz#c76ff597f6c39e07715a8a61dd310c11d20e17f6"
   integrity sha512-7UXz0Cx0AlWfQK2iBLhk7ahcXdHhxoN2FG3rvN8ChRLbmJUosGNlU+i6LnWGyIDDmukIn7qnCWujvoiW7OnnYQ==
+
+"@debank/common@^0.2.15":
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.2.15.tgz#9d45311940769cf390c0cd775ac6cf9475cc38e9"
+  integrity sha512-J2laBTBvtMlEp+eY9s5pHnvc6vSPDt2rHLTthFG348F6sqJqS79CN3cA48FroZvSyEKUeGuQA7vk1kB3kZ23lw==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
