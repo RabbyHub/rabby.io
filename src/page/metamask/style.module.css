@@ -1,0 +1,166 @@
+.container {
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  height: 188px;
+}
+
+.metamask {
+  width: 92px;
+  height: 92px;
+  margin-right: 10px;
+}
+
+.title {
+  max-width: 667px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  color: #333333;
+}
+
+.tipSection {
+  height: 502px;
+  background: rgba(255, 255, 255, 0.52);
+  display: flex;
+  flex-direction: column;
+  padding-left: 32px;
+}
+
+.tipSection,
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.slide-img {
+  width: 100%;
+  height: 308px;
+}
+
+.dotContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99999px;
+  background: #d9d9d9;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #8999fe;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.arrow.left {
+  right: 32px;
+}
+
+.arrow.right {
+  transform: rotate(180deg);
+  left: 32px;
+}
+.stepContainer {
+  padding-left: 104px;
+  flex: 1;
+}
+.stepBox {
+  position: relative;
+
+  margin-bottom: 20px;
+}
+
+.stepBox.active {
+  transform: scale(1.42);
+  transform-origin: left;
+}
+
+.stepBox.active .step,
+.stepBox.active .stepContent {
+  color: #8999fe;
+}
+
+.step {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+}
+
+.stepContent {
+  margin-left: 6px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.stepCurrentTag {
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  top: 7px;
+  left: -18px;
+}
+
+.sectionTitle {
+  max-width: 794px;
+  min-width: 794px;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #333333;
+  margin-bottom: 32px;
+}
+
+.maxContent {
+  max-width: 794px;
+  margin: 0 auto;
+}
+
+.relLink {
+  margin-top: 40px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 12px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.relLink a {
+  text-decoration: none;
+  color: rgba(134, 151, 255, 1);
+}
+
+.tipSection.seed {
+  background-color: transparent;
+  padding-bottom: 30px;
+}
