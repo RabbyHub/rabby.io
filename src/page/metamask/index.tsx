@@ -2,7 +2,6 @@ import clsx from "clsx";
 import React, { useRef, useState } from "react";
 import style from "./style.module.css";
 import Carousel from "nuka-carousel";
-import { useSearchParams } from "react-router-dom";
 
 const privateKeysImages = Array(7)
   .fill(1)
@@ -36,6 +35,8 @@ const exportPrivateKeyLink =
 const exportSeedPhraseLink =
   "https://metamask.zendesk.com/hc/en-us/articles/360018766351-How-to-recover-your-Secret-Recovery-Phrase";
 
+const autoplayInterval = 3000;
+
 interface ArrowProps extends React.ComponentPropsWithoutRef<"img"> {
   isRight?: boolean;
   disable?: boolean;
@@ -67,9 +68,6 @@ const Tips = ({
 }: TipsProps) => {
   const [current, setCurrent] = useState(0);
   const gotoSlideRef = useRef<{ goToSlide?: (n: number) => void }>({});
-  let [searchParams] = useSearchParams();
-
-  const autoplayInterval = Number(searchParams.get("autoplayInterval")) || 3000;
 
   return (
     <section className={clsx(style.tipSection, className)}>
