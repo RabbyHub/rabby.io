@@ -35,6 +35,8 @@ const exportPrivateKeyLink =
 const exportSeedPhraseLink =
   "https://metamask.zendesk.com/hc/en-us/articles/360018766351-How-to-recover-your-Secret-Recovery-Phrase";
 
+const autoplayInterval = 3000;
+
 interface ArrowProps extends React.ComponentPropsWithoutRef<"img"> {
   isRight?: boolean;
   disable?: boolean;
@@ -66,6 +68,7 @@ const Tips = ({
 }: TipsProps) => {
   const [current, setCurrent] = useState(0);
   const gotoSlideRef = useRef<{ goToSlide?: (n: number) => void }>({});
+
   return (
     <section className={clsx(style.tipSection, className)}>
       <div className={style.sectionTitle}>{title}</div>
@@ -83,7 +86,10 @@ const Tips = ({
           }}
         >
           <Carousel
-            autoplay={false}
+            autoplayInterval={autoplayInterval}
+            autoplay={true}
+            pauseOnHover
+            wrapAround
             className={style.slide}
             renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
               <Arrow disable={previousDisabled} onClick={previousSlide} />
@@ -174,7 +180,7 @@ const Tips = ({
 export const MetaMaskExport = () => {
   return (
     <div className={style.container}>
-      <section className={clsx(style.header, style.center)}>
+      <section className={clsx(style.header)}>
         <img
           className={style.metamask}
           src={"/assets/images/metamask.svg"}
