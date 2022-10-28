@@ -174,7 +174,7 @@ const Tips = ({
 export const MetaMaskExport = () => {
   return (
     <div className={style.container}>
-      <section className={clsx(style.header, style.center)}>
+      <section className={clsx(style.header)}>
         <img
           className={style.metamask}
           src={"/assets/images/metamask.svg"}
