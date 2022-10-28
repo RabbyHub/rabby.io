@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React, { useRef, useState } from "react";
 import style from "./style.module.css";
 import Carousel from "nuka-carousel";
+import { useSearchParams } from "react-router-dom";
 
 const privateKeysImages = Array(7)
   .fill(1)
@@ -66,6 +67,10 @@ const Tips = ({
 }: TipsProps) => {
   const [current, setCurrent] = useState(0);
   const gotoSlideRef = useRef<{ goToSlide?: (n: number) => void }>({});
+  let [searchParams] = useSearchParams();
+
+  const autoplayInterval = Number(searchParams.get("autoplayInterval")) || 3000;
+
   return (
     <section className={clsx(style.tipSection, className)}>
       <div className={style.sectionTitle}>{title}</div>
@@ -83,7 +88,10 @@ const Tips = ({
           }}
         >
           <Carousel
-            autoplay={false}
+            autoplayInterval={autoplayInterval}
+            autoplay={true}
+            pauseOnHover
+            wrapAround
             className={style.slide}
             renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
               <Arrow disable={previousDisabled} onClick={previousSlide} />
