@@ -33,7 +33,7 @@ const seedPhraseSteps = [
 const exportPrivateKeyLink =
   "https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key";
 const exportSeedPhraseLink =
-  "https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key";
+  "https://metamask.zendesk.com/hc/en-us/articles/360018766351-How-to-recover-your-Secret-Recovery-Phrase";
 
 interface ArrowProps extends React.ComponentPropsWithoutRef<"img"> {
   isRight?: boolean;
