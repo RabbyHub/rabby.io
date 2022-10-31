@@ -36,7 +36,6 @@
   background: rgba(255, 255, 255, 0.52);
   display: flex;
   flex-direction: column;
-  /* padding-left: 32px; */
   padding-left: var(--box-pl);
 }
 
@@ -146,7 +145,8 @@
 
 .maxContent {
   max-width: 794px;
-  /*   margin: 0 auto; */
+  display: flex;
+  width: 100%;
 }
 
 .relLink {
@@ -166,4 +166,77 @@
 .tipSection.seed {
   background-color: transparent;
   padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    justify-content: center;
+    height: auto;
+    padding: 1rem;
+  }
+  .metamask {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 10px;
+  }
+
+  .title {
+    max-width: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    /*   color: #333333; */
+  }
+  .tipSection {
+    align-items: center;
+    height: auto;
+    padding: 0;
+  }
+
+  .sectionTitle {
+    min-width: inherit;
+    max-width: inherit;
+    font-size: 16px;
+    margin: 1rem 0;
+  }
+
+  .maxContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
+  .stepContainer {
+    margin-top: 40px;
+    padding-left: 0;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .stepBox {
+    max-width: calc(100vw - 2rem);
+    margin: 0 0.5rem;
+  }
+
+  .stepBox.active {
+    transform: scale(1);
+  }
+
+  .stepBox.active .step,
+  .stepBox.active .stepContent {
+    font-size: 16px;
+  }
+
+  .step,
+  .stepContent {
+    font-size: 12px;
+  }
+
+  .stepCurrentTag {
+    width: 7px;
+    height: 6px;
+    top: 9px;
+    left: -10px;
+  }
 }
