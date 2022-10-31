@@ -72,13 +72,7 @@ const Tips = ({
   return (
     <section className={clsx(style.tipSection, className)}>
       <div className={style.sectionTitle}>{title}</div>
-      <div
-        className={style.maxContent}
-        style={{
-          display: "flex",
-          width: "100%",
-        }}
-      >
+      <div className={style.maxContent}>
         <div
           style={{
             maxWidth: 183,
