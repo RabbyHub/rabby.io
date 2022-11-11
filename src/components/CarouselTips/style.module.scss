@@ -85,11 +85,6 @@
   color: #8999fe;
 }
 
-.stepBox.active {
-  transform: scale(1.42);
-  transform-origin: left;
-}
-
 .step {
   font-style: normal;
   font-weight: 500;
@@ -180,11 +175,6 @@
   .stepBox.active .step,
   .stepBox.active .stepContent {
     font-size: 16px;
-  }
-
-  .stepBox.active {
-    transform: scale(1);
-    transform-origin: left;
   }
 
   .step,
