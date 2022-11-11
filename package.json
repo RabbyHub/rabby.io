@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "build": "react-scripts build && yarn docs:build && yarn claims:build",
+    "build": "react-scripts build && yarn claims:build",
     "dev": "react-scripts start",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "cpy-cli": "^4.2.0",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.9.7"
   },
   "eslintConfig": {
     "extends": [
