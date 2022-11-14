@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Carousel, { CarouselProps } from "nuka-carousel";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import style from "./style.module.scss";
 interface ArrowProps extends React.ComponentPropsWithoutRef<"img"> {
   isRight?: boolean;
@@ -23,8 +23,12 @@ interface TipsProps {
   hrefText: string;
   className?: string;
   carouselConfig?: CarouselProps;
+  width?: React.CSSProperties["width"];
+  height?: React.CSSProperties["height"];
 }
 export const Tips = ({
+  width = 400,
+  height = 346,
   className,
   href,
   hrefText,
@@ -47,8 +51,8 @@ export const Tips = ({
       <div className={style.maxContent}>
         <div
           style={{
-            maxWidth: 300,
-            height: 260,
+            maxWidth: width,
+            height,
           }}
         >
           <Carousel
@@ -74,16 +78,7 @@ export const Tips = ({
                 setCurrent(currentSlide);
               }
               return (
-                <div
-                  className={clsx(style.dotContainer, "dotContainer")}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "relative",
-                    top: 10,
-                  }}
-                >
+                <div className={clsx(style.dotContainer, "dotContainer")}>
                   {pagingDotsIndices.map((e, i) => (
                     <div
                       onClick={() => goToSlide(i)}
@@ -102,7 +97,7 @@ export const Tips = ({
               <img
                 style={{
                   width: "100%",
-                  height: 260,
+                  height,
                 }}
                 src={e}
                 alt=""

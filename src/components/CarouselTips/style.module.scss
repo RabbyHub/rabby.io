@@ -1,6 +1,4 @@
 .sectionTitle {
-  max-width: 794px;
-  min-width: 794px;
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
@@ -37,7 +35,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 10px;
+  top: 24px;
 }
 
 .dot {
@@ -69,14 +67,15 @@
 }
 .stepContainer {
   padding-left: 104px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 .stepBox {
   position: relative;
-  margin-bottom: 24px;
   cursor: pointer;
 }
 
@@ -119,7 +118,7 @@
 }
 
 .maxContent {
-  max-width: 794px;
+  max-width: 970px;
   display: flex;
   width: 100%;
   margin: 0 auto;
