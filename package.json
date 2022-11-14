@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "build": "react-scripts build && yarn claims:build",
+    "build": "react-scripts build && yarn docs:build && yarn claims:build",
     "dev": "react-scripts start",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -29,21 +29,18 @@
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.1",
     "react-router-dom": "^6.4.2",
-    "react-scripts": "5.0.1",
-    "sass": "^1.56.1",
+    "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
     "cpy-cli": "^4.2.0",
-    "vuepress": "^1.9.7"
+    "sass": "^1.56.1",
+    "vuepress": "^1.8.2"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "ignorePatterns": [
-      "packages/**"
     ]
   },
   "browserslist": {
