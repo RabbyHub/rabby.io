@@ -1,4 +1,4 @@
-# Rabby Terms of Service and Privacy Policy
+# Rabby Terms of Service and Privacy Policy 
 ## Last updated: November 11, 2022
 DEBANK GLOBAL PTE. LTD. ("DEBANK" or "Rabby" or "we") respects and protects the privacy of Users (“you” or “users”). We will collect and use the information generated from your use of DeBank or Rabby, in accordance with the Terms of Use.
 
