@@ -9,6 +9,14 @@
     <title>Rabby</title>
     <meta content="The game-changing wallet for Ethereum and all EVM chains" name="description">
     <meta content="The game-changing wallet for Ethereum and all EVM chains" property="twitter:description">
+    <script>
+      if (
+        location.pathname.startsWith("/docs/") &&
+        location.pathname.endsWith("/")
+      ) {
+        location.pathname = location.pathname.slice(0, -1);
+      }
+    </script>
     <meta content="https://pbs.twimg.com/media/E7N3LxGVUAMy9OG?format=jpg&name=medium" property="twitter:image">
     <meta content="Rabby" property="twitter:title">
     <meta content="summary_large_image" name="twitter:card">
