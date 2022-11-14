@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { Tips } from "../../components/CarouselTips";
 import style from "./style.module.scss";
-
 const updateExtensionImages = Array(4)
   .fill(1)
   .map((_, i) => `/assets/images/update-extension-${i + 1}.png`);
@@ -16,7 +15,12 @@ const updateExtensionSteps = [
 export const UpdateExtension = () => {
   return (
     <div className={style.container}>
-      <section className={clsx(style.header)}>
+      <section
+        className={clsx(style.header)}
+        style={{
+          backgroundImage: `url(/assets/logos/logo-transparent.svg)`,
+        }}
+      >
         <img
           className={style.logo}
           src={"/assets/images/info.svg"}

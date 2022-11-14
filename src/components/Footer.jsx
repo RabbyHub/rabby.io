@@ -16,7 +16,7 @@ const Footer = () => {
           <a href="https://github.com/RabbyHub/logo" target="_blank" rel="noreferrer">
             Brand
           </a>
-          <a href="https://debank.com/docs/privacy/" target="_blank" rel="noreferrer">
+          <a href="/docs/privacy/" target="_blank" rel="noreferrer">
             Privacy Policy
           </a>
         </div>
