@@ -16,7 +16,13 @@ export const HomeLayout = () => {
     <div className="max-w-[760px] container mx-auto md:py-[80px] text-center p-4 md:p-0">
       <ClaimsSubmissionGuidelinesCard />
 
-      {mounted && <WalletPanel />}
+      {/* {mounted && <WalletPanel />} */}
+      <Card className="mt-4 font-bold">
+        Claim submission has ended. If you have any questions, please contact{' '}
+        <a className="underline" href="mailto:rabby@debank.com">
+          rabby@debank.com
+        </a>
+      </Card>
     </div>
   );
 };
@@ -27,12 +33,6 @@ const WalletPanel = () => {
   return isConnected ? (
     <ConfirmCard />
   ) : (
-    // <WalletButton className="mt-4 md:mt-[80px]" />
-    <Card className="mt-4 font-bold">
-      Claim submission has ended. If you have any questions, please contact{' '}
-      <a className="underline" href="mailto:rabby@debank.com">
-        rabby@debank.com
-      </a>
-    </Card>
+    <WalletButton className="mt-4 md:mt-[80px]" />
   );
 };
