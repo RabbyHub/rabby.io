@@ -9,6 +9,7 @@ const SigningModes = () => {
     { name: "OneKey", icon: "/assets/images/brand-logos/onekey.jpg" },
     { name: "Trezor", icon: "/assets/images/brand-logos/trezor.jpg" },
     { name: "CoolWallet", icon: "/assets/images/brand-logos/cool.png" },
+    { name: "AirGap Vault", icon: "/assets/images/brand-logos/airgap.png" },
   ];
   const institutionalWallets = [
     { name: "Amber", icon: "/assets/images/brand-logos/amber.jpg" },
