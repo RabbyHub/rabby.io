@@ -24,14 +24,21 @@ function App() {
       <Security />
       <div className="intro no-padding">
         <div className="download">
-          <img src="/assets/images/download-bg.png" className="download-bg" alt="download bg" />
           <img
-            src="/assets/images/download-bg-mobile.png"
-            className="download-bg-mobile"
+            src="/assets/images/download-bg-2.png"
+            className="download-bg"
             alt="download bg"
           />
-          <h3 className="white">Get Rabby and Start DeFi</h3>
-          <p>In "Watch Mode", no private key is needed. Experience all fancy features in a risk-free way.</p>
+          <img
+            src="/assets/images/download-bg-mobile-2.png"
+            className="download-mobile-bg"
+            alt="download bg"
+          />
+          <h3 className="white">Get Rabby and start your Web3 journey</h3>
+          <p className="white">
+            Add your address to contacts and experience all features without
+            importing a private key.
+          </p>
           <a
             href="javascript:;"
             className="round-button orange"
