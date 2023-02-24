@@ -17,9 +17,23 @@ export const DesktopPage = () => {
           <img src="/assets/desktop/laptop.svg" alt="laptop" />
         </div>
         <div className={styles.download}>
-          <Button icon="/assets/desktop/macos.svg">macOS Intel</Button>
-          <Button icon="/assets/desktop/macos.svg">macOS Apple Silicon</Button>
-          <Button icon="/assets/desktop/win.svg" isComingSoon>
+          <Button
+            href="https://download.rabby.io/wallet-desktop/darwin-x64/rabby-wallet-desktop-installer-x64-latest.dmg"
+            icon="/assets/desktop/macos.svg"
+          >
+            macOS Intel
+          </Button>
+          <Button
+            href="https://download.rabby.io/wallet-desktop/darwin-arm64/rabby-wallet-desktop-installer-arm64-latest.dmg"
+            icon="/assets/desktop/macos.svg"
+          >
+            macOS Apple Silicon
+          </Button>
+          <Button
+            // href="https://download.rabby.io/wallet-desktop/win32-x64/rabby-wallet-desktop-installer-x64-latest.exe"
+            icon="/assets/desktop/win.svg"
+            isComingSoon
+          >
             Windows
           </Button>
         </div>

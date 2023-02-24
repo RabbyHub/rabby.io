@@ -16,7 +16,7 @@ export const Button: React.FC<Props> = ({
   href
 }) => {
   return (
-    <a href={href}>
+    <a href={href} className={styles.buttonLink}>
       <button
         className={clsx(styles.button, {
           [styles['is-coming-soon']]: isComingSoon
