@@ -15,6 +15,7 @@
   width: 680px;
   text-align: center;
   border-radius: 8px;
+  min-width: 360px;
 }
 
 

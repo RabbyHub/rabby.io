@@ -14,7 +14,7 @@ export const DesktopPage = () => {
           </h1>
         </div>
         <div className={styles.banner}>
-          <img src="/assets/desktop/laptop.svg" alt="laptop" />
+          <img width="auto" src="/assets/desktop/laptop.svg" alt="laptop" />
         </div>
         <div className={styles.download}>
           <Button
