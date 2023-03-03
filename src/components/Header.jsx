@@ -143,31 +143,6 @@ const Header = () => {
             </div>
 
             <Download />
-
-            {/* <div className="actions">
-              <a
-                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                target="_blank"
-                className="download-btn round-button orange"
-                onClick={handleClickDownloadBtn}
-                rel="noreferrer"
-              >
-                Download
-              </a>
-              <a
-                href="https://discord.gg/seFBCWmUre"
-                target="_blank"
-                className="round-button border"
-                rel="noreferrer"
-              >
-                <img
-                  src="/assets/images/discord.png"
-                  alt=""
-                  className="icon-discord"
-                />
-                Join the discussion
-              </a>
-            </div> */}
           </div>
           <img
             src="/assets/images/hero-12.png"

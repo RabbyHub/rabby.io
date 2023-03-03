@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './style.module.css';
 import ReactGA from 'react-ga';
+import { showToast } from '../../toast';
 
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   icon: string;
@@ -20,7 +21,15 @@ export const DownloadButton: React.FC<Props> = ({
   size = 'medium',
   ...props
 }) => {
-  const reportClickDownload = () => {
+  const reportClickDownload = (e: React.MouseEvent) => {
+    if (/mobile/i.test(navigator.userAgent)) {
+      e.preventDefault();
+      showToast({
+        content: 'Please visit this site from the desktop',
+        duration: 2000
+      });
+    }
+
     ReactGA.event({
       category: 'User',
       action: 'clickDownload',
