@@ -1,4 +1,4 @@
-import React from 'react';
+import { DESKTOP_DOWNLOAD_URL } from '../../components/Download/desktop';
 import { Button } from './button';
 import styles from './style.module.css';
 
@@ -18,19 +18,19 @@ export const DesktopPage = () => {
         </div>
         <div className={styles.download}>
           <Button
-            href="https://download.rabby.io/wallet-desktop/darwin-x64/rabby-wallet-desktop-installer-x64-latest.dmg"
+            href={DESKTOP_DOWNLOAD_URL.macosIntel}
             icon="/assets/desktop/macos.svg"
           >
             macOS Intel
           </Button>
           <Button
-            href="https://download.rabby.io/wallet-desktop/darwin-arm64/rabby-wallet-desktop-installer-arm64-latest.dmg"
+            href={DESKTOP_DOWNLOAD_URL.macosArm}
             icon="/assets/desktop/macos.svg"
           >
             macOS Apple Silicon
           </Button>
           <Button
-            // href="https://download.rabby.io/wallet-desktop/win32-x64/rabby-wallet-desktop-installer-x64-latest.exe"
+            // href={DESKTOP_DOWNLOAD_URL.windows}
             icon="/assets/desktop/win.svg"
             isComingSoon
           >

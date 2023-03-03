@@ -1,0 +1,248 @@
+.download {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  overflow: hidden;
+  margin-top: 62px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.tab {
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  margin-right: -1px;
+  justify-content: center;
+  padding: 20px 10px;
+  opacity: 0.6;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.tab::before,
+.tab::after {
+  content: "";
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.tab.active::before {
+  right: calc(50% + 8px);
+}
+
+.tab.active::after {
+  left: calc(50% + 8px);
+}
+
+.tab:hover {
+  opacity: 1;
+}
+
+.tab.active {
+  opacity: 1;
+}
+
+.activeIcon {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  bottom: -5px;
+  display: block;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.tab .info {
+  margin-left: 10px;
+}
+
+.tab .info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 3px 0;
+  line-height: 1;
+}
+
+.tab .info p {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+.tab .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.panels {
+  padding: 26px 10px 35px
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelButtonGroup {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  background: #FFFFFF;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #13141A;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  justify-content: center;
+}
+
+.button img {
+  margin-right: 10px;
+  display: block;
+}
+
+.button.medium {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 17px 40px;
+}
+
+.button.medium img {
+  width: 34px;
+}
+
+.button.small {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 0;
+  width: 178px;
+}
+
+.button.small img {
+  width: 30px;
+  height: 30px;
+}
+
+.buttonLink {
+  text-decoration: none;
+}
+
+.button:hover {
+  box-shadow: 0px 8px 24px rgba(58, 74, 165, 0.3);
+}
+
+.discord {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: flex;
+  margin: auto;
+}
+
+.discord img {
+  width: 18px;
+  margin-right: 10px;
+  display: block;
+}
+
+.panelSingleButton {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.tips {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 18px;
+  margin: auto;
+  margin-bottom: 27px;
+}
+
+.tips img {
+  margin-right: 6px;
+}
+
+.panel .empty {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+  margin: 25px auto 50px;
+}
+
+@media screen and (max-width: 992px) {
+  .download {
+    margin-top: 30px;
+  }
+
+  .tab .info h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .tab .info p {
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .tab .icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .button {
+    border-radius: 10px;
+  }
+
+  .button.medium {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .button.small {
+    font-size: 12px;
+    padding: 10px 6px;
+    min-width: 100px;
+    width: auto;
+  }
+
+  .button.small img {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  }
+
+  .panel .empty {
+    font-weight: 400;
+    font-size: 22px;
+    margin: 5px auto 26px;
+  }
+}
