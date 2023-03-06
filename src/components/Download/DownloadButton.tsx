@@ -43,6 +43,7 @@ export const DownloadButton: React.FC<Props> = ({
       href={href}
       rel="noreferrer"
       onClick={reportClickDownload}
+      target="_blank"
     >
       <button
         className={clsx(className, styles.button, {
