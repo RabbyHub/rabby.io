@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import { DESKTOP_DOWNLOAD_URL } from './desktop';
 import { DownloadButton } from './DownloadButton';
@@ -8,6 +9,7 @@ import { Platform, Tab } from './Tab';
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
 export const Download: React.FC = () => {
+  const isMobile = /mobile/i.test(navigator.userAgent);
   const [activeTab, setActiveTab] = React.useState<Platform>(
     Platform.WebExtension
   );
@@ -28,23 +30,26 @@ export const Download: React.FC = () => {
       <div className={styles.panels}>
         {activeTab === Platform.WebExtension && (
           <div className={styles.panel}>
-            <div className={styles.panelButtonGroup}>
-              <div className={styles.panelSingleButton}>
-                <DownloadButton
-                  title="Download for Chrome"
-                  icon="/assets/images/chrome.png"
-                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                  report="Chrome"
-                />
-              </div>
+            <div
+              className={clsx(
+                styles.panelButtonGroup,
+                styles.panelSingleButton
+              )}
+            >
+              <DownloadButton
+                title="Download for Chrome"
+                icon="/assets/images/chrome.png"
+                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                report="Chrome"
+              />
             </div>
-            <JoinDiscord />
           </div>
         )}
         {activeTab === Platform.Mobile && (
           <div className={styles.panel}>
-            <div className={styles.empty}>Stay tuned</div>
-            <JoinDiscord />
+            <div className={clsx(styles.empty, styles.panelButtonGroup)}>
+              Stay tuned
+            </div>
           </div>
         )}
         {activeTab === Platform.Desktop && (
@@ -52,8 +57,8 @@ export const Download: React.FC = () => {
             <div className={styles.tips}>
               <img src="/assets/download/tips.svg" alt="tip" />
               <span>
-                Beta version is available for download (Invitation code
-                required)
+                Beta version is available for download{' '}
+                {`${isMobile ? '' : '(Invitation code required)'}`}
               </span>
             </div>
             <div className={styles.panelButtonGroup}>
@@ -79,9 +84,10 @@ export const Download: React.FC = () => {
                 size="small"
               />
             </div>
-            <JoinDiscord />
           </div>
         )}
+
+        <JoinDiscord />
       </div>
     </div>
   );

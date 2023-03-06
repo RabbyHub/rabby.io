@@ -92,19 +92,20 @@
 }
 
 .panels {
-  padding: 0 10px;
+  padding: 0 10px 32px;
   height: 215px;
   display: flex;
+  flex-direction: column;
 }
 
 .panel {
   display: flex;
   flex-direction: column;
   margin: auto;
+  flex: 1;
 }
 
 .panelButtonGroup {
-  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -179,7 +180,7 @@
 
 .panelSingleButton {
   margin: auto;
-  margin-top: 20px;
+  height: 100%;
 }
 
 .tips {
@@ -187,8 +188,7 @@
   align-items: center;
   font-size: 15px;
   line-height: 18px;
-  margin: auto;
-  margin-bottom: 27px;
+  margin: 26px auto;
 }
 
 .tips img {
@@ -198,8 +198,7 @@
 .panel .empty {
   font-weight: 400;
   font-size: 32px;
-  line-height: 38px;
-  margin: 25px auto 50px;
+  height: 100%;
 }
 
 @media screen and (max-width: 992px) {
@@ -226,11 +225,12 @@
   }
 
   .tips {
-    margin-bottom: 17px;
+    margin: 16px auto;
   }
 
   .panels {
     height: 150px;
+    padding-bottom: 28px;
   }
 
   .button.medium {
@@ -254,6 +254,5 @@
   .panel .empty {
     font-weight: 400;
     font-size: 22px;
-    margin: 5px auto 26px;
   }
 }
