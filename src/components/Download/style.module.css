@@ -92,12 +92,15 @@
 }
 
 .panels {
-  padding: 26px 10px 35px
+  padding: 0 10px;
+  height: 215px;
+  display: flex;
 }
 
 .panel {
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .panelButtonGroup {
@@ -105,6 +108,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .button {
@@ -219,6 +223,14 @@
   
   .button {
     border-radius: 10px;
+  }
+
+  .tips {
+    margin-bottom: 17px;
+  }
+
+  .panels {
+    height: 150px;
   }
 
   .button.medium {
