@@ -1,0 +1,101 @@
+.container {
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.panel {
+  padding: 40px;
+  border: 1px solid #E5E9EF;
+  background: #fff;
+  width: 680px;
+  text-align: center;
+  border-radius: 8px;
+  min-width: 360px;
+}
+
+
+
+.headline {
+  font-size: 24px;
+  line-height: 1.33;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.banner {
+  background: rgba(134, 151, 255, 0.1);
+  border-radius: 4px;
+  padding: 30px 0;
+  margin-bottom: 40px;
+}
+
+.download {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: 1px solid #13141A;
+  border-radius: 4px;
+  padding: 13px 0;
+  width: 188px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #fff;
+}
+
+.button:hover {
+  background: rgba(19, 20, 26, 0.06);
+}
+
+.button.is-coming-soon {
+  cursor: not-allowed;
+  border-color:#B4BDCC;
+  color: #B4BDCC;
+  position: relative;
+}
+
+.button.is-coming-soon:hover {
+  background: #fff;
+}
+
+.button.is-coming-soon::before {
+  content: "Coming soon";
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #fff;
+  right: 0;
+  top: 0;
+  padding: 3px 4px;
+  transform: translate(-10%, -50%);
+}
+
+.button img {
+  margin-right: 10px;
+}
+
+.buttonLink {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 680px) {
+  .panel {
+    width: 100%;
+  }
+
+  .download {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}

@@ -13,7 +13,7 @@ body {
   background-image: url(https://rabby.io/assets/images/bg-1.png);
   /* background-size: 100% 767px; */
   background-repeat: no-repeat;
-  background-size: 3840px 767px;
+  background-size: 3840px 850px;
   background-position: top right 50%;
   max-width: 100vw;
   overflow-x: hidden;
@@ -152,16 +152,16 @@ header {
 
 .header-content {
   width: 67%;
-  margin: 120px auto;
+  margin: 62px auto;
   position: relative;
 }
 
 .hero-image {
   max-width: 100%;
   position: absolute;
-  width: 580px;
+  width: 500px;
   right: -125px;
-  top: -118px;
+  top: -68px;
 }
 
 .white {
@@ -169,7 +169,7 @@ header {
 }
 
 .header-content .left {
-  width: 50%;
+  width: 64%;
 }
 
 .features {
@@ -811,10 +811,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   body {
     background-position: top right 50%;
     background-image: url(https://rabby.io/assets/images/bg-mobile.png);
-    background-size: 1280px 700px;
+    background-size: 1280px 900px;
   }
   header {
-    height: 700px;
+    height: 900px;
   }
   .logo {
     width: 115px;
@@ -888,7 +888,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
     align-items: center;
   }
   .header-content .container {
-    padding: 0 20px;
+    width: 100%;
+  }
+  .features {
+    display: flex;
+    justify-content: center;
   }
   .header-content .left {
     width: 100%;

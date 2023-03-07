@@ -1,24 +1,25 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState, useCallback } from "react";
-import clsx from "clsx";
-import { showToast } from "../toast";
-import AnimateScroll from "./AnimateScroll";
+import React, { useEffect, useState, useCallback } from 'react';
+import clsx from 'clsx';
+import { showToast } from '../toast';
+import AnimateScroll from './AnimateScroll';
 import ReactGA from 'react-ga';
+import { Download } from './Download/Download';
 
 const Header = () => {
   const [isExpand, setIsExpand] = useState(false);
-  const [mouseOver, setMouseOver] = useState("");
+  const [mouseOver, setMouseOver] = useState('');
   const isFirefox = /firefox/i.test(navigator.userAgent);
   const isBrave = /brave/i.test(navigator.userAgent);
   const isEdge = /edg\//i.test(navigator.userAgent);
   const isChrome = !isBrave && !isEdge && /chrome/i.test(navigator.userAgent);
 
   const initMouseOver = useCallback(() => {
-    if (isChrome) setMouseOver("chrome");
-    if (isEdge) setMouseOver("edge");
-    if (isBrave) setMouseOver("brave");
-    if (isFirefox) setMouseOver("firefox");
+    if (isChrome) setMouseOver('chrome');
+    if (isEdge) setMouseOver('edge');
+    if (isBrave) setMouseOver('brave');
+    if (isFirefox) setMouseOver('firefox');
   }, [isBrave, isChrome, isEdge, isFirefox]);
 
   const handleClickMenuBtn = () => {
@@ -30,15 +31,15 @@ const Header = () => {
       category: 'User',
       action: 'clickDownload',
       label
-    })
-  }
+    });
+  };
 
   const handleClickDownloadBtn = (e) => {
     if (/mobile/i.test(navigator.userAgent)) {
       e.preventDefault();
       showToast({
-        content: "Please visit this site from the desktop",
-        duration: 2000,
+        content: 'Please visit this site from the desktop',
+        duration: 2000
       });
     }
     reportClickDownload();
@@ -54,14 +55,14 @@ const Header = () => {
         <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
         <a
           href="javascript:;"
-          className={clsx("menu-btn", { expand: isExpand })}
+          className={clsx('menu-btn', { expand: isExpand })}
           onClick={handleClickMenuBtn}
         >
           <i></i>
           <i></i>
           <i></i>
         </a>
-        <ul className={clsx("menu", { show: isExpand })}>
+        <ul className={clsx('menu', { show: isExpand })}>
           <li>
             <a
               href="https://twitter.com/Rabby_io"
@@ -140,66 +141,8 @@ const Header = () => {
                 Open Source
               </a>
             </div>
-            <div className="browsers">
-              <a
-                className={clsx("browser-item enable", {
-                  highlight: mouseOver === "chrome",
-                })}
-                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                target="_blank"
-                onClick={() => reportClickDownload('Chrome')}
-                onMouseOver={() => setMouseOver("chrome")}
-                onMouseLeave={initMouseOver}
-                rel="noreferrer"
-              >
-                <img src="/assets/images/chrome-1.png" alt="Chrome" />
-                <p>Download for Chrome</p>
-              </a>
-              <a
-                className={clsx("browser-item enable", {
-                  highlight: mouseOver === "brave",
-                })}
-                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                target="_blank"
-                onClick={() => reportClickDownload('Brave')}
-                onMouseOver={() => setMouseOver("brave")}
-                onMouseLeave={initMouseOver}
-                id="brave-browser"
-                rel="noreferrer"
-              >
-                <img src="/assets/images/brave-1.png" alt="Brave" />
-                <p>Download for Brave</p>
-              </a>
-            </div>
-            <div className="coming-soon">
-              <img src="/assets/images/firefox-small.png" alt="" />
-              <img src="/assets/images/edge.svg" alt="" />
-              <span>Firefox / Edge version coming soon</span>
-            </div>
-            <div className="actions">
-              <a
-                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                target="_blank"
-                className="download-btn round-button orange"
-                onClick={handleClickDownloadBtn}
-                rel="noreferrer"
-              >
-                Download
-              </a>
-              <a
-                href="https://discord.gg/seFBCWmUre"
-                target="_blank"
-                className="round-button border"
-                rel="noreferrer"
-              >
-                <img
-                  src="/assets/images/discord.png"
-                  alt=""
-                  className="icon-discord"
-                />
-                Join the discussion
-              </a>
-            </div>
+
+            <Download />
           </div>
           <img
             src="/assets/images/hero-12.png"
