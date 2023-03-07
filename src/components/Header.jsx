@@ -9,6 +9,7 @@ import { Download } from './Download/Download';
 
 const Header = () => {
   const [isExpand, setIsExpand] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [mouseOver, setMouseOver] = useState('');
   const isFirefox = /firefox/i.test(navigator.userAgent);
   const isBrave = /brave/i.test(navigator.userAgent);
@@ -34,6 +35,7 @@ const Header = () => {
     });
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleClickDownloadBtn = (e) => {
     if (/mobile/i.test(navigator.userAgent)) {
       e.preventDefault();
@@ -55,7 +57,9 @@ const Header = () => {
         <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
         <a
           href="javascript:;"
-          className={clsx('menu-btn', { expand: isExpand })}
+          className={clsx('menu-btn', {
+            expand: isExpand
+          })}
           onClick={handleClickMenuBtn}
         >
           <i></i>
