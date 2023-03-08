@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "build": "react-scripts build && yarn docs:build && yarn claims:build",
+    "build": "react-scripts build && yarn docs:build",
     "dev": "react-scripts start",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
