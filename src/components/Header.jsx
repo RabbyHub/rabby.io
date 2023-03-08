@@ -4,8 +4,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import { showToast } from '../toast';
 import AnimateScroll from './AnimateScroll';
-import ReactGA from 'react-ga';
 import { Download } from './Download/Download';
+import { ga } from '../ga';
 
 const Header = () => {
   const [isExpand, setIsExpand] = useState(false);
@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const reportClickDownload = (label) => {
-    ReactGA.event({
+    ga.event({
       category: 'User',
       action: 'clickDownload',
       label

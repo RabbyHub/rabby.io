@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 import styles from './style.module.css';
-import ReactGA from 'react-ga';
 import { showToast } from '../../toast';
+import { ga } from '../../ga';
 
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   icon: string;
@@ -30,7 +30,7 @@ export const DownloadButton: React.FC<Props> = ({
       });
     }
 
-    ReactGA.event({
+    ga.event({
       category: 'User',
       action: 'clickDownload',
       label: report

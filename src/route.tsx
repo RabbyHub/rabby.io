@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import ReactGa from 'react-ga';
 import App from './App';
 import { MetaMaskExport } from './page/metamask';
 import { UpdateExtension } from './page/update-extension';
 import { DesktopPage } from './page/desktop';
+import { ga } from './ga';
 
 export const MainRoutes = () => {
   let location = useLocation();
 
   useEffect(() => {
     // Google Analytics
-    ReactGa.pageview(window.location.pathname + window.location.search);
+    const path = window.location.pathname + window.location.search;
+    ga.pageview(path);
   }, [location]);
   return (
     <Routes>
