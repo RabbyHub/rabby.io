@@ -770,6 +770,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
     width: 12.5% !important;
     margin-right: 0 !important;
   }
+
+  .header-content .left {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 1200px) {

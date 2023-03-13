@@ -201,6 +201,14 @@
   height: 100%;
 }
 
+@media screen and (max-width: 1440px) {
+  .button.small {
+    width: auto;
+    padding-left:20px;
+    padding-right: 20px;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .download {
     margin-top: 30px;
