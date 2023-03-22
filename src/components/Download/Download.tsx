@@ -78,14 +78,14 @@ export const Download: React.FC = () => {
             </div>
             <div className={styles.panelButtonGroup}>
               <DownloadButton
-                title="MacOS Intel"
+                title="macOS Intel"
                 icon="/assets/download/apple.svg"
                 href={DESKTOP_DOWNLOAD_URL.macosIntel}
                 report="MacOS Intel"
                 size="small"
               />
               <DownloadButton
-                title="MacOS M1/M2"
+                title="macOS M1/M2"
                 icon="/assets/download/apple.svg"
                 href={DESKTOP_DOWNLOAD_URL.macosArm}
                 report="MacOS M1/M2"
