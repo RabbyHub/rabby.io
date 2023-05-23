@@ -11,7 +11,6 @@ const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
 export const Download: React.FC = () => {
   const location = useLocation();
-  const isMobile = /mobile/i.test(navigator.userAgent);
   const [activeTab, setActiveTab] = React.useState<Platform>(
     Platform.WebExtension
   );
@@ -72,8 +71,7 @@ export const Download: React.FC = () => {
             <div className={styles.tips}>
               <img src="/assets/download/tips.svg" alt="tip" />
               <span>
-                Beta version is available for download{' '}
-                {`${isMobile ? '' : '(Invitation code required)'}`}
+                Beta version is available for download
               </span>
             </div>
             <div className={styles.panelButtonGroup}>
