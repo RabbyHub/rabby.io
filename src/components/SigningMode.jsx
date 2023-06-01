@@ -31,8 +31,20 @@ const SigningModes = () => {
       icon: "/assets/images/brand-logos/metamask.jpg",
     },
     {
-      name: "Defiant",
-      icon: "/assets/images/brand-logos/defiant.png",
+      name: "Rainbow",
+      icon: "/assets/images/brand-logos/rainbow.svg"
+    },
+    {
+      name: "Bitkeep",
+      icon: "/assets/images/brand-logos/bitkeep.svg"
+    },
+    {
+      name: "Zerion Wallet",
+      icon: "/assets/images/brand-logos/zerion.svg"
+    },
+    {
+      name: "Wallet Connect",
+      icon: "/assets/images/brand-logos/wallet-connect.svg"
     },
   ];
   return (
