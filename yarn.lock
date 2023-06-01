@@ -1125,10 +1125,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@debank/common@^0.2.36":
-  version "0.2.36"
-  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.2.36.tgz#15822790e90a6c173b4f3087418c5b181a9e6f0e"
-  integrity sha512-7Rg19QJ3af6Hp5OFT3Czz1o6K04UwUK7kWPan1WB+gkisUUpFH7h9NMtLaEYrZJI4nWqTH2IGkPNGnk6A+XV9Q==
+"@debank/common@^0.2.39":
+  version "0.2.39"
+  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.2.39.tgz#02e2eeb3074f59c9cdffe5fdcadb03d865e908f2"
+  integrity sha512-h4yLXMoB0GKxEDE2dhMQkz/YQPoIpEZQG8GmhF9RZ4mLfk+2Ai7nW1dgpzxW5+y6QEn9hQfPmGXd+5WFwL/1OA==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
@@ -4911,9 +4911,6 @@ detect-port-alt@1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/detect-port-alt/-/detect-port-alt-1.1.6.tgz#24707deabe932d4a3cf621302027c2b266568275"
   integrity sha512-5tQykt+LqfJFBEYaDITx7S7cR7mJ/zQmLXZ2qt5w04ainYZw6tBf9dBunMjVeVOdYVRUzUOE4HkY5J7+uttb5Q==
-  dependencies:
-    address "^1.0.1"
-    debug "^2.6.0"
 
 diff-sequences@^26.6.2:
   version "26.6.2"
