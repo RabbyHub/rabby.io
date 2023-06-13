@@ -71,7 +71,7 @@ export const Download: React.FC = () => {
             <div className={styles.tips}>
               <img src="/assets/download/tips.svg" alt="tip" />
               <span>
-                Beta version is available for download
+                Beta version now supports MacOS 11+ and Windows 10+
               </span>
             </div>
             <div className={styles.panelButtonGroup}>
