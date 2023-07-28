@@ -454,8 +454,8 @@ footer .main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 241px;
-  padding-right: 241px;
+  padding-left: 240px;
+  padding-right: 240px;
 }
 footer .copyright {
   font-weight: 500;
