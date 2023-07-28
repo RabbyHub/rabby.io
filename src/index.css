@@ -129,6 +129,7 @@ header {
 
 .menu {
   display: flex;
+  margin-right: -45px;
 }
 .menu li {
   display: flex;
@@ -140,7 +141,7 @@ header {
 }
 .menu li a {
   color: #ffffff;
-  opacity: 0.6;
+  opacity: 0.8;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -159,9 +160,12 @@ header {
 .hero-image {
   max-width: 100%;
   position: absolute;
-  width: 500px;
-  right: -125px;
-  top: -68px;
+  right: -52px;
+  top: -25px;
+  width: 348.635px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.30);
+  box-shadow: 24px 16px 100px 0px rgba(40, 58, 151, 0.20);
 }
 
 .white {
@@ -438,17 +442,20 @@ header {
   margin: 0;
   padding-top: 12px;
   padding-bottom: 32px;
+  opacity: 0.8;
 }
 
 footer {
-  width: 100%;
   background-color: #19233c;
+}
+footer .main {
+  width: 1440px;
   height: 104px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16%;
-  padding-right: 16%;
+  padding-left: 241px;
+  padding-right: 241px;
 }
 footer .copyright {
   font-weight: 500;
@@ -481,7 +488,9 @@ footer .left .rabby-logo {
   padding-right: 18px;
 }
 footer .left .rabby-logo {
-  width: 199px;
+  width: 164px;
+  padding-left: 0;
+  padding-right: 0;
 }
 footer .left img {
   width: 100%;
@@ -544,11 +553,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   position: relative;
   margin-bottom: 180px;
   width: 100%;
-  overflow: hidden;
 }
 
 .security .title {
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 
 .security-content {
@@ -557,6 +565,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
   justify-content: center;
   font-size: 19px;
   line-height: 30px;
+}
+
+.security-content .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .security-content ol {
@@ -596,12 +610,16 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .security-audit .security-audit-card {
   display: block;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   width: 100%;
   line-height: 0;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.3s;
+}
+
+.security-audit .security-audit-card:last-child {
+  margin-bottom: 0;
 }
 
 .security-audit .security-audit-card:hover {
@@ -614,7 +632,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .security .rentage-bg {
   width: 110vw;
-  height: 580px;
+  height: 590px;
   background: #eff2f9;
   opacity: 0.7;
   transform: rotate(-4.37deg);
@@ -646,6 +664,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
 .chains ul {
   display: flex;
   flex-wrap: wrap;
+}
+
+.chains .part-title {
+  margin-top: 40px;
+  margin-bottom: 24px;
 }
 
 .chains ul li {
@@ -931,10 +954,9 @@ footer .right .footer-links a:nth-last-child(1)::after {
     display: none;
   }
   .hero-image {
-    width: 460px;
     position: static;
-    transform: translate(18px, -20px);
-    max-width: 460px;
+    transform: translate(0, 20px);
+    margin: 0 42px;
   }
   .intro {
     width: 90%;
@@ -977,7 +999,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     padding-bottom: calc(var(--rate) * 32);
   }
 
-  footer {
+  footer .main {
     padding: 20px 0;
     flex-direction: column;
     height: auto;
@@ -1008,7 +1030,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     padding-inline-start: 0;
   }
   .security-content ol li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   .security-content ol li:nth-last-child(1) {
     margin-bottom: 0;
@@ -1018,7 +1040,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     font-size: 12px;
     line-height: 14px;
     color: #7887fe;
-    margin-bottom: 42px;
+    margin-bottom: 20px;
     margin-left: -10px;
   }
   .security-content .security-link .icon-arrow-right {
@@ -1032,9 +1054,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .security-audit .security-audit-card {
     margin-left: 0;
+    margin-bottom: 8px;
   }
   .security .rentage-bg {
     width: 120vw;
+    height: 640px;
   }
   .chains ul li {
     width: 25% !important;

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React from 'react';
 
 const Intro = () => {
   return (
@@ -26,18 +26,18 @@ const Intro = () => {
         <div className="intro-content">
           <div className="left text">
             <div className="intro-title">Security</div>
-            <h3>Pre-sign check for error and risk</h3>
-            <p>Supported by our security rule engine</p>
+            <h3>Pre-sign check for Security</h3>
+            <p>Supported by Rabby security engine</p>
           </div>
           <img
-            src="/assets/images/security-check-2.png"
+            src="/assets/images/security-check-3.png"
             alt="Security"
             className="right intro-img"
           />
         </div>
         <div className="intro-content">
           <img
-            src="/assets/images/sign-tx-2.png"
+            src="/assets/images/sign-tx-3.png"
             alt="Experience"
             className="left intro-img"
           />

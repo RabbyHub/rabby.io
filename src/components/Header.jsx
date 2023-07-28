@@ -85,11 +85,11 @@ const Header = () => {
               Medium
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="https://t.me/rabby_io" target="_blank" rel="noreferrer">
               Telegram
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               href="https://discord.gg/seFBCWmUre"
@@ -149,7 +149,7 @@ const Header = () => {
             <Download />
           </div>
           <img
-            src="/assets/images/hero-12.png"
+            src="/assets/images/hero-13.png"
             alt="Dashboard screenshot"
             className="hero-image"
           />
