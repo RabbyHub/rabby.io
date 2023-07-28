@@ -444,14 +444,16 @@ header {
 }
 
 footer {
-  width: 100%;
   background-color: #19233c;
+}
+footer .main {
+  width: 1440px;
   height: 104px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16%;
-  padding-right: 16%;
+  padding-left: 241px;
+  padding-right: 241px;
 }
 footer .copyright {
   font-weight: 500;
@@ -650,7 +652,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   flex-wrap: wrap;
 }
 
-.chains .part-testnets {
+.chains .part-title {
   margin-top: 40px;
   margin-bottom: 24px;
 }
@@ -983,7 +985,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     padding-bottom: calc(var(--rate) * 32);
   }
 
-  footer {
+  footer .main {
     padding: 20px 0;
     flex-direction: column;
     height: auto;

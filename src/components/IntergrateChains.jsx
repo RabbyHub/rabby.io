@@ -7,7 +7,7 @@ const IntergrateChains = () => {
       <h2 className="title">
         Rabby has integrated {chains.length + testnetChains.length} chains
       </h2>
-      <p>Mainnets</p>
+      <p className="part-title">Mainnets</p>
       <ul className="chain-list">
         {chains.map((chain) => (
           <li key={chain.id}>
@@ -16,7 +16,7 @@ const IntergrateChains = () => {
           </li>
         ))}
       </ul>
-      <p className="part-testnets">Testnets</p>
+      <p className="part-title">Testnets</p>
       <ul className="chain-list">
         {testnetChains.map((chain) => (
           <li key={chain.id}>

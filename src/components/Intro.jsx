@@ -26,7 +26,7 @@ const Intro = () => {
         <div className="intro-content">
           <div className="left text">
             <div className="intro-title">Security</div>
-            <h3>Pre-sign check for error and risk</h3>
+            <h3>Pre-sign check for Security</h3>
             <p>Supported by our security rule engine</p>
           </div>
           <img
@@ -37,7 +37,7 @@ const Intro = () => {
         </div>
         <div className="intro-content">
           <img
-            src="/assets/images/sign-tx-2.png"
+            src="/assets/images/sign-tx-3.png"
             alt="Experience"
             className="left intro-img"
           />
