@@ -486,7 +486,9 @@ footer .left .rabby-logo {
   padding-right: 18px;
 }
 footer .left .rabby-logo {
-  width: 199px;
+  width: 164px;
+  padding-left: 0;
+  padding-right: 0;
 }
 footer .left img {
   width: 100%;
