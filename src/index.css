@@ -129,6 +129,7 @@ header {
 
 .menu {
   display: flex;
+  margin-right: -45px;
 }
 .menu li {
   display: flex;
@@ -441,6 +442,7 @@ header {
   margin: 0;
   padding-top: 12px;
   padding-bottom: 32px;
+  opacity: 0.8;
 }
 
 footer {
@@ -565,6 +567,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
   line-height: 30px;
 }
 
+.security-content .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .security-content ol {
   width: 562px;
   margin-bottom: 16px;
@@ -608,6 +616,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.3s;
+}
+
+.security-audit .security-audit-card:last-child {
+  margin-bottom: 0;
 }
 
 .security-audit .security-audit-card:hover {

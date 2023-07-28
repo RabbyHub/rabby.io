@@ -5,7 +5,7 @@ const Security = () => {
     <div className="security">
       <h2 className="title">Security over user experience</h2>
       <div className="security-content">
-        <div>
+        <div className="container">
           <ol>
             <li>Open sourced & audited by the professional security company</li>
             <li>

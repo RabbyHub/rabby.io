@@ -27,7 +27,7 @@ const Intro = () => {
           <div className="left text">
             <div className="intro-title">Security</div>
             <h3>Pre-sign check for Security</h3>
-            <p>Supported by our security rule engine</p>
+            <p>Supported by Rabby security engine</p>
           </div>
           <img
             src="/assets/images/security-check-3.png"
