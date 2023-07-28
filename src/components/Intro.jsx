@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React from 'react';
 
 const Intro = () => {
   return (
@@ -30,7 +30,7 @@ const Intro = () => {
             <p>Supported by our security rule engine</p>
           </div>
           <img
-            src="/assets/images/security-check-2.png"
+            src="/assets/images/security-check-3.png"
             alt="Security"
             className="right intro-img"
           />

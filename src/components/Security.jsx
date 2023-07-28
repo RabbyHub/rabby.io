@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Security = () => {
   return (
@@ -32,6 +32,14 @@ const Security = () => {
           </a>
         </div>
         <div className="security-audit">
+          <a
+            href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20Wallet-2023.07.20.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="security-audit-card"
+          >
+            <img src="/assets/images/audit-3.png" alt="audit3" />
+          </a>
           <a
             href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20browser%20extension%20wallet-2022.03.18.pdf"
             target="_blank"
