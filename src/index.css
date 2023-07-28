@@ -123,9 +123,6 @@ header {
 .menu-btn {
   display: none;
 }
-.logo {
-  width: 199px;
-}
 
 .menu {
   display: flex;
