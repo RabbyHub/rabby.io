@@ -119,7 +119,7 @@ const Header = () => {
           <div className="container">
             <div className="features">
               <a
-                href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20browser%20extension%20wallet-2022.03.18.pdf"
+                href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20Wallet-2023.07.20.pdf"
                 target="_blank"
                 className="feature-item"
                 rel="noreferrer"
