@@ -3,32 +3,32 @@ import React, { useRef, useState } from "react";
 import style from "./style.module.css";
 import Carousel from "nuka-carousel";
 
-const privateKeysImages = Array(7)
-  .fill(1)
-  .map((_, i) => `/assets/images/private-key-step-${i + 1}.png`);
-
 const privateKeysSteps = [
-  "Click on the identicon in the top right",
-  "Select the account you'd like to export",
-  "Click on the menu (three dots) in the upper right corner",
-  'Click on the "Account Details" button.',
-  'Click on the "Export private key" button.',
-  "Enter your wallet password and click “Confirm” button",
-  "Copy your private key and save",
+  "Click the address on the top",
+  "Click the menu on the right side of your address and select “Account details”",
+  "Click “Show private key”",
+  'Enter your password',
+  'View or copy the private key',
 ];
 
-const seedPhraseImages = Array(6)
+const privateKeysImages = Array(privateKeysSteps.length)
   .fill(1)
-  .map((_, i) => `/assets/images/seed-phrase-step-${i + 1}.png`);
+  .map((_, i) => `/assets/images/export/private-key-step-${i + 1}.png`);
+
 
 const seedPhraseSteps = [
-  "Click on the identicon in the top right",
-  'Click "Settings"',
-  'Click "Security & Privacy"',
-  'Click on the "Reveal Secret Recovery Phrase" button',
-  "Enter your password to reveal your Seed Phrase",
-  "Save your Seed Phrase",
+  "Click the menu on the top right, and select “Settings”",
+  'Select “Security & privacy”',
+  'Click “Reveal Secret Recovery Phrase”',
+  'Enter your password',
+  "Click “Hold to reveal SRP” and hold",
+  "View or copy the secret recovery phrase",
 ];
+
+const seedPhraseImages = Array(seedPhraseSteps.length)
+  .fill(1)
+  .map((_, i) => `/assets/images/export/seed-phrase-step-${i + 1}.png`);
+
 
 const exportPrivateKeyLink =
   "https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key";
