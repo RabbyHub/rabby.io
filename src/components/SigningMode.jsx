@@ -13,7 +13,7 @@ const SigningModes = () => {
   ];
   const institutionalWallets = [
     { name: "Amber", icon: "/assets/images/brand-logos/amber.jpg" },
-    { name: "Cobo Wallet", icon: "/assets/images/brand-logos/cobo.jpg" },
+    { name: "Cobo Argus", icon: "/assets/images/brand-logos/cobo.svg" },
     { name: "FireBlocks", icon: "/assets/images/brand-logos/fireblocks.jpg" },
     { name: "Gnosis Safe", icon: "/assets/images/brand-logos/gnosis-safe.jpg" },
     { name: "Jade Wallet", icon: "/assets/images/brand-logos/jade.jpg" },
