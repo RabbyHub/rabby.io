@@ -35,7 +35,7 @@ const exportPrivateKeyLink =
 const exportSeedPhraseLink =
   "https://metamask.zendesk.com/hc/en-us/articles/360018766351-How-to-recover-your-Secret-Recovery-Phrase";
 
-const autoplayInterval = 3000;
+const autoplayInterval = 5000;
 
 interface ArrowProps extends React.ComponentPropsWithoutRef<"img"> {
   isRight?: boolean;
