@@ -4,7 +4,7 @@ const SigningModes = () => {
   const hardwareWallets = [
     { name: "BitBox02", icon: "/assets/images/brand-logos/bitbox.jpg" },
     { name: "GridPlus", icon: "/assets/images/brand-logos/gridplus.jpg" },
-    { name: "Keystone", icon: "/assets/images/brand-logos/keystone.jpg" },
+    { name: "Keystone", icon: "/assets/images/brand-logos/keystone.svg" },
     { name: "Ledger", icon: "/assets/images/brand-logos/ledger.jpg" },
     { name: "OneKey", icon: "/assets/images/brand-logos/onekey.jpg" },
     { name: "Trezor", icon: "/assets/images/brand-logos/trezor.jpg" },
