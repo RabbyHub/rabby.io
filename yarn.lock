@@ -1125,10 +1125,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@debank/common@^0.3.31":
-  version "0.3.31"
-  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.3.31.tgz#f067ffe3d5f767c3a94a2602762f92f8114e8434"
-  integrity sha512-GTNtOUnoQxQuk3Gk9KoIgQzRSAdaIoQ0hkzHqMe5H3XP+vWmmjGZKiH1HqpdfzXbgG9c6nXGCfWFHp68HspPxA==
+"@debank/common@^0.3.37":
+  version "0.3.37"
+  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.3.37.tgz#e7f67594173ef6a2645ecacec8100ee883c397e7"
+  integrity sha512-pbjM1ByLW+RXIqMPnLq9ZUt26UPcYdJm8ZRlMzT5453YV4yCy+Gk6tcS38C5lZS4tPtCpLWOJtEXTYANja7WJA==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
