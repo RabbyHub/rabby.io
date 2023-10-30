@@ -17,6 +17,7 @@ const SigningModes = () => {
     { name: "FireBlocks", icon: "/assets/images/brand-logos/fireblocks.jpg" },
     { name: "Gnosis Safe", icon: "/assets/images/brand-logos/gnosis-safe.jpg" },
     { name: "Jade Wallet", icon: "/assets/images/brand-logos/jade.jpg" },
+    { name: "MPCVault", icon: "/assets/images/brand-logos/mpcvault.svg" },
   ];
   const mobileWallets = [
     { name: "imToken", icon: "/assets/images/brand-logos/imtoken.jpg" },
