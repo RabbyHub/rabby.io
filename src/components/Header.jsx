@@ -69,11 +69,20 @@ const Header = () => {
         <ul className={clsx('menu', { show: isExpand })}>
           <li>
             <a
+              href="https://rabbykit.rabby.io/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              RabbyKit
+            </a>
+          </li>
+          <li>
+            <a
               href="https://twitter.com/Rabby_io"
               target="_blank"
               rel="noreferrer"
             >
-              Twitter
+              X
             </a>
           </li>
           <li>
