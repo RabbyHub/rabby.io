@@ -1,11 +1,11 @@
-import clsx from 'clsx';
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { DESKTOP_DOWNLOAD_URL } from './desktop';
-import { DownloadButton } from './DownloadButton';
-import { JoinDiscord } from './JoinDiscord';
-import styles from './style.module.css';
-import { Platform, Tab } from './Tab';
+import clsx from "clsx";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { DESKTOP_DOWNLOAD_URL } from "./desktop";
+import { DownloadButton } from "./DownloadButton";
+import { JoinDiscord } from "./JoinDiscord";
+import styles from "./style.module.css";
+import { Platform, Tab } from "./Tab";
 
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
@@ -17,11 +17,11 @@ export const Download: React.FC = () => {
 
   React.useEffect(() => {
     const query = new URLSearchParams(location.search);
-    const platform = query.get('platform');
+    const platform = query.get("platform");
 
-    if (platform === 'desktop') {
+    if (platform === "desktop") {
       setActiveTab(Platform.Desktop);
-    } else if (platform === 'mobile') {
+    } else if (platform === "mobile") {
       setActiveTab(Platform.Mobile);
     } else {
       setActiveTab(Platform.WebExtension);
@@ -70,9 +70,7 @@ export const Download: React.FC = () => {
           <div className={styles.panel}>
             <div className={styles.tips}>
               <img src="/assets/download/tips.svg" alt="tip" />
-              <span>
-                Support MacOS 11+ and Windows 10+
-              </span>
+              <span>Supported on MacOs11+ and Windows 10+</span>
             </div>
             <div className={styles.panelButtonGroup}>
               <DownloadButton
