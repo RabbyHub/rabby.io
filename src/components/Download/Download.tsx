@@ -71,7 +71,7 @@ export const Download: React.FC = () => {
             <div className={styles.tips}>
               <img src="/assets/download/tips.svg" alt="tip" />
               <span>
-                Beta version now supports MacOS 11+ and Windows 10+
+                Support MacOS 11+ and Windows 10+
               </span>
             </div>
             <div className={styles.panelButtonGroup}>
@@ -83,10 +83,10 @@ export const Download: React.FC = () => {
                 size="small"
               />
               <DownloadButton
-                title="macOS M1/M2"
+                title="macOS M-Series"
                 icon="/assets/download/apple.svg"
                 href={DESKTOP_DOWNLOAD_URL.macosArm}
-                report="MacOS M1/M2"
+                report="MacOS M-Series"
                 size="small"
               />
               <DownloadButton
