@@ -22,7 +22,7 @@ const Footer = () => {
               Privacy Policy
             </a>
           </div>
-          <p className="copyright">© 2022 rabby.io All rights reserved.</p>
+          <p className="copyright">© 2024 rabby.io All rights reserved.</p>
         </div>
       </div>
     </footer>
