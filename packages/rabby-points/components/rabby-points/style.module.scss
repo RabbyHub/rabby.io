@@ -46,7 +46,7 @@
 .box2 {
   padding-top: 32px;
   padding-bottom: 32px;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 .subTitle {
   color: var(--r-neutral-title2, #fff);
@@ -130,6 +130,9 @@
   background: var(--r-neutral-title2, #fff);
   box-shadow: 0px 4px 24px 0px rgba(41, 58, 162, 0.19);
   margin-bottom: 24px;
+  &:hover {
+    box-shadow: 0px 12px 24px 0px rgba(41, 58, 162, 0.53);
+  }
 }
 
 .guide {

@@ -1,21 +1,9 @@
 import style from "./style.module.scss";
-import { useMemo } from "react";
 import clsx from "clsx";
 import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 
 export const RabbyPointsReferral = () => {
-  // const [params] = useSearchParams();
-  // const name = useMemo(() => {
-  //   let display = params.get("code") || "";
-  //   if (display) {
-  //     try {
-  //       display = window.atob(display);
-  //     } catch (error) {}
-  //   }
-  //   return display;
-  // }, [params]);
-
   return (
     <>
       <div
