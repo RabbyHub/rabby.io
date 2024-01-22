@@ -50,14 +50,17 @@ export const ShowCode = () => {
   };
   return (
     <div className={style.codeBox} onClick={copy}>
-      <span className={style.code}>{code}</span>
-      <div className={style.copyIconWrapper}>
-        <img
-          className={style.copyIcon}
-          src={`${BASE_PATH}/assets/rabby-points/copy.svg`}
-          alt="copy"
-        />
-      </div>
+      <span className={style.code}>
+        {code}
+        <div className={style.copyIconWrapper}>
+          <img
+            className={style.copyIcon}
+            src={`${BASE_PATH}/assets/rabby-points/copy.svg`}
+            alt="copy"
+          />
+        </div>
+      </span>
+
       <Toaster
         containerStyle={{
           top: 100,

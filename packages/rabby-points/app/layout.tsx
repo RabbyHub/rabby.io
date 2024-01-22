@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rabby",
+  title: "Rabby Points - Rabby Wallet",
   description: "The game-changing wallet for Ethereum and all EVM chains",
   twitter: {
     card: "summary_large_image",
