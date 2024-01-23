@@ -5,6 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // metadataBase: new URL(
+  //   "https://rabby.io/rabby-points"
+  // ),
+  metadataBase: new URL(
+    "https://test-rabby-io-rabby-points.vercel.app/rabby-points"
+  ),
   title: "Rabby Points - Rabby Wallet",
   description: "The game-changing wallet for Ethereum and all EVM chains",
   twitter: {
