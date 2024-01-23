@@ -20,10 +20,10 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Use Node.js v16
+      - name: Use Node.js v18
         uses: actions/setup-node@v1
         with:
-          node-version: v16
+          node-version: v18
 
       - name: Build source code
         run: |
