@@ -50,7 +50,7 @@ export const RabbyPointsReferral = () => {
           </div>
           <img
             className={style.guide}
-            src={`${BASE_PATH}/assets/rabby-points/guide.png`}
+            src={`${BASE_PATH}/assets/rabby-points/guide-2.png`}
             alt=""
           />
         </div>
