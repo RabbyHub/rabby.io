@@ -8,14 +8,12 @@ export const metadata: Metadata = {
   // metadataBase: new URL(
   //   "https://rabby.io/rabby-points"
   // ),
-  metadataBase: new URL(
-    "https://test-rabby-io-rabby-points.vercel.app/rabby-points"
-  ),
+  metadataBase: new URL("https://rabby-io-git-feat-points-debanker.vercel.app"),
   title: "Rabby Points - Rabby Wallet",
   description: "The game-changing wallet for Ethereum and all EVM chains",
   twitter: {
     card: "summary_large_image",
-    images: "assets/rabby-points/post.png",
+    images: "/rabby-points/assets/rabby-points/post.png",
     site: "@Rabby_io",
     description: "The game-changing wallet for Ethereum and all EVM chains",
   },
