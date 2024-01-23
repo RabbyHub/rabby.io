@@ -69,7 +69,6 @@ export const Download: React.FC = () => {
         {activeTab === Platform.Desktop && (
           <div className={styles.panel}>
             <div className={styles.tips}>
-              <img src="/assets/download/tips.svg" alt="tip" />
               <span>Supported on MacOs11+ and Windows 10+</span>
             </div>
             <div className={styles.panelButtonGroup}>

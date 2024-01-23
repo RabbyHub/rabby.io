@@ -82,7 +82,7 @@ const Header = () => {
               target="_blank"
               rel="noreferrer"
             >
-              X
+              Twitter (X)
             </a>
           </li>
           <li>
@@ -158,7 +158,7 @@ const Header = () => {
             <Download />
           </div>
           <img
-            src="/assets/images/hero-13.png"
+            src="/assets/images/hero-14.png"
             alt="Dashboard screenshot"
             className="hero-image"
           />
