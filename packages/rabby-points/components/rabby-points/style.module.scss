@@ -132,7 +132,29 @@
   box-shadow: 0px 4px 24px 0px rgba(41, 58, 162, 0.19);
   margin-bottom: 24px;
   &:hover {
-    box-shadow: 0px 12px 24px 0px rgba(41, 58, 162, 0.53);
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    background: var(--r-neutral-title2, #fff);
+    box-shadow: 0px 12px 24px 0px rgba(38, 53, 143, 0.4);
+  }
+  &:active {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 12px 24px 0px rgba(38, 53, 143, 0.4);
+    background: linear-gradient(
+        0deg,
+        rgba(112, 132, 255, 0.2) 0%,
+        rgba(112, 132, 255, 0.2) 100%
+      ),
+      var(--r-neutral-title2, #fff);
+  }
+  &:visited {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 12px 24px 0px rgba(38, 53, 143, 0.4);
+    background: linear-gradient(
+        0deg,
+        rgba(112, 132, 255, 0.2) 0%,
+        rgba(112, 132, 255, 0.2) 100%
+      ),
+      var(--r-neutral-title2, #fff);
   }
 }
 
