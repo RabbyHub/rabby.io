@@ -5,7 +5,7 @@ import { Scan } from "./scan";
 const storeList = [
   {
     title: "Google Play",
-    img: `${BASE_PATH}/assets/rabby-points/google-play.png`,
+    img: `${BASE_PATH}/assets/rabby-points/play-store.png`,
     store:
       "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
   },
@@ -37,7 +37,7 @@ export const MobilePanel = () => {
           phrase or private key required
         </div>
       </div>
-      <div className="flex items-center items-center">
+      <div className="flex items-center">
         <img
           className="w-[207px] h-[379px]"
           src={`${BASE_PATH}/assets/rabby-points/points-example.png`}
@@ -83,20 +83,20 @@ const StoreItem = (props: { title: string; img: string; store?: string }) => {
               !props.store ? "hidden group-hover:inline-block" : "hidden"
             }
           >
-            Coming soon
+            Under review
           </span>
         </div>
       </div>
       <div
         className={clsx(
           "w-[70.62px] h-[128.98px] left-[77px] top-[-29.88px] absolute origin-top-left rotate-[-44.07deg] bg-[#7084FF]",
-          !props.store && "group-hover:hidden"
+          "group-hover:hidden"
         )}
       />
       <div
         className={clsx(
           "w-6 h-6 left-[132px] top-[3px] absolute",
-          !props.store && "group-hover:hidden"
+          "group-hover:hidden"
         )}
       >
         <svg

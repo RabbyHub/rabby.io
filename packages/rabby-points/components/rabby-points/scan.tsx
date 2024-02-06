@@ -18,10 +18,7 @@ export const Scan = ({
         className
       )}
     >
-      <div className="flex  items-center justify-center p-[8px] rounded-[8px] border">
-        <QRCodeCanvas value={url} size={52} />
-      </div>
-      <span className="text-[12px] text-[#6A7587]">Scan to download</span>
+      <QRCodeCanvas value={url} size={80} />
     </div>
   );
 };

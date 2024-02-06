@@ -33,7 +33,6 @@ export const RabbyPointsReferral = () => {
           rel="noreferrer"
           className={style.logoWrapper}
         >
-          {/* <img className={style.logo} alt="Rabby Wallet" /> */}
           <img
             src={`${BASE_PATH}/assets/rabby-points/logo.svg`}
             className={style.logo}
