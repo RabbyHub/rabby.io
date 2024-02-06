@@ -1,3 +1,4 @@
 export const MOBILE_DOWNLOAD_URL = {
-  googlePlay: "https://rabby.io/todo",
+  googlePlay:
+    "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
 };

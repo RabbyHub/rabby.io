@@ -75,13 +75,13 @@ export const Download: React.FC = () => {
               >
                 <DownloadCard
                   title="Google Play"
-                  icon="/assets/download/icon-google-play.svg"
+                  icon="/assets/download/icon-google-play.png"
                   href={MOBILE_DOWNLOAD_URL.googlePlay}
                   report="Google Play"
                 />
                 <DownloadCard
                   title="App Store"
-                  icon="/assets/download/icon-app-store.svg"
+                  icon="/assets/download/icon-app-store.png"
                   href=""
                   isDisabled
                   report="App Store"
