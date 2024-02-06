@@ -6,7 +6,8 @@ const storeList = [
   {
     title: "Google Play",
     img: `${BASE_PATH}/assets/rabby-points/google-play.png`,
-    store: "https://play.google.com/store/apps/details?id=com.debank.meme",
+    store:
+      "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
   },
   {
     title: "App Store",
