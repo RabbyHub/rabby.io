@@ -1,26 +1,23 @@
 "use client";
 import clsx from "clsx";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { atom, useAtom } from "jotai";
+import { useMemo } from "react";
+
+const tabAtom = atom("extension");
+export const useTab = () => {
+  const [tab, switchTab] = useAtom(tabAtom);
+  const isExtension = useMemo(() => tab === "extension", [tab]);
+
+  return {
+    isExtension,
+    tab,
+    switchTab,
+  };
+};
 
 const activeClass = "bg-white bg-opacity-20";
 export const Tabs = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
-  );
-
-  const isExtension =
-    !searchParams.get("tab") || searchParams.get("tab") === "extendsion";
+  const { isExtension, switchTab } = useTab();
 
   return (
     <div className="w-[448px] h-11 p-1 bg-black bg-opacity-10 rounded-lg flex-col justify-start items-start gap-2.5 inline-flex">
@@ -31,9 +28,7 @@ export const Tabs = () => {
             isExtension ? activeClass : "hover:bg-white hover:bg-opacity-10"
           )}
           onClick={() => {
-            router.replace(
-              pathname + "?" + createQueryString("tab", "extendsion")
-            );
+            switchTab("extension");
           }}
         >
           <div className="left-[12.50px] top-[8px] absolute justify-start items-center gap-1 inline-flex">
@@ -66,7 +61,7 @@ export const Tabs = () => {
             !isExtension ? activeClass : "hover:bg-white hover:bg-opacity-10"
           )}
           onClick={() => {
-            router.push(pathname + "?" + createQueryString("tab", "mobile"));
+            switchTab("mobile");
           }}
         >
           <div className="left-[22.50px] top-[8px] absolute justify-start items-center gap-1 inline-flex">

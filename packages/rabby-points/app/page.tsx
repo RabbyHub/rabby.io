@@ -1,5 +1,9 @@
 import { RabbyPointsReferral } from "@/components/rabby-points";
-
+import { Provider } from "jotai";
 export default function Home() {
-  return <RabbyPointsReferral />;
+  return (
+    <Provider>
+      <RabbyPointsReferral />
+    </Provider>
+  );
 }

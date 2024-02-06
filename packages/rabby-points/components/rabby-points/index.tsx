@@ -1,8 +1,6 @@
 import style from "./style.module.scss";
-import clsx from "clsx";
 import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
-import { Tabs } from "./tabs";
 import { Content } from "./content";
 
 export const RabbyPointsReferral = () => {
