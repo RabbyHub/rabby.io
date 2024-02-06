@@ -6,6 +6,8 @@ import { DownloadButton } from "./DownloadButton";
 import { JoinDiscord } from "./JoinDiscord";
 import styles from "./style.module.css";
 import { Platform, Tab } from "./Tab";
+import { DownloadCard } from "./DownloadCard";
+import { MOBILE_DOWNLOAD_URL } from "./mobile";
 
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
@@ -43,61 +45,85 @@ export const Download: React.FC = () => {
 
       <div className={styles.panels}>
         {activeTab === Platform.WebExtension && (
-          <div className={styles.panel}>
-            <div
-              className={clsx(
-                styles.panelButtonGroup,
-                styles.panelSingleButton
-              )}
-            >
-              <DownloadButton
-                title="Download for Chrome"
-                icon="/assets/images/chrome.png"
-                href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                report="Chrome"
-              />
+          <>
+            <div className={styles.panel}>
+              <div
+                className={clsx(
+                  styles.panelButtonGroup,
+                  styles.panelSingleButton
+                )}
+              >
+                <DownloadButton
+                  title="Download for Chrome"
+                  icon="/assets/images/chrome.png"
+                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                  report="Chrome"
+                />
+              </div>
             </div>
-          </div>
+            <JoinDiscord href="https://discord.gg/seFBCWmUre" />
+          </>
         )}
         {activeTab === Platform.Mobile && (
-          <div className={styles.panel}>
-            <div className={clsx(styles.empty, styles.panelButtonGroup)}>
-              Stay tuned
+          <>
+            <div className={styles.panel}>
+              <div
+                className={clsx(
+                  styles.panelButtonGroup,
+                  styles.panelButtonGroupApp
+                )}
+              >
+                <DownloadCard
+                  title="Google Play"
+                  icon="/assets/download/icon-google-play.svg"
+                  href={MOBILE_DOWNLOAD_URL.googlePlay}
+                  report="Google Play"
+                />
+                <DownloadCard
+                  title="App Store"
+                  icon="/assets/download/icon-app-store.svg"
+                  href=""
+                  isDisabled
+                  report="App Store"
+                />
+              </div>
             </div>
-          </div>
+            <JoinDiscord href="https://discord.gg/AvYmaTjrBu" />
+          </>
         )}
         {activeTab === Platform.Desktop && (
-          <div className={styles.panel}>
-            <div className={styles.tips}>
-              <span>Supported on MacOs11+ and Windows 10+</span>
+          <>
+            <div className={styles.panel}>
+              <div className={styles.tips}>
+                <span>Supported on MacOs11+ and Windows 10+</span>
+              </div>
+              <div className={styles.panelButtonGroup}>
+                <DownloadButton
+                  title="macOS Intel"
+                  icon="/assets/download/apple.svg"
+                  href={DESKTOP_DOWNLOAD_URL.macosIntel}
+                  report="MacOS Intel"
+                  size="small"
+                />
+                <DownloadButton
+                  title="macOS M-Series"
+                  icon="/assets/download/apple.svg"
+                  href={DESKTOP_DOWNLOAD_URL.macosArm}
+                  report="MacOS M-Series"
+                  size="small"
+                />
+                <DownloadButton
+                  title="Windows"
+                  icon="/assets/download/windows.svg"
+                  href={DESKTOP_DOWNLOAD_URL.windows}
+                  report="Windows"
+                  size="small"
+                />
+              </div>
             </div>
-            <div className={styles.panelButtonGroup}>
-              <DownloadButton
-                title="macOS Intel"
-                icon="/assets/download/apple.svg"
-                href={DESKTOP_DOWNLOAD_URL.macosIntel}
-                report="MacOS Intel"
-                size="small"
-              />
-              <DownloadButton
-                title="macOS M-Series"
-                icon="/assets/download/apple.svg"
-                href={DESKTOP_DOWNLOAD_URL.macosArm}
-                report="MacOS M-Series"
-                size="small"
-              />
-              <DownloadButton
-                title="Windows"
-                icon="/assets/download/windows.svg"
-                href={DESKTOP_DOWNLOAD_URL.windows}
-                report="Windows"
-                size="small"
-              />
-            </div>
-          </div>
+            <JoinDiscord href="https://discord.gg/aDpDE7DNQe" />
+          </>
         )}
-
-        <JoinDiscord />
       </div>
     </div>
   );

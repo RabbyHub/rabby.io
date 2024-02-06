@@ -74,9 +74,153 @@
 
 .tab .info h3 {
   font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 3px 0;
-  line-height: 1;
+  font-weight: 500;
+  margin: 0;
+  line-height: 23px;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 5px;
+
+  .tag {
+    border-radius: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+
+    color: #fff;
+
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+  }
+}
+
+.downloadCard {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  width: 160px;
+  height: 110px;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:hover:not(.isDisabled) {
+    .toggleBtn {
+      display: none;
+    }
+
+    .appStore {
+      display: none;
+    }
+    .qrCode {
+      display: flex;
+    }
+  }
+
+  &.isDisabled {
+    position: relative;
+    cursor: not-allowed;
+    &:hover {
+      .toggleBtn {
+        display: none;
+      }
+      .appStoreTitle {
+        display: none;
+      }
+      .appStoreTitleDisabled {
+        display: block;
+      }
+    }
+    &::before {
+      position: absolute;
+      z-index: 2;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .appStore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+
+    .appStoreImage {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .appStoreTitle {
+      color: var(--r-neutral-title1, #192945);
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .appStoreTitleDisabled {
+      display: none;
+    }
+  }
+
+  .qrCode {
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+
+    .qrCodeImageWrap {
+      width: 80px;
+      height: 80px;
+    }
+
+    .qrCodeImage {
+      width: 100%;
+      height: 100%;
+    }
+
+    .qrCodeDesc {
+      color: var(--r-neutral-foot, #6a7587);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+    }
+  }
+
+  .toggleBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 3px;
+    padding-right: 4px;
+
+    > img {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::before {
+      position: absolute;
+      top: -54px;
+      right: -39px;
+      content: "";
+      width: 70px;
+      height: 128px;
+      background: var(--r-blue-light1, #eef1ff);
+      transform: rotate(-44.071deg);
+    }
+  }
 }
 
 .tab .info p {
@@ -111,15 +255,19 @@
   justify-content: space-between;
   gap: 12px;
 }
+.panelButtonGroupApp {
+  gap: 16px;
+  height: 100%;
+}
 
 .button {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 20px;
   outline: none;
   border: none;
   display: flex;
   align-items: center;
-  color: #13141A;
+  color: #13141a;
   cursor: pointer;
   transition: box-shadow 0.3s;
   justify-content: center;
@@ -161,12 +309,12 @@
 }
 
 .discord {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   margin: auto;
@@ -204,7 +352,7 @@
 @media screen and (max-width: 1440px) {
   .button.small {
     width: auto;
-    padding-left:20px;
+    padding-left: 20px;
     padding-right: 20px;
   }
 }
@@ -212,10 +360,25 @@
 @media screen and (max-width: 992px) {
   .download {
     margin-top: 30px;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .tab.hasTag {
+    align-items: flex-start;
+  }
+
+  .tab .info {
+    margin-left: 6px;
   }
 
   .tab .info h3 {
     font-size: 14px;
+    line-height: 1;
+
+    .tag {
+      padding: 0 8px;
+    }
   }
 
   .tab .info p {
@@ -227,7 +390,7 @@
     width: 18px;
     height: 18px;
   }
-  
+
   .button {
     border-radius: 10px;
   }
@@ -262,5 +425,66 @@
   .panel .empty {
     font-weight: 400;
     font-size: 22px;
+  }
+
+  .panelButtonGroupApp {
+    gap: 10px;
+    width: 100%;
+  }
+  .downloadCard {
+    width: 120px;
+    height: 70px;
+    flex: 1;
+    min-width: 0;
+
+    &:hover:not(.isDisabled) {
+      .appStore {
+        display: flex;
+      }
+      .qrCode {
+        display: none;
+      }
+    }
+
+    &.isDisabled {
+      &:hover {
+        .appStoreTitle {
+          display: block;
+        }
+        .appStoreTitleDisabled {
+          display: none;
+        }
+      }
+      &.isClicked {
+        .appStoreTitle {
+          display: none;
+        }
+        .appStoreTitleDisabled {
+          display: block;
+        }
+      }
+    }
+
+    .appStore {
+      .appStoreImage {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 6px;
+      }
+
+      .appStoreTitle {
+        font-size: 12px;
+        line-height: 14px;
+      }
+      .appStoreTitleDisabled {
+        display: none;
+      }
+    }
+    .qrCode {
+      display: none !important;
+    }
+    .toggleBtn {
+      display: none !important;
+    }
   }
 }
