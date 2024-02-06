@@ -51,6 +51,11 @@ export const MobilePanel = () => {
 const StoreItem = (props: { title: string; img: string; store?: string }) => {
   return (
     <div
+      onClick={() => {
+        if (props.store) {
+          window.open(props.store, "_blank")?.focus();
+        }
+      }}
       className={clsx(
         "w-40 h-[110px] relative bg-white rounded-lg shadow overflow-hidden group ",
         props.store ? "cursor-pointer" : ""
