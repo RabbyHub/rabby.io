@@ -1,15 +1,19 @@
+"use client";
 import style from "./style.module.scss";
 import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 import { Content } from "./content";
 
 export const RabbyPointsReferral = () => {
+  const isIos = /iPad|iPhone|iPod/.test(navigator?.userAgent);
   return (
     <>
       <div
         className={style.container}
         style={{
-          backgroundImage: `url(${BASE_PATH}/assets/rabby-points/bg.svg)`,
+          backgroundImage: `url(${BASE_PATH}/assets/rabby-points/bg.${
+            isIos ? "png" : "svg"
+          })`,
         }}
       >
         <img

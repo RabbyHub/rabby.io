@@ -48,7 +48,16 @@ export const MobilePanel = () => {
   );
 };
 
+const isMobile = () => {
+  const ua = window?.navigator?.userAgent?.toLowerCase();
+  if (ua) {
+    return /iphone|ipad|ipod|android/.test(ua);
+  }
+  return window.innerWidth < 800;
+};
+
 const StoreItem = (props: { title: string; img: string; store?: string }) => {
+  const isMobileBrowser = isMobile();
   return (
     <div
       onClick={() => {
@@ -64,7 +73,7 @@ const StoreItem = (props: { title: string; img: string; store?: string }) => {
       {!props.store && (
         <div className="w-full h-full absolute top-0 left-0 bg-white opacity-50 z-10" />
       )}
-      {props.store ? (
+      {!isMobileBrowser && props.store ? (
         <Scan url={props.store} className="hidden group-hover:flex" />
       ) : null}
       <div className="w-full h-full flex flex-col items-center justify-center gap-[10px]">
@@ -72,7 +81,7 @@ const StoreItem = (props: { title: string; img: string; store?: string }) => {
         <div
           className={clsx(
             "text-center text-[#192945] text-[15px] font-medium font-['SF Pro']",
-            props.store && "group-hover:hidden"
+            !isMobileBrowser && props.store && "group-hover:hidden"
           )}
         >
           <span className={!props.store ? "group-hover:hidden" : ""}>
@@ -90,13 +99,13 @@ const StoreItem = (props: { title: string; img: string; store?: string }) => {
       <div
         className={clsx(
           "w-[70.62px] h-[128.98px] left-[77px] top-[-29.88px] absolute origin-top-left rotate-[-44.07deg] bg-[#7084FF]",
-          "group-hover:hidden"
+          !isMobileBrowser && "group-hover:hidden"
         )}
       />
       <div
         className={clsx(
           "w-6 h-6 left-[132px] top-[3px] absolute",
-          "group-hover:hidden"
+          !isMobileBrowser && "group-hover:hidden"
         )}
       >
         <svg
