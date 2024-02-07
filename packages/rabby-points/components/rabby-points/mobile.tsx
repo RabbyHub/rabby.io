@@ -48,20 +48,26 @@ export const MobilePanel = () => {
   );
 };
 
-//tell is a iOS device
 export const isIOS = () => {
-  const ua = window?.navigator?.userAgent?.toLowerCase();
-  if (ua) {
-    return /iphone|ipad|ipod/.test(ua);
+  if (typeof window !== "undefined") {
+    const ua = window?.navigator?.userAgent?.toLowerCase();
+    if (ua) {
+      return /iphone|ipad|ipod/.test(ua);
+    }
+    return window.innerWidth < 800;
   }
-  return window.innerWidth < 800;
+  return false;
 };
+
 const isMobile = () => {
-  const ua = window?.navigator?.userAgent?.toLowerCase();
-  if (ua) {
-    return /iphone|ipad|ipod|android/.test(ua);
+  if (typeof window !== "undefined") {
+    const ua = window?.navigator?.userAgent?.toLowerCase();
+    if (ua) {
+      return /iphone|ipad|ipod|android/.test(ua);
+    }
+    return window.innerWidth < 800;
   }
-  return window.innerWidth < 800;
+  return false;
 };
 
 const StoreItem = (props: { title: string; img: string; store?: string }) => {
