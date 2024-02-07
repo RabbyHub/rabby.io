@@ -48,6 +48,14 @@ export const MobilePanel = () => {
   );
 };
 
+//tell is a iOS device
+export const isIOS = () => {
+  const ua = window?.navigator?.userAgent?.toLowerCase();
+  if (ua) {
+    return /iphone|ipad|ipod/.test(ua);
+  }
+  return window.innerWidth < 800;
+};
 const isMobile = () => {
   const ua = window?.navigator?.userAgent?.toLowerCase();
   if (ua) {
