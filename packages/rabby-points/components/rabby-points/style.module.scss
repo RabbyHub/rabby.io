@@ -1,7 +1,8 @@
 .container {
-  background: #fff;
+  background: #7084ff;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   --box-pl: 100px;
   display: flex;
@@ -45,7 +46,9 @@
 }
 
 .box2 {
-  padding-top: 32px;
+  // padding-top: 32px;
+  padding-top: 16px;
+
   padding-bottom: 32px;
   margin-bottom: 28px;
 }
