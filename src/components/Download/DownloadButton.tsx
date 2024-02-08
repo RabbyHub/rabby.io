@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import styles from './style.module.css';
+import styles from './style.module.scss';
 import { showToast } from '../../toast';
 import { ga } from '../../ga';
 

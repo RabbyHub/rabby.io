@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { QRCodeSVG } from "qrcode.react";
 import React, { useRef, useState } from "react";
 import { ga } from "../../ga";
-import styles from "./style.module.css";
+import styles from "./style.module.scss";
 
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   icon: string;

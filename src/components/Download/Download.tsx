@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { DESKTOP_DOWNLOAD_URL } from "./desktop";
 import { DownloadButton } from "./DownloadButton";
 import { JoinDiscord } from "./JoinDiscord";
-import styles from "./style.module.css";
+import styles from "./style.module.scss";
 import { Platform, Tab } from "./Tab";
 import { DownloadCard } from "./DownloadCard";
 import { MOBILE_DOWNLOAD_URL } from "./mobile";
