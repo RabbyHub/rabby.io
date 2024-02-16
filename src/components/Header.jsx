@@ -117,7 +117,16 @@ const Header = () => {
               GitHub
             </a>
           </li>
-          {/* <li><a className="menu-download round-button transparent" href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" target="_blank">Download</a></li> */}
+          <li>
+            <a
+              href="mailto:rabby@debank.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Email
+            </a>
+          </li>
+          
         </ul>
       </div>
       <div className="header-content">
