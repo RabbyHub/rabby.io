@@ -119,7 +119,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              href="mailto:rabby@debank.com"
+              href="mailto:support@rabby.io"
               target="_blank"
               rel="noreferrer"
             >
