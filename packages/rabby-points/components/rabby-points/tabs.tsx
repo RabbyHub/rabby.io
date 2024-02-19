@@ -49,7 +49,7 @@ export const Tabs = () => {
                 />
               </svg>
             </div>
-            <div className="text-center text-white text-sm font-normal font-['SF Pro']">
+            <div className="text-center text-white text-sm font-normal">
               Claim on Rabby Extension
             </div>
           </div>
@@ -94,12 +94,12 @@ export const Tabs = () => {
                 />
               </svg>
             </div>
-            <div className="text-center text-white text-sm font-normal font-['SF Pro']">
+            <div className="text-center text-white text-sm font-normal">
               Claim on Rabby Mobile{" "}
             </div>
           </div>
           <div className="w-[35px] px-1 left-[187px] top-[-1px] absolute bg-white bg-opacity-20 rounded-tl-sm rounded-tr-lg rounded-bl-lg rounded-br-sm justify-center items-center gap-2.5 inline-flex">
-            <div className="text-center text-white text-[10px] font-normal font-['SF Pro']">
+            <div className="text-center text-white text-[10px] font-normal">
               Beta
             </div>
           </div>

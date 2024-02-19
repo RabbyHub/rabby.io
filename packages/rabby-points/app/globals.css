@@ -16,6 +16,10 @@
   }
 }
 
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

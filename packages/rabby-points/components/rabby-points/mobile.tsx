@@ -18,7 +18,7 @@ const storeList = [
 export const MobilePanel = () => {
   return (
     <>
-      <div className="text-center text-white text-[15px] font-medium font-['SF Pro'] mb-[18px]">
+      <div className="text-center text-white text-[15px] font-medium mb-[18px]">
         1. Download Rabby Wallet Mobile Beta
       </div>
 
@@ -28,11 +28,11 @@ export const MobilePanel = () => {
         ))}
       </div>
 
-      <div className="text-center text-white text-[15px] font-medium font-['SF Pro']">
+      <div className="text-center text-white text-[15px] font-medium">
         2. Connect your wallet and go to Rabby Points
       </div>
       <div className="h-4 justify-start items-center gap-0.5 inline-flex mt-[10px] mb-[16px]">
-        <div className="opacity-70 text-center text-white text-[13px] font-light font-['SF Pro']">
+        <div className="opacity-70 text-center text-white text-[13px] font-light">
           <span className="relative top-[1px] inline-block">*</span> No seed
           phrase or private key required
         </div>
@@ -94,7 +94,7 @@ const StoreItem = (props: { title: string; img: string; store?: string }) => {
         <img className="w-[40px] h-[40px]" src={props.img} alt={props.title} />
         <div
           className={clsx(
-            "text-center text-[#192945] text-[15px] font-medium font-['SF Pro']",
+            "text-center text-[#192945] text-[15px] font-medium",
             !isMobileBrowser && props.store && "group-hover:hidden"
           )}
         >

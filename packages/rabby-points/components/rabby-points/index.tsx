@@ -12,9 +12,9 @@ export const RabbyPointsReferral = () => {
       <div
         className={style.container}
         style={{
-          backgroundImage: `url(${BASE_PATH}/assets/rabby-points/bg.${
-            isIOSBrowser ? "png" : "svg"
-          })`,
+          backgroundImage: isIOSBrowser
+            ? `url(${BASE_PATH}/assets/rabby-points/bg.svg)`
+            : undefined,
         }}
       >
         <img
