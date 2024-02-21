@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Security from './components/Security';
 import IntergrateChains from './components/IntergrateChains';
 import SigningModes from './components/SigningMode';
+import BackToTopButton from './components/BackToTop/BackToTopButton';
 
 function App() {
   const handleClickDownload = () => {
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <div className="main">
+        <BackToTopButton />
         <Header />
         <Intro />
       </div>
