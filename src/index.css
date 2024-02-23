@@ -446,7 +446,7 @@ footer {
   background-color: #19233c;
 }
 footer .main {
-  width: 1440px;
+  /* width: 1440px; */
   height: 104px;
   display: flex;
   justify-content: space-between;
