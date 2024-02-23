@@ -161,8 +161,8 @@ header {
   top: -25px;
   width: 348.635px;
   border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.30);
-  box-shadow: 24px 16px 100px 0px rgba(40, 58, 151, 0.20);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 24px 16px 100px 0px rgba(40, 58, 151, 0.2);
 }
 
 .white {
@@ -446,7 +446,7 @@ footer {
   background-color: #19233c;
 }
 footer .main {
-  width: 1440px;
+  /* width: 1440px; */
   height: 104px;
   display: flex;
   justify-content: space-between;
@@ -550,6 +550,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   position: relative;
   margin-bottom: 180px;
   width: 100%;
+  overflow: hidden;
 }
 
 .security .title {
@@ -696,13 +697,15 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .chains,
-.signing-modes {
+.signing-modes,
+.contact-us {
   max-width: 965px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.signing-modes {
+.signing-modes,
+.contact-us {
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -777,12 +780,68 @@ footer .right .footer-links a:nth-last-child(1)::after {
   margin-bottom: 40px;
 }
 
+.contact-us .title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.contact-us .card {
+  border-radius: 8px;
+  border: 0.5px solid var(--title, #eaeaec);
+  background: var(--white-title, #fff);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 32px;
+}
+
+.contact-us .card .sub-title {
+  color: var(--r-neutral-title1, #192945);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 0;
+}
+
+.contact-us .card .email-box {
+  margin-right: 80px;
+}
+
+.contact-us .card .email {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--r-neutral-body, #3e495e);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  gap: 32px;
+  a {
+    color: var(--r-blue-default, #7084ff);
+  }
+}
+
+.contact-us .card .email a {
+  padding-left: 4px;
+}
+
+.contact-us .card .follow-us {
+  display: flex;
+  gap: 32px;
+}
+
+.contact-us .card .follow-us img {
+  width: 22px;
+  height: 22px;
+}
+
 @media screen and (max-width: 1440px) {
   body {
     background-position: top right 50%;
   }
   .signing-modes,
-  .chains {
+  .chains,
+  .contact-us {
     padding-left: 24px;
   }
 
@@ -1068,14 +1127,17 @@ footer .right .footer-links a:nth-last-child(1)::after {
     margin-bottom: 0;
   }
   .signing-modes,
-  .chains {
+  .chains,
+  .contact-us {
     padding-left: 0;
   }
   .signing-modes .title,
-  .chains .title {
+  .chains .title,
+  .contact-us .title {
     margin-bottom: 12px;
   }
   .signing-modes .title,
+  .contact-us .title,
   .chains .title,
   .signing-modes > p,
   .chains > p {
@@ -1088,6 +1150,18 @@ footer .right .footer-links a:nth-last-child(1)::after {
     line-height: 14px;
     color: #525966;
     margin-bottom: 30px;
+  }
+  .contact-us .card {
+    margin: 0 24px;
+    padding-top: 33px;
+    padding-bottom: 30px;
+  }
+  .contact-us .card .email {
+    margin-bottom: 28px;
+  }
+
+  .contact-us .card .sub-title {
+    margin-top: 0;
   }
   .signing-modes .signing-modes-wrapper {
     flex-direction: column;
@@ -1144,6 +1218,32 @@ footer .right .footer-links a:nth-last-child(1)::after {
     padding-top: calc(var(--rate) * 8);
     padding-bottom: calc(var(--rate) * 16);
     margin: 0 auto;
+  }
+  .contact-us .card {
+    padding: 20px;
+  }
+  .contact-us .card .sub-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .contact-us .card .email {
+    font-size: 12px;
+    font-weight: 400;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .contact-us .card .follow-us {
+    gap: 24px;
+  }
+  .contact-us .card .follow-us img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-us,
+  .signing-modes {
+    margin-bottom: 40px;
   }
 }
 

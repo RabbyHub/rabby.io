@@ -1408,10 +1408,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@debank/common@^0.3.54":
-  version "0.3.54"
-  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.3.54.tgz#b4ab478bc446878c2bebe344b7df156ce6634e33"
-  integrity sha512-/Q2iZDb1dT/4/MmtKLh06cdHWqXmqcAXsbCmG8qk76VfP1GAim9r5P97C74Dgsg6nDimrNR+3YjbOpeQLyoV6w==
+"@debank/common@^0.3.56":
+  version "0.3.56"
+  resolved "https://registry.yarnpkg.com/@debank/common/-/common-0.3.56.tgz#a07034a424e7abb4102a3de1190c6628891a8f14"
+  integrity sha512-cDhvLuLK2ZN6+ptT9R5iqoiVrkYGy73W7rpx7jlwfQBVntqX8tz73qlPP0lquXdTl8PAxbt+q8pLmuQ9KytV+g==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
