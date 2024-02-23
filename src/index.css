@@ -790,26 +790,26 @@ footer .right .footer-links a:nth-last-child(1)::after {
   background: var(--white-title, #fff);
   display: flex;
   flex-wrap: wrap;
-  padding: 40px 32px;
+  padding: 30px 32px;
 }
 
 .contact-us .card .sub-title {
   color: var(--r-neutral-title1, #192945);
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
 
 .contact-us .card .email-box {
-  margin-right: 54px;
+  margin-right: 80px;
 }
 
 .contact-us .card .email {
   display: flex;
   flex-wrap: wrap;
   color: var(--r-neutral-body, #3e495e);
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -826,8 +826,8 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .contact-us .card .follow-us img {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
 }
 
 @media screen and (max-width: 1440px) {
