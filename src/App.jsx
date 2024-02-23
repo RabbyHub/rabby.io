@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import Security from './components/Security';
 import IntergrateChains from './components/IntergrateChains';
 import SigningModes from './components/SigningMode';
+import ContactUs from "./components/ContactUs"
+
 
 function App() {
   const handleClickDownload = () => {
@@ -53,6 +55,7 @@ function App() {
       <div className="main">
         <IntergrateChains />
         <SigningModes />
+        <ContactUs />
       </div>
       <Footer />
     </>
