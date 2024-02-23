@@ -1236,6 +1236,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
     width: 20px;
     height: 20px;
   }
+
+  .contact-us,
+  .signing-modes {
+    margin-bottom: 40px;
+  }
 }
 
 @keyframes homeTextFadesIn {
