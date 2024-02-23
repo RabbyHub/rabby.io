@@ -797,7 +797,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   color: var(--r-neutral-title1, #192945);
   font-size: 18px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
 }
 
