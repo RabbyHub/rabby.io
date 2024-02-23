@@ -800,6 +800,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-top: 0;
 }
 
 .contact-us .card .email-box {
@@ -815,6 +816,9 @@ footer .right .footer-links a:nth-last-child(1)::after {
   font-weight: 400;
   line-height: normal;
   gap: 32px;
+  a {
+    color: var(--r-blue-default, #7084ff);
+  }
 }
 
 .contact-us .card .email a {
