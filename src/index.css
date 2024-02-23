@@ -550,6 +550,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   position: relative;
   margin-bottom: 180px;
   width: 100%;
+  overflow: hidden;
 }
 
 .security .title {
