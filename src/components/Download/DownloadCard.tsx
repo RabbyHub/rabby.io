@@ -10,12 +10,14 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   href: string;
   report?: string;
   isDisabled?: boolean;
+  iconClassName?: string;
 }
 
 export const DownloadCard: React.FC<Props> = ({
   icon,
   title,
   className,
+  iconClassName,
   href,
   report,
   isDisabled,
@@ -59,7 +61,7 @@ export const DownloadCard: React.FC<Props> = ({
       target="_blank"
     >
       <div className={styles.appStore}>
-        <img src={icon} alt={title} className={styles.appStoreImage} />
+        <img src={icon} alt={title} className={clsx(iconClassName, styles.appStoreImage)} />
         <div className={styles.appStoreTitle}>{title}</div>
         <div
           className={clsx(styles.appStoreTitle, styles.appStoreTitleDisabled)}
