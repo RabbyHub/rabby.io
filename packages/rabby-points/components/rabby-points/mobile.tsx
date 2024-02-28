@@ -2,17 +2,23 @@ import { BASE_PATH } from "@/constant";
 import clsx from "clsx";
 import { Scan } from "./scan";
 
-const storeList = [
+const storeList: InstallItem[] = [
   {
     title: "Google Play",
     img: `${BASE_PATH}/assets/rabby-points/play-store.png`,
-    store:
+    linkURL:
       "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
+  },
+  {
+    title: "Android APK",
+    img: `${BASE_PATH}/assets/rabby-points/android-apk.svg`,
+    linkURL:
+      "https://download.rabby.io/downloads/wallet-mobile/android/rabby-mobile.apk",
   },
   {
     title: "App Store",
     img: `${BASE_PATH}/assets/rabby-points/app-store.png`,
-    store: "",
+    linkURL: "",
   },
 ];
 export const MobilePanel = () => {
@@ -24,7 +30,7 @@ export const MobilePanel = () => {
 
       <div className="flex items-center gap-[16px] mb-[30px]">
         {storeList.map((item) => (
-          <StoreItem key={item.title} {...item} />
+          <InstallItem key={item.title} {...item} />
         ))}
       </div>
 
@@ -70,40 +76,46 @@ const isMobile = () => {
   return false;
 };
 
-const StoreItem = (props: { title: string; img: string; store?: string }) => {
+type InstallItem = {
+  title: string;
+  img: string;
+  linkURL?: string;
+  isUnderReview?: boolean;
+}
+const InstallItem = (props: InstallItem) => {
   const isMobileBrowser = isMobile();
   return (
     <div
       onClick={() => {
-        if (props.store) {
-          window.open(props.store, "_blank")?.focus();
+        if (props.linkURL) {
+          window.open(props.linkURL, "_blank")?.focus();
         }
       }}
       className={clsx(
         "w-40 h-[110px] relative bg-white rounded-lg shadow overflow-hidden group ",
-        props.store ? "cursor-pointer" : ""
+        props.linkURL ? "cursor-pointer" : ""
       )}
     >
-      {!props.store && (
+      {!props.linkURL && (
         <div className="w-full h-full absolute top-0 left-0 bg-white opacity-50 z-10" />
       )}
-      {!isMobileBrowser && props.store ? (
-        <Scan url={props.store} className="hidden group-hover:flex" />
+      {!isMobileBrowser && props.linkURL ? (
+        <Scan url={props.linkURL} className="hidden group-hover:flex" />
       ) : null}
       <div className="w-full h-full flex flex-col items-center justify-center gap-[10px]">
         <img className="w-[40px] h-[40px]" src={props.img} alt={props.title} />
         <div
           className={clsx(
             "text-center text-[#192945] text-[15px] font-medium",
-            !isMobileBrowser && props.store && "group-hover:hidden"
+            !isMobileBrowser && props.linkURL && "group-hover:hidden"
           )}
         >
-          <span className={!props.store ? "group-hover:hidden" : ""}>
+          <span className={!props.linkURL ? "group-hover:hidden" : ""}>
             {props.title}
           </span>
           <span
             className={
-              !props.store ? "hidden group-hover:inline-block" : "hidden"
+              !props.linkURL ? "hidden group-hover:inline-block" : "hidden"
             }
           >
             Under review
