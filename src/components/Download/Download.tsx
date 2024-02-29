@@ -89,8 +89,7 @@ export const Download: React.FC = () => {
                 <DownloadCard
                   title="App Store"
                   icon="/assets/download/icon-app-store.png"
-                  href=""
-                  isDisabled
+                  href="https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673"
                   report="App Store"
                 />
               </div>

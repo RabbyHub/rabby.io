@@ -18,7 +18,7 @@ const storeList: InstallItem[] = [
   {
     title: "App Store",
     img: `${BASE_PATH}/assets/rabby-points/app-store.png`,
-    linkURL: "",
+    linkURL: "https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673",
   },
 ];
 export const MobilePanel = () => {
@@ -80,7 +80,6 @@ type InstallItem = {
   title: string;
   img: string;
   linkURL?: string;
-  isUnderReview?: boolean;
 }
 const InstallItem = (props: InstallItem) => {
   const isMobileBrowser = isMobile();
