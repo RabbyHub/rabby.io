@@ -41,4 +41,5 @@ jobs:
       - name: Copy dists to s3
         run: |
           aws s3 sync . s3://${RABBY_PROD_BUCKET}/ --delete
+          aws cloudfront create-invalidation --distribution-id E1LJA4J5XV5BB --paths '/*'
         working-directory: dist
