@@ -3,20 +3,11 @@ import style from "./style.module.scss";
 import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 import { Content } from "./content";
-import { isIOS } from "./mobile";
 
 export const RabbyPointsReferral = () => {
-  const isIOSBrowser = isIOS();
   return (
     <>
-      <div
-        className={style.container}
-        style={{
-          backgroundImage: isIOSBrowser
-            ? `url(${BASE_PATH}/assets/rabby-points/bg.svg)`
-            : undefined,
-        }}
-      >
+      <div className={style.container}>
         <img
           className={style.startIcon}
           src={`${BASE_PATH}/assets/rabby-points/start.svg`}
