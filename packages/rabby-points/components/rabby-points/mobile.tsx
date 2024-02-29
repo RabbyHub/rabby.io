@@ -12,7 +12,7 @@ const storeList = [
   {
     title: "App Store",
     img: `${BASE_PATH}/assets/rabby-points/app-store.png`,
-    store: "",
+    store: "https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673",
   },
 ];
 export const MobilePanel = () => {
