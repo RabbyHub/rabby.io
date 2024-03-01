@@ -1,6 +1,7 @@
 import { BASE_PATH } from "@/constant";
 import clsx from "clsx";
 import { Scan } from "./scan";
+import styles from "./style.module.scss";
 
 const storeList = [
   {
@@ -18,21 +19,21 @@ const storeList = [
 export const MobilePanel = () => {
   return (
     <>
-      <div className="text-center text-white text-[15px] font-medium mb-[18px]">
+      <div className={clsx(styles.subTitle, "mb-[18px]")}>
         1. Download Rabby Wallet Mobile Beta
       </div>
 
-      <div className="flex items-center gap-[16px] mb-[30px]">
+      <div className="flex flex-wrap items-center justify-center gap-[16px] mb-[30px]">
         {storeList.map((item) => (
           <StoreItem key={item.title} {...item} />
         ))}
       </div>
 
-      <div className="text-center text-white text-[15px] font-medium">
+      <div className={clsx(styles.subTitle)}>
         2. Connect your wallet and go to Rabby Points
       </div>
-      <div className="h-4 justify-start items-center gap-0.5 inline-flex mt-[10px] mb-[16px]">
-        <div className="opacity-70 text-center text-white text-[13px] font-light">
+      <div className="h-4 justify-start items-center gap-0.5 inline-flex mt-[-6px] mb-[16px]">
+        <div className="opacity-70 text-center text-white text-[12px] sm:text-[13px] font-light">
           <span className="relative top-[1px] inline-block">*</span> No seed
           phrase or private key required
         </div>

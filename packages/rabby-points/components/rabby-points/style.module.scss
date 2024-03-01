@@ -190,3 +190,15 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding-top: 80px;
+  }
+  .box {
+    border-radius: 0;
+  }
+  .subTitle {
+    font-size: 13px;
+  }
+}
