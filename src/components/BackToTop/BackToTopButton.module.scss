@@ -1,0 +1,76 @@
+.back-to-top-button {
+  display: none;
+  position: relative;
+  bottom: 20px;
+  right: 1rem;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  background: linear-gradient(140deg, #7f8bff, #e0e3ff);
+  overflow: hidden;
+}
+
+.back-to-top-button.visible {
+  display: block;
+}
+
+.back-to-top-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(140deg, #e0e3ff, #7f8bff);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%) rotate(-45deg);
+  z-index: -1;
+}
+
+.back-to-top-button:hover::before {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 992px) {
+  .back-to-top-button {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 1rem;
+      border: none;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      outline: none;
+      background: linear-gradient(140deg, #7f8bff, #e0e3ff);
+  }
+
+  .back-to-top-button:hover::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 9999px) {
+  .back-to-top-button {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 1rem;
+      border: none;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      outline: none;
+      background: linear-gradient(140deg, #7f8bff, #e0e3ff);
+  }
+}

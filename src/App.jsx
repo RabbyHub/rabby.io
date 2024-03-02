@@ -8,7 +8,7 @@ import Security from './components/Security';
 import IntergrateChains from './components/IntergrateChains';
 import SigningModes from './components/SigningMode';
 import ContactUs from "./components/ContactUs"
-
+import BackToTopButton from './components/BackToTop/BackToTopButton';
 
 function App() {
   const handleClickDownload = () => {
@@ -20,6 +20,7 @@ function App() {
   return (
     <>
       <div className="main">
+        <BackToTopButton />
         <Header />
         <Intro />
       </div>
