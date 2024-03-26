@@ -9,8 +9,8 @@ export const queryClient = new QueryClient({
       refetchInterval: false,
       staleTime: 1000 * 3,
       cacheTime: 1000 * 3,
-      retry: 2,
-      retryDelay: 500,
+      retry: 0,
+      // retryDelay: 500,
     },
   },
 });

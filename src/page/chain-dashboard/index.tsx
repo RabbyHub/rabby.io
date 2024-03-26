@@ -8,7 +8,7 @@ import { CommonTooltip } from "./components/CommonTooltip";
 import { NodeModal } from "./components/NodeModal";
 import { Empty } from "./components/Empty";
 import { Loading } from "./components/Loading";
-import { useNodeList } from "./hook";
+import { useNodeList, useTitle } from "./hook";
 import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
 
 export const ChainDashboard = () => {
@@ -30,9 +30,18 @@ export const ChainDashboard = () => {
     setModalOpen(true);
     setChainInfo(chain);
   };
+  useTitle("Chain Dashboard - Rabby Wallet");
 
   return (
-    <div className={style.page}>
+    <div
+      className={style.page}
+      style={useMemo(
+        () => ({
+          backgroundImage: "url(/assets/chain-dashboard/bg.png)",
+        }),
+        []
+      )}
+    >
       <DashboardHeader />
 
       <div className={style.content}>

@@ -39,8 +39,10 @@ export const useNodeList = () => {
   });
 
   const result = useMemo(() => {
-    let all = data?.data;
-    let unstable = data?.data?.filter(filterUnstable);
+    let all = data?.data?.sort((a, b) =>
+      a.chain.name.localeCompare(b.chain.name)
+    );
+    let unstable = all?.filter(filterUnstable);
     if (!search?.trim?.()) {
       return { all: data?.data, unstable };
     }
@@ -117,4 +119,15 @@ export const useNodeServiceDetail = (chain_id: string) => {
     ...data,
     data: result,
   };
+};
+
+export const useTitle = (title: string) => {
+  useEffect(() => {
+    let preTitle = document.title;
+    document.title = title;
+
+    return () => {
+      document.title = preTitle;
+    };
+  }, [title]);
 };

@@ -43,6 +43,7 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
         },
         content: {
           padding: 32,
+          paddingBottom: 0,
           width: 784,
           height: 620,
           flexShrink: 0,
@@ -63,12 +64,12 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
         >
           <div className={style.modalHeader}>
             <div className={style.modalHeaderLeft}>
-              <div className={style.modalTitle}>{chainInfo.name}</div>
               <img
                 className={style.chainLogo}
                 src={chainInfo.logo_url}
                 alt=""
               />
+              <div className={style.modalTitle}>{chainInfo.name}</div>
             </div>
             <Tab
               list={tabList}
@@ -81,12 +82,14 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
                 fontWeight: 510,
               }}
             />
-            <img
-              src="/assets/chain-dashboard/close.svg"
-              className={style.closeIcon}
-              alt="close"
-              onClick={(e) => props?.onRequestClose?.(e)}
-            />
+            <div className={style.modalHeaderRight}>
+              <img
+                src="/assets/chain-dashboard/close.svg"
+                className={style.closeIcon}
+                alt="close"
+                onClick={(e) => props?.onRequestClose?.(e)}
+              />
+            </div>
           </div>
           <div className={style.chartList}>
             {isLoading && (
@@ -161,7 +164,7 @@ const NodeChart = ({
           </div>
           <div className={style.tagGroup}>
             {tags.map((e) => (
-              <Tag text={e} key={e} />
+              <Tag text={e} key={e} showCheck={false} />
             ))}
           </div>
         </div>

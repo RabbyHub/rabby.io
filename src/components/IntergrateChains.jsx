@@ -6,6 +6,8 @@ const IntergrateChains = () => {
     <div className="chains">
       <h2 className="title">
         Rabby has integrated {chains.length + testnetChains.length} chains
+
+        <a className='goto-dashboard' href='/chain-dashboard' target='_blank' rel="noreferrer">View Chain Dashboard</a>
       </h2>
       <p className="part-title">Mainnets</p>
       <ul className="chain-list">

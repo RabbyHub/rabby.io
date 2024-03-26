@@ -123,9 +123,11 @@ export const Column = (props: NodeInfo) => {
 
 export function Tag({
   enabled = true,
+  showCheck = true,
   text,
 }: {
   enabled?: boolean;
+  showCheck?: boolean;
   text: string;
 }) {
   return (
@@ -134,12 +136,12 @@ export function Tag({
       data-tooltip-id={!enabled ? TOOLTIP_ID : undefined}
       className={clsx(style.tag, !enabled && style.noActive)}
     >
-      {enabled ? (
+      {!showCheck ? null : enabled ? (
         <img src="/assets/chain-dashboard/checked.svg" alt="" />
       ) : (
         <img src="/assets/chain-dashboard/unchecked.svg" alt="" />
       )}
-      <span>{text}</span>
+      <span>{text?.replace("evm", "EVM")?.replace("_", " ")}</span>
     </div>
   );
 }
