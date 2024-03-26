@@ -1,7 +1,10 @@
 const IntergrateChains = ({ chains }) => {
   return (
     <div className="chains">
-      <h2 className="title">Rabby has integrated {chains?.length} chains</h2>
+      <h2 className="title">Rabby has integrated {chains?.length} chains
+      <a className='goto-dashboard' href='/chain-dashboard' target='_blank' rel="noreferrer">View Chain Dashboard</a>
+      
+      </h2>
       <ul className="chain-list">
         {chains?.map((chain) => (
           <li key={chain.id}>

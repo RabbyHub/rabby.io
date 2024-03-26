@@ -338,6 +338,7 @@ header {
   text-align: center;
   margin-bottom: 80px;
 }
+
 .intro-content {
   display: flex;
   margin-bottom: 120px;
@@ -658,6 +659,19 @@ footer .right .footer-links a:nth-last-child(1)::after {
 .chains .title {
   text-align: left;
   margin-bottom: 48px;
+  display: flex;
+}
+
+.chains .title .goto-dashboard {
+  color: var(--r-neutral-body, #3e495e);
+  margin-left: auto;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
 .chains ul {
@@ -1246,6 +1260,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   .contact-us,
   .signing-modes {
     margin-bottom: 40px;
+  }
+
+  .chains .title .goto-dashboard {
+    display: none;
   }
 }
 
