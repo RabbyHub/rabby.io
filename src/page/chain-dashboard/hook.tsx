@@ -76,6 +76,8 @@ export const useNodeServiceDetail = (chain_id: string) => {
     queryKey: ["nodeServiceDetail", chain_id],
     queryFn: () => api.getNodeStatusDetail({ chain_id }),
     refetchInterval: 1000 * 10,
+    cacheTime: 1000 * 60 * 2,
+    staleTime: 1000 * 60 * 2,
   });
 
   useEffect(() => {

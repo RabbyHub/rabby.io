@@ -78,7 +78,6 @@
   display: inline-flex;
   padding: 3px;
   align-items: flex-start;
-  gap: 10px;
   border-radius: 8px;
   background: var(--r-neutral-line, rgba(255, 255, 255, 0.1));
 
@@ -181,10 +180,14 @@
   overflow: hidden;
 }
 
+.columnHeader {
+  font-weight: normal;
+}
+
 .column {
   cursor: pointer;
   height: auto;
-  min-height: 124px;
+  min-height: 130px;
   border-radius: 8px;
   background: var(--r-neutral-card1, rgba(255, 255, 255, 0.06));
   border: 1px solid transparent;
@@ -198,7 +201,7 @@
 .chainInfo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 8px;
 }
 .chainLogo {
@@ -224,7 +227,7 @@
   padding: 6px 8px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
   border-radius: 4px;
   background: var(--r-neutral-card2, rgba(255, 255, 255, 0.06));
   color: var(--r-neutral-foot, #babec5);
