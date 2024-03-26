@@ -1,0 +1,118 @@
+import { useQuery } from "react-query";
+import { api } from "../../service";
+import { useEffect, useMemo, useState } from "react";
+import dayjs from "dayjs";
+import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
+import { showToast } from "../../toast";
+
+const filterUnstable = (e: NodeStatus) => {
+  if (
+    dayjs.unix(e.official_node_timestamp).isBefore(dayjs().subtract(5, "m"))
+  ) {
+    return true;
+  } else {
+    const serviceDelayNumber = Math.abs(
+      e.rabby_data_service_height - e.official_node_height
+    );
+    const rpcDelayNumber = Math.abs(
+      e.rabby_data_service_height - e.official_node_height
+    );
+    if (serviceDelayNumber >= 10 || rpcDelayNumber >= 10) {
+      return true;
+    }
+    return false;
+  }
+};
+
+const filterSearch = (q: string) => (e: NodeStatus) => {
+  return [e.chain.name, e.chain.id, e.chain.name, e.chain.network_id].some(
+    (e) => e.toString().toLowerCase()?.includes(q)
+  );
+};
+
+export const useNodeList = () => {
+  const [search, setSearch] = useState("");
+  const data = useQuery({
+    queryKey: ["nodeList"],
+    queryFn: () => api.getNodeStatusList(),
+  });
+
+  const result = useMemo(() => {
+    let all = data?.data;
+    let unstable = data?.data?.filter(filterUnstable);
+    if (!search?.trim?.()) {
+      return { all: data?.data, unstable };
+    }
+    const q = search.trim()?.toLowerCase();
+    all = all?.filter(filterSearch(q));
+    return {
+      all: all?.filter(filterSearch(q)),
+      unstable: all?.filter(filterUnstable),
+    };
+  }, [data?.data, search]);
+
+  useEffect(() => {
+    if (data.error) {
+      showToast({
+        duration: 2000,
+        content: String((data.error as any)?.message || data.error),
+      });
+    }
+  }, [data.error]);
+
+  return {
+    ...data,
+    data: result,
+    search,
+    setSearch,
+  };
+};
+
+export const useNodeServiceDetail = (chain_id: string) => {
+  const data = useQuery({
+    queryKey: ["nodeServiceDetail", chain_id],
+    queryFn: () => api.getNodeStatusDetail({ chain_id }),
+  });
+
+  useEffect(() => {
+    if (data.error) {
+      showToast({
+        duration: 2000,
+        content: String((data.error as any)?.message || data.error),
+      });
+    }
+  }, [data.error]);
+
+  const result = useMemo(() => {
+    if (!data?.data) {
+      return data?.data;
+    }
+    const rabby_rpc = data?.data?.rabby_rpc.map((e) => ({
+      ...e,
+      curveData: e.height_list.map((item) => ({
+        timestamp: item[0],
+        "Official RPC block height": item[1],
+        "Rabby's RPC block height": item[2],
+      })),
+    }));
+
+    const rabby_data_service = data?.data?.rabby_data_service.map((e) => ({
+      ...e,
+      curveData: e.height_list.map((item) => ({
+        timestamp: item[0],
+        "Official RPC block height": item[1],
+        "Rabby's data synchronization level": item[2],
+      })),
+    }));
+
+    return {
+      ...data?.data,
+      rabby_rpc,
+      rabby_data_service,
+    };
+  }, [data?.data]);
+  return {
+    ...data,
+    data: result,
+  };
+};
