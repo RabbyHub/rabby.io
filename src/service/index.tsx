@@ -17,7 +17,7 @@ export const queryClient = new QueryClient({
 
 export const api = new OpenApiService({
   store: {
-    host: "https://api.rabby.io",
+    host: "https://alpha.rabby.io",
   },
   plugin: WebSignApiPlugin,
 });

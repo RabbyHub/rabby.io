@@ -76,7 +76,6 @@ export const Column = (props: NodeInfo) => {
     enabled: !!value,
   }));
 
-  console.log("featuresList", featuresList);
   return (
     <div
       className={style.column}
