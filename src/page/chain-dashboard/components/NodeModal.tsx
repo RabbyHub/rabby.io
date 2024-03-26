@@ -269,7 +269,6 @@ const NodeChart = ({
             cursor={{
               stroke: "var(--r-neutral-line, rgba(255, 255, 255, 0.10))",
             }}
-            defaultIndex={1}
             labelStyle={{
               fontSize: 13,
               color: "var(--r-neutral-foot, #babec5)",
