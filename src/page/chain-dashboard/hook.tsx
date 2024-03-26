@@ -35,6 +35,7 @@ export const useNodeList = () => {
   const data = useQuery({
     queryKey: ["nodeList"],
     queryFn: () => api.getNodeStatusList(),
+    refetchInterval: 1000 * 10,
   });
 
   const result = useMemo(() => {
@@ -72,6 +73,7 @@ export const useNodeServiceDetail = (chain_id: string) => {
   const data = useQuery({
     queryKey: ["nodeServiceDetail", chain_id],
     queryFn: () => api.getNodeStatusDetail({ chain_id }),
+    refetchInterval: 1000 * 10,
   });
 
   useEffect(() => {
