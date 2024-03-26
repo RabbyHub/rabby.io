@@ -120,8 +120,8 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
 
 const tips: Record<string, string> = {
   Pre: "Simulates and submits transactions",
-  State: "Simulates and submits transactions.",
-  Trace: "Syncs with the latest on-chain data.",
+  State: "Syncs with the latest on-chain data.",
+  Trace: "Syncs transaction history.",
   Archive: "Syncs previous status.",
   "Rabby Data Service":
     "Rabby's backend data service. Unstable status may cause delays in updating asset balances and transaction records.",
@@ -153,7 +153,7 @@ const NodeChart = ({
       <div className={style.chartHeader}>
         <div className={style.chartHeaderLeft}>
           <div className={style.chartHeaderLabel}>
-            <div>{name}</div>
+            <div>{name} RPC Group</div>
             <img
               data-tooltip-id={TOOLTIP_ID}
               data-tooltip-content={tips[name] || ""}
@@ -185,8 +185,8 @@ const NodeChart = ({
         }}
       >
         <LineChart
-          width={700}
-          height={220}
+          width={720}
+          height={isDataService ? 370 : 220}
           data={formatData}
           margin={{ top: 20, right: 30, bottom: 0, left: 30 }}
         >
@@ -266,11 +266,19 @@ const NodeChart = ({
               background: "var(--r-neutral-bg2, #1c1f2b)",
               border: "none",
             }}
-            labelFormatter={(e) => (
-              <span style={{ color: "var(--r-neutral-foot, #babec5)" }}>
-                {dayjs.unix(e).format("MMM DD, HH:mm")}
-              </span>
-            )}
+            cursor={{
+              stroke: "var(--r-neutral-line, rgba(255, 255, 255, 0.10))",
+            }}
+            defaultIndex={1}
+            labelStyle={{
+              fontSize: 13,
+              color: "var(--r-neutral-foot, #babec5)",
+              marginBottom: 2,
+            }}
+            itemStyle={{
+              fontSize: 13,
+            }}
+            labelFormatter={(e) => dayjs.unix(e).format("MMM DD, HH:mm")}
           />
           <Legend iconType="circle" iconSize={7} />
           <Line
