@@ -4,8 +4,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
     "PingFang SC", "Microsoft Yahei", sans-serif;
 
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 
   position: relative;
   &::after {
