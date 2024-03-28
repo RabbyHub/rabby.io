@@ -663,6 +663,9 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .chains .title .goto-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: var(--r-neutral-body, #3e495e);
   margin-left: auto;
   text-align: right;

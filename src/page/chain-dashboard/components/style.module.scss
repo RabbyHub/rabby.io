@@ -19,6 +19,18 @@
   }
 }
 
+.sticky {
+  background: var(--r-neutral-bg2, #1c1f2b);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 0.5px solid transparent;
+
+  &.stickyTop {
+    border-bottom: 0.5px solid var(--r-neutral-line, rgba(255, 255, 255, 0.1));
+  }
+}
+
 .toolTip {
   display: flex;
   max-width: 320px;
@@ -201,7 +213,7 @@
 .chainInfo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 8px;
 }
 .chainLogo {
@@ -209,6 +221,8 @@
   height: 24px;
 }
 .chainText {
+  position: relative;
+  top: -1px;
   color: var(--r-neutral-title1, #f7fafc);
   font-size: 20px;
   font-style: normal;

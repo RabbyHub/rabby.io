@@ -1,6 +1,6 @@
 import { DashboardHeader } from "./components/Header";
 import style from "./components/style.module.scss";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Tab } from "./components/tab";
 import { Search } from "./components/Search";
 import { Column, ColumnHeader } from "./components/Column";
@@ -10,6 +10,8 @@ import { Empty } from "./components/Empty";
 import { Loading } from "./components/Loading";
 import { useNodeList, useTitle } from "./hook";
 import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
+import clsx from "clsx";
+import { Toaster } from "react-hot-toast";
 
 export const ChainDashboard = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -30,6 +32,24 @@ export const ChainDashboard = () => {
     setModalOpen(true);
     setChainInfo(chain);
   };
+
+  const isEmpty = useMemo(() => {
+    return !isLoading && (!data?.all || data?.all?.length === 0);
+  }, [data?.all, isLoading]);
+
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      setIsSticky(document.documentElement.scrollTop > 0);
+    };
+    document.addEventListener("scroll", scrollHandler, { passive: true });
+
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
   useTitle("Chain Dashboard - Rabby Wallet");
 
   return (
@@ -42,24 +62,32 @@ export const ChainDashboard = () => {
         []
       )}
     >
-      <DashboardHeader />
+      <div className={clsx(style.sticky, isSticky && style.stickyTop)}>
+        <DashboardHeader />
+        <div className={style.content}>
+          <div className={style.searchBar}>
+            <Tab
+              list={list}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+
+            <Search
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value || "");
+              }}
+            />
+          </div>
+          {!isEmpty && <ColumnHeader />}
+        </div>
+      </div>
 
       <div className={style.content}>
-        <div className={style.searchBar}>
-          <Tab list={list} activeTab={activeTab} setActiveTab={setActiveTab} />
-
-          <Search
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value || "");
-            }}
-          />
-        </div>
-        {!isLoading && (!data?.all || data?.all?.length === 0) ? (
+        {isEmpty ? (
           <Empty />
         ) : (
           <>
-            <ColumnHeader />
             <div
               style={{
                 display: "flex",
@@ -71,6 +99,7 @@ export const ChainDashboard = () => {
               {!isLoading &&
                 (activeTab === 0 ? data?.all : data?.unstable)?.map((item) => (
                   <Column
+                    key={item.chain.id}
                     openDetail={openDetail}
                     chain={item.chain}
                     logo={item.chain.logo_url}
@@ -99,6 +128,23 @@ export const ChainDashboard = () => {
       )}
 
       <CommonTooltip />
+
+      <Toaster
+        containerStyle={{
+          top: 100,
+        }}
+        toastOptions={{
+          style: {
+            color: "var(--r-neutral-title2, #FFF)",
+            fontSize: 13,
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "normal",
+            background: "black",
+            borderRadius: 0,
+          },
+        }}
+      />
     </div>
   );
 };

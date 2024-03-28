@@ -1,8 +1,9 @@
 import { SVGProps } from "react";
 
-export const IconDanger = (
-  props: SVGProps<SVGSVGElement> & { enableShadow?: boolean }
-) => (
+export const IconDanger = ({
+  enableShadow,
+  ...props
+}: SVGProps<SVGSVGElement> & { enableShadow?: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -11,7 +12,7 @@ export const IconDanger = (
     viewBox="0 0 24 24"
     {...props}
   >
-    <g filter={props.enableShadow ? "url(#IconDanger)" : undefined}>
+    <g filter={enableShadow ? "url(#IconDanger)" : undefined}>
       <rect width={16} height={16} x={4} y={4} fill="#EF5C48" rx={8} />
       <path
         stroke="#fff"
@@ -59,9 +60,10 @@ export const IconDanger = (
   </svg>
 );
 
-export const IconWarning = (
-  props: SVGProps<SVGSVGElement> & { enableShadow?: boolean }
-) => (
+export const IconWarning = ({
+  enableShadow,
+  ...props
+}: SVGProps<SVGSVGElement> & { enableShadow?: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -70,7 +72,7 @@ export const IconWarning = (
     viewBox="0 0 24 24"
     {...props}
   >
-    <g filter={props.enableShadow ? "url(#IconWarning)" : undefined}>
+    <g filter={enableShadow ? "url(#IconWarning)" : undefined}>
       <rect width={16} height={16} x={4} y={4} fill="#FFC64A" rx={8} />
       <path
         stroke="#fff"
@@ -118,9 +120,10 @@ export const IconWarning = (
   </svg>
 );
 
-export const IconNormal = (
-  props: SVGProps<SVGSVGElement> & { enableShadow?: boolean }
-) => (
+export const IconNormal = ({
+  enableShadow,
+  ...props
+}: SVGProps<SVGSVGElement> & { enableShadow?: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -129,7 +132,7 @@ export const IconNormal = (
     viewBox="0 0 24 25"
     {...props}
   >
-    <g filter={props.enableShadow ? "url(#IconNormal)" : undefined}>
+    <g filter={enableShadow ? "url(#IconNormal)" : undefined}>
       <rect width={16} height={16} x={4} y={4.5} fill="#2ABB7F" rx={8} />
     </g>
     <defs>

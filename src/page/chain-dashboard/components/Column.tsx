@@ -41,9 +41,6 @@ export const ColumnHeader = () => {
 interface NodeInfo {
   chain: NodeStatus["chain"];
   features: Features;
-  // official_rpc_status: OfficialRpcStatus;
-  // rabby_rpc_status: OfficialRpcStatus;
-  // rabby_data_service_status: OfficialRpcStatus;
   official_node_height: number;
   official_node_timestamp: number;
   rabby_node_height: number;

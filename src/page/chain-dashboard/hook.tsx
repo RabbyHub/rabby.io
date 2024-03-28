@@ -3,7 +3,7 @@ import { api } from "../../service";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
-import { showToast } from "../../toast";
+import toast from "react-hot-toast";
 
 const filterUnstable = (e: NodeStatus) => {
   if (
@@ -56,9 +56,11 @@ export const useNodeList = () => {
 
   useEffect(() => {
     if (data.error) {
-      showToast({
+      toast(String((data.error as any)?.message || data.error), {
         duration: 2000,
-        content: String((data.error as any)?.message || data.error),
+        style: {
+          top: 200,
+        },
       });
     }
   }, [data.error]);
@@ -76,15 +78,16 @@ export const useNodeServiceDetail = (chain_id: string) => {
     queryKey: ["nodeServiceDetail", chain_id],
     queryFn: () => api.getNodeStatusDetail({ chain_id }),
     refetchInterval: 1000 * 10,
-    // cacheTime: 1000 * 60 * 2,
-    // staleTime: 1000 * 60 * 2,
+    cacheTime: 1000 * 10,
   });
 
   useEffect(() => {
     if (data.error) {
-      showToast({
+      toast(String((data.error as any)?.message || data.error), {
         duration: 2000,
-        content: String((data.error as any)?.message || data.error),
+        style: {
+          top: 200,
+        },
       });
     }
   }, [data.error]);

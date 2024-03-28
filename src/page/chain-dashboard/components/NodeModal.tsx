@@ -36,10 +36,12 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
   }, [activeTab, data]);
   return (
     <Modal
+      ariaHideApp={false}
       shouldCloseOnOverlayClick
       style={{
         overlay: {
           background: "rgba(0, 0, 0, 0.6)",
+          zIndex: 999999999,
         },
         content: {
           padding: 32,
