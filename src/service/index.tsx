@@ -22,4 +22,9 @@ export const api = new OpenApiService({
   plugin: WebSignApiPlugin,
 });
 
-api.initSync();
+export const apiReady = new Promise<OpenApiService>((resolve, reject) => {
+  api
+    .init()
+    .then(() => resolve(api))
+    .catch(reject);
+});

@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { api } from "../../service";
+import { apiReady } from "../../service";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
@@ -34,7 +34,7 @@ export const useNodeList = () => {
   const [search, setSearch] = useState("");
   const data = useQuery({
     queryKey: ["nodeList"],
-    queryFn: () => api.getNodeStatusList(),
+    queryFn: async () => (await apiReady).getNodeStatusList(),
     refetchInterval: 1000 * 10,
   });
 
@@ -76,7 +76,7 @@ export const useNodeList = () => {
 export const useNodeServiceDetail = (chain_id: string) => {
   const data = useQuery({
     queryKey: ["nodeServiceDetail", chain_id],
-    queryFn: () => api.getNodeStatusDetail({ chain_id }),
+    queryFn: async () => (await apiReady).getNodeStatusDetail({ chain_id }),
     refetchInterval: 1000 * 10,
     cacheTime: 1000 * 10,
   });
