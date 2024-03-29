@@ -41,7 +41,7 @@ export const NodeModal = (props: Modal["props"] & TargetChain) => {
       style={{
         overlay: {
           background: "rgba(0, 0, 0, 0.6)",
-          zIndex: 999999999,
+          zIndex: 1000,
         },
         content: {
           padding: 32,
@@ -287,7 +287,7 @@ const NodeChart = ({
             type="monotone"
             dot={false}
             dataKey="y"
-            stroke="#7084ff"
+            stroke="#2ABB7F"
             name="Official RPC block height"
             style={{
               transform: "translateY(-2px)",
@@ -298,7 +298,7 @@ const NodeChart = ({
             type="monotone"
             dot={false}
             dataKey="z"
-            stroke="#2ABB7F"
+            stroke="#7084ff"
             name={
               isDataService
                 ? "Rabby's data synchronization level"
