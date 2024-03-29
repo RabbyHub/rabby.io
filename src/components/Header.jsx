@@ -1,26 +1,26 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState, useCallback } from 'react';
-import clsx from 'clsx';
-import { showToast } from '../toast';
-import AnimateScroll from './AnimateScroll';
-import { Download } from './Download/Download';
-import { ga } from '../ga';
+import React, { useEffect, useState, useCallback } from "react";
+import clsx from "clsx";
+import { showToast } from "../toast";
+import AnimateScroll from "./AnimateScroll";
+import { Download } from "./Download/Download";
+import { ga } from "../ga";
 
-const Header = () => {
+const Header = ({ chains }) => {
   const [isExpand, setIsExpand] = useState(false);
   // eslint-disable-next-line no-unused-vars
-  const [mouseOver, setMouseOver] = useState('');
+  const [mouseOver, setMouseOver] = useState("");
   const isFirefox = /firefox/i.test(navigator.userAgent);
   const isBrave = /brave/i.test(navigator.userAgent);
   const isEdge = /edg\//i.test(navigator.userAgent);
   const isChrome = !isBrave && !isEdge && /chrome/i.test(navigator.userAgent);
 
   const initMouseOver = useCallback(() => {
-    if (isChrome) setMouseOver('chrome');
-    if (isEdge) setMouseOver('edge');
-    if (isBrave) setMouseOver('brave');
-    if (isFirefox) setMouseOver('firefox');
+    if (isChrome) setMouseOver("chrome");
+    if (isEdge) setMouseOver("edge");
+    if (isBrave) setMouseOver("brave");
+    if (isFirefox) setMouseOver("firefox");
   }, [isBrave, isChrome, isEdge, isFirefox]);
 
   const handleClickMenuBtn = () => {
@@ -29,9 +29,9 @@ const Header = () => {
 
   const reportClickDownload = (label) => {
     ga.event({
-      category: 'User',
-      action: 'clickDownload',
-      label
+      category: "User",
+      action: "clickDownload",
+      label,
     });
   };
 
@@ -40,8 +40,8 @@ const Header = () => {
     if (/mobile/i.test(navigator.userAgent)) {
       e.preventDefault();
       showToast({
-        content: 'Please visit this site from the desktop',
-        duration: 2000
+        content: "Please visit this site from the desktop",
+        duration: 2000,
       });
     }
     reportClickDownload();
@@ -57,8 +57,8 @@ const Header = () => {
         <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
         <a
           href="javascript:;"
-          className={clsx('menu-btn', {
-            expand: isExpand
+          className={clsx("menu-btn", {
+            expand: isExpand,
           })}
           onClick={handleClickMenuBtn}
         >
@@ -66,7 +66,7 @@ const Header = () => {
           <i></i>
           <i></i>
         </a>
-        <ul className={clsx('menu', { show: isExpand })}>
+        <ul className={clsx("menu", { show: isExpand })}>
           <li>
             <a
               href="https://rabbykit.rabby.io/"
@@ -118,21 +118,17 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a
-              href="mailto:support@rabby.io"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="mailto:support@rabby.io" target="_blank" rel="noreferrer">
               Email
             </a>
           </li>
-          
         </ul>
       </div>
       <div className="header-content">
         <div className="left">
           <h1 className="white">
-            The game-changing wallet for <AnimateScroll></AnimateScroll>
+            The game-changing wallet for{" "}
+            <AnimateScroll chains={chains}></AnimateScroll>
           </h1>
           <div className="container">
             <div className="features">

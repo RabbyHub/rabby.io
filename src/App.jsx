@@ -1,26 +1,28 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import Header from './components/Header';
-import Intro from './components/Intro';
-import Footer from './components/Footer';
-import Security from './components/Security';
-import IntergrateChains from './components/IntergrateChains';
-import SigningModes from './components/SigningMode';
-import ContactUs from "./components/ContactUs"
-
+import React from "react";
+import Header from "./components/Header";
+import Intro from "./components/Intro";
+import Footer from "./components/Footer";
+import Security from "./components/Security";
+import IntergrateChains from "./components/IntergrateChains";
+import SigningModes from "./components/SigningMode";
+import ContactUs from "./components/ContactUs";
+import { useFetchChainList } from "./hooks/useFetchChainList";
 
 function App() {
   const handleClickDownload = () => {
     window.$.scrollTo(0, {
-      duration: 800
+      duration: 800,
     });
   };
+
+  const chains = useFetchChainList();
 
   return (
     <>
       <div className="main">
-        <Header />
+        <Header chains={chains} />
         <Intro />
       </div>
       <Security />
@@ -53,7 +55,7 @@ function App() {
         </div>
       </div>
       <div className="main">
-        <IntergrateChains />
+        <IntergrateChains chains={chains} />
         <SigningModes />
         <ContactUs />
       </div>
