@@ -4,6 +4,13 @@ import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
 import toast from "react-hot-toast";
+import { IconDanger } from "./components/IconStatus";
+
+const toastError = (s: string) =>
+  toast(s, {
+    duration: 2000,
+    icon: <IconDanger enableShadow={false} />,
+  });
 
 const filterUnstable = (e: NodeStatus) => {
   if (
@@ -56,12 +63,7 @@ export const useNodeList = () => {
 
   useEffect(() => {
     if (data.error) {
-      toast(String((data.error as any)?.message || data.error), {
-        duration: 2000,
-        style: {
-          top: 200,
-        },
-      });
+      toastError(String((data.error as any)?.message || data.error));
     }
   }, [data.error]);
 
@@ -83,12 +85,7 @@ export const useNodeServiceDetail = (chain_id: string) => {
 
   useEffect(() => {
     if (data.error) {
-      toast(String((data.error as any)?.message || data.error), {
-        duration: 2000,
-        style: {
-          top: 200,
-        },
-      });
+      toastError(String((data.error as any)?.message || data.error));
     }
   }, [data.error]);
 

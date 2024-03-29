@@ -53,14 +53,16 @@ export function NodeStatusInfo({
       )}
       {status === "warning" && <IconWarning enableShadow={enableShadow} />}
       {status === "danger" && <IconDanger enableShadow={enableShadow} />}
-      <span
-        className={clsx(
-          status === "warning" && style.warning,
-          status === "danger" && style.danger
-        )}
-      >
-        {text}
-      </span>
+      {!!text && (
+        <span
+          className={clsx(
+            status === "warning" && style.warning,
+            status === "danger" && style.danger
+          )}
+        >
+          {text}
+        </span>
+      )}
     </div>
   );
 }

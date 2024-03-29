@@ -131,7 +131,7 @@ export const ChainDashboard = () => {
 
       <Toaster
         containerStyle={{
-          top: 100,
+          top: 165,
         }}
         toastOptions={{
           style: {
