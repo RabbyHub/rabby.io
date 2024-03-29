@@ -52,7 +52,7 @@
     "vuepress": "^1.8.2"
   },
   "resolutions": {
-    "@rabby-wallet/rabby-sign": "0.3.4-alpha.1"
+    "@rabby-wallet/rabby-sign": "0.3.4-alpha.2"
   },
   "eslintConfig": {
     "extends": [
