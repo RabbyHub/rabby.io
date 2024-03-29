@@ -41,7 +41,7 @@ export const ChainDashboard = () => {
 
   useEffect(() => {
     const scrollHandler = () => {
-      setIsSticky(document.documentElement.scrollTop > 0);
+      setIsSticky(document.documentElement.scrollTop > 140);
     };
     document.addEventListener("scroll", scrollHandler, { passive: true });
 
@@ -62,8 +62,8 @@ export const ChainDashboard = () => {
         []
       )}
     >
+      <DashboardHeader />
       <div className={clsx(style.sticky, isSticky && style.stickyTop)}>
-        <DashboardHeader />
         <div className={style.content}>
           <div className={style.searchBar}>
             <Tab

@@ -22,6 +22,7 @@
 .sticky {
   background: var(--r-neutral-bg2, #1c1f2b);
   position: sticky;
+  top: 20px;
   top: 0;
   z-index: 1;
   border-bottom: 0.5px solid transparent;
@@ -84,6 +85,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 24px auto;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
 .tab {
