@@ -1955,10 +1955,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rabby-wallet/rabby-api@0.7.8-beta.1":
-  version "0.7.8-beta.1"
-  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.7.8-beta.1.tgz#a7c73300de03f9f9c3d0faa3b4951facc8aaeaac"
-  integrity sha512-Oe+msvwdPrcVg1cFmygy+HGRkkqubtd91Gd6dRrdqVHaJafiSV1O0+1Ya7xJoXMNnAxHS+6WYmTU9gCMKehfOQ==
+"@rabby-wallet/rabby-api@0.7.12":
+  version "0.7.12"
+  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.7.12.tgz#3c1f4f1ef0281f87b2f9bb22bc4d06c944b033b5"
+  integrity sha512-AplrJTste0aR6C1NLg4PK/FH0TSkmloRf6viHlXeYWz6vy68y79g7Fsd3W7uXt61SGX+Yu0xcnWVE7GE9fi1bw==
   dependencies:
     "@rabby-wallet/rabby-sign" "^0.3.3"
     axios "^0.27.2"
