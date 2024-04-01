@@ -67,7 +67,7 @@ const Header = ({ chains }) => {
           <i></i>
         </a>
         <ul className={clsx('menu', { show: isExpand })}>
-        <li>
+        {/* <li>
             <a
               href="/chain-dashboard"
               target="_blank"
@@ -75,7 +75,7 @@ const Header = ({ chains }) => {
             >
               Chain Dashboard
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               href="https://rabbykit.rabby.io/"
