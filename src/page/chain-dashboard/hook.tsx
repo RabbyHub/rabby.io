@@ -24,7 +24,7 @@ const filterUnstable = (e: NodeStatus) => {
     const rpcDelayNumber = Math.abs(
       e.rabby_data_service_height - e.official_node_height
     );
-    if (serviceDelayNumber >= 10 || rpcDelayNumber >= 10) {
+    if (serviceDelayNumber >= 1 || rpcDelayNumber >= 1) {
       return true;
     }
     return false;
