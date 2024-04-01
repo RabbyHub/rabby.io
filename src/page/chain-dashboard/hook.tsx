@@ -31,6 +31,25 @@ const filterUnstable = (e: NodeStatus) => {
   }
 };
 
+const filterDanger = (e: NodeStatus) => {
+  if (
+    dayjs.unix(e.official_node_timestamp).isBefore(dayjs().subtract(5, "m"))
+  ) {
+    return true;
+  } else {
+    const serviceDelayNumber = Math.abs(
+      e.rabby_data_service_height - e.official_node_height
+    );
+    const rpcDelayNumber = Math.abs(
+      e.rabby_data_service_height - e.official_node_height
+    );
+    if (serviceDelayNumber >= 10 || rpcDelayNumber >= 10) {
+      return true;
+    }
+    return false;
+  }
+};
+
 const filterSearch = (q: string) => (e: NodeStatus) => {
   return [e.chain.name, e.chain.id, e.chain.name, e.chain.network_id].some(
     (e) => e.toString().toLowerCase()?.includes(q)
@@ -49,15 +68,14 @@ export const useNodeList = () => {
     let all = data?.data?.sort((a, b) =>
       a.chain.name.localeCompare(b.chain.name)
     );
-    let unstable = all?.filter(filterUnstable);
-    if (!search?.trim?.()) {
-      return { all: data?.data, unstable };
-    }
     const q = search.trim()?.toLowerCase();
-    all = all?.filter(filterSearch(q));
+    if (q) {
+      all = all?.filter(filterSearch(q));
+    }
     return {
       all: all?.filter(filterSearch(q)),
       unstable: all?.filter(filterUnstable),
+      danger: all?.filter(filterDanger),
     };
   }, [data?.data, search]);
 

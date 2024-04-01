@@ -21,12 +21,25 @@ export const ChainDashboard = () => {
 
   const all = data?.all?.length || "";
   const unstable = data?.unstable?.length || 0;
+  const danger = data?.danger?.length || 0;
+  const renderData = useMemo(() => {
+    if (!activeTab) {
+      return data?.all;
+    }
+    if (activeTab === 1) {
+      return data?.unstable;
+    }
+    if (activeTab === 2) {
+      return data?.danger;
+    }
+    return data?.all;
+  }, [activeTab, data?.all, data?.danger, data?.unstable]);
   const list = useMemo(() => {
     if (!all) {
-      return ["All", "Unstable"];
+      return ["All", "Waring", "Danger"];
     }
-    return [`All (${all})`, `Unstable (${unstable})`];
-  }, [all, unstable]);
+    return [`All (${all})`, `Waring (${unstable})`, `Danger (${danger})`];
+  }, [all, unstable, danger]);
 
   const openDetail = (chain: NodeStatus["chain"]) => {
     setModalOpen(true);
@@ -97,7 +110,7 @@ export const ChainDashboard = () => {
               }}
             >
               {!isLoading &&
-                (activeTab === 0 ? data?.all : data?.unstable)?.map((item) => (
+                renderData?.map((item) => (
                   <Column
                     key={item.chain.id}
                     openDetail={openDetail}
