@@ -1,0 +1,435 @@
+.page {
+  background: var(--r-neutral-bg2, #1c1f2b);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
+    "PingFang SC", "Microsoft Yahei", sans-serif;
+
+  background-size: contain;
+
+  position: relative;
+  &::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: var(--r-neutral-bg2, #1c1f2b);
+    z-index: -1;
+  }
+}
+
+.sticky {
+  background: var(--r-neutral-bg2, #1c1f2b);
+  position: sticky;
+  top: 20px;
+  top: 0;
+  z-index: 1;
+  border-bottom: 0.5px solid transparent;
+
+  &.stickyTop {
+    border-bottom: 0.5px solid var(--r-neutral-line, rgba(255, 255, 255, 0.1));
+  }
+}
+
+.toolTip {
+  display: flex;
+  max-width: 320px;
+  padding: 8px 12px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-radius: 2px;
+  background: var(--r-neutral-black, #000);
+
+  color: var(--r-neutral-title2, #fff);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  z-index: 1001;
+}
+
+.header {
+  height: 140px;
+
+  color: var(--r-neutral-title1, #f7fafc);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+
+  .bg {
+    position: absolute;
+    width: 780px;
+    height: 307px;
+    top: -75px;
+    right: -114px;
+  }
+}
+
+.content {
+  padding: 0 100px;
+  // padding-top: 24px;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px auto;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.tab {
+  display: inline-flex;
+  padding: 3px;
+  align-items: flex-start;
+  border-radius: 8px;
+  background: var(--r-neutral-line, rgba(255, 255, 255, 0.1));
+
+  .item {
+    display: flex;
+    width: 132px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    color: var(--r-neutral-body, #d3d8e0);
+    text-align: center;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: normal;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover {
+      color: var(--r-blue-default, #7084ff);
+    }
+
+    &.activeTab {
+      color: var(--r-blue-default, #7084ff);
+      background: var(--r-neutral-bg1, #1c1f2b);
+    }
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  .input {
+    width: 400px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--r-neutral-line, rgba(255, 255, 255, 0.1));
+    background: var(--r-neutral-card1, rgba(255, 255, 255, 0.06));
+
+    color: var(--r-neutral-title1, #f7fafc);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 14px 16px;
+    padding-left: 48px;
+
+    &::placeholder {
+      color: var(--r-neutral-foot, #babec5);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+      border: 1px solid var(--r-blue-default, #7084ff);
+    }
+  }
+  .searchIcon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+}
+
+.columnHeader,
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  border-radius: 8px;
+  // background: rgba(255, 255, 255, 0.1);
+
+  color: var(--r-neutral-body, #d3d8e0);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+
+  .first {
+    margin-left: 20px;
+    width: 352px;
+  }
+
+  .other {
+    width: 288px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.infoIcon {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.columnHeader {
+  font-weight: normal;
+}
+
+.column {
+  cursor: pointer;
+  height: auto;
+  min-height: 130px;
+  border-radius: 8px;
+  background: var(--r-neutral-card1, rgba(255, 255, 255, 0.06));
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid var(--r-blue-default, #7084ff);
+    box-shadow: 0px 4px 12px 0px rgba(112, 132, 255, 0.2);
+  }
+}
+
+.chainInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.chainLogo {
+  width: 24px;
+  height: 24px;
+}
+.chainText {
+  position: relative;
+  top: -1px;
+  color: var(--r-neutral-title1, #f7fafc);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+}
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+
+.tag {
+  display: flex;
+  padding: 6px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  background: var(--r-neutral-card2, rgba(255, 255, 255, 0.06));
+  color: var(--r-neutral-foot, #babec5);
+
+  font-family: "SF Pro";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.noActive {
+  opacity: 0.5;
+}
+
+.nodeStatusWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+  color: var(--r-green-default, #2abb7f);
+  &.row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.normal {
+  width: 16px;
+  height: 16px;
+  border-radius: 900px;
+  background: var(--r-green-default, #2abb7f);
+  box-shadow: 0px 0px 4px 0px #2abb7f;
+}
+
+.statusIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.warning {
+  color: var(--r-orange-default, #ffc64a);
+}
+
+.danger {
+  color: var(--r-red-default, #ef5c48);
+}
+
+.modal {
+}
+
+.modalOverlay {
+  opacity: 0.6;
+  background: #000;
+}
+
+.modalContent {
+  padding: 32px;
+  width: 784px;
+  height: 620px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: var(--r-neutral-bg2, #1c1f2b);
+  box-shadow: 0px 24px 40px 0px rgba(19, 20, 26, 0.49);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.modalHeaderLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--r-neutral-title1, #f7fafc);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+}
+
+.modalHeaderRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.closeIcon {
+  height: 100%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.chartWrapper {
+  // overflow: hidden;
+  // height: 340px;
+  border-radius: 8px;
+  background: var(--r-neutral-card1, rgba(255, 255, 255, 0.06));
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 20px;
+  padding-bottom: 25px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0px;
+    border-bottom: 0.5px solid var(--r-neutral-line, rgba(255, 255, 255, 0.1));
+  }
+}
+
+.chartHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chartHeaderLabel {
+  display: flex;
+  align-items: center;
+  color: var(--r-neutral-title1, #f7fafc);
+  font-family: SF Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+  gap: 4px;
+}
+
+.chartList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: overlay;
+  padding-bottom: 32px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:global {
+  .recharts-legend-item {
+    display: inline-flex !important;
+    align-items: center;
+    color: var(--r-neutral-title1, #f7fafc);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .recharts-default-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .recharts-text tspan {
+    fill: var(--r-neutral-foot, #babec5);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

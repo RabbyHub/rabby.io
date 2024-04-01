@@ -369,7 +369,7 @@
   }
 
   .downloadCard {
-    max-width: (1 / 3) * 100%;
+    max-width: calc((1 / 3) * 100%);
     width: 150px;
   }
 
