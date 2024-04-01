@@ -22,9 +22,15 @@ const filterWarning = (e: NodeStatus) => {
       e.rabby_data_service_height - e.official_node_height
     );
     const rpcDelayNumber = Math.abs(
-      e.rabby_data_service_height - e.official_node_height
+      e.rabby_node_height - e.official_node_height
     );
     if (serviceDelayNumber > 10 || rpcDelayNumber > 10) {
+      console.log(
+        "filterWarning",
+        e.chain.name,
+        serviceDelayNumber,
+        rpcDelayNumber
+      );
       return false;
     }
     if (serviceDelayNumber > 0 || rpcDelayNumber > 0) {
