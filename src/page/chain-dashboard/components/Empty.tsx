@@ -1,4 +1,4 @@
-export const Empty = () => {
+export const Empty = ({ text }: { text?: string }) => {
   return (
     <div
       style={{
@@ -30,7 +30,7 @@ export const Empty = () => {
           lineHeight: "normal",
         }}
       >
-        No Supported Chain
+        {text || "No Supported Chain"}
       </span>
     </div>
   );

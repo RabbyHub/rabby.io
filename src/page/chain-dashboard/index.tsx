@@ -19,7 +19,7 @@ export const ChainDashboard = () => {
   const { isLoading, data, search, setSearch } = useNodeList();
   const [chainInfo, setChainInfo] = useState<NodeStatus["chain"] | null>(null);
 
-  const all = data?.all?.length || "";
+  const all = data?.all?.length || 0;
   const warning = data?.warning?.length || 0;
   const danger = data?.danger?.length || 0;
   const renderData = useMemo(() => {
@@ -35,11 +35,11 @@ export const ChainDashboard = () => {
     return data?.all;
   }, [activeTab, data?.all, data?.danger, data?.warning]);
   const list = useMemo(() => {
-    if (!all) {
+    if (isLoading) {
       return ["All", "Warning", "Danger"];
     }
     return [`All (${all})`, `Warning (${warning})`, `Danger (${danger})`];
-  }, [all, warning, danger]);
+  }, [isLoading, all, warning, danger]);
 
   const openDetail = (chain: NodeStatus["chain"]) => {
     setModalOpen(true);
@@ -47,8 +47,10 @@ export const ChainDashboard = () => {
   };
 
   const isEmpty = useMemo(() => {
-    return !isLoading && (!data?.all || data?.all?.length === 0);
-  }, [data?.all, isLoading]);
+    return (
+      !isLoading && (!data?.all || !renderData || renderData?.length === 0)
+    );
+  }, [data?.all, isLoading, renderData]);
 
   const [isSticky, setIsSticky] = useState(false);
 
@@ -98,7 +100,7 @@ export const ChainDashboard = () => {
 
       <div className={style.content}>
         {isEmpty ? (
-          <Empty />
+          <Empty text={search?.trim()?.length ? "No result" : undefined} />
         ) : (
           <>
             <div
