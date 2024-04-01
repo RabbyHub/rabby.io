@@ -12,11 +12,11 @@ const toastError = (s: string) =>
     icon: <IconDanger enableShadow={false} />,
   });
 
-const filterUnstable = (e: NodeStatus) => {
+const filterWarning = (e: NodeStatus) => {
   if (
     dayjs.unix(e.official_node_timestamp).isBefore(dayjs().subtract(5, "m"))
   ) {
-    return true;
+    return false;
   } else {
     const serviceDelayNumber = Math.abs(
       e.rabby_data_service_height - e.official_node_height
@@ -24,7 +24,10 @@ const filterUnstable = (e: NodeStatus) => {
     const rpcDelayNumber = Math.abs(
       e.rabby_data_service_height - e.official_node_height
     );
-    if (serviceDelayNumber >= 1 || rpcDelayNumber >= 1) {
+    if (
+      (serviceDelayNumber >= 1 && serviceDelayNumber <= 10) ||
+      (rpcDelayNumber >= 1 && rpcDelayNumber <= 10)
+    ) {
       return true;
     }
     return false;
@@ -74,7 +77,7 @@ export const useNodeList = () => {
     }
     return {
       all: all?.filter(filterSearch(q)),
-      unstable: all?.filter(filterUnstable),
+      warning: all?.filter(filterWarning),
       danger: all?.filter(filterDanger),
     };
   }, [data?.data, search]);

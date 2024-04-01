@@ -20,26 +20,26 @@ export const ChainDashboard = () => {
   const [chainInfo, setChainInfo] = useState<NodeStatus["chain"] | null>(null);
 
   const all = data?.all?.length || "";
-  const unstable = data?.unstable?.length || 0;
+  const warning = data?.warning?.length || 0;
   const danger = data?.danger?.length || 0;
   const renderData = useMemo(() => {
     if (!activeTab) {
       return data?.all;
     }
     if (activeTab === 1) {
-      return data?.unstable;
+      return data?.warning;
     }
     if (activeTab === 2) {
       return data?.danger;
     }
     return data?.all;
-  }, [activeTab, data?.all, data?.danger, data?.unstable]);
+  }, [activeTab, data?.all, data?.danger, data?.warning]);
   const list = useMemo(() => {
     if (!all) {
       return ["All", "Warning", "Danger"];
     }
-    return [`All (${all})`, `Warning (${unstable})`, `Danger (${danger})`];
-  }, [all, unstable, danger]);
+    return [`All (${all})`, `Warning (${warning})`, `Danger (${danger})`];
+  }, [all, warning, danger]);
 
   const openDetail = (chain: NodeStatus["chain"]) => {
     setModalOpen(true);
