@@ -657,7 +657,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .chains .title {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
 }
 
 .chains ul {
@@ -1242,6 +1242,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     height: 20px;
   }
 
+  .chains,
   .contact-us,
   .signing-modes {
     margin-bottom: 40px;

@@ -1,26 +1,11 @@
-import React from 'react';
-import { chains, testnetChains } from '../const';
-
-const IntergrateChains = () => {
+const IntergrateChains = ({ chains }) => {
   return (
     <div className="chains">
-      <h2 className="title">
-        Rabby has integrated {chains.length + testnetChains.length} chains
-      </h2>
-      <p className="part-title">Mainnets</p>
+      <h2 className="title">Rabby has integrated {chains?.length} chains</h2>
       <ul className="chain-list">
-        {chains.map((chain) => (
+        {chains?.map((chain) => (
           <li key={chain.id}>
-            <img className="chain-logo" src={chain.logo} alt={chain.name} />
-            {chain.name}
-          </li>
-        ))}
-      </ul>
-      <p className="part-title">Testnets</p>
-      <ul className="chain-list">
-        {testnetChains.map((chain) => (
-          <li key={chain.id}>
-            <img className="chain-logo" src={chain.logo} alt={chain.name} />
+            <img className="chain-logo" src={chain.logo_url} alt={chain.name} />
             {chain.name}
           </li>
         ))}
