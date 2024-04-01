@@ -24,10 +24,10 @@ const filterWarning = (e: NodeStatus) => {
     const rpcDelayNumber = Math.abs(
       e.rabby_data_service_height - e.official_node_height
     );
-    if (
-      (serviceDelayNumber >= 1 && serviceDelayNumber <= 10) ||
-      (rpcDelayNumber >= 1 && rpcDelayNumber <= 10)
-    ) {
+    if (serviceDelayNumber > 10 || rpcDelayNumber > 10) {
+      return false;
+    }
+    if (serviceDelayNumber > 0 || rpcDelayNumber > 0) {
       return true;
     }
     return false;
@@ -46,7 +46,7 @@ const filterDanger = (e: NodeStatus) => {
     const rpcDelayNumber = Math.abs(
       e.rabby_data_service_height - e.official_node_height
     );
-    if (serviceDelayNumber >= 10 || rpcDelayNumber >= 10) {
+    if (serviceDelayNumber > 10 || rpcDelayNumber > 10) {
       return true;
     }
     return false;
