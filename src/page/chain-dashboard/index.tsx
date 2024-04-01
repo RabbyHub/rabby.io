@@ -36,9 +36,9 @@ export const ChainDashboard = () => {
   }, [activeTab, data?.all, data?.danger, data?.unstable]);
   const list = useMemo(() => {
     if (!all) {
-      return ["All", "Waring", "Danger"];
+      return ["All", "Warning", "Danger"];
     }
-    return [`All (${all})`, `Waring (${unstable})`, `Danger (${danger})`];
+    return [`All (${all})`, `Warning (${unstable})`, `Danger (${danger})`];
   }, [all, unstable, danger]);
 
   const openDetail = (chain: NodeStatus["chain"]) => {
