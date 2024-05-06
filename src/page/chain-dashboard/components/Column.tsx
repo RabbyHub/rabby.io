@@ -54,6 +54,7 @@ interface Features {
   tx_simulation: boolean;
   security_check: boolean;
   evm_tracing: boolean;
+  tx_simulation_version?: string;
 }
 
 export const Column = (props: NodeInfo) => {
@@ -68,10 +69,20 @@ export const Column = (props: NodeInfo) => {
     openDetail,
   } = props;
 
-  const featuresList = Object.entries(features).map(([key, value]) => ({
-    label: key,
-    enabled: !!value,
-  }));
+  const { tx_simulation_version, ...featureTags } = features;
+
+  const featuresList = Object.entries(featureTags).map(([key, value]) => {
+    if (key === "tx_simulation" && value) {
+      return {
+        label: "Tx Simulation " + tx_simulation_version?.toUpperCase(),
+        enabled: !!value,
+      };
+    }
+    return {
+      label: key,
+      enabled: !!value,
+    };
+  });
 
   return (
     <div
