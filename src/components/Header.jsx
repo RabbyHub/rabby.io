@@ -172,7 +172,7 @@ const Header = ({ chains }) => {
             <Download />
           </div>
           <img
-            src="/assets/images/hero-14.png"
+            src="/assets/images/hero-15.png"
             alt="Dashboard screenshot"
             className="hero-image"
           />
