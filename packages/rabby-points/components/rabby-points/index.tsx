@@ -3,6 +3,7 @@ import style from "./style.module.scss";
 import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 import { Content } from "./content";
+import { Suspense } from "react";
 
 export const RabbyPointsReferral = () => {
   return (
@@ -20,7 +21,9 @@ export const RabbyPointsReferral = () => {
           <div className={style.referral}>
             Enter referral code to get extra bonus
           </div>
-          <ShowCode />
+          <Suspense>
+            <ShowCode />
+          </Suspense>
         </div>
         <Content />
         <a
