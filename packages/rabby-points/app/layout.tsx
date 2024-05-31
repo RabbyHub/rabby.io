@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "The game-changing wallet for Ethereum and all EVM chains",
   twitter: {
     card: "summary_large_image",
-    images: "/rabby-points/assets/rabby-points/post.png",
+    images: "/rabby-points/assets/rabby-points/post2.png",
     site: "@Rabby_io",
     description: "The game-changing wallet for Ethereum and all EVM chains",
   },
