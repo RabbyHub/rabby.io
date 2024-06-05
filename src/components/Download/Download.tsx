@@ -80,12 +80,12 @@ export const Download: React.FC = () => {
                   href={MOBILE_DOWNLOAD_URL.googlePlay}
                   report="Google Play"
                 />
-                <DownloadCard
+                {/* <DownloadCard
                   title="Android APK"
                   icon="/assets/download/icon-android-apk.svg"
                   href={MOBILE_DOWNLOAD_URL.selfHost}
                   report="Android APK"
-                />
+                /> */}
                 <DownloadCard
                   title="App Store"
                   icon="/assets/download/icon-app-store.png"
