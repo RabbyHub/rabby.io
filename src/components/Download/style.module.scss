@@ -97,12 +97,18 @@
   }
 }
 
+$downloadCardCount: 2;
+
 .downloadCard {
   background-color: #fff;
   padding: 10px;
   border-radius: 8px;
   position: relative;
-  width: 160px;
+  @if $downloadCardCount >= 3 {
+    width: 160px;
+  } @else {
+    width: 220px;
+  }
   height: 110px;
   text-decoration: none;
   overflow: hidden;
@@ -364,13 +370,24 @@
 }
 
 @media screen and (max-width: 1366px) {
-  .panelButtonGroupApp {
-    gap: 10px;
-  }
+  @if $downloadCardCount >= 3 {
+    .panelButtonGroupApp {
+      gap: 10px;
+    }
 
-  .downloadCard {
-    max-width: calc((1 / 3) * 100%);
-    width: 150px;
+    .downloadCard {
+      max-width: calc((1 / $downloadCardCount) * 100%);
+      width: 150px;
+    }
+  } @else {
+    .panelButtonGroupApp {
+      gap: 12px;
+    }
+
+    .downloadCard {
+      max-width: calc((1 / $downloadCardCount) * 100%);
+      width: 220px;
+    }
   }
 
   .panels {
@@ -449,15 +466,30 @@
     font-size: 22px;
   }
 
+
+  @if $downloadCardCount >= 3 {
+    .panelButtonGroupApp {
+      gap: 10px;
+    }
+    .downloadCard {
+      width: 120px;
+    }
+  } @else {
+    .panelButtonGroupApp {
+      gap: 12px;
+    }
+    .downloadCard {
+      width: 128px;
+    }
+  }
+
   .panelButtonGroupApp {
-    gap: 10px;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
   }
   .downloadCard {
-    max-width: calc((1 / 3) * 100% - 10px);
-    width: 120px;
+    max-width: calc((1 / $downloadCardCount) * 100% - 10px);
     height: 70px;
     flex: 1;
     min-width: 0;
