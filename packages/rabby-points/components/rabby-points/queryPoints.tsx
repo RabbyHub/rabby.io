@@ -5,10 +5,26 @@ import styles from "./style.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { isAddress } from "viem";
 import { useQuery } from "react-query";
-import { apiReady } from "@/service";
 import { Loading } from "./Loading";
 
-export const QueryPoints = () => {
+import { OpenApiService } from "@rabby-wallet/rabby-api";
+import { WebSignApiPlugin } from "@rabby-wallet/rabby-api/dist/plugins/web-sign";
+
+const api = new OpenApiService({
+  store: {
+    host: "https://points.rabby-api.debank.dbkops.com/", //"https://api.rabby.io",
+  },
+  plugin: WebSignApiPlugin,
+});
+
+const apiReady = new Promise<OpenApiService>((resolve, reject) => {
+  api
+    .init()
+    .then(() => resolve(api))
+    .catch(reject);
+});
+
+const QueryPoints = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   // const [addr, setAddr] = useState("");
   const data = useQuery({
@@ -78,3 +94,5 @@ export const QueryPoints = () => {
     </div>
   );
 };
+
+export default QueryPoints;

@@ -4,9 +4,11 @@ import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 import { Content } from "./content";
 import { Suspense } from "react";
-import { QueryPoints } from "./queryPoints";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/service";
+import dynamic from "next/dynamic";
+
+const QueryPoints = dynamic(() => import("./queryPoints"), { ssr: false });
 
 export const RabbyPointsReferral = () => {
   return (
