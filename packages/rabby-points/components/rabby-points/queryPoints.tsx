@@ -17,7 +17,7 @@ const isSameAddr = (a: string, b: string) =>
 
 const api = new OpenApiService({
   store: {
-    host: "https://alpha.rabby.io/", //"https://api.rabby.io",
+    host: "https://api.rabby.io",
   },
   plugin: WebSignApiPlugin,
 });
