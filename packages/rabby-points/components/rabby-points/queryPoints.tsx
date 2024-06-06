@@ -9,10 +9,14 @@ import { Loading } from "./Loading";
 
 import { OpenApiService } from "@rabby-wallet/rabby-api";
 import { WebSignApiPlugin } from "@rabby-wallet/rabby-api/dist/plugins/web-sign";
+import { ClearIcon } from "./icons";
+
+const isSameAddr = (a: string, b: string) =>
+  a.toLowerCase() === b.toLowerCase();
 
 const api = new OpenApiService({
   store: {
-    host: "https://points.rabby-api.debank.dbkops.com/", //"https://api.rabby.io",
+    host: "https://alpha.rabby.io/", //"https://api.rabby.io",
   },
   plugin: WebSignApiPlugin,
 });
@@ -25,72 +29,113 @@ const apiReady = new Promise<OpenApiService>((resolve, reject) => {
 });
 
 const QueryPoints = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  // const [addr, setAddr] = useState("");
+  const [addr, setAddr] = useState("");
   const data = useQuery({
     queryKey: ["queryPoints"],
     queryFn: async () =>
-      (await apiReady).checkClaimInfoV2({ id: inputRef.current?.value || "" }),
+      (await apiReady).getRabbyPointsSnapshotV2({
+        id: addr,
+      }),
     enabled: false,
   });
 
   const [error, setError] = useState("");
   const queryPoints = useCallback(() => {
-    const v = inputRef.current?.value || "";
-    if (!isAddress(v)) {
+    if (!isAddress(addr)) {
       setError("Invalid address");
       return;
     }
     setError("");
     data.refetch();
-  }, [data]);
+  }, [addr, data]);
 
   useEffect(() => {
     if (data?.error) {
+      console.log("data?.erro", data?.error);
       setError(String((data.error as any)?.message || data.error));
     }
   }, [data?.error]);
 
+  useEffect(() => {
+    if (!addr) {
+      setError("");
+    }
+  }, [addr]);
+
   return (
     <div className={styles.queryWrapper}>
       <div className={styles.inputWrapper}>
-        <img
-          className={styles.searchIcon}
-          src={`${BASE_PATH}/assets/rabby-points/search.svg`}
-          alt="search"
-        />
-        <input
-          autoCorrect="off"
-          autoCapitalize="off"
-          autoComplete="off"
-          autoFocus
-          ref={inputRef}
-          // value={addr}
-          // onChange={(e) => setAddr(e.target.value)}
-          className={styles.addrInput}
-          placeholder="Enter address to check how many points you can claim"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              queryPoints();
-            }
-          }}
-        />
+        <div className={styles.searchInputWrapper}>
+          <img
+            className={styles.searchIcon}
+            src={`${BASE_PATH}/assets/rabby-points/search.svg`}
+            alt="search"
+          />
+          <input
+            spellCheck="false"
+            autoCorrect="off"
+            autoCapitalize="off"
+            autoComplete="off"
+            autoFocus
+            value={addr}
+            onChange={(e) => setAddr(e.target.value?.trim())}
+            className={styles.addrInput}
+            placeholder="Enter address to check how many points you can claim"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                queryPoints();
+              }
+            }}
+          />
+          <textarea
+            spellCheck="false"
+            autoCorrect="off"
+            autoCapitalize="off"
+            autoComplete="off"
+            autoFocus
+            value={addr}
+            onChange={(e) => setAddr(e.target.value?.trim())}
+            className={styles.addrInput}
+            placeholder="Enter address to check how many points you can claim"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                queryPoints();
+              }
+            }}
+          />
+        </div>
+
         <button className={styles.checkBtn} onClick={queryPoints}>
           <span>Check</span>{" "}
           {(data.isLoading || data.isFetching) && <Loading />}
+          {!!addr && (
+            <ClearIcon
+              className={styles.clearIcon}
+              onClick={(e) => {
+                setAddr("");
+              }}
+            />
+          )}
         </button>
       </div>
-      {!error && !!data.data && (
-        <div className={styles.result}>
-          <div>
-            {data.data?.claimable_points && data.data?.claimable_points > 0
-              ? "You can claim"
-              : "You have claimed"}
+      {!!addr &&
+        !error &&
+        data?.data &&
+        !data?.isFetching &&
+        isSameAddr(data?.data?.id || "", addr) && (
+          <div className={styles.result}>
+            <div>
+              {data.data?.claimed ? "You have claimed" : "You can claim"}
+            </div>
+            <div>
+              {data.data?.claimed
+                ? (data?.data as any)?.claimed_points
+                : data?.data?.active_stats_reward +
+                  data?.data?.wallet_balance_reward}
+            </div>
           </div>
-          <div>{data.data?.claimable_points || data.data?.claimed_points}</div>
-        </div>
-      )}
-      {error && <div className={styles.errorBox}>{error}</div>}
+        )}
+      {!!addr && !!error && <div className={styles.errorBox}>{error}</div>}
     </div>
   );
 };
