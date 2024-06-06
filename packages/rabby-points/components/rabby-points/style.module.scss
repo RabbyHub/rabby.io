@@ -381,6 +381,32 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      &.numLoading {
+        border-radius: 6px;
+        background: linear-gradient(94deg, #326cff 14.47%, #ae2bff 93.83%);
+        background-size: 150% 100% !important;
+        background-repeat: repeat-x !important;
+        animation: gradientLoading 0.8s ease infinite;
+
+        @keyframes gradientLoading {
+          0% {
+            background-position: 0% 0%;
+          }
+          25% {
+            background-position: 100% 0%;
+          }
+          50% {
+            background-position: 100% 100%;
+          }
+          75% {
+            background-position: 0% 100%;
+          }
+          100% {
+            background-position: 0% 0%;
+          }
+        }
+      }
     }
   }
 

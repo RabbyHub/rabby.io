@@ -2,7 +2,7 @@
 
 import { BASE_PATH } from "@/constant";
 import styles from "./style.module.scss";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { isAddress } from "viem";
 import { useQuery } from "react-query";
 import { Loading } from "./Loading";
@@ -10,6 +10,7 @@ import { Loading } from "./Loading";
 import { OpenApiService } from "@rabby-wallet/rabby-api";
 import { WebSignApiPlugin } from "@rabby-wallet/rabby-api/dist/plugins/web-sign";
 import { ClearIcon } from "./icons";
+import clsx from "clsx";
 
 const isSameAddr = (a: string, b: string) =>
   a.toLowerCase() === b.toLowerCase();
@@ -42,7 +43,9 @@ const QueryPoints = () => {
   const [error, setError] = useState("");
   const queryPoints = useCallback(() => {
     if (!isAddress(addr)) {
-      setError("Invalid address");
+      if (addr) {
+        setError("Invalid address");
+      }
       return;
     }
     setError("");
@@ -120,15 +123,21 @@ const QueryPoints = () => {
       </div>
       {!!addr &&
         !error &&
-        data?.data &&
-        !data?.isFetching &&
-        isSameAddr(data?.data?.id || "", addr) && (
+        (data?.isFetching ||
+          data?.isLoading ||
+          isSameAddr(addr, data?.data?.id || "")) && (
           <div className={styles.result}>
             <div>
               {data.data?.claimed ? "You have claimed" : "You can claim"}
             </div>
-            <div>
-              {data.data?.claimed
+            <div
+              className={clsx(
+                (data?.isFetching || data?.isLoading) && styles.numLoading
+              )}
+            >
+              {!data?.data
+                ? "00000"
+                : data.data?.claimed
                 ? (data?.data as any)?.claimed_points
                 : data?.data?.active_stats_reward +
                   data?.data?.wallet_balance_reward}
