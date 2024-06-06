@@ -4,19 +4,24 @@ import { ShowCode } from "./code";
 import { BASE_PATH } from "@/constant";
 import { Content } from "./content";
 import { Suspense } from "react";
+import { QueryPoints } from "./queryPoints";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "@/service";
 
 export const RabbyPointsReferral = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <div className={style.container}>
         <img
           className={style.startIcon}
-          src={`${BASE_PATH}/assets/rabby-points/start.svg`}
+          src={`${BASE_PATH}/assets/rabby-points/season2-start.svg`}
           alt="start"
         />
         <div className={style.title}>
           You&apos;ve been invited to Rabby Points
         </div>
+        <QueryPoints />
+
         <div className={style.box}>
           <div className={style.referral}>
             Enter referral code to get extra bonus
@@ -39,6 +44,6 @@ export const RabbyPointsReferral = () => {
           />
         </a>
       </div>
-    </>
+    </QueryClientProvider>
   );
 };

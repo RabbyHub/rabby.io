@@ -1,5 +1,5 @@
 .container {
-  background: #7084ff;
+  background: linear-gradient(102deg, #326cff 2.72%, #ae2bff 84.56%);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,8 +13,8 @@
 }
 
 .startIcon {
-  width: 100px;
-  height: 100px;
+  width: 180px;
+  height: 140px;
   margin-bottom: 20px;
 }
 
@@ -41,7 +41,7 @@
   align-items: center;
   padding-top: 18px;
   padding-bottom: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .box2 {
@@ -200,5 +200,118 @@
   }
   .subTitle {
     font-size: 13px;
+  }
+}
+
+.queryWrapper {
+  margin-bottom: 40px;
+  .inputWrapper {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    width: 536px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: var(--r-neutral-card1, #fff);
+    position: relative;
+
+    .addrInput {
+      width: 100%;
+      height: 100%;
+      border: transparent;
+      background: transparent;
+      color: var(--r-neutral-title1, #192945);
+      font-size: 14px;
+      font-weight: 510;
+      padding-left: 44px;
+      z-index: 1;
+      &:focus,
+      &:active,
+      &:hover {
+        border: transparent;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: var(--r-neutral-foot, #6a7587);
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+    .searchIcon {
+      position: absolute;
+      z-index: -1px;
+      left: 16px;
+      top: 16px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .checkBtn {
+      display: inline-flex;
+      padding: 10px 23px 11px 24px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      background: linear-gradient(91deg, #326cff 1.88%, #ae2bff 99.85%);
+      box-shadow: 0px 2px 4px 0px rgba(92, 63, 173, 0.3);
+      color: var(--r-neutral-title2, #fff);
+      text-align: center;
+      font-size: 16px;
+      font-weight: 510;
+    }
+  }
+
+  .result {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    width: 536px;
+    padding: 14px 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border-top: 1px solid var(--r-neutral-title2, #fff);
+    border-bottom: 1px solid var(--r-neutral-title2, #fff);
+    border-left: 1px solid var(--r-neutral-title2, #fff);
+    background: var(--r-neutral-card1, #fff);
+
+    & > div {
+      color: var(--r-neutral-foot, #6a7587);
+      text-align: center;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    & > div + div {
+      text-align: center;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      background: linear-gradient(91deg, #326cff 1.88%, #ae2bff 99.85%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .errorBox {
+    margin-top: 6px;
+    display: flex;
+    border-radius: 8px;
+
+    background: var(--r-neutral-card1, #fff);
+    width: 536px;
+    padding: 15px 16px;
+    align-items: center;
+    color: var(--r-red-default, #e34935);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }
