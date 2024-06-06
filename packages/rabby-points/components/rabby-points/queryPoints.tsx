@@ -115,6 +115,7 @@ const QueryPoints = () => {
             <ClearIcon
               className={styles.clearIcon}
               onClick={(e) => {
+                e.stopPropagation();
                 setAddr("");
               }}
             />
