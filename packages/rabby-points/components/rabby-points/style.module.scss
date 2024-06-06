@@ -205,11 +205,13 @@
 
 .queryWrapper {
   margin-bottom: 40px;
+  max-width: 536px;
+  width: 100%;
   .inputWrapper {
     display: flex;
     // justify-content: center;
     align-items: center;
-    width: 536px;
+    width: 100%;
     height: 52px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -268,7 +270,7 @@
     margin-top: 6px;
     display: flex;
     flex-direction: column;
-    width: 536px;
+    width: 100%;
     padding: 14px 0px;
     justify-content: center;
     align-items: center;
