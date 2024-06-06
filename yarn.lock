@@ -1977,22 +1977,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rabby-wallet/rabby-api@0.7.12":
-  version "0.7.12"
-  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.7.12.tgz#3c1f4f1ef0281f87b2f9bb22bc4d06c944b033b5"
-  integrity sha512-AplrJTste0aR6C1NLg4PK/FH0TSkmloRf6viHlXeYWz6vy68y79g7Fsd3W7uXt61SGX+Yu0xcnWVE7GE9fi1bw==
-  dependencies:
-    "@rabby-wallet/rabby-sign" "^0.3.3"
-    axios "^0.27.2"
-    axios-rate-limit "^1.3.0"
-    eth-rpc-errors "^4.0.3"
-    lodash "^4.17.21"
-    qss "^2.0.3"
-
-"@rabby-wallet/rabby-api@^0.7.19":
-  version "0.7.19"
-  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.7.19.tgz#fa136e7e0e538a2741c4473fd419a4a85e770a5b"
-  integrity sha512-Z3Gc8paC8z6JrGM0gsT4QtS+Vngyd0SV3VNO4MYSe0EwwmTetkl6bBWD/8ZpLjihcNu/MdVM/YWQY/AK89u6+g==
+"@rabby-wallet/rabby-api@0.7.20":
+  version "0.7.20"
+  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.7.20.tgz#71be017c678653cebe2634406930f30853543789"
+  integrity sha512-Aq+zBt0hPc1YpU7/DRafixKc9MdLQgKdNGeAQ3EQeW08qxXwoCFmrqwyqO0vpMn5or/vEs7dcijqg4EVgsTEBw==
   dependencies:
     "@rabby-wallet/rabby-sign" "^0.3.3"
     axios "^0.27.2"
