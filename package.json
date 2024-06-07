@@ -9,7 +9,7 @@
     "docs:dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
     "docs:build": "NODE_OPTIONS=--openssl-legacy-provider vuepress build docs",
     "claims:dev": "cd packages/rabby-points && yarn dev",
-    "claims:build": "cd packages/rabby-points && yarn build && cpy --cwd=out . ../../../../dist/rabby-points"
+    "claims:build": "cd packages/rabby-points && yarn build && cpy --cwd=out . ../../../../dist/rabby-points && cpy --cwd=out . ../../../../dist/points"
   },
   "repository": {
     "type": "git",
