@@ -27,7 +27,7 @@ export const ExtensionPanel = () => {
       </div>
       <img
         className={style.guide}
-        src={`${BASE_PATH}/assets/rabby-points/season2-guide.png`}
+        src={`${BASE_PATH}/assets/rabby-points/season2-guide-2.png`}
         alt=""
       />
     </>

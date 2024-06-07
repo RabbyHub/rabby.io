@@ -9,17 +9,19 @@ import { Loading } from "./Loading";
 
 import { ClearIcon } from "./icons";
 import clsx from "clsx";
+import { useDebounceValue } from "./hook";
 
 async function getApiReady() {
   return (await import("@/service/api")).default;
 }
 
 const isSameAddr = (a: string, b: string) =>
-  a.toLowerCase() === b.toLowerCase();
+  a?.toLowerCase() === b?.toLowerCase();
 
 const QueryPoints = () => {
   const [addr, setAddr] = useState("");
 
+  const addrDebounce = useDebounceValue(addr, 200);
   const data = useQuery({
     queryKey: ["queryPoints"],
     queryFn: async () =>
@@ -27,6 +29,18 @@ const QueryPoints = () => {
         id: addr,
       }),
     enabled: false,
+  });
+
+  const ensState = useQuery({
+    queryKey: ["ensState", addrDebounce],
+    queryFn: async () =>
+      (await getApiReady()).getEnsAddressByName(addrDebounce),
+  });
+
+  const deBankIdState = useQuery({
+    queryKey: ["deBankIdState", addrDebounce],
+    queryFn: async () =>
+      (await getApiReady()).getAddressByDeBankId(addrDebounce),
   });
 
   const [error, setError] = useState("");
@@ -40,6 +54,17 @@ const QueryPoints = () => {
     setError("");
     data.refetch();
   }, [addr, data]);
+
+  const confirmAddr = useCallback(
+    (str: string) => {
+      setAddr(str);
+      setError("");
+      setTimeout(() => {
+        data.refetch();
+      });
+    },
+    [data]
+  );
 
   useEffect(() => {
     if (data?.error) {
@@ -69,9 +94,12 @@ const QueryPoints = () => {
             autoComplete="off"
             autoFocus
             value={addr}
-            onChange={(e) => setAddr(e.target.value?.trim())}
+            onChange={(e) => {
+              setError("");
+              setAddr(e.target.value?.trim());
+            }}
             className={styles.addrInput}
-            placeholder="Enter address to check how many points you can claim"
+            placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 queryPoints();
@@ -85,9 +113,12 @@ const QueryPoints = () => {
             autoComplete="off"
             autoFocus
             value={addr}
-            onChange={(e) => setAddr(e.target.value?.trim())}
+            onChange={(e) => {
+              setError("");
+              setAddr(e.target.value?.trim());
+            }}
             className={styles.addrInput}
-            placeholder="Enter address to check how many points you can claim"
+            placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 queryPoints();
@@ -109,6 +140,19 @@ const QueryPoints = () => {
             />
           )}
         </button>
+      </div>
+      <div className={styles.searchWrapper}>
+        {!error &&
+          deBankIdState?.data?.addr &&
+          isSameAddr(addr, deBankIdState?.data?.web3_id || "") && (
+            <Item onConfirm={confirmAddr} {...deBankIdState?.data} />
+          )}
+
+        {!error &&
+          ensState?.data?.addr &&
+          isSameAddr(addr, ensState?.data?.name || "") && (
+            <Item onConfirm={confirmAddr} {...ensState?.data} />
+          )}
       </div>
       {!!addr &&
         !error &&
@@ -134,6 +178,28 @@ const QueryPoints = () => {
           </div>
         )}
       {!!addr && !!error && <div className={styles.errorBox}>{error}</div>}
+    </div>
+  );
+};
+
+const Item = (props: {
+  onConfirm: (addr: string) => void;
+  addr: string;
+  web3_id?: string;
+  name?: string;
+}) => {
+  if (!isAddress(props.addr)) {
+    return null;
+  }
+  return (
+    <div className={styles.addrBox} onClick={() => props.onConfirm(props.addr)}>
+      <img
+        className={styles.addrTypeIcon}
+        src={`${BASE_PATH}/assets/rabby-points/${
+          props.web3_id ? "debank" : "ens"
+        }.png`}
+      />
+      <div className={styles.searchAddr}>{props.addr}</div>
     </div>
   );
 };
