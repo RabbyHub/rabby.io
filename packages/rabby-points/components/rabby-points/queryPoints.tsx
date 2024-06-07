@@ -46,21 +46,32 @@ const QueryPoints = () => {
   const queryPoints = useCallback(() => {
     if (!isAddress(addr)) {
       if (addr) {
-        if (
-          (ensState.data?.addr &&
-            isSameAddr(addr, ensState.data?.name || "")) ||
-          (deBankIdState.data?.addr &&
-            isSameAddr(addr, deBankIdState.data?.web3_id))
-        ) {
-          return;
-        }
+        // if (
+        //   (ensState.data?.addr &&
+        //     isSameAddr(addr, ensState.data?.name || "")) ||
+        //   (deBankIdState.data?.addr &&
+        //     isSameAddr(addr, deBankIdState.data?.web3_id))
+        // ) {
+        //   return;
+        // }
         setError("Invalid address");
       }
       return;
     }
     setError("");
     data.refetch();
-  }, [addr, data, ensState, deBankIdState]);
+  }, [addr, data]);
+
+  const confirmAddr = useCallback(
+    (str: string) => {
+      setAddr(str);
+      setError("");
+      setTimeout(() => {
+        data.refetch();
+      });
+    },
+    [data]
+  );
 
   useEffect(() => {
     if (data?.error) {
@@ -108,7 +119,7 @@ const QueryPoints = () => {
             value={addr}
             onChange={(e) => setAddr(e.target.value?.trim())}
             className={styles.addrInput}
-            placeholder="Enter address to check how many points you can claim"
+            placeholder="Enter Address/ENS/Web3ID to check your Points "
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 queryPoints();
@@ -132,28 +143,16 @@ const QueryPoints = () => {
         </button>
       </div>
       <div className={styles.searchWrapper}>
-        {deBankIdState?.data?.addr &&
+        {!error &&
+          deBankIdState?.data?.addr &&
           isSameAddr(addr, deBankIdState?.data?.web3_id || "") && (
-            <Item
-              onConfirm={(e) => {
-                setAddr(e);
-                setError("");
-                data.refetch();
-              }}
-              {...deBankIdState?.data}
-            />
+            <Item onConfirm={confirmAddr} {...deBankIdState?.data} />
           )}
 
-        {ensState?.data?.addr &&
+        {!error &&
+          ensState?.data?.addr &&
           isSameAddr(addr, ensState?.data?.name || "") && (
-            <Item
-              onConfirm={(e) => {
-                setAddr(e);
-                setError("");
-                data.refetch();
-              }}
-              {...ensState?.data}
-            />
+            <Item onConfirm={confirmAddr} {...ensState?.data} />
           )}
       </div>
       {!!addr &&
