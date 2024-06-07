@@ -1,9 +1,12 @@
 import { RabbyPointsReferral } from "@/components/rabby-points";
 import { Provider } from "jotai";
+import { Suspense } from "react";
 export default function Home() {
   return (
     <Provider>
-      <RabbyPointsReferral />
+      <Suspense>
+        <RabbyPointsReferral />
+      </Suspense>
     </Provider>
   );
 }

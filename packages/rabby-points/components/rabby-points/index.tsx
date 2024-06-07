@@ -25,7 +25,6 @@ export const RabbyPointsReferral = () => {
           You&apos;ve been invited to Rabby Points
         </div>
         <QueryPoints />
-
         {!!code && (
           <div className={style.box}>
             <div className={style.referral}>
@@ -36,6 +35,7 @@ export const RabbyPointsReferral = () => {
             </Suspense>
           </div>
         )}
+
         <Content />
         <a
           href="/"
