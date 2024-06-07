@@ -9,6 +9,7 @@ import { Loading } from "./Loading";
 
 import { ClearIcon } from "./icons";
 import clsx from "clsx";
+import { useDebounceValue } from "./hook";
 
 async function getApiReady() {
   return (await import("@/service/api")).default;
@@ -20,6 +21,7 @@ const isSameAddr = (a: string, b: string) =>
 const QueryPoints = () => {
   const [addr, setAddr] = useState("");
 
+  const addrDebounce = useDebounceValue(addr, 200);
   const data = useQuery({
     queryKey: ["queryPoints"],
     queryFn: async () =>
@@ -30,27 +32,21 @@ const QueryPoints = () => {
   });
 
   const ensState = useQuery({
-    queryKey: ["ensState", addr],
-    queryFn: async () => (await getApiReady()).getEnsAddressByName(addr),
+    queryKey: ["ensState", addrDebounce],
+    queryFn: async () =>
+      (await getApiReady()).getEnsAddressByName(addrDebounce),
   });
 
   const deBankIdState = useQuery({
-    queryKey: ["deBankIdState", addr],
-    queryFn: async () => (await getApiReady()).getAddressByDeBankId(addr),
+    queryKey: ["deBankIdState", addrDebounce],
+    queryFn: async () =>
+      (await getApiReady()).getAddressByDeBankId(addrDebounce),
   });
 
   const [error, setError] = useState("");
   const queryPoints = useCallback(() => {
     if (!isAddress(addr)) {
       if (addr) {
-        // if (
-        //   (ensState.data?.addr &&
-        //     isSameAddr(addr, ensState.data?.name || "")) ||
-        //   (deBankIdState.data?.addr &&
-        //     isSameAddr(addr, deBankIdState.data?.web3_id))
-        // ) {
-        //   return;
-        // }
         setError("Invalid address");
       }
       return;
