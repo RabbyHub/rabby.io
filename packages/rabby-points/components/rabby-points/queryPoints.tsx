@@ -36,10 +36,7 @@ const QueryPoints = () => {
 
   const deBankIdState = useQuery({
     queryKey: ["deBankIdState", addr],
-    queryFn: async () => {
-      console.log("");
-      return (await getApiReady()).getAddressByDeBankId(addr);
-    },
+    queryFn: async () => (await getApiReady()).getAddressByDeBankId(addr),
   });
 
   const [error, setError] = useState("");
@@ -103,7 +100,7 @@ const QueryPoints = () => {
             value={addr}
             onChange={(e) => setAddr(e.target.value?.trim())}
             className={styles.addrInput}
-            placeholder="Enter address to check how many points you can claim"
+            placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 queryPoints();
@@ -119,7 +116,7 @@ const QueryPoints = () => {
             value={addr}
             onChange={(e) => setAddr(e.target.value?.trim())}
             className={styles.addrInput}
-            placeholder="Enter Address/ENS/Web3ID to check your Points "
+            placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 queryPoints();
