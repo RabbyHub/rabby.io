@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@rabby-wallet/rabby-api": "0.7.20",
     "jotai": "^2.6.4",
-    "next": "14.1.1",
+    "next": "^14.2.3",
     "qrcode.react": "^3.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "react-query": "^3.39.3",
+    "viem": "^2.13.3"
   },
   "devDependencies": {
     "@types/node": "^20",

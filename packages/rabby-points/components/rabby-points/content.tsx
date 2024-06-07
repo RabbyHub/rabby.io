@@ -10,9 +10,7 @@ export const Content = () => {
 
   return (
     <div className={clsx(style.box, style.box2)}>
-      <div className="mb-[23px] w-full overflow-hidden">
-        <Tabs />
-      </div>
+      <div className="mb-[8px] w-full overflow-hidden">{/* <Tabs /> */}</div>
 
       <div
         className={clsx(
