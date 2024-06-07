@@ -15,7 +15,7 @@ async function getApiReady() {
 }
 
 const isSameAddr = (a: string, b: string) =>
-  a.toLowerCase() === b.toLowerCase();
+  a?.toLowerCase() === b?.toLowerCase();
 
 const QueryPoints = () => {
   const [addr, setAddr] = useState("");
@@ -35,8 +35,11 @@ const QueryPoints = () => {
   });
 
   const deBankIdState = useQuery({
-    queryKey: ["ensState", addr],
-    queryFn: async () => (await getApiReady()).getAddressByDeBankId(addr),
+    queryKey: ["deBankIdState", addr],
+    queryFn: async () => {
+      console.log("");
+      return (await getApiReady()).getAddressByDeBankId(addr);
+    },
   });
 
   const [error, setError] = useState("");
@@ -130,7 +133,7 @@ const QueryPoints = () => {
       </div>
       <div className={styles.searchWrapper}>
         {deBankIdState?.data?.addr &&
-          isSameAddr(addr, deBankIdState?.data?.web3_id) && (
+          isSameAddr(addr, deBankIdState?.data?.web3_id || "") && (
             <Item
               onConfirm={(e) => {
                 setAddr(e);
@@ -141,16 +144,17 @@ const QueryPoints = () => {
             />
           )}
 
-        {ensState?.data?.addr && isSameAddr(addr, ensState?.data?.name) && (
-          <Item
-            onConfirm={(e) => {
-              setAddr(e);
-              setError("");
-              data.refetch();
-            }}
-            {...ensState?.data}
-          />
-        )}
+        {ensState?.data?.addr &&
+          isSameAddr(addr, ensState?.data?.name || "") && (
+            <Item
+              onConfirm={(e) => {
+                setAddr(e);
+                setError("");
+                data.refetch();
+              }}
+              {...ensState?.data}
+            />
+          )}
       </div>
       {!!addr &&
         !error &&
