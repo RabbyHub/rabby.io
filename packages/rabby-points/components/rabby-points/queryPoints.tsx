@@ -98,7 +98,10 @@ const QueryPoints = () => {
             autoComplete="off"
             autoFocus
             value={addr}
-            onChange={(e) => setAddr(e.target.value?.trim())}
+            onChange={(e) => {
+              setError("");
+              setAddr(e.target.value?.trim());
+            }}
             className={styles.addrInput}
             placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
@@ -114,7 +117,10 @@ const QueryPoints = () => {
             autoComplete="off"
             autoFocus
             value={addr}
-            onChange={(e) => setAddr(e.target.value?.trim())}
+            onChange={(e) => {
+              setError("");
+              setAddr(e.target.value?.trim());
+            }}
             className={styles.addrInput}
             placeholder="Enter Address/ENS/Web3ID to check your Points"
             onKeyDown={(e) => {
