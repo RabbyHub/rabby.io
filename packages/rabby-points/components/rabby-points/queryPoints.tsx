@@ -29,17 +29,35 @@ const QueryPoints = () => {
     enabled: false,
   });
 
+  const ensState = useQuery({
+    queryKey: ["ensState", addr],
+    queryFn: async () => (await getApiReady()).getEnsAddressByName(addr),
+  });
+
+  const deBankIdState = useQuery({
+    queryKey: ["ensState", addr],
+    queryFn: async () => (await getApiReady()).getAddressByDeBankId(addr),
+  });
+
   const [error, setError] = useState("");
   const queryPoints = useCallback(() => {
     if (!isAddress(addr)) {
       if (addr) {
+        if (
+          (ensState.data?.addr &&
+            isSameAddr(addr, ensState.data?.name || "")) ||
+          (deBankIdState.data?.addr &&
+            isSameAddr(addr, deBankIdState.data?.web3_id))
+        ) {
+          return;
+        }
         setError("Invalid address");
       }
       return;
     }
     setError("");
     data.refetch();
-  }, [addr, data]);
+  }, [addr, data, ensState, deBankIdState]);
 
   useEffect(() => {
     if (data?.error) {
@@ -110,6 +128,30 @@ const QueryPoints = () => {
           )}
         </button>
       </div>
+      <div className={styles.searchWrapper}>
+        {deBankIdState?.data?.addr &&
+          isSameAddr(addr, deBankIdState?.data?.web3_id) && (
+            <Item
+              onConfirm={(e) => {
+                setAddr(e);
+                setError("");
+                data.refetch();
+              }}
+              {...deBankIdState?.data}
+            />
+          )}
+
+        {ensState?.data?.addr && isSameAddr(addr, ensState?.data?.name) && (
+          <Item
+            onConfirm={(e) => {
+              setAddr(e);
+              setError("");
+              data.refetch();
+            }}
+            {...ensState?.data}
+          />
+        )}
+      </div>
       {!!addr &&
         !error &&
         (data?.isFetching ||
@@ -134,6 +176,28 @@ const QueryPoints = () => {
           </div>
         )}
       {!!addr && !!error && <div className={styles.errorBox}>{error}</div>}
+    </div>
+  );
+};
+
+const Item = (props: {
+  onConfirm: (addr: string) => void;
+  addr: string;
+  web3_id?: string;
+  name?: string;
+}) => {
+  if (!isAddress(props.addr)) {
+    return null;
+  }
+  return (
+    <div className={styles.addrBox} onClick={() => props.onConfirm(props.addr)}>
+      <img
+        className={styles.addrTypeIcon}
+        src={`${BASE_PATH}/assets/rabby-points/${
+          props.web3_id ? "debank" : "ens"
+        }.png`}
+      />
+      <div className={styles.searchAddr}>{props.addr}</div>
     </div>
   );
 };
