@@ -6,9 +6,7 @@ import { Content } from "./content";
 import { Suspense } from "react";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "@/service";
-import dynamic from "next/dynamic";
-
-const QueryPoints = dynamic(() => import("./queryPoints"), { ssr: false });
+import QueryPoints from "./queryPoints";
 
 export const RabbyPointsReferral = () => {
   return (

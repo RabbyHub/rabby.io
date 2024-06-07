@@ -7,34 +7,23 @@ import { isAddress } from "viem";
 import { useQuery } from "react-query";
 import { Loading } from "./Loading";
 
-import { OpenApiService } from "@rabby-wallet/rabby-api";
-import { WebSignApiPlugin } from "@rabby-wallet/rabby-api/dist/plugins/web-sign";
 import { ClearIcon } from "./icons";
 import clsx from "clsx";
+
+async function getApiReady() {
+  return (await import("@/service/api")).default;
+}
 
 const isSameAddr = (a: string, b: string) =>
   a.toLowerCase() === b.toLowerCase();
 
-const api = new OpenApiService({
-  store: {
-    host: "https://api.rabby.io",
-  },
-  plugin: WebSignApiPlugin,
-});
-
-const apiReady = new Promise<OpenApiService>((resolve, reject) => {
-  api
-    .init()
-    .then(() => resolve(api))
-    .catch(reject);
-});
-
 const QueryPoints = () => {
   const [addr, setAddr] = useState("");
+
   const data = useQuery({
     queryKey: ["queryPoints"],
     queryFn: async () =>
-      (await apiReady).getRabbyPointsSnapshotV2({
+      (await getApiReady()).getRabbyPointsSnapshotV2({
         id: addr,
       }),
     enabled: false,
@@ -54,7 +43,6 @@ const QueryPoints = () => {
 
   useEffect(() => {
     if (data?.error) {
-      console.log("data?.erro", data?.error);
       setError(String((data.error as any)?.message || data.error));
     }
   }, [data?.error]);
@@ -137,7 +125,7 @@ const QueryPoints = () => {
               )}
             >
               {!data?.data
-                ? "00000"
+                ? ""
                 : data.data?.claimed
                 ? (data?.data as any)?.claimed_points
                 : data?.data?.active_stats_reward +

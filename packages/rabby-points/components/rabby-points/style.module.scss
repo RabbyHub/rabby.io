@@ -8,7 +8,6 @@
   --box-pl: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding-top: 40px;
 }
@@ -194,7 +193,6 @@
 
 @media screen and (max-width: 640px) {
   .container {
-    padding-top: 80px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -240,7 +238,6 @@
 
 @media screen and (min-width: 641px) {
   .container {
-    padding-top: 80px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -299,7 +296,7 @@
       background: transparent;
       color: var(--r-neutral-title1, #192945);
       font-size: 14px;
-      font-weight: 510;
+      font-weight: 400;
       padding-left: 44px;
       z-index: 1;
       &:focus,
@@ -383,6 +380,9 @@
       -webkit-text-fill-color: transparent;
 
       &.numLoading {
+        width: 200px;
+        height: 40px;
+        margin-top: 6px;
         border-radius: 6px;
         background: linear-gradient(94deg, #326cff 14.47%, #ae2bff 93.83%);
         background-size: 150% 100% !important;
