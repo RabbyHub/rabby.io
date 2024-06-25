@@ -148,13 +148,15 @@ const QueryPoints = () => {
         </button>
       </div>
       <div className={styles.searchWrapper}>
-        {!error &&
+        {!!addr &&
+          !error &&
           deBankIdState?.data?.addr &&
           isSameAddr(addr, deBankIdState?.data?.web3_id || "") && (
             <Item onConfirm={confirmAddr} {...deBankIdState?.data} />
           )}
 
-        {!error &&
+        {!!addr &&
+          !error &&
           ensState?.data?.addr &&
           isSameAddr(addr, ensState?.data?.name || "") && (
             <Item onConfirm={confirmAddr} {...ensState?.data} />
@@ -183,6 +185,9 @@ const QueryPoints = () => {
             </div>
 
             {data.data?.claimed === false &&
+              data?.data?.active_stats_reward +
+                data?.data?.wallet_balance_reward >
+                0 &&
               !data?.isFetching &&
               !data?.isLoading && (
                 <a
