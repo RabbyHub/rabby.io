@@ -11,6 +11,8 @@ import { ClearIcon } from "./icons";
 import clsx from "clsx";
 import { useDebounceValue } from "./hook";
 
+const endTimerNumber = 1719791999;
+
 async function getApiReady() {
   return (await import("@/service/api")).default;
 }
@@ -78,6 +80,10 @@ const QueryPoints = () => {
     }
   }, [addr]);
 
+  if (Math.floor(Date.now() / 1000) > endTimerNumber) {
+    return null;
+  }
+
   return (
     <div className={styles.queryWrapper}>
       <div className={styles.inputWrapper}>
@@ -142,13 +148,15 @@ const QueryPoints = () => {
         </button>
       </div>
       <div className={styles.searchWrapper}>
-        {!error &&
+        {!!addr &&
+          !error &&
           deBankIdState?.data?.addr &&
           isSameAddr(addr, deBankIdState?.data?.web3_id || "") && (
             <Item onConfirm={confirmAddr} {...deBankIdState?.data} />
           )}
 
-        {!error &&
+        {!!addr &&
+          !error &&
           ensState?.data?.addr &&
           isSameAddr(addr, ensState?.data?.name || "") && (
             <Item onConfirm={confirmAddr} {...ensState?.data} />
@@ -175,6 +183,22 @@ const QueryPoints = () => {
                 : data?.data?.active_stats_reward +
                   data?.data?.wallet_balance_reward}
             </div>
+
+            {data.data?.claimed === false &&
+              data?.data?.active_stats_reward +
+                data?.data?.wallet_balance_reward >
+                0 &&
+              !data?.isFetching &&
+              !data?.isLoading && (
+                <a
+                  className={styles.claimBtn}
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                >
+                  Claim on Rabby Wallet
+                </a>
+              )}
           </div>
         )}
       {!!addr && !!error && <div className={styles.errorBox}>{error}</div>}
