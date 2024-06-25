@@ -340,6 +340,23 @@
         }
       }
     }
+    .claimBtn {
+      cursor: pointer;
+      margin-top: 16px;
+      margin-bottom: 10px;
+      display: flex;
+      height: 44px;
+      padding: 0 25px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      background: linear-gradient(91deg, #326cff 1.88%, #ae2bff 99.85%);
+      box-shadow: 0px 2px 4px 0px rgba(92, 63, 173, 0.3);
+      color: var(--r-neutral-title2, #fff);
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+    }
   }
 
   .errorBox {
@@ -452,6 +469,17 @@
         align-items: flex-start;
         padding-top: 8px;
         padding-bottom: 10px;
+      }
+    }
+
+    .result {
+      .claimBtn {
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 4px;
+        height: 36px;
+        padding: 0 16px;
+        font-size: 16px;
       }
     }
   }
