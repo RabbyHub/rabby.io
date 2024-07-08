@@ -1,5 +1,5 @@
 # Rabby Terms of Service and Privacy Policy 
-## Last updated: July 3, 2024
+## Last updated: July 8, 2024
 DEBANK GLOBAL PTE. LTD. ("DEBANK" or "Rabby" or "we") respects and protects the privacy of Users (“you” or “users”). We will collect and use the information generated from your use of DeBank or Rabby, in accordance with the Terms of Use.
 
 ## What information do we collect
@@ -19,6 +19,9 @@ Information You Give Us. Information we collect from you includes:
 The private key is associated with the wallet address and, collectively, they enable the authorization of transfers of Digital Assets to and from that wallet address. You are solely responsible for the retention and security of your private key and any mnemonic phrase ("Seed Phrase") associated with your wallet. It is imperative that you keep your wallet address, Seed Phrase, and private key access information secure. Additionally, you must ensure that you back up your private keys, Seed Phrases, or passwords. Failure to do so may result in the irrevocable loss of control over Digital Assets associated with your wallet.
 
 We do not receive, store, or retain your wallet password, encrypted private key, unencrypted private key, or Seed Phrase associated with your wallet. We are unable to generate a new password for your wallet in the event that you forget your original password. If you have not securely stored a backup of any wallet address and private key pairs maintained in your wallet, any Digital Assets associated with such wallet address will become inaccessible. Accordingly, we disclaim all responsibility and liability in the event that you are unable to access your wallet for any reason, including, but not limited to, your failure to keep your wallet address, Seed Phrase, and private key information secure, if the app is unintentionally deleted, if your device is lost, or if troubleshooting necessitates reinstallation of the wallet.
+
+## Safety and Security of Your Devices
+We are not liable for any damage, interruptions, or asset loss caused by computer viruses, malware, phishing, spoofing, or other malicious attacks. We advise the regular use of reputable and readily available virus screening and prevention software. You should also be aware that SMS and email services are vulnerable to spoofing and phishing attacks and should use care in reviewing messages purporting to originate from us.
 
 ## How do we use the information we collect
 Our primary purpose in collecting information is to help us operate, provide, improve, customize, support, and market our services.
