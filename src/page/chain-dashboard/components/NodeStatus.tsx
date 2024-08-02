@@ -33,7 +33,8 @@ export function NodeStatusInfo({
         text = "No blocks mined in the last 5 minutes";
       }
     } else {
-      const delayNumber = Math.abs(targetNodeHeight - officialNodeHeight);
+      let delayNumber = targetNodeHeight - officialNodeHeight;
+      if (delayNumber < 0) delayNumber = 0;
       if (delayNumber > 0 && delayNumber <= 10) {
         status = "warning";
         text = `Delay - ${delayNumber} blocks behind official node`;
