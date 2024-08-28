@@ -742,7 +742,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .signing-modes .signing-modes-wrapper .signing-modes-card {
   width: 300px;
-  height: 348px;
+  /* height: 360px; */
   background: #ffffff;
   border: 0.5px solid #eaeaec;
   border-radius: 8px;
