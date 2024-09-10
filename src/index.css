@@ -801,7 +801,6 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .integrated-doc .bg {
-  /* width: 960px; */
   border-radius: 8px;
   border: 0.5px solid var(--title, #eaeaec);
   height: 402px;
@@ -971,6 +970,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
     display: none;
   }
 
+  .integrated-doc .bg .number {
+    font-size: 40px;
+  }
+  .integrated-doc .bg .desc {
+    font-size: 13px;
+  }
   .integrated-doc .bg .btn {
     width: 178px;
     height: 44px;
@@ -1297,7 +1302,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
   .download h3 {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
     padding-top: calc(var(--rate) * 18);
   }
