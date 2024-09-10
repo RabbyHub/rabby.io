@@ -199,11 +199,13 @@ async function connectRabbyWithEthers() {
 
 In addition to the above methods, there are several popular third-party wallet connection libraries that also support Rabby wallet integration. These libraries typically provide simpler APIs and ready-made UI components, which can simplify the wallet connection process. Here are some commonly used libraries:
 
-- [RainbowKit](https://www.rainbowkit.com/)
+- [AppKit](https://walletconnect.com/appkit)
 
 - [ConnectKit](https://docs.family.co/connectkit)
 
-- [AppKit](https://walletconnect.com/appkit)
+- [RabbyKit](https://rabbykit.rabby.io)
+
+- [RainbowKit](https://www.rainbowkit.com/)
 
 - [Web3-Onboard](https://onboard.blocknative.com/)
 
