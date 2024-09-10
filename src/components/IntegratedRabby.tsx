@@ -7,7 +7,7 @@ const IntegratedRabby = () => {
         <div className="number">1000+</div>
         <div className="desc">Dapps Integrated Rabby Wallet</div>
         <a
-          href="docs/integrating-rabby-wallet"
+          href="/docs/integrating-rabby-wallet"
           target="_blank"
           rel="noreferrer"
           className="btn"

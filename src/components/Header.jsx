@@ -133,7 +133,7 @@ const Header = ({ chains }) => {
           </li>
           <li>
             <a
-              href="https://rabby.io/docs/docs/integrating-rabby-wallet/"
+              href="/docs/integrating-rabby-wallet/"
               target="_blank"
               rel="noreferrer"
             >
