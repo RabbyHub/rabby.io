@@ -66,8 +66,8 @@ const Header = ({ chains }) => {
           <i></i>
           <i></i>
         </a>
-        <ul className={clsx('menu', { show: isExpand })}>
-        {/* <li>
+        <ul className={clsx("menu", { show: isExpand })}>
+          {/* <li>
             <a
               href="/chain-dashboard"
               target="_blank"
@@ -78,15 +78,6 @@ const Header = ({ chains }) => {
           </li> */}
           <li>
             <a
-              href="https://rabbykit.rabby.io/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              RabbyKit
-            </a>
-          </li>
-          <li>
-            <a
               href="https://twitter.com/Rabby_io"
               target="_blank"
               rel="noreferrer"
@@ -94,7 +85,7 @@ const Header = ({ chains }) => {
               Twitter (X)
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="https://medium.com/@rabby_io"
               target="_blank"
@@ -102,7 +93,7 @@ const Header = ({ chains }) => {
             >
               Medium
             </a>
-          </li>
+          </li> */}
           {/* <li>
             <a href="https://t.me/rabby_io" target="_blank" rel="noreferrer">
               Telegram
@@ -129,6 +120,24 @@ const Header = ({ chains }) => {
           <li>
             <a href="mailto:support@rabby.io" target="_blank" rel="noreferrer">
               Email
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://rabbykit.rabby.io/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              RabbyKit
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://rabby.io/docs/docs/integrating-rabby-wallet/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Integration Doc
             </a>
           </li>
         </ul>
