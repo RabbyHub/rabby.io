@@ -11,7 +11,7 @@ This guide will help Dapp developers understand how to integrate Rabby wallet in
 
 <a name="pure-javascript"></a>
 
-## 1. Connecting Rabby Wallet Using Pure JavaScript
+## 1. Connecting Rabby Wallet Using Vanilla JavaScript
 
 ### 1.1 Connecting Using EIP-6963
 
