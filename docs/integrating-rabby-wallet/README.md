@@ -1,6 +1,6 @@
 # Integrating Rabby Wallet
 
-This guide will help Dapp developers understand how to integrate Rabby wallet into their applications. We'll cover several main connection methods, including pure JavaScript, Wagmi, and Ethers.js, as well as other third-party wallet connection libraries that support Rabby wallet.
+This guide will help Dapp developers understand how to integrate Rabby wallet into their applications. We'll cover several main connection methods, including Vanilla JavaScript, Wagmi, and Ethers.js, as well as other third-party wallet connection libraries that support Rabby wallet.
 
 ## Table of Contents
 
