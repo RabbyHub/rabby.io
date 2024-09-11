@@ -9,7 +9,7 @@ This guide will help Dapp developers understand how to integrate Rabby wallet in
 3. [Connecting Rabby Wallet Using Ethers.js](#ethers-js)
 4. [Other Third-Party Wallet Connection Libraries](#other-libraries)
 
-<a name="pure-javascript"></a>
+<a name="vanilla-javascript"></a>
 
 ## 1. Connecting Rabby Wallet Using Vanilla JavaScript
 
