@@ -716,6 +716,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .chains,
 .signing-modes,
+.integrated-doc,
 .contact-us {
   max-width: 965px;
   margin-left: auto;
@@ -723,6 +724,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .signing-modes,
+.integrated-doc,
 .contact-us {
   font-weight: 400;
   font-size: 18px;
@@ -798,6 +800,63 @@ footer .right .footer-links a:nth-last-child(1)::after {
   margin-bottom: 40px;
 }
 
+.integrated-doc .bg {
+  border-radius: 8px;
+  border: 0.5px solid var(--title, #eaeaec);
+  height: 402px;
+  background-image: url(/public/assets/images/dapp-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.integrated-doc .bg .number {
+  color: var(--r-blue-default, #7084ff);
+  text-align: center;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.integrated-doc .bg .desc {
+  margin-top: 4px;
+  margin-bottom: 25px;
+  color: var(--r-neutral-foot, #6a7587);
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.integrated-doc .bg .btn {
+  width: 292px;
+  height: 64px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  color: var(--r-neutral-title2, #fff);
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 900px;
+  background: var(--r-blue-default, #7084ff);
+  text-decoration: none;
+}
+.integrated-doc .bg .btn:hover {
+  border-radius: 900px;
+  background: var(--r-blue-default, #7084ff);
+  box-shadow: 0px 8px 24px 0px rgba(112, 132, 255, 0.46);
+}
+
 .contact-us .title {
   text-align: left;
   margin-bottom: 24px;
@@ -858,6 +917,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     background-position: top right 50%;
   }
   .signing-modes,
+  .integrated-doc,
   .chains,
   .contact-us {
     padding-left: 24px;
@@ -908,6 +968,22 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .round-button.orange:after {
     display: none;
+  }
+
+  .integrated-doc .bg .number {
+    font-size: 40px;
+  }
+  .integrated-doc .bg .desc {
+    font-size: 13px;
+  }
+  .integrated-doc .bg .btn {
+    width: 178px;
+    height: 44px;
+    font-size: 15px;
+  }
+  .integrated-doc .bg .btn svg {
+    width: 15px !important;
+    height: 15px !important;
   }
   body {
     background-position: top right 50%;
@@ -1197,6 +1273,9 @@ footer .right .footer-links a:nth-last-child(1)::after {
   .signing-modes .signing-modes-wrapper .signing-modes-card ul li {
     width: 33.3%;
   }
+  .integrated-doc {
+    padding: 0 24px;
+  }
 }
 
 @media screen and (max-width: 630px) {
@@ -1223,7 +1302,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
   .download h3 {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
     padding-top: calc(var(--rate) * 18);
   }
@@ -1267,6 +1346,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
   .chains .title .goto-dashboard {
     display: none;
+  }
+  .integrated-doc .bg {
+    height: 347px;
+    background-image: url(/public/assets/images/dapp-bg-mobile.png);
   }
 }
 

@@ -9,6 +9,7 @@ import IntergrateChains from "./components/IntergrateChains";
 import SigningModes from "./components/SigningMode";
 import ContactUs from "./components/ContactUs";
 import { useFetchChainList } from "./hooks/useFetchChainList";
+import IntegratedRabby from "./components/IntegratedRabby";
 
 function App() {
   const handleClickDownload = () => {
@@ -57,6 +58,7 @@ function App() {
       <div className="main">
         <IntergrateChains chains={chains} />
         <SigningModes />
+        <IntegratedRabby />
         <ContactUs />
       </div>
       <Footer />
