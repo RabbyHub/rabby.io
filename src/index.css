@@ -1464,9 +1464,36 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .comment-container {
-  height: 540px;
+  height: 600px;
   margin-top: 180px;
   margin-bottom: 80px;
   overflow: hidden;
   width: 100%;
+}
+
+
+@media screen and (max-width: 630px) {
+  .comment-title {
+    font-size: 18px;
+  }
+
+  .comment-scroll-list {
+    gap: 42px;
+  }
+
+  .comment-item { 
+    .loading-container {
+      width: 284px;
+      height: 320px;
+    }
+  
+  }
+
+  .comment-item {
+    width: 284px;
+  
+    .twitter-tweet {
+      min-width: 284px;
+    }
+  }
 }
