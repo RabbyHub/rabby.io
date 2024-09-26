@@ -10294,6 +10294,11 @@ loader-utils@^3.2.0:
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-3.2.1.tgz#4fb104b599daafd82ef3e1a41fb9265f87e1f576"
   integrity sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==
 
+loadjs@^4.2.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/loadjs/-/loadjs-4.3.0.tgz#38c578cbb2e08835aa4407bd4ac6507dd1f7ed10"
+  integrity sha512-vNX4ZZLJBeDEOBvdr2v/F+0aN5oMuPu7JTqrMwp+DtgK+AryOlpy6Xtm2/HpNr+azEa828oQjOtWsB6iDtSfSQ==
+
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -13196,6 +13201,13 @@ react-transition-group@^4.4.5:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-twitter-widgets@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-twitter-widgets/-/react-twitter-widgets-1.11.0.tgz#77daa682e15a0839d9a4124dd0958995f3438a43"
+  integrity sha512-PMCLJQc30iqy01y1b2+HnMfCX+ZkOxWaPKJb4BhHgOgjSjoZb68K5T0nq3q+3YbX9K7OH0bhptgDihtBG/BqRQ==
+  dependencies:
+    loadjs "^4.2.0"
 
 react@^17.0.2:
   version "17.0.2"

@@ -326,7 +326,7 @@ header {
 }
 .intro {
   /* width: 100%; */
-  padding-top: 180px;
+  /* padding-top: 180px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1406,4 +1406,39 @@ footer .right .footer-links a:nth-last-child(1)::after {
   animation-name: homeTextFadesIn;
   animation-delay: 250ms;
   animation-duration: 0.4s;
+}
+
+.comment-title {
+  font-family: Lato;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+  text-align: center;
+  color: #192945;
+  margin-bottom: 36px;
+}
+
+.comment-scroll-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.comment-item {
+  width: 360px;
+
+  .twitter-tweet {
+    min-width: 360px;
+  }
+}
+
+.comment-container {
+  height: 540px;
+  margin-top: 180px;
+  margin-bottom: 80px;
+  overflow: hidden;
+  width: 100%;
 }
