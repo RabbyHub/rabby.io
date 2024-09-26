@@ -32,7 +32,7 @@ const shuffleArray = (array) => {
 const CommentScroll = () => {
   const isHoveredRef = useRef(false);
 
-  const list = shuffleArray([...TWEET_ID_ARRS,...TWEET_ID_ARRS]);;
+  const list = shuffleArray([...TWEET_ID_ARRS,...TWEET_ID_ARRS]);
   const boxRef = useRef(null);
 
   useEffect(() => {
@@ -43,19 +43,16 @@ const CommentScroll = () => {
       }
 
       const scrollWidth = TWEET_OPTIONS.width + 24; // 固定宽度
-      console.log('scrollWidth:', box.scrollWidth, 'clientWidth:', box.clientWidth, 'scrollLeft:', box.scrollLeft)
       box.scrollTo({
         left: box.scrollLeft + scrollWidth,
-        behavior: 'smooth', // 添加平滑滚动效果
+        behavior: 'smooth',
       });
       if ((box.scrollLeft + 2) >= (box.scrollWidth - box.clientWidth)) {
         setTimeout(() => {
           box.scrollTo({
             left: 0,
-            behavior: 'smooth', // 添加平滑滚动效果
+            behavior: 'smooth',
           });
-          console.log('scroll归零')
-          // box.scrollLeft = 0; // 延时后回到起始位置
         }, 300); // 动画时间稍微比滚动时间短
       }
     }, 3000);
