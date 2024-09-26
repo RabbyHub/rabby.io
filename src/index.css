@@ -1433,6 +1433,32 @@ footer .right .footer-links a:nth-last-child(1)::after {
   .twitter-tweet {
     min-width: 360px;
   }
+
+  .loading-container {
+    width: 360px;
+    height: 320px;
+    border: 0.5px solid #EAEAEC;
+    padding: 24px;
+    width: 360px;
+    height: 320px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+  }
+
+  .loading-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .loading-first {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+
 }
 
 .comment-container {

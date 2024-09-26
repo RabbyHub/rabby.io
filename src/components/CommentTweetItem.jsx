@@ -1,35 +1,67 @@
 import clsx from "clsx";
-import React, { useEffect, useState } from 'react';
-import { Tweet, eagerLoadTwitterLibrary  } from 'react-twitter-widgets';
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useState } from 'react';
+import { Tweet } from 'react-twitter-widgets';
 // eagerLoadTwitterLibrary();
 
-
-const TWEET_OPTIONS = {
-  width: 360,
-  conversation: 'none',
-  dnt: true,
-  cards: 'hidden',
+const CSkeleton = (props) => {
+  return (
+    <Skeleton
+      baseColor="#F2F4F7"
+      highlightColor="#FFFFFF"
+      duration={1.3}
+      borderRadius={4}
+      {...props}
+    />
+  );
 };
 
+const LoadingItem = () => {
+  return (
+    <div className={'loading-container'}>
+      <div className={'loading-first'}>
+          <CSkeleton circle height={32} width={32} />
+          <div className={'loading-column'}>
+          <CSkeleton width={104} height={20} />
+          <CSkeleton width={76} height={20} />
+          </div>
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={266} height={20} />
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={221} height={20} />
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={186} height={20} />
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={247} height={20} />
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={212} height={20} />
+      </div>
+      <div className={'loading-column'}>
+        <CSkeleton width={108} height={20} />
+      </div>
+    </div>
+  );
+}
 
 const CommentTweetItem = ({ id, options }) => {
   const [hasLoad, setHasLoad] = useState(false);
   const onLoadFn = () => {
     setHasLoad(true);
-    console.log('执行加载完成事件', id)
   }
 
   return (
-          <div
-            className={clsx(
-              "comment-item", {
-                'has-load': hasLoad,
-              }
-            )}
-          >
-            { !hasLoad && <img src="/assets/images/tweet-default.svg" className={'comment-default-img'} />}
-            <Tweet tweetId={id} options={options} onLoad={onLoadFn}/>
-          </div>
+    <div
+      className={clsx("comment-item")}
+    >
+      {!hasLoad && <LoadingItem />}
+      <Tweet tweetId={id} options={options} onLoad={onLoadFn} />
+    </div>
   );
 };
 
