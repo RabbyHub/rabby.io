@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Tweet } from 'react-twitter-widgets';
-// eagerLoadTwitterLibrary();
 
 const CSkeleton = (props) => {
   return (
@@ -49,10 +48,11 @@ const LoadingItem = () => {
   );
 }
 
-const CommentTweetItem = ({ id, options }) => {
+const CommentTweetItem = ({ id, options, index, onhasLoadCb }) => {
   const [hasLoad, setHasLoad] = useState(false);
   const onLoadFn = () => {
     setHasLoad(true);
+    onhasLoadCb(index);
   }
 
   return (
@@ -60,7 +60,7 @@ const CommentTweetItem = ({ id, options }) => {
       className={clsx("comment-item")}
     >
       {!hasLoad && <LoadingItem />}
-      <Tweet tweetId={id} options={options} onLoad={onLoadFn} />
+     <Tweet tweetId={id} options={options} onLoad={onLoadFn} />
     </div>
   );
 };
