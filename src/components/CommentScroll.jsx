@@ -42,8 +42,8 @@ const CommentScroll = () => {
   const list = shuffleArray(TWEET_ID_ARRS);
   const boxRef = useRef(null);
   const currentLoadArrRef = useRef([]);
-  const firstLoadId = useMemo(() => list.slice(0, FIRST_LOAD_TWEET_NUM), []); // 前7个元素，首屏加载
-  const remainingId = useMemo(() => list.slice(FIRST_LOAD_TWEET_NUM), []); // 剩下的元素
+  const firstLoadId = useMemo(() => list.slice(0, FIRST_LOAD_TWEET_NUM), [list]); // 前7个元素，首屏加载
+  const remainingId = useMemo(() => list.slice(FIRST_LOAD_TWEET_NUM), [list]); // 剩下的元素
 
 
   useEffect(() => {
@@ -100,7 +100,7 @@ const CommentScroll = () => {
       })}
       {remainingId.map((id, index) => {
         return ( canLoadAll &&
-          <CommentTweetItem id={id} index={index} options={TWEET_OPTIONS} onhasLoadCb={onhasLoadCb}/>
+          <CommentTweetItem id={id} index={index} options={TWEET_OPTIONS}/>
         )
       })}
     </div>

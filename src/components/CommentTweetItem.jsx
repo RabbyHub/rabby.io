@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import React, { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Tweet } from 'react-twitter-widgets';
 
 const CSkeleton = (props) => {
@@ -52,7 +52,7 @@ const CommentTweetItem = ({ id, options, index, onhasLoadCb }) => {
   const [hasLoad, setHasLoad] = useState(false);
   const onLoadFn = () => {
     setHasLoad(true);
-    onhasLoadCb(index);
+    onhasLoadCb && onhasLoadCb(index);
   }
 
   return (
