@@ -26,8 +26,6 @@ const TWEET_OPTIONS = {
   cards: 'hidden',
 };
 
-const FIRST_LOAD_TWEET_NUM = 7;
-
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // 生成 0 到 i 的随机索引
@@ -36,14 +34,17 @@ const shuffleArray = (array) => {
   return array;
 };
 
+const ITEM_WIDTH = TWEET_OPTIONS.width + 24;// 加上padding
+
 const CommentScroll = () => {
   const isHoveredRef = useRef(false);
+  const firstLoadNum = Math.ceil(window.innerWidth / ITEM_WIDTH) + 1; // 获取首屏加载推文个数
   const [canLoadAll, setCanLoadAll] = useState(false);
   const list = shuffleArray(TWEET_ID_ARRS);
   const boxRef = useRef(null);
   const currentLoadArrRef = useRef([]);
-  const firstLoadId = useMemo(() => list.slice(0, FIRST_LOAD_TWEET_NUM), [list]); // 前7个元素，首屏加载
-  const remainingId = useMemo(() => list.slice(FIRST_LOAD_TWEET_NUM), [list]); // 剩下的元素
+  const firstLoadId = useMemo(() => list.slice(0, firstLoadNum), [list, firstLoadNum]); // 首屏加载
+  const remainingId = useMemo(() => list.slice(firstLoadNum), [list, firstLoadNum]); // 剩下的元素
 
 
   useEffect(() => {
@@ -57,9 +58,8 @@ const CommentScroll = () => {
         return;
       }
 
-      const scrollWidth = TWEET_OPTIONS.width + 24; // 固定宽度
       box.scrollTo({
-        left: box.scrollLeft + scrollWidth,
+        left: box.scrollLeft + ITEM_WIDTH,
         behavior: 'smooth',
       });
       if ((box.scrollLeft + 2) >= (box.scrollWidth - box.clientWidth)) {
@@ -79,7 +79,7 @@ const CommentScroll = () => {
     if (!currentLoadArrRef.current.includes(index)) {
       currentLoadArrRef.current.push(index);
 
-      if (currentLoadArrRef.current.length >= FIRST_LOAD_TWEET_NUM) {
+      if (currentLoadArrRef.current.length >= firstLoadNum) {
         setCanLoadAll(true);
       }
     }
