@@ -28,7 +28,7 @@ const LoadingItem = () => {
           </div>
       </div>
       <div className={'loading-column'}>
-        <CSkeleton width={228} height={20} />
+        <CSkeleton width={266} height={20} />
       </div>
       <div className={'loading-column'}>
         <CSkeleton width={221} height={20} />
@@ -37,7 +37,7 @@ const LoadingItem = () => {
         <CSkeleton width={186} height={20} />
       </div>
       <div className={'loading-column'}>
-        <CSkeleton width={240} height={20} />
+        <CSkeleton width={247} height={20} />
       </div>
       <div className={'loading-column'}>
         <CSkeleton width={212} height={20} />

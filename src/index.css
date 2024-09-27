@@ -1477,7 +1477,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     font-size: 18px;
   }
 
-  .comment-scroll-list {
+  /* .comment-scroll-list {
     gap: 42px;
   }
 
@@ -1487,13 +1487,13 @@ footer .right .footer-links a:nth-last-child(1)::after {
       height: 320px;
     }
   
-  }
+  } */
 
-  .comment-item {
+  /* .comment-item {
     width: 284px;
   
     .twitter-tweet {
       min-width: 284px;
     }
-  }
+  } */
 }
