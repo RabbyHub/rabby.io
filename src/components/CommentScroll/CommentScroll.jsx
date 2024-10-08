@@ -78,7 +78,7 @@ const CommentScroll = () => {
   }
 
   return (
-    <div className="comment-container no-padding">
+    <div className="comment-container">
     <div className="comment-title">“Rabby is better in every single way”</div>
     <div 
       className="comment-scroll-list" 
