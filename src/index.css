@@ -1444,10 +1444,6 @@ footer .right .footer-links a:nth-last-child(1)::after {
   border: 0.5px solid var(--title, #EAEAEC);
   background: var(--white-title, #FFF);
 
-  .twitter-tweet {
-    min-width: 360px;
-  }
-
   .loading-container {
     width: 360px;
     height: 320px;
@@ -1471,12 +1467,6 @@ footer .right .footer-links a:nth-last-child(1)::after {
     display: flex;
     flex-direction: row;
     gap: 12px;
-  }
-
-  .comment-item-top {
-    display: flex;
-    flex-direction: row;
-    
   }
 
   .comment-item-avatar {
@@ -1531,6 +1521,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
     word-wrap:break-word;
   }
 
+}
+
+.comment-item-top {
+  display: flex;
+  flex-direction: row;
 }
 
 .comment-container {
