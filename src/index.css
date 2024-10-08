@@ -1431,6 +1431,18 @@ footer .right .footer-links a:nth-last-child(1)::after {
 
 .comment-item {
   width: 360px;
+  cursor: pointer;
+  max-width: 360px;
+  min-width: 360px;
+  height: fit-content;
+  padding: 20px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  border: 0.5px solid var(--title, #EAEAEC);
+  background: var(--white-title, #FFF);
 
   .twitter-tweet {
     min-width: 360px;
@@ -1461,10 +1473,68 @@ footer .right .footer-links a:nth-last-child(1)::after {
     gap: 12px;
   }
 
+  .comment-item-top {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .comment-item-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .comment-item-top-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment-item-author {
+    display: flex;
+    align-items: center;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;    
+    color: var(--r-neutral-title1, #192945);
+
+    img {
+      width: 16px;
+      height: 16px;
+      margin-left: 4px;
+    }
+  }
+
+  .comment-item-signature {
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15.6px;
+    text-align: left;    
+    color: var(--r-neutral-foot, #6A7587);
+  }
+
+  .comment-item-content {
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+    color: var(--r-neutral-title1, #192945);
+    flex: 1;
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap:break-word;
+  }
+
 }
 
 .comment-container {
-  height: 600px;
+  height: 420px;
   margin-top: 180px;
   margin-bottom: 80px;
   overflow: hidden;
@@ -1472,28 +1542,11 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 
+
+
 @media screen and (max-width: 630px) {
   .comment-title {
     font-size: 18px;
   }
 
-  /* .comment-scroll-list {
-    gap: 42px;
-  }
-
-  .comment-item { 
-    .loading-container {
-      width: 284px;
-      height: 320px;
-    }
-  
-  } */
-
-  /* .comment-item {
-    width: 284px;
-  
-    .twitter-tweet {
-      min-width: 284px;
-    }
-  } */
 }

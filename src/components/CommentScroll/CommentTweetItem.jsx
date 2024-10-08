@@ -2,7 +2,6 @@ import clsx from "clsx";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useState } from 'react';
-import { Tweet } from 'react-twitter-widgets';
 
 const CSkeleton = (props) => {
   return (
@@ -48,19 +47,41 @@ const LoadingItem = () => {
   );
 }
 
-const CommentTweetItem = ({ id, options, index, onhasLoadCb }) => {
+const CommentTweetItem = ({ item, index, onhasLoadCb, onMouseEnter, onMouseLeave }) => {
   const [hasLoad, setHasLoad] = useState(false);
   const onLoadFn = () => {
     setHasLoad(true);
     onhasLoadCb && onhasLoadCb(index);
   }
 
+  const goToTweet = () => {
+    window.open(item.url)?.focus();
+  }
+
   return (
     <div
+      onClick={goToTweet}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={clsx("comment-item")}
     >
       {!hasLoad && <LoadingItem />}
-     <Tweet tweetId={id} options={options} onLoad={onLoadFn} />
+     {/* <Tweet tweetId={id} options={options} onLoad={onLoadFn} /> */}
+      <div className={'comment-item-top'}>
+        <img className={'comment-item-avatar'} src={item.avatar} onLoad={onLoadFn} alt="avatar"/>
+        <div className={'comment-item-top-right'}>
+          <div className={'comment-item-author'}>
+          {item.author}
+          <img src="/assets/images/IconVerify.svg" alt="icon"/>
+          </div>
+          <div className={'comment-item-signature'}>
+          {item.signature}
+          </div>
+        </div>
+      </div>
+      <div className={'comment-item-content'}>
+       {item.content}
+      </div>
     </div>
   );
 };

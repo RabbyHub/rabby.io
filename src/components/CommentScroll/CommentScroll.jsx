@@ -1,23 +1,7 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import CommentTweetItem from "./CommentTweetItem";
+import { COMMENT_RAW_ARRS } from "./constant";
 
-
-const TWEET_ID_ARRS = [
-  '1764875726950670431',
-  '1768414112961437772',
-  '1737258777827823871',
-  '1769369865293304158',
-  '1765419497454764038',
-  '1822111943190364263',
-  '1808074312173121631',
-  '1699871103550636118',
-  '1760877143318286481',
-  '1753128522598519087',
-  '1736197134246908137',
-  '1766433217735983351',
-  '1773393203946762319',
-  '1838832256972132450',
-];
 
 const TWEET_OPTIONS = {
   width: 360,
@@ -40,7 +24,7 @@ const CommentScroll = () => {
   const isHoveredRef = useRef(false);
   const firstLoadNum = Math.ceil(window.innerWidth / ITEM_WIDTH) + 1; // 获取首屏加载推文个数
   const [canLoadAll, setCanLoadAll] = useState(false);
-  const list = shuffleArray(TWEET_ID_ARRS);
+  const list = shuffleArray(COMMENT_RAW_ARRS);
   const boxRef = useRef(null);
   const currentLoadArrRef = useRef([]);
   const firstLoadId = useMemo(() => list.slice(0, firstLoadNum), [list, firstLoadNum]); // 首屏加载
@@ -85,22 +69,29 @@ const CommentScroll = () => {
     }
   }
 
+  const onMouseEnter = () => {
+    isHoveredRef.current = true
+  }
+
+  const onMouseLeave = () => {
+    isHoveredRef.current = false
+  }
+
   return (
     <div className="comment-container no-padding">
     <div className="comment-title">“Rabby is better in every single way”</div>
     <div 
       className="comment-scroll-list" 
       ref={boxRef}       
-      onMouseEnter={() => isHoveredRef.current = true }
-      onMouseLeave={() => isHoveredRef.current = false }>
-      {firstLoadId.map((id, index) => {
+    >
+      {firstLoadId.map((item, index) => {
         return (
-          <CommentTweetItem id={id} index={index} options={TWEET_OPTIONS} onhasLoadCb={onhasLoadCb}/>
+          <CommentTweetItem item={item} index={index} options={TWEET_OPTIONS} onhasLoadCb={onhasLoadCb} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
         )
       })}
-      {remainingId.map((id, index) => {
+      {remainingId.map((item, index) => {
         return ( canLoadAll &&
-          <CommentTweetItem id={id} index={index} options={TWEET_OPTIONS}/>
+          <CommentTweetItem item={item} index={index} options={TWEET_OPTIONS}  onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
         )
       })}
     </div>
