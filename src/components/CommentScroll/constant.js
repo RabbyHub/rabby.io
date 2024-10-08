@@ -173,4 +173,12 @@ This is innovation at its finest.`,
     avatar: 'https://static-assets.debank.com/files/c3bb46a7-3322-423e-bece-0894dc292cb0.jpg',
     url: 'https://x.com/stronkpants/status/1838832256972132450',
   },
+  {
+    id: '1729672464144158883',
+    content: `Just want to share my outstanding experience with @Rabby_io so far. I cant say other than i dont know a better wallet rn. If there is a mass adoption wallet this one is actually my bet.`,
+    author: 'Escapone🛸',
+    signature: '@abayarde_eqss',
+    avatar: 'https://static-assets.debank.com/files/1f4a7fab-a703-4ee5-ae41-93fcebae3d4b.jpg',
+    url: 'https://x.com/abayarde_eqss/status/1729672464144158883',
+  },
 ]
