@@ -25,7 +25,9 @@ function App() {
     <>
       <div className="main">
         <Header chains={chains} />
-        <CommentScroll />
+      </div>
+      <CommentScroll />
+      <div className="main">
         <Intro />
       </div>
       <Security />

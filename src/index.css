@@ -942,7 +942,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 @media screen and (max-width: 992px) {
   .main {
     max-width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   h1 {
     font-size: 28px;
