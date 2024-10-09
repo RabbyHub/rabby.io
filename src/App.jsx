@@ -10,6 +10,7 @@ import SigningModes from "./components/SigningMode";
 import ContactUs from "./components/ContactUs";
 import { useFetchChainList } from "./hooks/useFetchChainList";
 import IntegratedRabby from "./components/IntegratedRabby";
+import CommentScroll from "./components/CommentScroll/CommentScroll";
 
 function App() {
   const handleClickDownload = () => {
@@ -24,6 +25,9 @@ function App() {
     <>
       <div className="main">
         <Header chains={chains} />
+      </div>
+      <CommentScroll />
+      <div className="main">
         <Intro />
       </div>
       <Security />
