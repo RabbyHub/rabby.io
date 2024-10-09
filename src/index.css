@@ -461,6 +461,7 @@ footer .copyright {
   color: #ffffff;
   opacity: 0.6;
   margin: 0;
+  text-align: right;
 }
 footer .left {
   display: flex;
@@ -1366,6 +1367,9 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   footer .right .footer-links a::after {
     margin-top: 0;
+  }
+  footer .copyright {
+    text-align: center;
   }
 }
 
