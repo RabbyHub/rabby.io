@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
@@ -17,6 +17,9 @@ const Footer = () => {
               rel="noreferrer"
             >
               Brand
+            </a>
+            <a href="/docs/terms-of-use/" target="_blank" rel="noreferrer">
+              Terms of Use
             </a>
             <a href="/docs/privacy/" target="_blank" rel="noreferrer">
               Privacy Policy
