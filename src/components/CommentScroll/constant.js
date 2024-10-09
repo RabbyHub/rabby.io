@@ -16,7 +16,8 @@ To say using @Rabby_io is a night and day difference would be the understatement
 I have ETH in this wallet on 5 different L2s for blob testing. Unless I click it, it's all combined
 
 Depending on the network picked on dapps, Rabby automatically just uses that network
-...`,
+
+More of this plz`,
     author: 'eric.eth',
     signature: '@econoar',
     avatar: 'https://static-assets.debank.com/files/ce970618-5c3d-45b2-985f-162dd548d538.png',
@@ -26,7 +27,6 @@ Depending on the network picked on dapps, Rabby automatically just uses that net
     id: '1737258777827823871',
     content: `Random reminder that everyone should be using @Rabby_io
   
-
 The wallet simulates and shows you what will happen after you sign any transaction, which is essential if you interact with apps every day.
 
 Just saved me from signing a malicious transaction & having my wallet drained.`,
@@ -42,7 +42,7 @@ Just saved me from signing a malicious transaction & having my wallet drained.`,
 If you're not using it yet, now is a great time to check it out. 
 
 I ALWAYS recommend using a hardware wallet on top of a browser wallet.`,
-    author: 'superphiz.eth',
+    author: 'superphiz.eth 🦇🔊🛡️',
     signature: '@superphiz',
     avatar: 'https://static-assets.debank.com/files/7cb9ce79-5e7b-4277-9e8c-137c7fa8708f.jpg',
     url: 'https://x.com/superphiz/status/1769369865293304158'
@@ -52,7 +52,7 @@ I ALWAYS recommend using a hardware wallet on top of a browser wallet.`,
     content: `Holy shit.. @Ledger nano X + @Rabby_io Mobile APP  is DOPE AF.
 
 Signing txn on the go with ease, where has this been all my life`,
-    author: 'aibra.',
+    author: 'aibra.🐻⛓️',
     signature: '@aibra',
     avatar: 'https://static-assets.debank.com/files/441491eb-e498-4127-ae8d-472de7a35d75.jpg',
     url: 'https://x.com/aibra/status/1765419497454764038',
@@ -85,7 +85,7 @@ With gwei at a all time low of just 1, now may just be the best time to start ti
   },
   {
     id: '1699871103550636118',
-    content: `It blows my mind how much better @Rabby_io is than @MetaMas.
+    content: `It blows my mind how much better @Rabby_io is than @MetaMask.
 
 It's not kind of better, or subjectively better, it's like leaping years into the future better.
 
@@ -100,8 +100,9 @@ How did MetaMask manage to fumble their lead so hard?`,
     content: `You can install 12752 extension to save yourself from scams, hack, phishing threats on crypto.
 
 Or you can just use @Rabby_io. It almost have all features build-in plus great UI/UX. 
-...`,
-    author: 'tervelix',
+
+Just sayin..`,
+    author: 'tervelix🦇🔊🔺💙',
     signature: '@tervelix',
     avatar: 'https://static-assets.debank.com/files/557e4cf8-b8b4-40fe-9db6-8085dc6a3650.jpg',
     url: 'https://x.com/tervelix/status/1664017320342159363',
@@ -156,7 +157,7 @@ Feels like I finally arrived in 2024 🐰`,
   {
     id: '1773393203946762319',
     content: `Wow, thank you @Rabby_io for saving me. Scam sites are getting better and better and better wow.`,
-    author: 'VirtualQuery',
+    author: 'VirtualQuery 🧽',
     signature: '@VirtualQuery',
     avatar: ' https://static-assets.debank.com/files/7a31c986-2622-4443-b5fa-7907624fec0e.jpg',
     url: 'https://x.com/VirtualQuery/status/1773393203946762319',
