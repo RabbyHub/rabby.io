@@ -51,7 +51,7 @@ const CommentScroll = () => {
       countRef.current ++;
       
       // 检查是否滚动到第二份列表的开始（即原始列表的末尾的复制）  
-      if (countRef.current > rawList.length) {  
+      if (countRef.current > COMMENT_RAW_ARRS.length) {  
         // 重置滚动位置到第一份列表的开始，但要稍微延迟以确保平滑过渡  
         box.scrollTo({
           left: 0,  
