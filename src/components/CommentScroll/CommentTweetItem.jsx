@@ -65,7 +65,7 @@ const CommentTweetItem = ({ item, index, onhasLoadCb, onMouseEnter, onMouseLeave
       onMouseLeave={onMouseLeave}
       className={clsx("comment-item")}
     >
-      {!hasLoad && <LoadingItem />}
+      {/* {!hasLoad && <LoadingItem />} */}
      {/* <Tweet tweetId={id} options={options} onLoad={onLoadFn} /> */}
       <div className={'comment-item-top'}>
         <img className={'comment-item-avatar'} src={item.avatar} onLoad={onLoadFn} alt="avatar"/>
