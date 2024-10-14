@@ -38,8 +38,8 @@ const SigningModes = () => {
       icon: "/assets/images/brand-logos/rainbow.svg"
     },
     {
-      name: "Bitkeep",
-      icon: "/assets/images/brand-logos/bitkeep.svg"
+      name: "Bitget",
+      icon: "/assets/images/brand-logos/bitget.png"
     },
     {
       name: "Zerion Wallet",
