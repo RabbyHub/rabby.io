@@ -441,6 +441,7 @@ $tips_panel_offset_mobile: 16px;
   .tab {
     &:global(.tab-Mobile) .info h3 {
       position: relative;
+      line-height: 1.4;
       
       .tag {
         position: absolute;
