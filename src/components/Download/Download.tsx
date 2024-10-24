@@ -67,6 +67,9 @@ export const Download: React.FC = () => {
         {activeTab === Platform.Mobile && (
           <>
             <div className={styles.panel}>
+              <div className={styles.tips}>
+                <span>Supported on iOS 15+ and Android 11+</span>
+              </div>
               <div
                 className={clsx(
                   styles.panelButtonGroup,
@@ -101,9 +104,9 @@ export const Download: React.FC = () => {
           <>
             <div className={styles.panel}>
               <div className={styles.tips}>
-                <span>Supported on MacOs11+ and Windows 10+</span>
+                <span>Supported on MacOS 11+ and Windows 10+</span>
               </div>
-              <div className={styles.panelButtonGroup}>
+              <div className={clsx(styles.panelButtonGroup, styles.panelButtonGroupDesktop)}>
                 <DownloadButton
                   title="macOS Intel"
                   icon="/assets/download/apple.svg"

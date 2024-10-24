@@ -260,16 +260,28 @@ $downloadCardCount: 2;
   flex: 1;
 }
 
+$tips_panel_offset: 26px;
+$tips_panel_offset_mobile: 16px;
+
 .panelButtonGroup {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+
+  &.panelButtonGroupDesktop {
+    margin-top: $tips_panel_offset;
+  }
 }
+
 .panelButtonGroupApp {
   gap: 12px;
   height: 100%;
   // flex-wrap: wrap;
+
+  > .downloadCard {
+    max-height: 90px;
+  }
 }
 
 .button {
@@ -348,7 +360,7 @@ $downloadCardCount: 2;
   align-items: center;
   font-size: 15px;
   line-height: 18px;
-  margin: 26px auto;
+  margin: $tips_panel_offset auto 0;
 }
 
 .tips img {
@@ -369,7 +381,7 @@ $downloadCardCount: 2;
   }
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1366px) {  
   @if $downloadCardCount >= 3 {
     .panelButtonGroupApp {
       gap: 10px;
@@ -397,6 +409,10 @@ $downloadCardCount: 2;
 }
 
 @media screen and (max-width: 992px) {
+  .panelButtonGroupDesktop {
+    margin-top: $tips_panel_offset_mobile !important;
+  }
+
   .download {
     margin-top: 30px;
     margin-left: -2px;
@@ -414,9 +430,25 @@ $downloadCardCount: 2;
   .tab .info h3 {
     font-size: 14px;
     line-height: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     .tag {
       padding: 0 8px;
+    }
+  }
+  .tab {
+    &:global(.tab-Mobile) .info h3 {
+      position: relative;
+      line-height: 1.4;
+      
+      .tag {
+        position: absolute;
+        top: -13px;
+        right: -20px;
+        background: rgba(255, 255, 255, 0.5);
+      }
     }
   }
 
@@ -435,7 +467,7 @@ $downloadCardCount: 2;
   }
 
   .tips {
-    margin: 16px auto;
+    margin: $tips_panel_offset_mobile auto 0;
   }
 
   .panels {
@@ -490,9 +522,20 @@ $downloadCardCount: 2;
   }
   .downloadCard {
     max-width: calc((1 / $downloadCardCount) * 100% - 10px);
+    padding: 0;
     height: 70px;
+    max-height: 48px !important;
     flex: 1;
     min-width: 0;
+
+    .downloadIconGooglePlay {
+      right: 0 !important;
+    }
+
+    > .appStore {
+      flex-direction: row;
+      align-items: center;
+    }
 
     &:hover:not(.isDisabled) {
       .appStore {
@@ -526,7 +569,8 @@ $downloadCardCount: 2;
       .appStoreImage {
         width: 25px;
         height: 25px;
-        margin-bottom: 6px;
+        margin-bottom: 0;
+        margin-right: 6px;
       }
 
       .appStoreTitle {

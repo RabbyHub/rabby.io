@@ -40,12 +40,12 @@ export const Tab: React.FC<Props> = ({ platform, active, ...attrs }) => {
       className={clsx(styles.tab, {
         [styles.active]: active,
         [styles.hasTag]: status === "beta",
-      })}
+      }, `tab-${platform}`)}
     >
       <img className={styles.icon} src={icon} alt={title} />
       <div className={styles.info}>
         <h3>
-          {title}
+          <span className={styles.text}>{title}</span>
           {status === "beta" ? <div className={styles.tag}>Beta</div> : null}
         </h3>
       </div>
