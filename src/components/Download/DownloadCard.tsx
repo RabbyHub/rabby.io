@@ -53,7 +53,8 @@ export const DownloadCard: React.FC<Props> = ({
       className={clsx(
         styles.downloadCard,
         isDisabled && styles.isDisabled,
-        isClicked && styles.isClicked
+        isClicked && styles.isClicked,
+        className
       )}
       href={href}
       rel="noreferrer"
