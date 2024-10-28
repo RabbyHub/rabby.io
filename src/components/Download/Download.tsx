@@ -8,6 +8,7 @@ import styles from "./style.module.scss";
 import { Platform, Tab } from "./Tab";
 import { DownloadCard } from "./DownloadCard";
 import { MOBILE_DOWNLOAD_URL } from "./mobile";
+import { IsFirefox } from "../../constant";
 
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
@@ -54,10 +55,11 @@ export const Download: React.FC = () => {
                 )}
               >
                 <DownloadButton
-                  title="Download for Chrome"
-                  icon="/assets/images/chrome.png"
-                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                  report="Chrome"
+                  title={`Download for ${IsFirefox ? 'Firefox' : 'Chrome'}`}
+                  icon={IsFirefox ? "/assets/images/firefox-light.svg" : "/assets/images/chrome.png"}
+                  // TODO: replace here
+                  href={IsFirefox ? "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" : "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"}
+                  report={IsFirefox ? "Firefox" : "Chrome"}
                 />
               </div>
             </div>
