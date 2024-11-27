@@ -22,7 +22,7 @@ const SigningModes = () => {
     { name: "MPCVault", icon: "/assets/images/brand-logos/mpcvault.svg" },
   ];
   const mobileWallets = [
-    { name: "imToken", icon: "/assets/images/brand-logos/imtoken.jpg" },
+    { name: "imToken", icon: "/assets/images/brand-logos/imtoken.svg" },
     { name: "Math Wallet", icon: "/assets/images/brand-logos/math.jpg" },
     {
       name: "Token Pocket",
