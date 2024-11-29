@@ -23,7 +23,7 @@ export const UninstallFeedbackDone = () => {
           src="/assets/feedback/logo.svg"
           alt="Rabby"
         />
-        <h2 className={styles.title2}>Thank you for your feedback.</h2>
+        <div className={styles.title2}>Thank you for your feedback.</div>
 
         <div className={styles.links}>
           {list.map((item) => {

@@ -18,6 +18,8 @@ export const Uninstalled = () => {
   const r = useMemo(() => search.get("r"), [search]);
   const sendRef = useRef(false);
 
+  const showDesc = useMemo(() => !!r?.includes("w"), [r]);
+
   const { isLoading, mutateAsync } = useMutation(async (text: string) =>
     (await apiReady).uninstalledFeedback({ text })
   );
@@ -85,11 +87,13 @@ export const Uninstalled = () => {
           src="/assets/feedback/logo.svg"
           alt="Rabby"
         />
-        <h2 className={styles.title}>We're sorry to see you go</h2>
-        <div className={styles.desc}>
-          Your Secret Recovery Phrase and accounts have been successfully
-          deleted from this device. You can still access them on blockchain.
-        </div>
+        <div className={styles.title}>We're sorry to see you go</div>
+        {showDesc && (
+          <div className={styles.desc}>
+            Your Secret Recovery Phrase and accounts have been successfully
+            deleted from this device. You can still access them on blockchain.
+          </div>
+        )}
         <div className={styles.divider} />
 
         <div className={styles.sub}>Why are you uninstalling Rabby Wallet?</div>
