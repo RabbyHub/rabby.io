@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import styles from "./style.module.css";
 
 const list = [
@@ -19,7 +20,7 @@ export const UninstallFeedbackDone = () => {
     <div className={styles.container}>
       <div className={styles.box}>
         <img
-          className={styles.logo}
+          className={clsx(styles.logo, styles.done)}
           src="/assets/feedback/logo.svg"
           alt="Rabby"
         />
