@@ -5,6 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
+    sans-serif;
 }
 
 .box {
@@ -33,7 +35,18 @@
   line-height: normal;
 }
 
+.title2 {
+  margin-top: 24px;
+  color: var(--r-neutral-title1, #192945);
+  text-align: center;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .desc {
+  margin-top: 12px;
   color: var(--r-neutral-body, #3e495e);
   text-align: center;
   font-family: "SF Pro";
