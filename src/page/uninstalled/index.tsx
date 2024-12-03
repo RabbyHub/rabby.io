@@ -116,7 +116,7 @@ export const Uninstalled = () => {
             autoCapitalize="none"
             autoComplete="off"
             autoCorrect="off"
-            placeholder="Please fill in your reason for uninstalling, Rabby needs your advice!"
+            placeholder="Please share your reason for uninstalling. Rabby values your feedback!"
           />
           {!!error && <div className={styles.error}>{error}</div>}
         </div>
