@@ -70,7 +70,7 @@
   margin-bottom: 16px;
   color: var(--r-neutral-title1, #192945);
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -80,11 +80,11 @@
   resize: none;
   overflow: hidden;
   width: 100%;
-  min-height: 140px;
-  max-height: 155px;
+  min-height: 160px;
+  max-height: 160px;
   padding: 16px;
   color: var(--r-neutral-title1, #192945);
-  font-size: 13px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

@@ -90,8 +90,8 @@ export const Uninstalled = () => {
         <div className={styles.title}>We're sorry to see you go</div>
         {showDesc && (
           <div className={styles.desc}>
-            Your Secret Recovery Phrase and accounts have been successfully
-            deleted from this device. You can still access them on blockchain.
+            Your Seed Phrase and addresses have been successfully removed from
+            this device. You can still access them on the blockchain.
           </div>
         )}
         <div className={styles.divider} />
