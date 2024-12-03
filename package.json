@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@debank/common": "^0.3.56",
-    "@rabby-wallet/rabby-api": "0.7.20",
+    "@rabby-wallet/rabby-api": "0.8.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
