@@ -18,7 +18,7 @@ export const Uninstalled = () => {
   const r = useMemo(() => search.get("r"), [search]);
   const sendRef = useRef(false);
 
-  const showDesc = useMemo(() => !!r?.includes("w"), [r]);
+  const showDesc = useMemo(() => !!r?.includes("l"), [r]);
 
   const { isLoading, mutateAsync } = useMutation(async (text: string) =>
     (await apiReady).uninstalledFeedback({ text })
