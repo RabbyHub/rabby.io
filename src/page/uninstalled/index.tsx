@@ -15,7 +15,7 @@ export const Uninstalled = () => {
 
   const [search] = useSearchParams();
 
-  const r = useMemo(() => search.get("r"), [search]);
+  const r = useMemo(() => search.get("r") || "", [search]);
   const sendRef = useRef(false);
 
   const showDesc = useMemo(() => !!r?.includes("l"), [r]);
@@ -25,7 +25,7 @@ export const Uninstalled = () => {
   );
 
   useEffect(() => {
-    if (r && !sendRef.current) {
+    if (!sendRef.current) {
       sendRef.current = true;
       ga.event({
         category: "Uninstall Extension",
