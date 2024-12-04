@@ -11,15 +11,11 @@ const followUsList = [
     logo: "/assets/contact/github.svg",
     link: "https://github.com/RabbyHub/Rabby",
   },
-  {
-    logo: "/assets/contact/medium.svg",
-    link: "https://medium.com/@rabby_io",
-  },
 ];
 
 const ContactUs = () => {
   return (
-    <div className="contact-us">
+    <div className="contact-us" id="contact-us">
       <h2 className="title">Contact Us</h2>
       <div className="card">
         <div className="email-box">
@@ -33,6 +29,14 @@ const ContactUs = () => {
               Business: <a href="mailto:bd@rabby.io">bd@rabby.io</a>
             </div>
           </div>
+          <a
+            className="dm"
+            href="https://debank.com/hi/0a110032"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Direct Message with Rabby Official
+          </a>
         </div>
         <div>
           <h3 className="sub-title">Follow Us</h3>

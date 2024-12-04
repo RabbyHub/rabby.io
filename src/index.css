@@ -7,6 +7,7 @@
 html {
   background-color: #fafbfc;
   font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -872,6 +873,12 @@ footer .right .footer-links a:nth-last-child(1)::after {
   padding: 30px 32px;
 }
 
+.contact-us .card .email-box a {
+  color: var(--r-blue-default, #7084ff);
+  text-decoration: none;
+  font-size: 15px;
+}
+
 .contact-us .card .sub-title {
   color: var(--r-neutral-title1, #192945);
   font-size: 18px;
@@ -885,18 +892,20 @@ footer .right .footer-links a:nth-last-child(1)::after {
   margin-right: 80px;
 }
 
+.contact-us .card .email-box .dm {
+  margin-top: 20px;
+  display: inline-block;
+}
+
 .contact-us .card .email {
   display: flex;
   flex-wrap: wrap;
   color: var(--r-neutral-body, #3e495e);
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   gap: 32px;
-  a {
-    color: var(--r-blue-default, #7084ff);
-  }
 }
 
 .contact-us .card .email a {
@@ -1252,7 +1261,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
     padding-bottom: 30px;
   }
   .contact-us .card .email {
-    margin-bottom: 28px;
+    /* margin-bottom: 28px; */
   }
 
   .contact-us .card .sub-title {
@@ -1326,9 +1335,14 @@ footer .right .footer-links a:nth-last-child(1)::after {
     margin-bottom: 12px;
   }
   .contact-us .card .email {
-    font-size: 12px;
     font-weight: 400;
     gap: 12px;
+  }
+  .contact-us .card .email-box {
+    font-size: 12px;
+  }
+  .contact-us .card .email-box .dm {
+    margin-top: 12px;
     margin-bottom: 20px;
   }
   .contact-us .card .follow-us {
