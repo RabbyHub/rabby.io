@@ -67,59 +67,18 @@ const Header = ({ chains }) => {
           <i></i>
         </a>
         <ul className={clsx("menu", { show: isExpand })}>
-          {/* <li>
-            <a
-              href="/chain-dashboard"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Chain Dashboard
-            </a>
-          </li> */}
           <li>
-            <a
-              href="https://twitter.com/Rabby_io"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Twitter (X)
-            </a>
+            <a href="#contact-us">Contact Us</a>
           </li>
-          {/* <li>
-            <a
-              href="https://medium.com/@rabby_io"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Medium
-            </a>
-          </li> */}
-          {/* <li>
-            <a href="https://t.me/rabby_io" target="_blank" rel="noreferrer">
-              Telegram
-            </a>
-          </li> */}
+
           <li>
             <a
-              href="https://discord.gg/seFBCWmUre"
-              target="_blank"
-              rel="noreferrer"
+            // TODO: add support link
+            // href=""
+            // target="_blank"
+            // rel="noreferrer"
             >
-              Discord
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/RabbyHub/Rabby"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a href="mailto:support@rabby.io" target="_blank" rel="noreferrer">
-              Email
+              Support
             </a>
           </li>
           <li>

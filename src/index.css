@@ -7,6 +7,7 @@
 html {
   background-color: #fafbfc;
   font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -870,6 +871,10 @@ footer .right .footer-links a:nth-last-child(1)::after {
   display: flex;
   flex-wrap: wrap;
   padding: 30px 32px;
+
+  a {
+    color: var(--r-blue-default, #7084ff);
+  }
 }
 
 .contact-us .card .sub-title {
@@ -885,18 +890,21 @@ footer .right .footer-links a:nth-last-child(1)::after {
   margin-right: 80px;
 }
 
+.contact-us .card .email-box .dm {
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 17px;
+}
+
 .contact-us .card .email {
   display: flex;
   flex-wrap: wrap;
   color: var(--r-neutral-body, #3e495e);
-  font-size: 14px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   gap: 32px;
-  a {
-    color: var(--r-blue-default, #7084ff);
-  }
 }
 
 .contact-us .card .email a {
