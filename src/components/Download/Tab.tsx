@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 import styles from "./style.module.scss";
+import { IsFirefox } from "../../constant";
 
 export enum Platform {
   WebExtension = "WebExtension",
@@ -23,7 +24,7 @@ const PlatformInfo = {
   [Platform.WebExtension]: {
     title: "Extension",
     status: "Released",
-    icon: "/assets/download/extension.svg",
+    icon: IsFirefox ? "/assets/download/firefox.svg" : "/assets/download/extension.svg",
   },
 };
 
