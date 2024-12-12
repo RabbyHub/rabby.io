@@ -1,1 +1,1 @@
-export const IsFirefox = /firefox/i.test(navigator.userAgent);
+export const IsFirefox = /firefox|fxios/i.test(navigator.userAgent);

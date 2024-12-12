@@ -57,8 +57,7 @@ export const Download: React.FC = () => {
                 <DownloadButton
                   title={`Download for ${IsFirefox ? 'Firefox' : 'Chrome'}`}
                   icon={IsFirefox ? "/assets/images/firefox-light.svg" : "/assets/images/chrome.png"}
-                  // TODO: replace here
-                  href={IsFirefox ? "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch" : "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"}
+                  href={IsFirefox ? "https://addons.mozilla.org/firefox/addon/rabby-wallet/" : "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"}
                   report={IsFirefox ? "Firefox" : "Chrome"}
                 />
               </div>
