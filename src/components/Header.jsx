@@ -72,12 +72,7 @@ const Header = ({ chains }) => {
           </li>
 
           <li>
-            <a
-            // TODO: add support link
-            // href=""
-            // target="_blank"
-            // rel="noreferrer"
-            >
+            <a href="https://support.rabby.io" target="_blank" rel="noreferrer">
               Support
             </a>
           </li>
