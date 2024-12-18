@@ -56,7 +56,7 @@ export const Download: React.FC = () => {
               >
                 <DownloadButton
                   title="Chrome"
-                  icon="/assets/images/chrome.png"
+                  icon="/assets/images/chrome.svg"
                   href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
                   report="Chrome"
                 />
