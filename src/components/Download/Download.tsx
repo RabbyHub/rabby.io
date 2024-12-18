@@ -55,10 +55,16 @@ export const Download: React.FC = () => {
                 )}
               >
                 <DownloadButton
-                  title={`Download for ${IsFirefox ? 'Firefox' : 'Chrome'}`}
-                  icon={IsFirefox ? "/assets/images/firefox-light.svg" : "/assets/images/chrome.png"}
-                  href={IsFirefox ? "https://addons.mozilla.org/firefox/addon/rabby-wallet/" : "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"}
-                  report={IsFirefox ? "Firefox" : "Chrome"}
+                  title="Chrome"
+                  icon="/assets/images/chrome.png"
+                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                  report="Chrome"
+                />
+                <DownloadButton
+                  title="Firefox"
+                  icon="/assets/images/firefox-light.svg"
+                  href="https://addons.mozilla.org/firefox/addon/rabby-wallet"
+                  report="Firefox"
                 />
               </div>
             </div>
@@ -107,7 +113,12 @@ export const Download: React.FC = () => {
               <div className={styles.tips}>
                 <span>Supported on MacOS 11+ and Windows 10+</span>
               </div>
-              <div className={clsx(styles.panelButtonGroup, styles.panelButtonGroupDesktop)}>
+              <div
+                className={clsx(
+                  styles.panelButtonGroup,
+                  styles.panelButtonGroupDesktop
+                )}
+              >
                 <DownloadButton
                   title="macOS Intel"
                   icon="/assets/download/apple.svg"

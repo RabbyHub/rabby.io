@@ -176,17 +176,25 @@ header {
 
 .features {
   display: flex;
+  flex-wrap: wrap;
 }
 .feature-item {
   display: flex;
   align-items: center;
-  margin-right: 32px;
   color: #fff;
   font-size: 16px;
   text-decoration: none;
+  background-color: transparent;
+  transition: background-color .3s;
+  padding: 8px;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 .feature-item:nth-last-child(1) {
   margin-right: 0;
+}
+.feature-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .feature-item .icon {
   width: 24px;
@@ -406,7 +414,7 @@ header {
   height: 360px;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 20px 0;
+  padding: 80px 0;
   text-align: center;
   padding-bottom: 75px;
   margin-bottom: 100px;
@@ -415,7 +423,7 @@ header {
 .download .download-bg,
 .download .download-mobile-bg {
   position: absolute;
-  top: 0;
+  top: 70px;
   left: 0;
   max-width: 100%;
   z-index: -1;
@@ -1644,6 +1652,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .audit-list .audit-item {
     flex-wrap: wrap;
+    align-items: flex-start;
   }
   .audit-company-logo {
     width: 44px;
