@@ -7,6 +7,7 @@ import { ga } from "../../ga";
 import { useMutation } from "react-query";
 import { apiReady } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
+import { IsFirefox } from "../../constant";
 
 export const Uninstalled = () => {
   const [input, setInput] = useState("");
@@ -81,52 +82,79 @@ export const Uninstalled = () => {
           },
         }}
       />
-      <div className={styles.box}>
-        <img
-          className={styles.logo}
-          src="/assets/feedback/logo.svg"
-          alt="Rabby"
-        />
-        <div className={styles.title}>We're sorry to see you go</div>
-        {showDesc && (
-          <div className={styles.desc}>
-            Your Seed Phrase, private keys and addresses have been successfully
-            removed from this device. You can still access them on the
-            blockchain.
-          </div>
-        )}
-        <div className={styles.divider} />
-
-        <div className={styles.sub}>Why are you uninstalling Rabby Wallet?</div>
-        <div className={styles.inputBox}>
-          <textarea
-            autoFocus
-            value={input}
-            onChange={(e) => {
-              setInput(e.target.value);
-              if (e?.target?.value?.length > 1000) {
-                setError(
-                  `Maximum word limit exceeded - ${e.target.value.length}`
-                );
-              } else {
-                setError("");
-              }
-            }}
-            className={clsx(styles.textarea, error && styles.err)}
-            spellCheck={false}
-            autoCapitalize="none"
-            autoComplete="off"
-            autoCorrect="off"
-            placeholder="Please share your reason for uninstalling. Rabby values your feedback!"
+      <div>
+        <div className={styles.box}>
+          <img
+            className={styles.logo}
+            src="/assets/feedback/logo.svg"
+            alt="Rabby"
           />
-          {!!error && <div className={styles.error}>{error}</div>}
-        </div>
+          <div className={styles.title}>We're sorry to see you go</div>
+          {showDesc && (
+            <div className={styles.desc}>
+              Your Seed Phrase, private keys and addresses have been
+              successfully removed from this device. You can still access them
+              on the blockchain.
+            </div>
+          )}
+          <div className={styles.divider} />
 
-        <div className={styles.submit} onClick={submit}>
-          Submit
+          <div className={styles.sub}>
+            Why are you uninstalling Rabby Wallet?
+          </div>
+          <div className={styles.inputBox}>
+            <textarea
+              autoFocus
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                if (e?.target?.value?.length > 1000) {
+                  setError(
+                    `Maximum word limit exceeded - ${e.target.value.length}`
+                  );
+                } else {
+                  setError("");
+                }
+              }}
+              className={clsx(styles.textarea, error && styles.err)}
+              spellCheck={false}
+              autoCapitalize="none"
+              autoComplete="off"
+              autoCorrect="off"
+              placeholder="Please share your reason for uninstalling. Rabby values your feedback!"
+            />
+            {!!error && <div className={styles.error}>{error}</div>}
+          </div>
+
+          <div className={styles.submit} onClick={submit}>
+            Submit
+          </div>
+          <div className={styles.skip} onClick={close}>
+            Skip
+          </div>
         </div>
-        <div className={styles.skip} onClick={close}>
-          Skip
+        <div className={styles.footer}>
+          {IsFirefox ? (
+            <a
+              href="https://addons.mozilla.org/firefox/addon/rabby-wallet/"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.installBtn}
+            >
+              <img src="/assets/images/firefox-2x.png" alt="" />
+              Reinstall Extension
+            </a>
+          ) : (
+            <a
+              href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.installBtn}
+            >
+              <img src="/assets/images/chrome-2x.png" alt="" />
+              Reinstall Extension
+            </a>
+          )}
         </div>
       </div>
     </div>
