@@ -24,7 +24,7 @@ const PlatformInfo = {
   [Platform.WebExtension]: {
     title: "Extension",
     status: "Released",
-    icon: IsFirefox ? "/assets/download/firefox.svg" : "/assets/download/extension.svg",
+    icon: "/assets/download/extension-1.svg",
   },
 };
 
@@ -38,10 +38,14 @@ export const Tab: React.FC<Props> = ({ platform, active, ...attrs }) => {
   return (
     <div
       {...attrs}
-      className={clsx(styles.tab, {
-        [styles.active]: active,
-        [styles.hasTag]: status === "beta",
-      }, `tab-${platform}`)}
+      className={clsx(
+        styles.tab,
+        {
+          [styles.active]: active,
+          [styles.hasTag]: status === "beta",
+        },
+        `tab-${platform}`
+      )}
     >
       <img className={styles.icon} src={icon} alt={title} />
       <div className={styles.info}>

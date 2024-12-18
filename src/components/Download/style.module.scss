@@ -355,6 +355,28 @@ $tips_panel_offset_mobile: 16px;
   height: 100%;
 }
 
+.panelSingleButton .browserBtn {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 8px 24px 0px rgba(58, 74, 165, 0.3);
+  width: 248px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  > img {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  > span {
+    color: #13141a;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+}
+
 .tips {
   display: flex;
   align-items: center;
@@ -381,7 +403,7 @@ $tips_panel_offset_mobile: 16px;
   }
 }
 
-@media screen and (max-width: 1366px) {  
+@media screen and (max-width: 1366px) {
   @if $downloadCardCount >= 3 {
     .panelButtonGroupApp {
       gap: 10px;
@@ -442,7 +464,7 @@ $tips_panel_offset_mobile: 16px;
     &:global(.tab-Mobile) .info h3 {
       position: relative;
       line-height: 1.4;
-      
+
       .tag {
         position: absolute;
         top: -13px;
@@ -498,7 +520,6 @@ $tips_panel_offset_mobile: 16px;
     font-size: 22px;
   }
 
-
   @if $downloadCardCount >= 3 {
     .panelButtonGroupApp {
       gap: 10px;
@@ -520,6 +541,25 @@ $tips_panel_offset_mobile: 16px;
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .panelSingleButton .browserBtn {
+    border-radius: 10px;
+    width: 140px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    > img {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+    }
+
+    > span {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
   .downloadCard {
     max-width: calc((1 / $downloadCardCount) * 100% - 10px);
     padding: 0;
