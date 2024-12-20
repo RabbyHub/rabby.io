@@ -1,3 +1,6 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import { useState } from "react";
 import clsx from "clsx";
 
@@ -145,7 +148,7 @@ const Security = () => {
           <div className="year-select">
             {years.map((year) => (
               <a
-                href="javascript:void(0)"
+                href="javascript:;"
                 key={year}
                 onClick={() => handleClickYear(year)}
                 className={clsx({ active: year === currentYear })}
@@ -159,6 +162,7 @@ const Security = () => {
               <img
                 src="/assets/images/security/audit-complete.svg"
                 className="icon-audit-complete"
+                alt="complete"
               />
               Audit Completed
             </div>
@@ -203,7 +207,7 @@ const Security = () => {
                   </div>
                 </div>
                 <div className="audit-company-report">
-                  <a href={item.reportUrl} target="_blank">
+                  <a href={item.reportUrl} target="_blank" rel="noreferrer">
                     View Report
                     <img
                       src="/assets/images/security/external-link.svg"

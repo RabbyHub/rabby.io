@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import React from "react";
 import styles from "./style.module.scss";
-import { IsFirefox } from "../../constant";
 
 export enum Platform {
   WebExtension = "WebExtension",

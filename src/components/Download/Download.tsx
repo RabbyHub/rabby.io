@@ -8,7 +8,6 @@ import styles from "./style.module.scss";
 import { Platform, Tab } from "./Tab";
 import { DownloadCard } from "./DownloadCard";
 import { MOBILE_DOWNLOAD_URL } from "./mobile";
-import { IsFirefox } from "../../constant";
 
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
