@@ -105,7 +105,7 @@ const Header = ({ chains }) => {
           <div className="container">
             <div className="features">
               <a
-                href="https://github.com/RabbyHub/Rabby/blob/master/docs/SlowMist%20Audit%20Report%20-%20Rabby%20Wallet-2023.07.20.pdf"
+                href="https://github.com/RabbyHub/Rabby/blob/develop/docs/Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report-20241217.pdf"
                 target="_blank"
                 className="feature-item"
                 rel="noreferrer"
@@ -116,6 +116,19 @@ const Header = ({ chains }) => {
                   className="icon"
                 />
                 Audited by SlowMist
+              </a>
+              <a
+                href="https://github.com/RabbyHub/Rabby/blob/develop/docs/Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report-20241212.pdf"
+                target="_blank"
+                className="feature-item"
+                rel="noreferrer"
+              >
+                <img
+                  src="/assets/images/leastauthority.svg"
+                  alt="Least Authority"
+                  className="icon"
+                />
+                Audited by Least Authority
               </a>
               <a
                 href="https://github.com/RabbyHub/Rabby"
