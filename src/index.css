@@ -176,17 +176,25 @@ header {
 
 .features {
   display: flex;
+  flex-wrap: wrap;
 }
 .feature-item {
   display: flex;
   align-items: center;
-  margin-right: 32px;
   color: #fff;
   font-size: 16px;
   text-decoration: none;
+  background-color: transparent;
+  transition: background-color .3s;
+  padding: 8px;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 .feature-item:nth-last-child(1) {
   margin-right: 0;
+}
+.feature-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .feature-item .icon {
   width: 24px;
@@ -406,7 +414,7 @@ header {
   height: 360px;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 20px 0;
+  padding: 80px 0;
   text-align: center;
   padding-bottom: 75px;
   margin-bottom: 100px;
@@ -415,13 +423,14 @@ header {
 .download .download-bg,
 .download .download-mobile-bg {
   position: absolute;
-  top: 0;
+  top: 70px;
   left: 0;
   max-width: 100%;
   z-index: -1;
 }
 .download .download-mobile-bg {
   opacity: 0;
+  top: 0;
 }
 
 .download h3 {
@@ -547,102 +556,153 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .security {
-  display: flex;
-  flex-direction: column;
-  padding-top: 140px;
-  position: relative;
-  margin-bottom: 180px;
+  padding: 80px 0;
   width: 100%;
-  overflow: hidden;
+  background-color: #f2f4f7;
 }
 
 .security .title {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .security-content {
-  display: flex;
-  padding-bottom: 20px;
   width: 100%;
-  justify-content: center;
-  font-size: 19px;
-  line-height: 30px;
 }
-
 .security-content .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.security-content .subtitle {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  color: #3e495e;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 60px;
+}
+
+.year-select {
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
-.security-content ol {
-  width: 562px;
-  margin-bottom: 16px;
-  padding-inline-start: 20px;
-  margin-top: 0;
-}
-
-.security-content ol li {
-  margin-bottom: 20px;
-}
-
-.security-content ol li:nth-last-child(1) {
-  margin-bottom: 0;
-}
-
-.security-content .security-link {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  padding-inline-start: 0;
-  color: #7887fe;
+.year-select a {
+  margin-right: 32px;
+  color: #6a7587;
+  font-size: 32px;
+  font-weight: 500;
   text-decoration: none;
+}
+
+.year-select a.active {
+  color: #7084ff;
+  position: relative;
+}
+
+.year-select a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  background-color: #7084ff;
+  height: 3px;
+}
+
+.year-select a:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.audit-list {
+  margin-top: 32px;
+}
+.audit-list .complete {
+  background-color: #2abb7f;
+  padding: 14px 18px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
   display: flex;
   align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+.audit-list .complete .icon-audit-complete {
+  margin-right: 6px;
 }
 
-.security-content .security-link .icon-arrow-right {
-  margin-left: 6px;
+.audit-list .audit-item {
+  background-color: #fff;
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #e0e5ec;
 }
 
-.security-audit {
-  width: 357px;
-  margin-left: 40px;
+.audit-list .audit-item:nth-last-child(1) {
+  border-bottom: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.security-audit .security-audit-card {
-  display: block;
-  margin-bottom: 16px;
-  width: 100%;
-  line-height: 0;
+.audit-company-logo {
+  width: 68px;
+  height: 68px;
+  margin-right: 24px;
+}
+
+.audit-company-info .top {
+  display: flex;
+  color: #192945;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.audit-company-website,
+.audit-company-twitter {
+  margin-left: 12px;
+  cursor: pointer;
+}
+.audit-company-info .bottom {
+  display: flex;
+}
+.audit-company-info .bottom .box {
   border-radius: 8px;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
+  border: 1px solid #e0e5ec;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  color: #6a7587;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.security-audit .security-audit-card:last-child {
-  margin-bottom: 0;
+.audit-company-info .bottom .box img {
+  margin-right: 6px;
+}
+.audit-company-report {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 
-.security-audit .security-audit-card:hover {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+.audit-company-report a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #d8f2e7;
+  color: #2abb7f;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.security-audit .security-audit-card img {
-  width: 100%;
-}
-
-.security .rentage-bg {
-  width: 110vw;
-  height: 590px;
-  background: #eff2f9;
-  opacity: 0.7;
-  transform: rotate(-4.37deg);
-  transform-origin: center right;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: -40px;
+.audit-company-report a img {
+  margin-left: 6px;
 }
 
 .no-padding {
@@ -1173,6 +1233,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .security {
     padding-top: 70px;
+    padding-bottom: 0;
   }
   .security .title {
     margin-bottom: 20px;
@@ -1584,5 +1645,47 @@ footer .right .footer-links a:nth-last-child(1)::after {
 @media screen and (max-width: 630px) {
   .comment-title {
     font-size: 18px;
+  }
+  .security-content .subtitle{
+    font-size: 12px;
+  }
+  .year-select a {
+    font-size: 20px;
+  }
+  .audit-list .audit-item {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .audit-company-logo {
+    width: 44px;
+    height: 44px;
+  }
+  .audit-company-info .top {
+    font-size: 20px;
+  }
+  .audit-company-info .top img {
+    width: 20px;
+  }
+  .audit-company-info .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .audit-company-info .bottom .box {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .audit-company-info .bottom .box:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  .audit-company-report {
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+  .audit-company-report a {
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
   }
 }

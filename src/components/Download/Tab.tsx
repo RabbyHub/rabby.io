@@ -24,7 +24,7 @@ const PlatformInfo = {
   [Platform.WebExtension]: {
     title: "Extension",
     status: "Released",
-    icon: IsFirefox ? "/assets/download/firefox.svg" : "/assets/download/extension.svg",
+    icon: "/assets/download/extension.svg",
   },
 };
 
