@@ -430,6 +430,7 @@ header {
 }
 .download .download-mobile-bg {
   opacity: 0;
+  top: 0;
 }
 
 .download h3 {
@@ -1232,6 +1233,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
   .security {
     padding-top: 70px;
+    padding-bottom: 0;
   }
   .security .title {
     margin-bottom: 20px;
