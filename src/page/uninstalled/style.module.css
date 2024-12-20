@@ -8,7 +8,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
     sans-serif;
 
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .box {
@@ -188,10 +188,10 @@
   height: 40px;
 }
 
-.footer {
-  margin-top: 44px;
-  display: flex;
-  justify-content: center;
+.installBtnContainer {
+  position: fixed;
+  top: 40px;
+  right: 40px;
 }
 
 .installBtn {
