@@ -8,6 +8,7 @@ import styles from "./style.module.scss";
 import { Platform, Tab } from "./Tab";
 import { DownloadCard } from "./DownloadCard";
 import { MOBILE_DOWNLOAD_URL } from "./mobile";
+import { IsFirefox } from "../../constant";
 
 const PlatformList = [Platform.WebExtension, Platform.Desktop, Platform.Mobile];
 
@@ -54,22 +55,10 @@ export const Download: React.FC = () => {
                 )}
               >
                 <DownloadButton
-                  className={styles.browserBtn}
-                  title={`Chrome`}
-                  icon={"/assets/images/chrome-2x.png"}
-                  href={
-                    "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                  }
-                  report={"Chrome"}
-                />
-                <DownloadButton
-                  className={styles.browserBtn}
-                  title={`Firefox`}
-                  icon={"/assets/images/firefox-2x.png"}
-                  href={
-                    "https://addons.mozilla.org/firefox/addon/rabby-wallet/"
-                  }
-                  report={"Firefox"}
+                  title={`Download for ${IsFirefox ? 'Firefox' : 'Chrome'}`}
+                  icon={IsFirefox ? "/assets/images/firefox-light.svg" : "/assets/images/chrome.png"}
+                  href={IsFirefox ? "https://addons.mozilla.org/firefox/addon/rabby-wallet/" : "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"}
+                  report={IsFirefox ? "Firefox" : "Chrome"}
                 />
               </div>
             </div>
@@ -118,12 +107,7 @@ export const Download: React.FC = () => {
               <div className={styles.tips}>
                 <span>Supported on MacOS 11+ and Windows 10+</span>
               </div>
-              <div
-                className={clsx(
-                  styles.panelButtonGroup,
-                  styles.panelButtonGroupDesktop
-                )}
-              >
+              <div className={clsx(styles.panelButtonGroup, styles.panelButtonGroupDesktop)}>
                 <DownloadButton
                   title="macOS Intel"
                   icon="/assets/download/apple.svg"
