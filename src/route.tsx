@@ -9,6 +9,8 @@ import { ChainDashboard } from "./page/chain-dashboard";
 import { queryClient } from "./service";
 import { QueryClientProvider } from "react-query";
 import { Uninstalled } from "./page/uninstalled";
+import { MobileRedirect } from "./page/mobile-redirect";
+import { MobileRedirectClose } from "./page/mobile-redirect/close";
 
 export const MainRoutes = () => {
   let location = useLocation();
@@ -28,6 +30,8 @@ export const MainRoutes = () => {
           <Route path="/desktop" element={<DesktopPage />} />
           <Route path="/chain-dashboard" element={<ChainDashboard />} />
           <Route path="/uninstalled" element={<Uninstalled />} />
+          <Route path="/mobile-redirect" element={<MobileRedirect />} />
+          <Route path="/mobile-buy-close" element={<MobileRedirectClose />} />
         </Route>
       </Routes>
     </QueryClientProvider>
