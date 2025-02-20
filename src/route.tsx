@@ -30,7 +30,7 @@ export const MainRoutes = () => {
           <Route path="/desktop" element={<DesktopPage />} />
           <Route path="/chain-dashboard" element={<ChainDashboard />} />
           <Route path="/uninstalled" element={<Uninstalled />} />
-          <Route path="/mobile-redirect" element={<MobileRedirect />} />
+          <Route path="/mobile-redirect/*" element={<MobileRedirect />} />
           <Route path="/mobile-buy-close" element={<MobileRedirectClose />} />
         </Route>
       </Routes>
