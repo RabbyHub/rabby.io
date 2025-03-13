@@ -87,7 +87,8 @@
 
 .textarea {
   resize: none;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   min-height: 160px;
   max-height: 160px;
