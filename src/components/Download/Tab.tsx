@@ -16,9 +16,8 @@ const PlatformInfo = {
   },
   [Platform.Mobile]: {
     title: "Mobile",
-    status: "beta",
+    status: "Released",
     icon: "/assets/download/mobile.svg",
-    isBeta: true,
   },
   [Platform.WebExtension]: {
     title: "Extension",
