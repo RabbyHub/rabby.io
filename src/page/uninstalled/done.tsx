@@ -43,7 +43,7 @@ export const UninstallFeedbackDone = () => {
         </div>
 
         <div className={styles.submit} onClick={() => window.close()}>
-          done
+          Done
         </div>
       </div>
     </div>

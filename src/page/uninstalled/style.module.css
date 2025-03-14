@@ -5,8 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto,
+    Lato, sans-serif;
 
   padding: 40px 0;
 }
@@ -22,19 +22,27 @@
   box-shadow: 0px 40px 80px 0px rgba(43, 57, 143, 0.4);
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 24px;
+  height: 24px;
 }
 .logo.done {
+  width: 60px;
+  height: 60px;
   margin-top: 120px;
 }
 
 .title {
-  margin-top: 12px;
   color: var(--r-neutral-title1, #192945);
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -52,10 +60,9 @@
 
 .desc {
   margin-top: 12px;
-  color: var(--r-neutral-body, #3e495e);
+  color: var(--r-neutral-foot, #6a7587);
   text-align: center;
-  font-family: "SF Pro";
-  font-size: 15px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 21px */
@@ -65,7 +72,7 @@
   width: 100%;
   height: 0.5px;
   background: var(--r-neutral-line, #e0e5ec);
-  margin: 32px 0;
+  margin: 24px 0;
 }
 
 .sub {
@@ -80,7 +87,8 @@
 
 .textarea {
   resize: none;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   min-height: 160px;
   max-height: 160px;
@@ -93,6 +101,7 @@
   border-radius: 8px;
   outline: none;
   border: 1px solid var(--r-neutral-line, #e0e5ec);
+  display: block;
 }
 
 .textarea:not(.err):hover,
@@ -106,12 +115,14 @@
 
 .textarea::placeholder {
   color: var(--r-neutral-foot, #6a7587);
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .inputBox {
   position: relative;
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .error {
@@ -221,4 +232,21 @@
 .installBtn > img {
   width: 28px;
   height: 28px;
+}
+
+.footer {
+  background-color: transparent;
+  text-align: center;
+  margin-top: 32px;
+  color: var(--r-neutral-foot, #6a7587);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.email {
+  color: var(--r-blue-default, #7084ff);
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
 }

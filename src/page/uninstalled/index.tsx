@@ -17,12 +17,14 @@ export const Uninstalled = () => {
   const [search] = useSearchParams();
 
   const r = useMemo(() => search.get("r") || "", [search]);
+  const version = useMemo(() => search.get("v") || "", [search]);
+
   const sendRef = useRef(false);
 
   const showDesc = useMemo(() => !!r?.includes("l"), [r]);
 
   const { isLoading, mutateAsync } = useMutation(async (text: string) =>
-    (await apiReady).uninstalledFeedback({ text })
+    (await apiReady).uninstalledFeedback({ text: `${text}【${version}】` })
   );
 
   useEffect(() => {
@@ -83,12 +85,14 @@ export const Uninstalled = () => {
         }}
       />
       <div className={styles.box}>
-        <img
-          className={styles.logo}
-          src="/assets/feedback/logo.svg"
-          alt="Rabby"
-        />
-        <div className={styles.title}>We're sorry to see you go</div>
+        <div className={styles.header}>
+          <img
+            className={styles.logo}
+            src="/assets/feedback/logo.svg"
+            alt="Rabby"
+          />
+          <div className={styles.title}>We're sorry to see you go</div>
+        </div>
         {showDesc && (
           <div className={styles.desc}>
             Your Seed Phrase, private keys and addresses have been successfully
@@ -127,8 +131,16 @@ export const Uninstalled = () => {
           Submit
         </div>
         <div className={styles.skip} onClick={close}>
-          Skip
+          Close
         </div>
+
+        <footer className={styles.footer}>
+          If you experience any issues or require assistance with Rabby Wallet,
+          please contact us at{" "}
+          <a className={styles.email} href="mailto:support@rabby.io">
+            support@rabby.io
+          </a>
+        </footer>
       </div>
       <div className={styles.installBtnContainer}>
         {IsFirefox ? (
