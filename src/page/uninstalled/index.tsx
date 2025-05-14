@@ -7,7 +7,6 @@ import { ga } from "../../ga";
 import { useMutation } from "react-query";
 import { apiReady } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
-import { IsFirefox } from "../../constant";
 
 export const Uninstalled = () => {
   const [input, setInput] = useState("");
@@ -143,27 +142,15 @@ export const Uninstalled = () => {
         </footer>
       </div>
       <div className={styles.installBtnContainer}>
-        {IsFirefox ? (
-          <a
-            href="https://addons.mozilla.org/firefox/addon/rabby-wallet/"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.installBtn}
-          >
-            <img src="/assets/images/firefox-2x.png" alt="" />
-            Reinstall Extension
-          </a>
-        ) : (
-          <a
-            href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.installBtn}
-          >
-            <img src="/assets/images/chrome-2x.png" alt="" />
-            Reinstall Extension
-          </a>
-        )}
+        <a
+          href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.installBtn}
+        >
+          <img src="/assets/images/chrome-2x.png" alt="" />
+          Reinstall Extension
+        </a>
       </div>
     </div>
   );

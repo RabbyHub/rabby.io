@@ -59,12 +59,6 @@ export const Download: React.FC = () => {
                   href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
                   report="Chrome"
                 />
-                <DownloadButton
-                  title="Firefox"
-                  icon="/assets/images/firefox-light.svg"
-                  href="https://addons.mozilla.org/firefox/addon/rabby-wallet"
-                  report="Firefox"
-                />
               </div>
             </div>
             <JoinDiscord href="https://discord.gg/seFBCWmUre" />
