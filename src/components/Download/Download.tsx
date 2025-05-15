@@ -59,6 +59,12 @@ export const Download: React.FC = () => {
                   href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
                   report="Chrome"
                 />
+                <DownloadButton
+                  title="Brave"
+                  icon="/assets/images/brave-1.png"
+                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
+                  report="Brave"
+                />
               </div>
             </div>
             <JoinDiscord href="https://discord.gg/seFBCWmUre" />
