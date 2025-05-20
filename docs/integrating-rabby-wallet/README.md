@@ -195,7 +195,52 @@ async function connectRabbyWithEthers() {
 
 <a name="other-libraries"></a>
 
-## 4. Other Third-Party Wallet Connection Libraries
+## 4. Integrate Rabby Wallet with RainbowKit 
+
+[RainbowKit](https://rainbowkit.com/docs/custom-wallet-list) allows you to customize the wallet list. 
+This is a demo showcasing how to integrate Rabby Wallet: 
+
+```javascript
+import '@rainbow-me/rainbowkit/styles.css';
+import type { AppProps } from 'next/app';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { WagmiProvider } from 'wagmi';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { mainnet } from 'wagmi/chains';
+// Step1: import rabbyWallet here
+import { rabbyWallet } from '@rainbow-me/rainbowkit/wallets';
+
+const config = getDefaultConfig({
+  appName: 'Rabby_Wallet_Integration_DEMO',
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [mainnet],
+  wallets: [
+    {
+      groupName: 'Recommended',
+      wallets: [rabbyWallet], // Step2: add rabby wallet here
+    },
+  ],
+});
+
+const queryClient = new QueryClient();
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
+}
+
+export default MyApp;
+```
+
+## 5. Other Third-Party Wallet Connection Libraries
 
 In addition to the above methods, there are several popular third-party wallet connection libraries that also support Rabby wallet integration. These libraries typically provide simpler APIs and ready-made UI components, which can simplify the wallet connection process. Here are some commonly used libraries:
 
@@ -204,8 +249,6 @@ In addition to the above methods, there are several popular third-party wallet c
 - [ConnectKit](https://docs.family.co/connectkit)
 
 - [RabbyKit](https://rabbykit.rabby.io)
-
-- [RainbowKit](https://www.rainbowkit.com/)
 
 - [Web3-Onboard](https://onboard.blocknative.com/)
 
