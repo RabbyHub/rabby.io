@@ -7,7 +7,9 @@ This guide will help Dapp developers understand how to integrate Rabby wallet in
 1. [Connecting Rabby Wallet Using Vanilla JavaScript](#vanilla-javascript)
 2. [Connecting Rabby Wallet Using Wagmi](#wagmi)
 3. [Connecting Rabby Wallet Using Ethers.js](#ethers-js)
-4. [Other Third-Party Wallet Connection Libraries](#other-libraries)
+4. [Integrate Rabby Wallet with RainbowKit ](#rainbowkit)
+5. [Other Third-Party Wallet Connection Libraries](#other-libraries)
+
 
 <a name="vanilla-javascript"></a>
 
@@ -193,34 +195,32 @@ async function connectRabbyWithEthers() {
 }
 ```
 
-<a name="other-libraries"></a>
-
+<a name="rainbowkit"></a>
 ## 4. Integrate Rabby Wallet with RainbowKit 
 
 [RainbowKit](https://rainbowkit.com/docs/custom-wallet-list) allows you to customize the wallet list. 
 This is a demo showcasing how to integrate Rabby Wallet: 
 
-```javascript
+```typescript
 import '@rainbow-me/rainbowkit/styles.css';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { getDefaultConfig, getDefaultWallets } from '@rainbow-me/rainbowkit';
 import { mainnet } from 'wagmi/chains';
 // Step1: import rabbyWallet here
 import { rabbyWallet } from '@rainbow-me/rainbowkit/wallets';
 
+const { wallets: defaultWallets } = getDefaultWallets();
+
+// Step2: Add rabbyWallet to the first group
+defaultWallets[0].wallets.push(rabbyWallet); 
 const config = getDefaultConfig({
-  appName: 'Rabby_Wallet_Integration_DEMO',
+  appName: 'Rabby_Wallet_Integration_Demo',
   projectId: 'YOUR_PROJECT_ID',
   chains: [mainnet],
-  wallets: [
-    {
-      groupName: 'Recommended',
-      wallets: [rabbyWallet], // Step2: add rabby wallet here
-    },
-  ],
+  wallets: defaultWallets,
 });
 
 const queryClient = new QueryClient();
@@ -238,8 +238,36 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+
 ```
 
+Or you can also create a custom wallet group that includes Rabby along with other wallets.
+```typescript
+...
+
+const { wallets: defaultWallets } = getDefaultWallets();
+// Step1: import rabbyWallet here
+import { rabbyWallet } from '@rainbow-me/rainbowkit/wallets';
+
+const config = getDefaultConfig({
+  appName: 'Rabby_Wallet_Integration_Demo',
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [mainnet],
+  wallets: [
+    {
+      groupName: 'Recommended',
+      wallets: [
+        rabbyWallet, // Step2: add rabby wallet here
+        // ...other wallets
+      ], 
+    },
+    ...defaultWallets,
+  ],
+});
+...
+```
+
+<a name="other-libraries"></a>
 ## 5. Other Third-Party Wallet Connection Libraries
 
 In addition to the above methods, there are several popular third-party wallet connection libraries that also support Rabby wallet integration. These libraries typically provide simpler APIs and ready-made UI components, which can simplify the wallet connection process. Here are some commonly used libraries:
