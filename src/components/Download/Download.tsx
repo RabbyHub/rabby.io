@@ -1,144 +1,90 @@
-import clsx from "clsx";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { DESKTOP_DOWNLOAD_URL } from "./desktop";
-import { DownloadButton } from "./DownloadButton";
-import { JoinDiscord } from "./JoinDiscord";
-import styles from "./style.module.scss";
-import { Platform, Tab } from "./Tab";
-import { DownloadCard } from "./DownloadCard";
-import { MOBILE_DOWNLOAD_URL } from "./mobile";
+import styles from './style.module.scss';
+import { BROWSER_DOWNLOAD_INFO, DOWNLOAD_INFO_MOBILE, DESKTOP_DOWNLOAD_INFO, DownloadType, MACOS_DOWNLOAD_INFO } from "./download-info";
+import { useState, forwardRef } from 'react';
 
-const PlatformList = [Platform.WebExtension, Platform.Mobile, Platform.Desktop];
-
-export const Download: React.FC = () => {
-  const location = useLocation();
-  const [activeTab, setActiveTab] = React.useState<Platform>(
-    Platform.WebExtension
-  );
-
-  React.useEffect(() => {
-    const query = new URLSearchParams(location.search);
-    const platform = query.get("platform");
-
-    if (platform === "desktop") {
-      setActiveTab(Platform.Desktop);
-    } else if (platform === "mobile") {
-      setActiveTab(Platform.Mobile);
-    } else {
-      setActiveTab(Platform.WebExtension);
+const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
+    const [hoverKey, setHoverKey] = useState<string | null>(null);
+    const openBrowser = (href: string) => {
+        window.open(href, '_blank');
     }
-  }, [location]);
-
-  return (
-    <div className={styles.download}>
-      <div className={styles.tabs}>
-        {PlatformList.map((platform) => (
-          <Tab
-            key={platform}
-            platform={platform}
-            active={platform === activeTab}
-            onClick={() => setActiveTab(platform)}
-          />
-        ))}
-      </div>
-
-      <div className={styles.panels}>
-        {activeTab === Platform.WebExtension && (
-          <>
-            <div className={styles.panel}>
-              <div
-                className={clsx(
-                  styles.panelButtonGroup,
-                  styles.panelSingleButton
-                )}
-              >
-                <DownloadButton
-                  title="Chrome"
-                  icon="/assets/images/chrome.svg"
-                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                  report="Chrome"
-                />
-                <DownloadButton
-                  title="Brave"
-                  icon="/assets/images/brave-1.png"
-                  href="https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch"
-                  report="Brave"
-                />
-              </div>
-            </div>
-            <JoinDiscord href="https://discord.gg/seFBCWmUre" />
-          </>
-        )}
-        {activeTab === Platform.Mobile && (
-          <>
-            <div className={styles.panel}>
-              <div className={styles.tips}>
-                <span>Supported on iOS 15+ and Android 11+</span>
-              </div>
-              <div
-                className={clsx(
-                  styles.panelButtonGroup,
-                  styles.panelButtonGroupApp
-                )}
-              >
-                <DownloadCard
-                  title="Google Play"
-                  icon="/assets/download/icon-google-play.png"
-                  iconClassName={styles.downloadIconGooglePlay}
-                  href={MOBILE_DOWNLOAD_URL.googlePlay}
-                  report="Google Play"
-                />
-                <DownloadCard
-                  title="App Store"
-                  icon="/assets/download/icon-app-store.png"
-                  href="https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673"
-                  report="App Store"
-                />
-              </div>
-            </div>
-            <JoinDiscord href="https://discord.gg/AvYmaTjrBu" />
-          </>
-        )}
-        {activeTab === Platform.Desktop && (
-          <>
-            <div className={styles.panel}>
-              <div className={styles.tips}>
-                <span>Supported on MacOS 11+ and Windows 10+</span>
-              </div>
-              <div
-                className={clsx(
-                  styles.panelButtonGroup,
-                  styles.panelButtonGroupDesktop
-                )}
-              >
-                <DownloadButton
-                  title="macOS Intel"
-                  icon="/assets/download/apple.svg"
-                  href={DESKTOP_DOWNLOAD_URL.macosIntel}
-                  report="MacOS Intel"
-                  size="small"
-                />
-                <DownloadButton
-                  title="macOS M-Series"
-                  icon="/assets/download/apple.svg"
-                  href={DESKTOP_DOWNLOAD_URL.macosArm}
-                  report="MacOS M-Series"
-                  size="small"
-                />
-                <DownloadButton
-                  title="Windows"
-                  icon="/assets/download/windows.svg"
-                  href={DESKTOP_DOWNLOAD_URL.windows}
-                  report="Windows"
-                  size="small"
-                />
-              </div>
-            </div>
-            <JoinDiscord href="https://discord.gg/aDpDE7DNQe" />
-          </>
-        )}
-      </div>
+ return <div ref={ref} className={styles.download}>
+    <div className={styles.downloadTitle}>Download and get started</div>
+    <div className={styles.section}>
+        <div className={styles.sectionTitle}>
+             <img src="/assets/download/extension.svg" width={28} height={28}/>
+             Extension
+         </div>
+        <div className={styles.downloadCardList}>
+            {Object.entries(BROWSER_DOWNLOAD_INFO).map(([key, value]) => (
+                <div key={key} className={styles.downloadItem} onClick={() => openBrowser(value.href)}>
+                    <img src={value.icon} alt={value.title} width={72} height={72}/>
+                    <div className={styles.downloadItemTitle}>{value.title}</div>
+                </div>
+            ))}
+        </div>
     </div>
-  );
-};
+     <div className={styles.sectionGroup}>
+         <div className={styles.section}>
+             <div className={styles.sectionTitle}>
+                 <img src="/assets/download/mobile-2.svg" width={28} height={28}/>
+                 Mobile
+             </div>
+            <div className={styles.downloadCardList}>
+                {Object.entries(DOWNLOAD_INFO_MOBILE).map(([key, value]) => (
+                <div
+                    key={key}
+                    className={styles.downloadItem}
+                    onClick={() => openBrowser(value.href)}
+                    onMouseEnter={() => setHoverKey(key)}
+                    onMouseLeave={() => setHoverKey(null)}
+                >
+                    {hoverKey === key ? (
+                        <img src={value.qrCode} alt={value.title} width={165} height={165}/>
+                    ) : (
+                        <>
+                            <img src={value.icon} alt={value.title} width={72} height={72} />
+                            <div className={styles.downloadItemTitle}>{value.title}</div>
+                        </>
+                    )}
+                </div>
+                ))}
+            </div>
+         </div>
+         <div className={styles.section}>
+             <div className={styles.sectionTitle}>
+                 <img src="/assets/download/desktop-2.svg" width={28} height={28}/>
+                 Desktop
+             </div>
+             <div className={styles.downloadCardList}>
+                 {Object.entries(DESKTOP_DOWNLOAD_INFO).map(([key, value]) => (
+                <div
+                    key={key}
+                    className={styles.downloadItem}
+                    onClick={() => openBrowser(value.href)}
+                    onMouseEnter={() => setHoverKey(key)}
+                    onMouseLeave={() => setHoverKey(null)}
+                >
+                    {hoverKey === key && key === "macos" ? (
+                        <div className={styles.downloadItemMacos}>
+                            {Object.entries(MACOS_DOWNLOAD_INFO).map(([key, value]) => (
+                                <div key={key} className={styles.downloadItemMacosItem} onClick={() => openBrowser(value.href)}>
+                                    <div className={styles.downloadItemTitleMacos}>{value.title}</div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <>
+                            <img src={value.icon} alt={value.title} width={72} height={72} />
+                            <div className={styles.downloadItemTitle}>{value.title}</div>
+                        </>
+                    )}
+                </div>
+                ))}
+            </div>
+         </div>
+     </div> 
+     
+  </div>;
+});
+
+export default Download;

@@ -9,7 +9,6 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   title: string;
   href: string;
   report?: string;
-  size?: 'small' | 'medium' | 'large';
 }
 
 export const DownloadButton: React.FC<Props> = ({
@@ -18,7 +17,6 @@ export const DownloadButton: React.FC<Props> = ({
   className,
   href,
   report,
-  size = 'medium',
   ...props
 }) => {
   const reportClickDownload = (e: React.MouseEvent) => {
@@ -46,15 +44,11 @@ export const DownloadButton: React.FC<Props> = ({
       target="_blank"
     >
       <button
-        className={clsx(className, styles.button, {
-          [styles.small]: size === 'small',
-          [styles.medium]: size === 'medium',
-          [styles.large]: size === 'large'
-        })}
+        className={clsx(className, styles.browserButton)}
         {...props}
       >
         <img src={icon} alt={title} />
-        <span>{title}</span>
+        <div>{title}</div>
       </button>
     </a>
   );

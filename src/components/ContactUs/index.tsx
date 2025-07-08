@@ -1,3 +1,4 @@
+import styles from "./style.module.scss";
 const followUsList = [
   {
     logo: "/assets/contact/x.svg",
@@ -11,44 +12,24 @@ const followUsList = [
     logo: "/assets/contact/github.svg",
     link: "https://github.com/RabbyHub/Rabby",
   },
+  {
+    logo: "/assets/contact/gmail.svg",
+    link: "mailto:rabby.io@gmail.com",
+  },
+  {
+    logo: "/assets/contact/debank.svg",
+    link: "https://debank.com/hi/0a110032",
+  },
 ];
 
 const ContactUs = () => {
   return (
-    <div className="contact-us" id="contact-us">
-      <h2 className="title">Contact Us</h2>
-      <div className="card">
-        <div className="email-box">
-          <h3 className="sub-title">Email</h3>
-          <div className="email">
-            <div>
-              Customer Support:{" "}
-              <a href="mailto:support@rabby.io">support@rabby.io</a>
-            </div>
-            <div>
-              Business: <a href="mailto:bd@rabby.io">bd@rabby.io</a>
-            </div>
-          </div>
-          <a
-            className="dm"
-            href="https://debank.com/hi/0a110032"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Direct Message with Rabby Official
-          </a>
+    <div className={styles.contactUs}>
+      {followUsList.map((e) => (
+        <div className={styles.followUsItem} key={e.link} onClick={() => window.open(e.link, "_blank")}>
+          <img src={e.logo} alt={e.link} width={64} height={64} />
         </div>
-        <div>
-          <h3 className="sub-title">Follow Us</h3>
-          <div className="follow-us">
-            {followUsList.map((e) => (
-              <a href={e.link} target="_blank" rel="noreferrer">
-                <img key={e.link} src={e.logo} alt="" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

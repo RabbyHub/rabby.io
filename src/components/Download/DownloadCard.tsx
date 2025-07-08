@@ -3,13 +3,14 @@ import { QRCodeSVG } from "qrcode.react";
 import React, { useRef, useState } from "react";
 import { ga } from "../../ga";
 import styles from "./style.module.scss";
+import { BROWSER_DOWNLOAD_INFO, DOWNLOAD_INFO_MOBILE, DOWNLOAD_INFO } from "./download-info";
+
 
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   icon: string;
   title: string;
   href: string;
   report?: string;
-  isDisabled?: boolean;
   iconClassName?: string;
 }
 
@@ -19,28 +20,10 @@ export const DownloadCard: React.FC<Props> = ({
   className,
   iconClassName,
   href,
-  report,
-  isDisabled,
-  ...props
+  report
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const reportClickDownload = (e: React.MouseEvent) => {
-    if (isDisabled) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (/mobile/i.test(navigator.userAgent)) {
-        setIsClicked(true);
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
-        timeoutRef.current = setTimeout(() => {
-          setIsClicked(false);
-        }, 2000);
-      }
-      return;
-    }
     ga.event({
       category: "User",
       action: "clickDownload",
@@ -52,8 +35,6 @@ export const DownloadCard: React.FC<Props> = ({
     <a
       className={clsx(
         styles.downloadCard,
-        isDisabled && styles.isDisabled,
-        isClicked && styles.isClicked,
         className
       )}
       href={href}

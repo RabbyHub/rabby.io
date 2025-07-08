@@ -1,591 +1,304 @@
-.download {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  color: #fff;
-  overflow: hidden;
-  margin-top: 61px;
-}
-
-.tabs {
+.buttonGroup {
   display: flex;
-  justify-content: space-between;
-  margin-top: -1px;
-  margin-left: -1px;
-  margin-right: -1px;
-}
-
-.tab {
-  flex: 1;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  display: flex;
-  align-items: center;
-  margin-right: -1px;
   justify-content: center;
-  padding: 20px 10px;
-  opacity: 0.6;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  border-bottom: none;
+  margin-bottom: 80px;
 }
-
-.tab::before,
-.tab::after {
-  content: "";
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-.tab.active::before {
-  right: calc(50% + 8px);
-}
-
-.tab.active::after {
-  left: calc(50% + 8px);
-}
-
-.tab:hover {
-  opacity: 1;
-}
-
-.tab.active {
-  opacity: 1;
-}
-
-.activeIcon {
-  position: absolute;
-  width: 17px;
-  height: 17px;
-  bottom: -5px;
-  display: block;
-  border-radius: 100%;
-  overflow: hidden;
-}
-
-.tab:last-child {
-  margin-right: 0;
-}
-
-.tab .info {
-  margin-left: 10px;
-}
-
-.tab .info h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0;
-  line-height: 23px;
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2px 5px;
-
-  .tag {
-    border-radius: 90px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 2px 8px;
-
-    color: #fff;
-
-    text-align: center;
-    font-size: 12px;
-    line-height: 14px;
-    font-weight: 400;
-  }
-}
-
-$downloadCardCount: 2;
-
-.downloadCard {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  position: relative;
-  @if $downloadCardCount >= 3 {
-    width: 160px;
-  } @else {
-    width: 220px;
-  }
-  height: 110px;
-  text-decoration: none;
-  overflow: hidden;
-
-  &:hover:not(.isDisabled) {
-    .toggleBtn {
-      display: none;
-    }
-
-    .appStore {
-      display: none;
-    }
-    .qrCode {
-      display: flex;
-    }
-  }
-
-  &.isDisabled {
-    position: relative;
-    cursor: not-allowed;
-    &:hover {
-      .toggleBtn {
-        display: none;
-      }
-      .appStoreTitle {
-        display: none;
-      }
-      .appStoreTitleDisabled {
-        display: block;
-      }
-    }
-    &::before {
-      position: absolute;
-      z-index: 2;
-      content: "";
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  .appStore {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-
-    .appStoreImage {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-    }
-
-    .appStoreTitle {
-      color: var(--r-neutral-title1, #192945);
-      text-align: center;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .appStoreTitleDisabled {
-      display: none;
-    }
-  }
-
-  .downloadIconGooglePlay {
-    position: relative;
-    right: -4px;
-  }
-
-  .qrCode {
-    /* display: flex; */
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-
-    .qrCodeImageWrap {
-      width: 80px;
-      height: 80px;
-    }
-
-    .qrCodeImage {
-      width: 100%;
-      height: 100%;
-    }
-
-    .qrCodeDesc {
-      color: var(--r-neutral-foot, #6a7587);
-      text-align: center;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 14px;
-    }
-  }
-
-  .toggleBtn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding-top: 3px;
-    padding-right: 4px;
-
-    > img {
-      position: relative;
-      z-index: 1;
-    }
-
-    &::before {
-      position: absolute;
-      top: -54px;
-      right: -39px;
-      content: "";
-      width: 70px;
-      height: 128px;
-      background: var(--r-blue-light1, #eef1ff);
-      transform: rotate(-44.071deg);
-    }
-  }
-}
-
-.tab .info p {
-  font-size: 12px;
-  font-weight: 500;
-  margin: 0;
-  line-height: 1;
-}
-
-.tab .icon {
-  width: 30px;
-  height: 30px;
-}
-
-.panels {
-  padding: 0 10px 32px;
-  height: 214px;
-  display: flex;
-  flex-direction: column;
-}
-
-.panel {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  flex: 1;
-}
-
-$tips_panel_offset: 26px;
-$tips_panel_offset_mobile: 16px;
-
-.panelButtonGroup {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  &.panelButtonGroupDesktop {
-    margin-top: $tips_panel_offset;
-  }
-}
-
-.panelButtonGroupApp {
-  gap: 12px;
-  height: 100%;
-  // flex-wrap: wrap;
-
-  > .downloadCard {
-    max-height: 90px;
-  }
-}
-
-.button {
-  background: #ffffff;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  color: #13141a;
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-  justify-content: center;
-}
-
-.button img {
-  margin-right: 10px;
-  display: block;
-}
-
-.button.medium {
-  font-size: 20px;
-  font-weight: 700;
-  padding: 17px 60px;
-}
-
-.button.medium img {
-  width: 34px;
-}
-
-.button.small {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 15px 0;
-  width: 178px;
-}
-
-.button.small img {
-  width: 30px;
-  height: 30px;
-}
-
 .buttonLink {
   text-decoration: none;
 }
 
-.button:hover {
-  box-shadow: 0px 8px 24px rgba(58, 74, 165, 0.3);
-}
-
-.discord {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  color: #ffffff;
-  text-decoration: none;
+.browserButton {
+  padding: 20px 31px 20px 32px;
+  border-radius: 16px;
   display: flex;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+  img {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+  div {
+    margin-left: 4px;
+    font-size: 20px;
+  }
+  &:hover {
+    transform: scale(1.06);
+    transition: transform 0.3s ease;
+    box-shadow: 0px 12.769px 25.538px 0px rgba(39, 57, 169, 0.12);
+  }
 }
 
-.discord img {
-  width: 18px;
-  margin-right: 10px;
+.mobileButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 35px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 16px;
+  color: var(--r-blue-light3, #4C65FF);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--r-blue-light3, #4C65FF);
+  &:hover {
+    background: rgba(76, 101, 255, 0.10);
+  }
+}
+
+.mobileIcon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.mobileTitle {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: normal;
+}
+.mobileButtonWithQR {
+  position: relative;
+  display: inline-block;
+}
+.qrPanel {
+  background-image: url('/assets/images/polygon-2.svg');
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -249px;
+  border-radius: 20px;
+  background: #DEE3FF;
+  padding: 20px;
+  .qrRow {
+    display: flex;
+  }
+  .qrItem {
+    position: relative;
+    cursor: pointer;
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+}
+.qrImgWrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  background: #DEE3FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .qrImg {
+    width: 185px;
+    height: 185px;
+  }
+}
+.downloadTips {
+  color: var(--r-neutral-body, #3E495E);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.downloadList {
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  justify-content: center;
+  .downloadIconWrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: 6px 12px;
+    background: transparent;
+    transition: background 0.18s, margin-right 0.18s;
+    cursor: pointer;
+    min-width: 48px;
+    min-height: 48px;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+
+    &:hover,
+    &.active {
+      background: rgba(76, 101, 255, 0.10);
+      margin-right: 13px;
+    }
+
+    &:hover .iconTitle,
+    &.active .iconTitle {
+      pointer-events: auto;
+      visibility: visible;
+      max-width: 200px;
+      margin-left: 4px;
+    }
+    .downloadIcon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+    .iconTitle {
+      color: var(--r-blue-light3, #4C65FF);
+      font-weight: 500;
+      font-size: 18px;
+      margin-left: 4px;
+      transition: opacity 0.18s, margin-left 0.18s;
+      white-space: nowrap;
+      display: inline-block;
+    }
+  }
+}
+
+.iconTitle {
+  color: #4C65FF;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 10px;
+  transition: opacity 0.18s, margin-left 0.18s;
+  white-space: nowrap;
   display: block;
 }
 
-.panelSingleButton {
-  margin: auto;
-  height: 100%;
+.iconTooltip {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, 0) scale(0.98);
+  background: #fff;
+  color: #2a3558;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(76, 101, 255, 0.10);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.18s, transform 0.18s;
+  z-index: 10;
 }
 
-.tips {
+.macList {
   display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background-color: #DEE3FF;
+  border-radius: 20px;
+  min-width: 200px;
+  .macItem {
+    padding: 20px 15px;
+    border-radius: 12px;
+    background: var(--r-neutral-card1, #FFF);
+    cursor: pointer;
+    text-align: center;
+    &:first-child {
+      margin-bottom: 12px;
+    }
+    &:hover {
+      background: rgba(76, 101, 255, 0.20);
+    }
+    a {
+      color: var(--r-neutral-title1, #192945);
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-decoration: none;
+    }
+  }
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 15px;
-  line-height: 18px;
-  margin: $tips_panel_offset auto 0;
-}
-
-.tips img {
-  margin-right: 6px;
-}
-
-.panel .empty {
-  font-weight: 400;
-  font-size: 32px;
-  height: 100%;
-}
-
-@media screen and (max-width: 1440px) {
-  .button.small {
-    width: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+  padding: 100px 0;
+  background-color: var(--r-blue-light3, #4C65FF);
+  .downloadTitle {
+    color: var(--r-neutral-title2, #FFF);
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 44px;
   }
-}
-
-@media screen and (max-width: 1366px) {  
-  @if $downloadCardCount >= 3 {
-    .panelButtonGroupApp {
-      gap: 10px;
-    }
-
-    .downloadCard {
-      max-width: calc((1 / $downloadCardCount) * 100%);
-      width: 150px;
-    }
-  } @else {
-    .panelButtonGroupApp {
-      gap: 12px;
-    }
-
-    .downloadCard {
-      max-width: calc((1 / $downloadCardCount) * 100%);
-      width: 220px;
-    }
-  }
-
-  .panels {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .panelButtonGroupDesktop {
-    margin-top: $tips_panel_offset_mobile !important;
-  }
-
-  .download {
-    margin-top: 30px;
-    margin-left: -2px;
-    margin-right: -2px;
-  }
-
-  .tab.hasTag {
-    align-items: flex-start;
-  }
-
-  .tab .info {
-    margin-left: 6px;
-  }
-
-  .tab .info h3 {
-    font-size: 14px;
-    line-height: 1;
+  .sectionGroup {
     display: flex;
-    flex-direction: row;
+  }
+  .section {
+    padding: 40px 40px 35px 40px;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-
-    .tag {
-      padding: 0 8px;
+    border-radius: 20px;
+    margin: 20px;
+    background: var(--r-neutral-card1, #FFF);
+    .sectionTitle {
+      color: var(--r-neutral-title1, #192945);
+      font-size: 24px;
+      font-weight: 590;
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      justify-content: center;
     }
-  }
-  .tab {
-    &:global(.tab-Mobile) .info h3 {
-      position: relative;
-      line-height: 1.4;
-      
-      .tag {
-        position: absolute;
-        top: -13px;
-        right: -20px;
-        background: rgba(255, 255, 255, 0.5);
-      }
-    }
-  }
-
-  .tab .info p {
-    font-size: 11px;
-    font-weight: 400;
-  }
-
-  .tab .icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .button {
-    border-radius: 10px;
-  }
-
-  .tips {
-    margin: $tips_panel_offset_mobile auto 0;
-  }
-
-  .panels {
-    height: 150px;
-    padding-bottom: 28px;
-  }
-
-  .button.medium {
-    font-size: 14px;
-    padding: 10px 30px;
-  }
-
-  .button.small {
-    font-size: 12px;
-    padding: 10px 6px;
-    min-width: 100px;
-    width: auto;
-  }
-
-  .button.small img {
-    width: 18px;
-    height: 18px;
-    margin-right: 6px;
-  }
-
-  .panel .empty {
-    font-weight: 400;
-    font-size: 22px;
-  }
-
-  @if $downloadCardCount >= 3 {
-    .panelButtonGroupApp {
-      gap: 10px;
-    }
-    .downloadCard {
-      width: 120px;
-    }
-  } @else {
-    .panelButtonGroupApp {
-      gap: 12px;
-    }
-    .downloadCard {
-      width: 128px;
-    }
-  }
-
-  .panelButtonGroupApp {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .downloadCard {
-    max-width: calc((1 / $downloadCardCount) * 100% - 10px);
-    padding: 0;
-    height: 70px;
-    max-height: 48px !important;
-    flex: 1;
-    min-width: 0;
-
-    .downloadIconGooglePlay {
-      right: 0 !important;
-    }
-
-    > .appStore {
-      flex-direction: row;
+    .downloadCardList {
+      display: flex;
       align-items: center;
     }
-
-    &:hover:not(.isDisabled) {
-      .appStore {
-        display: flex;
-      }
-      .qrCode {
-        display: none;
-      }
-    }
-
-    &.isDisabled {
+    .downloadItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 270px;
+      height: 180px;
+      border-radius: 16px;
+      background: var(--r-neutral-card1, #FFF);
       &:hover {
-        .appStoreTitle {
-          display: block;
-        }
-        .appStoreTitleDisabled {
-          display: none;
-        }
+        background-color: rgba(76, 101, 255, 0.10);
       }
-      &.isClicked {
-        .appStoreTitle {
-          display: none;
-        }
-        .appStoreTitleDisabled {
-          display: block;
-        }
+      .downloadItemTitle {
+        color: var(--r-neutral-title1, #192945);
+        text-align: center;
+        font-size: 24px;
+        font-weight: 590;
+        margin-top: 20px;
       }
     }
-
-    .appStore {
-      .appStoreImage {
-        width: 25px;
-        height: 25px;
-        margin-bottom: 0;
-        margin-right: 6px;
+    .downloadItemMacos {
+      display: flex;
+      cursor: default;
+      flex-direction: column;
+      .downloadItemMacosItem {
+        display: flex;
+        width: 230px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        background: var(--r-neutral-card1, #FFF);
+        padding: 20px 0;
+        cursor: pointer;
+        &:first-child {
+          margin-bottom: 12px;
+        }
+        .downloadItemMacosItemTitleMacos {
+          color: var(--r-neutral-title1, #192945);
+          text-align: center;
+          font-size: 20px;
+          font-weight: 500;
+        }
+        &:hover {
+          background: rgba(76, 101, 255, 0.20);
+        }
       }
-
-      .appStoreTitle {
-        font-size: 12px;
-        line-height: 14px;
-        white-space: nowrap;
-      }
-      .appStoreTitleDisabled {
-        display: none;
-      }
-    }
-    .qrCode {
-      display: none !important;
-    }
-    .toggleBtn {
-      display: none !important;
     }
   }
 }
