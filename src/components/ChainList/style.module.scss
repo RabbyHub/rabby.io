@@ -1,0 +1,21 @@
+.chainItem {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 64px;
+}
+
+.chainsRow {
+  margin-bottom: 64px;
+}
+
+@media screen and (max-width: 1024px) {
+  .chainItem {
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+  }
+  .chainsRow {
+    margin-bottom: 24px;
+  }
+}

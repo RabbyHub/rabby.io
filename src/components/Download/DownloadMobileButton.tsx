@@ -21,7 +21,7 @@ export const DownloadMobileButton: React.FC<{
         ))}
       </div>
       <div className={styles.qrArrow}>
-        {/* <img src="/assets/images/polygon-2.svg" alt="arrow" /> */}
+        <img src="/assets/images/polygon-2.svg" alt="arrow" />
       </div>
     </div>
   );
@@ -32,10 +32,12 @@ export const DownloadMobileButton: React.FC<{
       popupClassName={styles.qrPopup}
       offsetY={8}
     >
-      <button className={clsx(styles.mobileButton, className)}>
-        <img src="/assets/download/mobile.svg" alt="Mobile" className={styles.mobileIcon} />
-        <div className={styles.mobileTitle}>Download for Mobile</div>
-      </button>
+      {((active: boolean) => (
+        <button className={clsx(styles.mobileButton, className, { [styles.active]: active })}>
+          <img src="/assets/download/mobile.svg" alt="Mobile" className={styles.mobileIcon} />
+          <div className={styles.mobileTitle}>Download for Mobile</div>
+        </button>
+      )) as any}
     </HoverPopup>
   );
 };

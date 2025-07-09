@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     padding: 0 80px 140px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
     border-bottom:1px solid var(--r-blue-disable, #DBE0FF);
     .followUsItem {
         display: flex;
@@ -22,4 +24,21 @@
             background: rgba(76, 101, 255, 0.10);
         }
     }
+}
+@media screen and (max-width: 1024px) {
+    .contactUs {
+        margin-top: -20px!important;
+        padding-bottom: 40px!important;
+        border-bottom: none!important;
+    }
+  .followUsItem {
+    width: 64px!important;
+    height: 52px!important;
+    padding: 12px 18px!important;
+    margin-right: 12px!important;
+    img {
+      width: 28px!important;
+      height: 28px!important;
+    }
+  }
 }

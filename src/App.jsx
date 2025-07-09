@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Header from "./components/Header";
-import IntergrateChains from "./components/IntergrateChains";
+import IntergrateChains from "./components/ChainList/IntergrateChains";
 import { useFetchChainList } from "./hooks/useFetchChainList";
 import CardList from "./components/DemoCard/CardList";
 import CommentList from "./components/CommentCard/CommentList";
@@ -34,8 +34,6 @@ function App() {
           className="twitter-icon"
           src="/assets/images/twitter.svg"
           alt="twitter"
-          width={80}
-          height={80}
         />
         <div>Widely acclaimed​ from Professional</div>
       </div>

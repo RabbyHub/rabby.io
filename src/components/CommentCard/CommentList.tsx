@@ -15,7 +15,6 @@ const CommentList = ({rows = 2}) => {
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
             infiniteLoop
             pauseOnHover={true}
-            gap={24}
           >
             {rowComments.map((item) => (
               <CommentCard item={item} key={item.id}/>

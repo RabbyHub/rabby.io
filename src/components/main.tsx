@@ -4,6 +4,7 @@ import { DownloadButton } from "./Download/DownloadButton";
 import { DOWNLOAD_INFO, BROWSER_DOWNLOAD_INFO, DownloadType } from "./Download/download-info";
 import { DownloadIcon } from "./Download/DownloadIcon";
 import { DownloadMobileButton } from "./Download/DownloadMobileButton";
+import clsx from "clsx";
 
 // 浏览器检测函数
 const detectBrowser = () => {
@@ -25,7 +26,7 @@ export const Main: React.FC = () => {
     <div className={styles.main}>
         <div className={styles.buttonGroup}>
             <DownloadButton
-                className="round-button primary"
+                className={clsx( "round-button primary", styles.downloadBrowserButton)}
                 title={`Download for ${browserInfo.title}`}
                 icon={browserInfo.icon}
                 href={browserInfo.href}

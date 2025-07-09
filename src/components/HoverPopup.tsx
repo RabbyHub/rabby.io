@@ -1,7 +1,7 @@
 import React, { useState, useRef, ReactNode } from 'react';
 
 interface HoverPopupProps {
-  children: ReactNode; // 触发 hover 的对象
+  children: ReactNode | ((active: boolean) => ReactNode); // 支持render prop
   popup: ReactNode;   // 弹窗内容
   popupClassName?: string; // 自定义className
   popupStyle?: React.CSSProperties; // 自定义style
@@ -35,7 +35,7 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      {typeof children === 'function' ? (children as (active: boolean) => React.ReactNode)(show) : children}
       {show && (
         <div
           className={popupClassName}

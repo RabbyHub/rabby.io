@@ -11,13 +11,13 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
     <div className={styles.downloadTitle}>Download and get started</div>
     <div className={styles.section}>
         <div className={styles.sectionTitle}>
-             <img src="/assets/download/extension.svg" width={28} height={28}/>
+             <img src="/assets/download/extension.svg"/>
              Extension
          </div>
         <div className={styles.downloadCardList}>
             {Object.entries(BROWSER_DOWNLOAD_INFO).map(([key, value]) => (
                 <div key={key} className={styles.downloadItem} onClick={() => openBrowser(value.href)}>
-                    <img src={value.icon} alt={value.title} width={72} height={72}/>
+                    <img src={value.icon} alt={value.title}/>
                     <div className={styles.downloadItemTitle}>{value.title}</div>
                 </div>
             ))}
@@ -26,7 +26,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
      <div className={styles.sectionGroup}>
          <div className={styles.section}>
              <div className={styles.sectionTitle}>
-                 <img src="/assets/download/mobile-2.svg" width={28} height={28}/>
+                 <img src="/assets/download/mobile-2.svg"/>
                  Mobile
              </div>
             <div className={styles.downloadCardList}>
@@ -39,10 +39,10 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                     onMouseLeave={() => setHoverKey(null)}
                 >
                     {hoverKey === key ? (
-                        <img src={value.qrCode} alt={value.title} width={165} height={165}/>
+                        <img className={styles.downloadItemQrCode} src={value.qrCode} alt={value.title}/>
                     ) : (
                         <>
-                            <img src={value.icon} alt={value.title} width={72} height={72} />
+                            <img src={value.icon} alt={value.title} />
                             <div className={styles.downloadItemTitle}>{value.title}</div>
                         </>
                     )}
@@ -52,7 +52,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
          </div>
          <div className={styles.section}>
              <div className={styles.sectionTitle}>
-                 <img src="/assets/download/desktop-2.svg" width={28} height={28}/>
+                 <img src="/assets/download/desktop-2.svg"/>
                  Desktop
              </div>
              <div className={styles.downloadCardList}>
@@ -74,7 +74,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                         </div>
                     ) : (
                         <>
-                            <img src={value.icon} alt={value.title} width={72} height={72} />
+                            <img src={value.icon} alt={value.title} />
                             <div className={styles.downloadItemTitle}>{value.title}</div>
                         </>
                     )}

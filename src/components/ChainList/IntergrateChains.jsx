@@ -1,5 +1,5 @@
-import { HorizontalScroll } from './HorizontalScroll';
-
+import { HorizontalScroll } from '../HorizontalScroll';
+import styles from './style.module.scss';
 const IntergrateChains = ({ chains, rows = 4 }) => {
   // 平均分组
   const groupChains = Array.from({ length: rows }, (_, i) =>
@@ -9,24 +9,19 @@ const IntergrateChains = ({ chains, rows = 4 }) => {
   return (
     <div className="chains-container">
       {groupChains.map((rowChains, rowIdx) => (
-        <div className="chains-row" key={rowIdx} style={{ marginBottom: 64 }}>
+        <div className={styles.chainsRow} key={rowIdx}>
           <HorizontalScroll
             speed={70}
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
             infiniteLoop
             pauseOnHover={false}
-            gap={64}
           >
             {rowChains.map(chain => (
               <img
+                className={styles.chainItem}
                 key={chain.id}
                 src={chain.logo_url}
                 alt={chain.name}
-                style={{
-                  width: 100,
-                  height: 100,
-                  objectFit: 'contain',
-                }}
                 title={chain.name}
               />
             ))}

@@ -27,13 +27,13 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   type,
   className,
   onClick,
-  active,
+  active: _active,
   onMouseEnter,
   onMouseLeave,
 }) => {
-  const iconContent = (
+  const renderIconContent = (active: boolean) => (
     <div
-      className={clsx(styles.downloadIconWrapper, className)}
+      className={clsx(styles.downloadIconWrapper, className, { [styles.active]: active })}
       onClick={onClick}
       tabIndex={0}
       onMouseEnter={onMouseEnter}
@@ -57,13 +57,14 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
                 className={styles.qrImg}
                 src={qrImg}
                 alt={title}
-                />
+              />
+              <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.qrArrow}/>
             </div>
           ) : null
         }
         offsetY={8}
       >
-        {iconContent}
+        {(active: boolean) => renderIconContent(active)}
       </HoverPopup>
     );
   }
@@ -73,11 +74,12 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
       <div className={styles.macList}>
         {Object.entries(MACOS_DOWNLOAD_INFO).map(([key, info]) => {
           return (
-            <div className={styles.macItem}>
+            <div className={styles.macItem} key={key}>
               <a href={info.href} target="_blank">{info.title}</a>
             </div>
           )
         })}
+        <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.qrArrow}/>
       </div>
     );
     return (
@@ -85,10 +87,10 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
         offsetY={8}
         popup={macList}
       >
-        {iconContent}
+        {(active: boolean) => renderIconContent(active)}
       </HoverPopup>
     );
   }
-  return iconContent;
+  return renderIconContent(!!_active);
 };
 

@@ -47,6 +47,9 @@
     background: rgba(76, 101, 255, 0.10);
   }
 }
+.active {
+  background: rgba(76, 101, 255, 0.10);
+}
 
 .mobileIcon {
   width: 36px;
@@ -64,11 +67,10 @@
   display: inline-block;
 }
 .qrPanel {
-  background-image: url('/assets/images/polygon-2.svg');
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: -249px;
+  top: -239px;
   border-radius: 20px;
   background: #DEE3FF;
   padding: 20px;
@@ -82,6 +84,12 @@
       margin-right: 16px;
     }
   }
+  .qrArrow {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+  }
 }
 .qrImgWrapper {
   width: 200px;
@@ -94,6 +102,13 @@
   .qrImg {
     width: 185px;
     height: 185px;
+    z-index: 1;
+  }
+  .qrArrow {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
   }
 }
 .downloadTips {
@@ -196,6 +211,7 @@
     background: var(--r-neutral-card1, #FFF);
     cursor: pointer;
     text-align: center;
+    z-index: 1;
     &:first-child {
       margin-bottom: 12px;
     }
@@ -211,6 +227,12 @@
       line-height: normal;
       text-decoration: none;
     }
+  }
+  .qrArrow {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
   }
 }
 
@@ -247,6 +269,10 @@
       align-items: center;
       margin-bottom: 16px;
       justify-content: center;
+      img {
+        width: 28px;
+        height: 28px;
+      }
     }
     .downloadCardList {
       display: flex;
@@ -262,6 +288,14 @@
       height: 180px;
       border-radius: 16px;
       background: var(--r-neutral-card1, #FFF);
+      img {
+        width: 72px;
+        height: 72px;
+      }
+      .downloadItemQrCode {
+        width: 165px;
+        height: 165px;
+      }
       &:hover {
         background-color: rgba(76, 101, 255, 0.10);
       }
@@ -298,6 +332,68 @@
         &:hover {
           background: rgba(76, 101, 255, 0.20);
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .buttonGroup {
+    margin-bottom: 40px;
+  }
+  .downloadBrowserButton {
+    display: none!important;
+  }
+  .downloadTips {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .downloadIcon {
+    width: 28px!important;
+    height: 28px!important;
+  }
+  .downloadList {
+    margin-bottom: 40px;
+  }
+  .download {
+    padding: 40px 0;
+    .downloadTitle {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .section {
+      padding: 20px 5px 12px 5px;
+      margin: 8px;
+      width: 370px;
+      height: 160px;
+    }
+    .sectionGroup {
+      flex-direction: column;
+    }
+    .sectionTitle {
+      font-size: 16px!important;
+      margin-bottom: 8px!important;
+      img {
+        width: 20px!important;
+        height: 20px!important;
+        margin-right: 8px;
+      }
+    }
+    .downloadCardList {
+      display: flex;
+      justify-content: center;
+    }
+    .downloadItem {
+      width: 120px!important;
+      height: 100px!important;
+      img {
+        width: 25px!important;
+        height: 25px!important;
+      }
+      .downloadItemTitle {
+        font-size: 16px!important;
+        margin-top: 12px!important;
+        font-weight: 500!important;
       }
     }
   }

@@ -11,6 +11,7 @@
   background: var(--r-neutral-card1, #FFF);
   padding: 20px;
   cursor: pointer;
+  margin-right: 24px;
   &:hover {
     background-color: rgba(76, 101, 255, 0.10);
   }
@@ -53,4 +54,9 @@
     margin-top: 12px;
     line-height: 140%;
     white-space: break-spaces;
+}
+@media screen and (max-width: 1024px) {
+  .commentList {
+    margin-bottom: 60px;
+  }
 }

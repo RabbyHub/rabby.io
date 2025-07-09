@@ -62,7 +62,6 @@ const CardList = () => {
                     infiniteLoop={true}
                     autoPlay={true}
                     pauseOnHover={true}
-                    gap={48}
                 >
                 {cardList.map((item, index) => (
                     <DemoCard key={index} {...item} />
@@ -76,7 +75,6 @@ const CardList = () => {
                     infiniteLoop={true}
                     autoPlay={true}
                     pauseOnHover={true}
-                    gap={48}
                 >
                 {cardList.map((item, index) => (
                     <DemoCard key={index} {...item} />

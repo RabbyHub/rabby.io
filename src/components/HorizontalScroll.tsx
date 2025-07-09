@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 
 interface HorizontalScrollProps {
@@ -9,7 +10,6 @@ interface HorizontalScrollProps {
   infiniteLoop?: boolean;
   pauseOnHover?: boolean;
   responsive?: boolean;
-  gap?: number; // gap between items
   autoPlay?: boolean;
   onItemClick?: (index: number) => void;
 }
@@ -23,7 +23,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   infiniteLoop = true,
   pauseOnHover = true,
   responsive = true,
-  gap = 0,
   autoPlay = true,
   onItemClick,
 }) => {
@@ -165,7 +164,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         key={`item-${index}`}
         style={{ 
           display: 'inline-flex',
-          marginRight: gap,
           cursor: onItemClick ? 'pointer' : 'default'
         }}
         onClick={() => handleItemClick(index)}
@@ -182,7 +180,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         {child}
       </div>
     ));
-  }, [children, gap, onItemClick, handleItemClick]);
+  }, [children, onItemClick, handleItemClick]);
 
   return (
     <div

@@ -11,6 +11,7 @@
     align-items: center;
     border-radius: 20px;
     cursor: pointer;
+    margin-right: 48px;
 }
 .demoCardContent {
     width: 400px;
@@ -21,4 +22,21 @@
 }
 .row {
     margin-bottom: 40px;
+}
+@media screen and (max-width: 1024px) {
+  .demoCard {
+    width: 370px;
+    height: 555px;
+    margin-right: 40px;
+  }
+  .demoCardContent {
+    width: 308px;
+    height: 463px;
+  }
+  .row {
+    margin-bottom: 40px;
+  }
+  .cardList {
+    padding-bottom: 63px;
+  }
 }
