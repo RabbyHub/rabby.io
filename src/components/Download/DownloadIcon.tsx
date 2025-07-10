@@ -16,6 +16,7 @@ export interface DownloadIconProps {
   active?: boolean;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  disableHover?: boolean;
 }
 
 export const DownloadIcon: React.FC<DownloadIconProps> = ({
@@ -30,6 +31,7 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   active: _active,
   onMouseEnter,
   onMouseLeave,
+  disableHover = false,
 }) => {
   const renderIconContent = (active: boolean) => (
     <div
@@ -43,6 +45,11 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
       {active && <span className={styles.iconTitle}>{title}</span>}
     </div>
   );
+
+  if (disableHover) {
+    // 不渲染HoverPopup，直接渲染icon内容且无hover高亮
+    return renderIconContent(false);
+  }
 
   if (type === DownloadType.APP) {
     const qrImg = DOWNLOAD_INFO_MOBILE[infoKey as keyof typeof DOWNLOAD_INFO_MOBILE].qrCode;

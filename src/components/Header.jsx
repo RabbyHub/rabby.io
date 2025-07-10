@@ -1,47 +1,68 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Main } from "./main";
+import React, { useRef, useState } from "react";
+
+const menuLinks = [
+  { href: "#contact-us", label: "Contact Us" },
+  { href: "https://support.rabby.io", label: "Help Center", external: true },
+  { href: "https://rabbykit.rabby.io/", label: "Rabby Kit", external: true },
+  { href: "/docs/integrating-rabby-wallet/", label: "Integration Doc", external: true },
+];
 
 const Header = ({ onDownloadClick }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeTimer = useRef(null);
+  const handleMouseEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMenuOpen(true);
+  };
 
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setMenuOpen(false), 200);
+  };
   return (
     <header>
       <div className="nav">
         <div className="nav-left">
           <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
           <ul className="menu">
-            <li>
-              <a href="#contact-us">Contact Us</a>
-            </li>
-
-            <li>
-              <a href="https://support.rabby.io" target="_blank" rel="noreferrer">
-                Help Center
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://rabbykit.rabby.io/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Rabby Kit
-              </a>
-            </li>
-            <li>
-              <a
-                href="/docs/integrating-rabby-wallet/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Integration Doc
-              </a>
-            </li>
+            {menuLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="nav-right">
           <button className="round-button primary download-btn"
             onClick={onDownloadClick}>Download</button>
+          <div
+            className="menu-container"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/assets/images/menu.svg" alt="menu" className="menu-icon" />
+            <div className="menu-panel" style={{ display: menuOpen ? 'block' : 'none' }}>
+              {menuLinks.map((link) => (
+                <div className="menu-item" key={link.href}>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noreferrer" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div className="header-content">

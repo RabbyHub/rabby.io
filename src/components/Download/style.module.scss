@@ -278,6 +278,9 @@
       display: flex;
       align-items: center;
     }
+    .downloadCardListSmall {
+      display: none;
+    }
     .downloadItem {
       display: flex;
       flex-direction: column;
@@ -341,19 +344,37 @@
   .buttonGroup {
     margin-bottom: 40px;
   }
+  .downloadList {
+    margin-bottom: 40px!important;
+  }
   .downloadBrowserButton {
     display: none!important;
+  }
+  .downloadMobileButton {
+    display: none!important;
+  }
+  .downloadMobileButtonSmall {
+    display: flex;
+    align-items: center;
+    padding: 14px 44.5px;
+    img {
+      margin-right: 8px;
+    }
   }
   .downloadTips {
     margin-bottom: 4px;
     font-size: 14px;
   }
+  .downloadIconWrapper {
+    &:hover,
+    &.active {
+      margin-right: 0!important;
+      background: none!important;
+    }
+  }
   .downloadIcon {
     width: 28px!important;
     height: 28px!important;
-  }
-  .downloadList {
-    margin-bottom: 40px;
   }
   .download {
     padding: 40px 0;
@@ -396,5 +417,32 @@
         font-weight: 500!important;
       }
     }
+  }
+
+  // 禁用所有hover样式
+  .downloadItem:hover,
+  .downloadItem:active,
+  .downloadItemMacosItem:hover,
+  .downloadItemMacosItem:active {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  // 隐藏二维码和macos弹窗
+  .downloadItemQrCode,
+  .downloadItemMacos {
+    display: none !important;
+  }
+  // 禁用macos item hover高亮
+  .downloadItemMacosItem:hover {
+    background: none !important;
+  }
+  // 禁用icon hover高亮
+  .downloadIconWrapper:hover,
+  .downloadIconWrapper.active {
+    background: none !important;
+    margin-right: 0 !important;
+  }
+  .qrPopup, .macList {
+    display: none !important;
   }
 }

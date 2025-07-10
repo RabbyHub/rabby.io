@@ -59,4 +59,7 @@
   .commentList {
     margin-bottom: 60px;
   }
+  .commentItem:hover {
+    background-color: var(--r-neutral-card1, #FFF)!important;
+  }
 }

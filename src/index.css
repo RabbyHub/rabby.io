@@ -112,6 +112,10 @@ header {
 .nav-left {
   display: flex;
 }
+.nav-right {
+  display: flex;
+  align-items: flex-start;
+}
 .round-button.primary {
   color: var(--r-neutral-title2, #FFF);
   text-align: center;
@@ -170,6 +174,7 @@ header {
 
 .slogan {
   width: 1280px;
+  max-width: 100%;
   margin-bottom: 100px;
 }
 
@@ -187,6 +192,29 @@ header {
   margin-bottom: 16px;
   width: 80px;
   height: 80px;
+}
+.menu-container {
+  display: none;
+  position: relative;
+}
+.menu-container .menu-panel {
+  position: absolute;
+  top: 40px;
+  width: 128px;
+  right: 0;
+  border-radius: 8px;
+  background: var(--r-neutral-card1, #FFF);
+  box-shadow: 0px 8px 20px 0px rgba(41, 43, 113, 0.16);
+}
+.menu-container .menu-panel .menu-item {
+  padding: 12px 13px 11px 14px;
+  text-align: center;
+}
+.menu-container .menu-panel .menu-item a {
+  color: var(--r-neutral-title1, #2D3033);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1024px) {
@@ -221,6 +249,11 @@ header {
     width: 40px;
     height: 40px;
     margin-bottom: 8px;
+  }
+  .menu-container {
+    cursor: pointer;
+    display: block!important;
+    margin-left: 16px;
   }
 }
 

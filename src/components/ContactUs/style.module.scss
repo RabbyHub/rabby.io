@@ -36,6 +36,9 @@
     height: 52px!important;
     padding: 12px 18px!important;
     margin-right: 12px!important;
+    &:hover {
+      background: var(--r-neutral-card1, #FFF)!important;
+    }
     img {
       width: 28px!important;
       height: 28px!important;
