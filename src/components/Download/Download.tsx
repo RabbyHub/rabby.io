@@ -2,17 +2,30 @@ import styles from './style.module.scss';
 import { BROWSER_DOWNLOAD_INFO, DOWNLOAD_INFO_MOBILE, DESKTOP_DOWNLOAD_INFO, MACOS_DOWNLOAD_INFO } from "./download-info";
 import { useState, forwardRef } from 'react';
 import { useIsSmallScreen } from '../../hooks/useIsSmallScreen';
+import { showToast } from '../../toast';
 
 const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const isSmallScreen = useIsSmallScreen();
+  
+  // 检测是否为移动端
+  const isMobile = /mobile/i.test(navigator.userAgent);
 
-  const openBrowser = (href: string) => {
+  const openBrowser = (href: string, type?: string) => {
+    // 如果是移动端且是插件或桌面版，则显示提示
+    if (isMobile && (type === 'extension' || type === 'desktop')) {
+      showToast({
+        content: 'Please visit this site from the desktop to download',
+        duration: 2000
+      });
+      return;
+    }
+    
     window.open(href, '_blank');
   };
 
-  const renderItem = (key: string, value: any) => (
-    <div key={key} className={styles.downloadItem} onClick={() => openBrowser(value.href)}>
+  const renderItem = (key: string, value: any, type?: string) => (
+    <div key={key} className={styles.downloadItem} onClick={() => openBrowser(value.href, type)}>
       <img src={value.icon} alt={value.title} />
       <div className={styles.downloadItemTitle}>{value.title}</div>
     </div>
@@ -27,7 +40,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
           Extension
         </div>
         <div className={styles.downloadCardList}>
-          {Object.entries(BROWSER_DOWNLOAD_INFO).map(([key, value]) => renderItem(key, value))}
+          {Object.entries(BROWSER_DOWNLOAD_INFO).map(([key, value]) => renderItem(key, value, 'extension'))}
         </div>
       </div>
       <div className={styles.sectionGroup}>
@@ -41,7 +54,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
               <div
                 key={key}
                 className={styles.downloadItem}
-                onClick={() => openBrowser(value.href)}
+                onClick={() => openBrowser(value.href, 'mobile')}
                 onMouseEnter={() => { if (!isSmallScreen) setHoverKey(key); }}
                 onMouseLeave={() => { if (!isSmallScreen) setHoverKey(null); }}
               >
@@ -64,7 +77,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
               <div
                 key={key}
                 className={styles.downloadItem}
-                onClick={() => openBrowser(value.href)}
+                onClick={() => openBrowser(value.href, 'desktop')}
                 onMouseEnter={() => { if (!isSmallScreen) setHoverKey(key); }}
                 onMouseLeave={() => { if (!isSmallScreen) setHoverKey(null); }}
               >
@@ -74,7 +87,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                       <div
                         key={macKey}
                         className={styles.downloadItemMacosItem}
-                        onClick={() => openBrowser(macValue.href)}
+                        onClick={() => openBrowser(macValue.href, 'desktop')}
                       >
                         <div className={styles.downloadItemTitleMacos}>{macValue.title}</div>
                       </div>
