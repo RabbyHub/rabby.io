@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './style.module.scss';
 import { DownloadType, DOWNLOAD_INFO_MOBILE, MACOS_DOWNLOAD_INFO } from './download-info';
 import { HoverPopup } from '../HoverPopup';
+import { showToast } from '../../toast';
 
 export interface DownloadIconProps {
   infoKey: string;
@@ -33,15 +34,40 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   onMouseLeave,
   disableHover = false,
 }) => {
+  // 检测是否为移动端
+  const isMobile = /mobile/i.test(navigator.userAgent);
+  
+  // 处理点击事件
+  const handleClick = () => {
+    // 如果是移动端且是插件或桌面版，则显示提示
+    if (isMobile && (type === DownloadType.BROWSER || type === DownloadType.DESKTOP)) {
+      showToast({
+        content: 'Please visit this site from the desktop to download',
+        duration: 2000
+      });
+      return;
+    }
+    
+    // 如果有自定义的onClick回调，优先使用
+    if (onClick) {
+      onClick();
+      return;
+    }
+    
+    // 否则跳转到对应的链接
+    if (href) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  };
   const renderIconContent = (active: boolean) => (
     <div
       className={clsx(styles.downloadIconWrapper, className, { [styles.active]: active })}
-      onClick={onClick}
+      onClick={handleClick}
       tabIndex={0}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <img src={src} alt={alt} className={styles.downloadIcon} />
+      <img src={src} alt={alt} className={styles.downloadIcon}/>
       {active && <span className={styles.iconTitle}>{title}</span>}
     </div>
   );
