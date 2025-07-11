@@ -1,3 +1,5 @@
+import { LINKS, ICONS } from '../../constants/links';
+
 export enum DownloadType {
   BROWSER = "browser",
   APP = "app",
@@ -12,12 +14,12 @@ export enum MACOS_ARCH {
 export const MACOS_DOWNLOAD_INFO = {
   [MACOS_ARCH.INTEL]: {
     title: "macOS Intel",
-    href: "https://download.rabby.io/wallet-desktop/darwin-x64/rabby-wallet-desktop-installer-x64-latest.dmg",
+    href: LINKS.DOWNLOAD.MACOS_INTEL,
     type: MACOS_ARCH.INTEL
-    },
+  },
   [MACOS_ARCH.APPLE_SILICON]: {
     title: "macOS M-Series",
-    href: "https://download.rabby.io/wallet-desktop/darwin-arm64/rabby-wallet-desktop-installer-arm64-latest.dmg",
+    href: LINKS.DOWNLOAD.MACOS_APPLE_SILICON,
     type: MACOS_ARCH.APPLE_SILICON
   },
 }
@@ -25,93 +27,94 @@ export const MACOS_DOWNLOAD_INFO = {
 export const DESKTOP_DOWNLOAD_INFO = {
   macos: {
     title: "macOS",
-    icon: "/assets/download/apple.svg",
+    icon: ICONS.DOWNLOAD.MACOS,
     href: "",
   },
   windows: {
     title: "Windows",
-    icon: "/assets/download/windows-origin.svg",
-    href: "https://download.rabby.io/wallet-desktop/win32-x64/rabby-wallet-desktop-installer-x64-latest.exe",
+    icon: ICONS.DOWNLOAD.WINDOWS,
+    href: LINKS.DOWNLOAD.WINDOWS,
   },
 }
 
 export const DOWNLOAD_INFO_MOBILE = {
   appStore: {
     title: "AppStore",
-    icon: "/assets/download/app-store-origin.svg",
-    qrCode: "/assets/download/app-store-qr.png",
-    href: "https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673"
+    icon: ICONS.DOWNLOAD.APP_STORE,
+    qrCode: ICONS.QR_CODES.APP_STORE,
+    href: LINKS.DOWNLOAD.APP_STORE
   },
   googlePlay: {
     title: "Google Play",
-    icon: "/assets/download/google-play-origin.svg",
-    qrCode: "/assets/download/google-play-qr.png",
-    href: "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
+    icon: ICONS.DOWNLOAD.GOOGLE_PLAY,
+    qrCode: ICONS.QR_CODES.GOOGLE_PLAY,
+    href: LINKS.DOWNLOAD.GOOGLE_PLAY,
   }
 }
 
 export const BROWSER_DOWNLOAD_INFO = {
   chrome: {
     title: "Chrome",
-    icon: "/assets/images/chrome.svg",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    icon: ICONS.DOWNLOAD.CHROME,
+    href: LINKS.DOWNLOAD.CHROME,
     type: DownloadType.BROWSER
   },
   brave: { 
     title: "Brave",
-    icon: "/assets/images/brave-1.png",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    icon: ICONS.DOWNLOAD.BRAVE,
+    href: LINKS.DOWNLOAD.BRAVE,
     type: DownloadType.BROWSER
   },
   edge: {
     title: "Edge",
-    icon: "/assets/images/edge.svg",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    icon: ICONS.DOWNLOAD.EDGE,
+    href: LINKS.DOWNLOAD.EDGE,
     type: DownloadType.BROWSER
   },
 }
 
+// 保留原有的 DOWNLOAD_INFO 以兼容现有代码
 export const DOWNLOAD_INFO = {
     chrome: {
       title: "Chrome",
       icon: "/assets/download/chrome.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.CHROME,
       type: DownloadType.BROWSER
     },
     brave: { 
       title: "Brave",
       icon: "/assets/download/brave.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.BRAVE,
       type: DownloadType.BROWSER
     },
     edge: {
       title: "Edge",
       icon: "/assets/download/edge.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.EDGE,
       type: DownloadType.BROWSER
     },
     appStore: {
       title: "AppStore",
       icon: "/assets/download/app-store.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.APP_STORE,
       type: DownloadType.APP
     },
     googlePlay: {
       title: "Google Play",
       icon: "/assets/download/google-play.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.GOOGLE_PLAY,
       type: DownloadType.APP
     },
     macos: {
       title: "Mac",
       icon: "/assets/download/apple.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.MACOS_INTEL,
       type: DownloadType.DESKTOP
     },
     windows: {
       title: "Windows",
       icon: "/assets/download/windows.svg",
-      href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+      href: LINKS.DOWNLOAD.WINDOWS,
       type: DownloadType.DESKTOP
     }
 }

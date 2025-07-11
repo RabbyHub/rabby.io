@@ -1,26 +1,27 @@
 import React, { forwardRef } from "react";
 import styles from "./style.module.scss";
+import { LINKS, ICONS } from "../../constants/links";
 
 const followUsList = [
   {
-    logo: "/assets/contact/x.svg",
-    link: "https://twitter.com/Rabby_io",
+    logo: ICONS.SOCIAL.TWITTER,
+    link: LINKS.SOCIAL.TWITTER,
   },
   {
-    logo: "/assets/contact/discord.svg",
-    link: "https://discord.gg/seFBCWmUre",
+    logo: ICONS.SOCIAL.DISCORD,
+    link: LINKS.SOCIAL.DISCORD,
   },
   {
-    logo: "/assets/contact/github.svg",
-    link: "https://github.com/RabbyHub/Rabby",
+    logo: ICONS.SOCIAL.GITHUB,
+    link: LINKS.SOCIAL.GITHUB,
   },
   {
-    logo: "/assets/contact/gmail.svg",
-    link: "mailto:rabby.io@gmail.com",
+    logo: ICONS.SOCIAL.EMAIL,
+    link: LINKS.SOCIAL.EMAIL,
   },
   {
-    logo: "/assets/contact/debank.svg",
-    link: "https://debank.com/hi/0a110032",
+    logo: ICONS.SOCIAL.DEBANK,
+    link: LINKS.SOCIAL.DEBANK,
   },
 ];
 

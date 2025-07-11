@@ -1,53 +1,56 @@
 import React from "react";
 import styles from "./style.module.scss";
+import { LINKS } from "../../constants/links";
+
 const Footer = () => {
   const footerList = [
     {
       sectionTitle: "Contact Us",
       items: [
-      {
-        title: "X",
-        value: "https://twitter.com/Rabby_io",
-      },
-      {
-        title: "Github",
-        value: "https://github.com/RabbyHub/Rabby",
-      },
-      {
-        title: "Discord",
-        value: "https://discord.gg/seFBCWmUre",
-      },
-      {
-        title: "Email",
-        value: "rabby.io@gmail.com",
-      },
-      {
-        title: "Debank",
-        value: "https://debank.com/hi/0a110032",
-      }
-    ]},
+        {
+          title: "X",
+          value: LINKS.SOCIAL.TWITTER,
+        },
+        {
+          title: "Github",
+          value: LINKS.SOCIAL.GITHUB,
+        },
+        {
+          title: "Discord",
+          value: LINKS.SOCIAL.DISCORD,
+        },
+        {
+          title: "Email",
+          value: LINKS.SOCIAL.EMAIL.replace('mailto:', ''),
+        },
+        {
+          title: "Debank",
+          value: LINKS.SOCIAL.DEBANK,
+        }
+      ]
+    },
     {
       sectionTitle: "Download",
       items: [
         {
           title: "Chrome",
-          value: "https://chromewebstore.google.com/detail/rabby-wallet/eimadpbcbfnmbkopoojfekhnkhdbieeh",
+          value: LINKS.DOWNLOAD.CHROME,
         },
         {
           title: "iOS",
-          value: "https://apps.apple.com/us/app/rabby-wallet/id1564649197",
+          value: LINKS.DOWNLOAD.APP_STORE,
         },
         {
           title: "Android",
-          value: "https://play.google.com/store/apps/details?id=io.rabby.wallet",
+          value: LINKS.DOWNLOAD.GOOGLE_PLAY,
         },
         {
           title: "Mac",
-          value: "https://rabby.io/download/mac",
+          value: LINKS.DOWNLOAD.MACOS_INTEL,
         },
         {
           title: "Windows",
-          value: "https://rabby.io/download/windows",
+          value: LINKS.DOWNLOAD.WINDOWS,
         },
       ]
     },
@@ -56,20 +59,19 @@ const Footer = () => {
       items: [
         {
           title: "Help Center",
-          value: "https://rabby.io/help",
+          value: LINKS.SUPPORT.HELP_CENTER,
         },
         {
           title: "Rabby Kit",
-          value: "https://rabby.io/knowledge-base",
+          value: LINKS.SUPPORT.RABBY_KIT,
         },
         {
           title: "Integrated Doc",
-          value: "https://rabby.io/docs",
+          value: LINKS.SUPPORT.INTEGRATION_DOC,
         },
         {
           title: "Chain Dashboard",
-          value: "https://rabby.io/chain-dashboard",
-          
+          value: LINKS.SUPPORT.CHAIN_DASHBOARD,
         }
       ]
     },
@@ -78,27 +80,28 @@ const Footer = () => {
       items: [
         {
           title: "Audit by SlowMist",
-          value: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report-20241217.pdf",
+          value: LINKS.SECURITY.AUDIT_SLOWMIST,
         },
         {
           title: "Audit by Least Authority",
-          value: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report-20241212.pdf",
+          value: LINKS.SECURITY.AUDIT_LEAST_AUTHORITY,
         },
         {
           title: "Open Source",
-          value: "https://rabby.io/about-us",
+          value: LINKS.SECURITY.OPEN_SOURCE,
         },
         {
           title: "Terms of Use",
-          value: "/docs/terms-of-use/",
+          value: LINKS.SECURITY.TERMS_OF_USE,
         },
         {
           title: "Privacy Policy",
-          value: "/docs/privacy/",
+          value: LINKS.SECURITY.PRIVACY_POLICY,
         }
       ]
     },
-  ]
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerLogo}>
@@ -119,7 +122,6 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      
     </footer>
   );
 };

@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Main } from "./main";
 import React, { useRef, useState } from "react";
+import { LINKS } from "../constants/links";
 
 const Header = ({ onDownloadClick, onContactClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,9 +17,9 @@ const Header = ({ onDownloadClick, onContactClick }) => {
         onContactClick();
       }
     },
-    { href: "https://support.rabby.io", label: "Help Center", external: true },
-    { href: "https://rabbykit.rabby.io/", label: "Rabby Kit", external: true },
-    { href: "/docs/integrating-rabby-wallet/", label: "Integration Doc", external: true },
+    { href: LINKS.SUPPORT.HELP_CENTER, label: "Help Center", external: true },
+    { href: LINKS.SUPPORT.RABBY_KIT, label: "Rabby Kit", external: true },
+    { href: LINKS.SUPPORT.INTEGRATION_DOC, label: "Integration Doc", external: true },
   ];
 
   const handleMouseEnter = () => {
