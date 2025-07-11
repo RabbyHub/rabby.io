@@ -13,17 +13,71 @@
     margin-right: 8px;
     padding: 20px;
     transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      z-index: 2;
+      position: relative;
+      opacity: 1;
+      
+      &.hidden {
+        opacity: 0;
+      }
     }
+    
+    .thumbnail {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+      object-fit: cover;
+      border-radius: 20px;
+      z-index: 1;
+      opacity: 1;
+      
+      &.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    
+    .loadingIndicator {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+    }
+    
+
     
     &:hover {
       transform: scale(1.05);
     }
 }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
 .mobileCard {
   width: 470px;
   height: 880px;

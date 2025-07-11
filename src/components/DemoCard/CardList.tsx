@@ -29,18 +29,23 @@ const CardList = () => {
     const cardListMobile = [
         {
             url: '/assets/demo/mobile-1.mp4',
+            thumbnail: '/assets/demo/mobile-1-thumb.png',
         },
         {
             url: '/assets/demo/mobile-2.mp4',
+            thumbnail: '/assets/demo/mobile-2-thumb.png',
         },
         {
             url: '/assets/demo/mobile-3.mp4',
+            thumbnail: '/assets/demo/mobile-3-thumb.png',
         },
         {
             url: '/assets/demo/mobile-4.mp4',
+            thumbnail: '/assets/demo/mobile-4-thumb.png',
         },
         {
             url: '/assets/demo/mobile-5.mp4',
+            thumbnail: '/assets/demo/mobile-5-thumb.png',
         }
     ]
     return (
@@ -54,7 +59,7 @@ const CardList = () => {
                     pauseOnHover={true}
                 >
                 {cardListExtension.map((item, index) => (
-                    <DemoCard key={index} url={item.url} />
+                    <DemoCard key={index} url={item.url} thumbnail={item.thumbnail} />
                 ))}
                 </HorizontalScroll>
             </div>
@@ -67,7 +72,7 @@ const CardList = () => {
                     pauseOnHover={true}
                 >
                 {cardListMobile.map((item, index) => (
-                    <DemoCard key={index} url={item.url} className={styles.mobileCard} />
+                    <DemoCard key={index} url={item.url} thumbnail={item.thumbnail} className={styles.mobileCard} />
                 ))}
                 </HorizontalScroll>
             </div>
