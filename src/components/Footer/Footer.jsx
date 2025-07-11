@@ -78,11 +78,11 @@ const Footer = () => {
       items: [
         {
           title: "Audit by SlowMist",
-          value: "https://rabby.io/about-us",
+          value: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report-20241217.pdf",
         },
         {
           title: "Audit by Least Authority",
-          value: "https://rabby.io/blog",
+          value: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report-20241212.pdf",
         },
         {
           title: "Open Source",
@@ -90,11 +90,11 @@ const Footer = () => {
         },
         {
           title: "Terms of Use",
-          value: "https://rabby.io/blog",
+          value: "/docs/terms-of-use/",
         },
         {
           title: "Privacy Policy",
-          value: "https://rabby.io/blog",
+          value: "/docs/privacy/",
         }
       ]
     },

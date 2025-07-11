@@ -7,11 +7,17 @@ import CommentList from "./components/CommentCard/CommentList";
 import Download from "./components/Download/Download";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer/Footer";
+
 function App() {
   const downloadRef = useRef(null);
+  const contactRef = useRef(null);
 
   const handleClickDownload = () => {
     downloadRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleClickContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const chains = useFetchChainList();
@@ -19,7 +25,7 @@ function App() {
   return (
     <>
       <div className="main">
-        <Header onDownloadClick={handleClickDownload} />
+        <Header onDownloadClick={handleClickDownload} onContactClick={handleClickContact} />
       </div>
       <div className="section-title">
         Simple, Fast, secure Everything on chain
@@ -39,10 +45,7 @@ function App() {
       </div>
       <CommentList rows={2} />
       <Download ref={downloadRef} />
-      <div className="section-title">
-        feel free to contact us
-      </div>
-      <ContactUs />
+      <ContactUs ref={contactRef} />
       <Footer />
     </>
   );

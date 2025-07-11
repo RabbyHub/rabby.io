@@ -1,5 +1,3 @@
-import QRCode from "qrcode.react"
-
 export enum DownloadType {
   BROWSER = "browser",
   APP = "app",
@@ -14,12 +12,12 @@ export enum MACOS_ARCH {
 export const MACOS_DOWNLOAD_INFO = {
   [MACOS_ARCH.INTEL]: {
     title: "macOS Intel",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "https://download.rabby.io/wallet-desktop/darwin-x64/rabby-wallet-desktop-installer-x64-latest.dmg",
     type: MACOS_ARCH.INTEL
     },
   [MACOS_ARCH.APPLE_SILICON]: {
     title: "macOS M-Series",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "https://download.rabby.io/wallet-desktop/darwin-arm64/rabby-wallet-desktop-installer-arm64-latest.dmg",
     type: MACOS_ARCH.APPLE_SILICON
   },
 }
@@ -28,12 +26,12 @@ export const DESKTOP_DOWNLOAD_INFO = {
   macos: {
     title: "macOS",
     icon: "/assets/download/apple.svg",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "",
   },
   windows: {
     title: "Windows",
     icon: "/assets/download/windows-origin.svg",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "https://download.rabby.io/wallet-desktop/win32-x64/rabby-wallet-desktop-installer-x64-latest.exe",
   },
 }
 
@@ -42,13 +40,13 @@ export const DOWNLOAD_INFO_MOBILE = {
     title: "AppStore",
     icon: "/assets/download/app-store-origin.svg",
     qrCode: "/assets/download/app-store-qr.png",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "https://apps.apple.com/us/app/rabby-wallet-crypto-evm/id6474381673"
   },
   googlePlay: {
     title: "Google Play",
     icon: "/assets/download/google-play-origin.svg",
     qrCode: "/assets/download/google-play-qr.png",
-    href: "https://chrome.google.com/webstore/detail/rabby/acmacodkjbdgmoleebolmdjonilkdbch",
+    href: "https://play.google.com/store/apps/details?id=com.debank.rabbymobile",
   }
 }
 

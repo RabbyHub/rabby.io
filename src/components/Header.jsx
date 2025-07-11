@@ -3,16 +3,24 @@
 import { Main } from "./main";
 import React, { useRef, useState } from "react";
 
-const menuLinks = [
-  { href: "#contact-us", label: "Contact Us" },
-  { href: "https://support.rabby.io", label: "Help Center", external: true },
-  { href: "https://rabbykit.rabby.io/", label: "Rabby Kit", external: true },
-  { href: "/docs/integrating-rabby-wallet/", label: "Integration Doc", external: true },
-];
-
-const Header = ({ onDownloadClick }) => {
+const Header = ({ onDownloadClick, onContactClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeTimer = useRef(null);
+
+  const menuLinks = [
+    { 
+      href: "#contact-us", 
+      label: "Contact Us",
+      onClick: (e) => {
+        e.preventDefault();
+        onContactClick();
+      }
+    },
+    { href: "https://support.rabby.io", label: "Help Center", external: true },
+    { href: "https://rabbykit.rabby.io/", label: "Rabby Kit", external: true },
+    { href: "/docs/integrating-rabby-wallet/", label: "Integration Doc", external: true },
+  ];
+
   const handleMouseEnter = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setMenuOpen(true);
@@ -21,6 +29,13 @@ const Header = ({ onDownloadClick }) => {
   const handleMouseLeave = () => {
     closeTimer.current = setTimeout(() => setMenuOpen(false), 200);
   };
+
+  const handleLinkClick = (link, e) => {
+    if (link.onClick) {
+      link.onClick(e);
+    }
+  };
+
   return (
     <header>
       <div className="nav">
@@ -33,6 +48,7 @@ const Header = ({ onDownloadClick }) => {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noreferrer" : undefined}
+                  onClick={(e) => handleLinkClick(link, e)}
                 >
                   {link.label}
                 </a>
@@ -56,6 +72,7 @@ const Header = ({ onDownloadClick }) => {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noreferrer" : undefined}
+                    onClick={(e) => handleLinkClick(link, e)}
                   >
                     {link.label}
                   </a>

@@ -1,4 +1,6 @@
+import React, { forwardRef } from "react";
 import styles from "./style.module.scss";
+
 const followUsList = [
   {
     logo: "/assets/contact/x.svg",
@@ -22,16 +24,23 @@ const followUsList = [
   },
 ];
 
-const ContactUs = () => {
+const ContactUs = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className={styles.contactUs}>
-      {followUsList.map((e) => (
-        <div className={styles.followUsItem} key={e.link} onClick={() => window.open(e.link, "_blank")}>
-          <img src={e.logo} alt={e.link} width={64} height={64} />
-        </div>
-      ))}
+    <div ref={ref}>
+      <div className="section-title">
+        feel free to contact us
+      </div>
+      <div className={styles.contactUs}>
+        {followUsList.map((e) => (
+          <div className={styles.followUsItem} key={e.link} onClick={() => window.open(e.link, "_blank")}>
+            <img src={e.logo} alt={e.link} width={64} height={64} />
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+});
+
+ContactUs.displayName = 'ContactUs';
 
 export default ContactUs;
