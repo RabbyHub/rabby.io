@@ -20,6 +20,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     const [hasError, setHasError] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const [shouldHideThumbnail, setShouldHideThumbnail] = useState(false);
+    const [isShaking, setIsShaking] = useState(false);
 
     // 组件挂载后立即开始加载视频
     useEffect(() => {
@@ -71,7 +72,9 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         };
     }, []);
 
-    const handleMouseEnter = useCallback(() => {
+    const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+        setIsShaking(true);
+        
         if (videoRef.current && isVideoLoaded && !hasError) {
             videoRef.current.loop = true;
             videoRef.current.play().then(() => {
@@ -83,6 +86,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     }, [isVideoLoaded, hasError]);
 
     const handleMouseLeave = useCallback(() => {
+        setIsShaking(false);
         if (videoRef.current) {
             videoRef.current.pause();
             videoRef.current.currentTime = 0;
@@ -94,10 +98,15 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     return (
         <div
             ref={containerRef}
-            className={clsx(styles.demoCard, className)}
+            className={clsx(
+                styles.demoCard, 
+                className,
+                {
+                    [styles.shakeUpper]: isShaking
+                }
+            )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-
         >
             {thumbnail && (
                 <img 

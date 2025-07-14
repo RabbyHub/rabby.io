@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 const CardList = () => {
     const cardListExtension = [
         {
-            url: '/assets/demo/extension-1.mp4',
+            url: '/assets/demo/B.mp4',
             thumbnail: '/assets/demo/extension-1-thumb.png',
         },
         {

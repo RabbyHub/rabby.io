@@ -1,4 +1,6 @@
 import styles from './style.module.scss';
+import { useState, useCallback } from 'react';
+import clsx from 'clsx';
 
 interface CommentItem {
   url: string;
@@ -9,15 +11,28 @@ interface CommentItem {
 }
 
 const CommentCard = ({ item }: { item: CommentItem }) => {
+  const [isShaking, setIsShaking] = useState(false);
 
   const goToTweet = () => {
     window.open(item.url)?.focus();
   }
 
+  const handleMouseEnter = useCallback(() => {
+    setIsShaking(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsShaking(false);
+  }, []);
+
   return (
     <div
       onClick={goToTweet}
-      className={styles.commentItem}
+      className={clsx(styles.commentItem, {
+        [styles.shakeUpper]: isShaking
+      })}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className={styles.commentItemTop}>
         <div className={styles.commentItemTopLeft}>

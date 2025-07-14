@@ -6,7 +6,7 @@
 
 html {
   background-color: #fafbfc;
-  font-family: "Lato", sans-serif;
+  font-family: "SF Pro", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -1075,7 +1075,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .comment-title {
-  font-family: Lato;
+  font-family: "SF Pro", sans-serif;;
   font-size: 32px;
   font-weight: 700;
   line-height: 38.4px;
@@ -1160,7 +1160,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
 
   .comment-item-signature {
-    font-family: Lato;
+    font-family: "SF Pro", sans-serif;;
     font-size: 13px;
     font-weight: 400;
     line-height: 15.6px;
@@ -1169,7 +1169,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
 
   .comment-item-content {
-    font-family: Lato;
+    font-family: "SF Pro", sans-serif;;
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
@@ -1190,7 +1190,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 .comment-item-author {
   display: flex;
   align-items: center;
-  font-family: Lato;
+  font-family: "SF Pro", sans-serif;
   font-size: 15px;
   font-weight: 600;
   line-height: 18px;

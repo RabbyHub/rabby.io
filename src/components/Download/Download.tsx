@@ -3,6 +3,7 @@ import { BROWSER_DOWNLOAD_INFO, DOWNLOAD_INFO_MOBILE, DESKTOP_DOWNLOAD_INFO, MAC
 import { useState, forwardRef } from 'react';
 import { useIsSmallScreen } from '../../hooks/useIsSmallScreen';
 import { showToast } from '../../toast';
+import { QRCodeSVG } from './QRCodeSVG';
 
 const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
   const [hoverKey, setHoverKey] = useState<string | null>(null);
@@ -59,7 +60,12 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                 onMouseLeave={() => { if (!isSmallScreen) setHoverKey(null); }}
               >
                 {hoverKey === key ? (
-                  <img className={styles.downloadItemQrCode} src={value.qrCode} alt={value.title} />
+                  <QRCodeSVG 
+                    href={value.href} 
+                    icon={value.icon} 
+                    size={165} 
+                    iconSize={40}
+                  />
                 ) : (
                   renderItem(key, value)
                 )}
@@ -89,7 +95,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                         className={styles.downloadItemMacosItem}
                         onClick={() => openBrowser(macValue.href, 'desktop')}
                       >
-                        <div className={styles.downloadItemTitleMacos}>{macValue.title}</div>
+                        <div className={styles.downloadItemMacosItemTitleMacos}>{macValue.title}</div>
                       </div>
                     ))}
                   </div>

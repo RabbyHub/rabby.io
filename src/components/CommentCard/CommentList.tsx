@@ -9,12 +9,13 @@ const CommentList = ({rows = 2}) => {
     return (
       <div className={styles.commentList}>
       {groupComments.map((rowComments, rowIdx) => (
-        <div className={styles.commentRow} key={rowIdx}>
+        <div key={rowIdx}>
           <HorizontalScroll
             speed={70}
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
             infiniteLoop
             pauseOnHover={true}
+            className={styles.commentRow}
           >
             {rowComments.map((item) => (
               <CommentCard item={item} key={item.id}/>

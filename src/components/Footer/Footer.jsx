@@ -24,7 +24,7 @@ const Footer = () => {
           value: LINKS.SOCIAL.EMAIL.replace('mailto:', ''),
         },
         {
-          title: "Debank",
+          title: "Debank Hi",
           value: LINKS.SOCIAL.DEBANK,
         }
       ]

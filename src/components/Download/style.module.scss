@@ -206,7 +206,7 @@
   border-radius: 20px;
   min-width: 200px;
   .macItem {
-    padding: 20px 15px;
+    padding: 20px 12px;
     border-radius: 12px;
     background: var(--r-neutral-card1, #FFF);
     cursor: pointer;
@@ -274,6 +274,7 @@
       img {
         width: 28px;
         height: 28px;
+        margin-right: 8px;
       }
     }
     .downloadCardList {
@@ -293,14 +294,6 @@
       height: 180px;
       border-radius: 16px;
       background: var(--r-neutral-card1, #FFF);
-      img {
-        width: 72px;
-        height: 72px;
-      }
-      .downloadItemQrCode {
-        width: 165px;
-        height: 165px;
-      }
       &:hover {
         background-color: rgba(76, 101, 255, 0.10);
       }
@@ -399,7 +392,6 @@
       img {
         width: 20px!important;
         height: 20px!important;
-        margin-right: 8px;
       }
     }
     .downloadCardList {

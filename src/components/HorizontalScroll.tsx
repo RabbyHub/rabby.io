@@ -31,6 +31,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [contentWidth, setContentWidth] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragStartScrollX, setDragStartScrollX] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -147,6 +150,36 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     }
   }, [pauseOnHover]);
 
+  // 处理鼠标拖拽事件
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    setIsPaused(true);
+    setDragStartX(e.clientX);
+    const content = contentRef.current;
+    if (content) {
+      const transform = content.style.transform;
+      const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
+      setDragStartScrollX(currentX);
+    }
+  }, []);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isDragging) return;
+    
+    const deltaX = e.clientX - dragStartX;
+    const content = contentRef.current;
+    if (content) {
+      const newX = dragStartScrollX + deltaX;
+      content.style.transform = `translateX(${newX}px)`;
+    }
+  }, [isDragging, dragStartX, dragStartScrollX]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+    setIsPaused(false);
+  }, []);
+
   // 处理触摸事件
   const handleTouchStart = useCallback(() => {
     setIsPaused(true);
@@ -155,6 +188,19 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const handleTouchEnd = useCallback(() => {
     setIsPaused(false);
   }, []);
+
+  // 添加全局鼠标事件监听
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isDragging, handleMouseMove, handleMouseUp]);
 
   // 渲染子项目
   const renderChildren = useMemo(() => {
@@ -187,13 +233,17 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       ref={containerRef}
       className={className}
       style={{
-        overflow: 'hidden',
+        overflowX: 'hidden',
+        overflowY: 'visible',
         width: '100%',
         position: 'relative',
+        cursor: isDragging ? 'grabbing' : 'grab',
+        userSelect: isDragging ? 'none' : 'auto',
         ...style,
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       role="region"
@@ -205,7 +255,8 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
           display: 'inline-flex',
           whiteSpace: 'nowrap',
           willChange: 'transform',
-          transition: isPaused ? 'transform 0.3s ease-out' : 'none',
+          transition: isDragging ? 'none' : (isPaused ? 'transform 0.3s ease-out' : 'none'),
+          pointerEvents: isDragging ? 'none' : 'auto',
         }}
       >
         <div style={{ display: 'inline-flex' }}>

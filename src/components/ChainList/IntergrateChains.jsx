@@ -7,7 +7,7 @@ const IntergrateChains = ({ chains, rows = 4 }) => {
   );
 
   return (
-    <div className="chains-container">
+    <div className={styles.chainsContainer}>
       {groupChains.map((rowChains, rowIdx) => (
         <div className={styles.chainsRow} key={rowIdx}>
           <HorizontalScroll

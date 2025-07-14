@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './style.module.scss';
 import { DOWNLOAD_INFO_MOBILE } from './download-info';
 import { HoverPopup } from '../HoverPopup';
+import { QRCodeSVG } from './QRCodeSVG';
 
 export const DownloadMobileButton: React.FC<{
   className?: string;
@@ -16,7 +17,13 @@ export const DownloadMobileButton: React.FC<{
       <div className={styles.qrRow}>
         {Object.entries(DOWNLOAD_INFO_MOBILE).map(([key, info]) => (
           <div className={styles.qrItem} key={key} onClick={() => handleQRClick(info.href)}>
-            <img src={info.qrCode} alt={info.title} className={styles.qrAppIcon} width={179} height={179} />
+            <QRCodeSVG 
+              href={info.href} 
+              icon={info.icon} 
+              size={179} 
+              iconSize={48}
+              className={styles.qrAppIcon}
+            />
           </div>
         ))}
       </div>

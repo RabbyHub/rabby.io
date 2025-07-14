@@ -33,7 +33,7 @@ export const LINKS = {
   SECURITY: {
     AUDIT_SLOWMIST: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report-20241217.pdf",
     AUDIT_LEAST_AUTHORITY: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report-20241212.pdf",
-    OPEN_SOURCE: "https://rabby.io/about-us",
+    OPEN_SOURCE: "https://github.com/RabbyHub",
     TERMS_OF_USE: "/docs/terms-of-use/",
     PRIVACY_POLICY: "/docs/privacy/",
   },
@@ -50,17 +50,17 @@ export const ICONS = {
     TWITTER: "/assets/contact/x.svg",
     DISCORD: "/assets/contact/discord.svg", 
     GITHUB: "/assets/contact/github.svg",
-    EMAIL: "/assets/contact/gmail.svg",
+    EMAIL: "/assets/contact/email.svg",
     DEBANK: "/assets/contact/debank.svg",
   },
   
   DOWNLOAD: {
     CHROME: "/assets/images/chrome.svg",
-    BRAVE: "/assets/images/brave-1.png",
+    BRAVE: "/assets/images/brave.svg",
     EDGE: "/assets/images/edge.svg",
     APP_STORE: "/assets/download/app-store-origin.svg",
     GOOGLE_PLAY: "/assets/download/google-play-origin.svg",
-    MACOS: "/assets/download/apple.svg",
+    MACOS: "/assets/download/apple-origin.svg",
     WINDOWS: "/assets/download/windows-origin.svg",
   },
   

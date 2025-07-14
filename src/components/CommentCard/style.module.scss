@@ -2,7 +2,7 @@
     margin-bottom: 130px;
 }
 .commentRow {
-  margin-bottom: 24px;
+  padding: 12px 0;
 }
 .commentItem {
   width: 360px;
@@ -10,10 +10,15 @@
   border-radius: 20px;
   background: var(--r-neutral-card1, #FFF);
   padding: 20px;
-  cursor: pointer;
+  cursor: ew-resize;
   margin-right: 24px;
+  transition: transform 0.3s ease;
   &:hover {
     background-color: rgba(76, 101, 255, 0.10);
+  }
+  
+  &.shakeUpper {
+    animation: shakeUpper 0.5s ease-in-out both;
   }
 }
 .commentItemTop {
@@ -55,6 +60,18 @@
     line-height: 140%;
     white-space: break-spaces;
 }
+@keyframes shakeUpper {
+  0% { 
+    transform: scale(1.01) translateY(0); 
+  }
+  50% { 
+    transform: scale(1.01) translateY(-4px); 
+  }
+  100% { 
+    transform: scale(1.01) translateY(0); 
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .commentList {
     margin-bottom: 60px;

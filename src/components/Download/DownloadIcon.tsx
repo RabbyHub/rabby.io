@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import { DownloadType, DOWNLOAD_INFO_MOBILE, MACOS_DOWNLOAD_INFO } from './download-info';
 import { HoverPopup } from '../HoverPopup';
 import { showToast } from '../../toast';
+import { QRCodeSVG } from './QRCodeSVG';
 
 export interface DownloadIconProps {
   infoKey: string;
@@ -78,18 +79,18 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   }
 
   if (type === DownloadType.APP) {
-    const qrImg = DOWNLOAD_INFO_MOBILE[infoKey as keyof typeof DOWNLOAD_INFO_MOBILE].qrCode;
+    const appInfo = DOWNLOAD_INFO_MOBILE[infoKey as keyof typeof DOWNLOAD_INFO_MOBILE];
     return (
       <HoverPopup
         popup={
-          qrImg ? (
+          appInfo ? (
             <div className={styles.qrImgWrapper}>
-              <img
-                width={185}
-                height={185}
+              <QRCodeSVG
+                href={appInfo.href}
+                icon={appInfo.icon}
+                size={185}
+                iconSize={48}
                 className={styles.qrImg}
-                src={qrImg}
-                alt={title}
               />
               <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.qrArrow}/>
             </div>
