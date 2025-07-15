@@ -1,0 +1,72 @@
+.horizontalScroll {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  cursor: grab;
+  user-select: auto;
+  touch-action: pan-x; // 只允许水平滑动，不影响垂直滚动
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &.dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    cursor: default;
+    touch-action: auto; // 恢复默认触摸行为
+    
+    &:hover {
+      cursor: default;
+    }
+    
+    &.dragging {
+      cursor: default;
+      user-select: auto;
+    }
+  }
+}
+
+.content {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  
+  &.dragging,
+  &.touching,
+  &.trackpadScrolling {
+    transition: none;
+    pointer-events: none;
+  }
+  
+  &.paused {
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.item {
+  display: inline-flex;
+  cursor: default;
+  
+  &.clickable {
+    cursor: pointer;
+  }
+  
+  &:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+  }
+  
+  // 小屏幕去掉hover效果
+  @media screen and (max-width: 1024px) {
+    cursor: default;
+    
+    &.clickable {
+      cursor: default;
+    }
+  }
+} 

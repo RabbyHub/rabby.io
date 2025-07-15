@@ -1,4 +1,4 @@
-import { HorizontalScroll } from "../HorizontalScroll";
+import { HorizontalScroll } from "../HorizontalScroll/HorizontalScroll";
 import { DemoCard } from "./CardItem";
 import styles from './style.module.scss';
 

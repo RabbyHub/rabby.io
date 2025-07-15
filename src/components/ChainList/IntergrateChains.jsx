@@ -1,4 +1,4 @@
-import { HorizontalScroll } from '../HorizontalScroll';
+import { HorizontalScroll } from '../HorizontalScroll/HorizontalScroll';
 import styles from './style.module.scss';
 const IntergrateChains = ({ chains, rows = 4 }) => {
   // 平均分组

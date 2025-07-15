@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import styles from './style.module.scss';
+import { useIsSmallScreen } from '../../hooks/useIsSmallScreen';
 
 interface HorizontalScrollProps {
   children: React.ReactNode;
@@ -39,7 +41,8 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [isTouching, setIsTouching] = useState(false);
   const [isTrackpadScrolling, setIsTrackpadScrolling] = useState(false);
   const trackpadScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
-  
+  const isSmallScreen = useIsSmallScreen();
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -126,7 +129,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     };
     animationFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTouching, isTrackpadScrolling]);
+  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTouching, isTrackpadScrolling, isSmallScreen]);
 
   // 启动动画
   useEffect(() => {
@@ -165,6 +168,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理鼠标拖拽事件
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    // 小屏幕禁用拖拽
+    if (isSmallScreen) return;
+    
     e.preventDefault();
     setIsDragging(true);
     setIsPaused(true);
@@ -175,7 +181,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
       setDragStartScrollX(currentX);
     }
-  }, []);
+  }, [isSmallScreen]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
@@ -195,6 +201,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理触控板滑动事件
   const handleWheel = useCallback((e: React.WheelEvent) => {
+    // 小屏幕禁用触控板滑动
+    if (isSmallScreen) return;
+    
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
@@ -225,7 +234,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }, 500);
       }
     }
-  }, []);
+  }, [isSmallScreen]);
 
 
 
@@ -248,11 +257,22 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     return childrenArray.map((child, index) => (
       <div
         key={`item-${index}`}
-        style={{ 
-          display: 'inline-flex',
-          cursor: onItemClick ? 'pointer' : 'default'
-        }}
+        className={clsx(styles.item, {
+          [styles.clickable]: onItemClick
+        })}
         onClick={() => handleItemClick(index)}
+        onMouseEnter={() => {
+          // 小屏幕hover时暂停轮播
+          if (isSmallScreen && pauseOnHover) {
+            setIsPaused(true);
+          }
+        }}
+        onMouseLeave={() => {
+          // 小屏幕离开时恢复轮播
+          if (isSmallScreen && pauseOnHover) {
+            setIsPaused(false);
+          }
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -266,26 +286,22 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         {child}
       </div>
     ));
-  }, [children, onItemClick, handleItemClick]);
+  }, [children, onItemClick, handleItemClick, isSmallScreen, pauseOnHover]);
 
   return (
     <div
       ref={containerRef}
-      className={className}
-      style={{
-        overflowX: 'hidden',
-        overflowY: 'hidden',
-        width: '100%',
-        position: 'relative',
-        cursor: isDragging ? 'grabbing' : 'grab',
-        userSelect: isDragging ? 'none' : 'auto',
-        touchAction: 'pan-x', // 只允许水平滑动，不影响垂直滚动
-        ...style,
-      }}
+      className={clsx(styles.horizontalScroll, className, {
+        [styles.dragging]: isDragging
+      })}
+      style={style}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
       onTouchStart={(e) => {
+        // 小屏幕禁用触摸滑动
+        if (isSmallScreen) return;
+        
         e.preventDefault();
         e.stopPropagation();
         setIsPaused(true);
@@ -299,6 +315,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }
       }}
       onTouchMove={(e) => {
+        // 小屏幕禁用触摸滑动
+        if (isSmallScreen) return;
+        
         if (isTouching && e.touches.length > 0) {
           e.preventDefault();
           e.stopPropagation();
@@ -311,6 +330,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }
       }}
       onTouchEnd={() => {
+        // 小屏幕禁用触摸滑动
+        if (isSmallScreen) return;
+        
         setIsPaused(false);
         setIsTouching(false);
       }}
@@ -320,13 +342,12 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     >
       <div
         ref={contentRef}
-        style={{
-          display: 'inline-flex',
-          whiteSpace: 'nowrap',
-          willChange: 'transform',
-          transition: isDragging || isTouching || isTrackpadScrolling ? 'none' : (isPaused ? 'transform 0.3s ease-out' : 'none'),
-          pointerEvents: isDragging || isTouching ? 'none' : 'auto',
-        }}
+        className={clsx(styles.content, {
+          [styles.dragging]: isDragging,
+          [styles.touching]: isTouching,
+          [styles.trackpadScrolling]: isTrackpadScrolling,
+          [styles.paused]: isPaused
+        })}
       >
         <div style={{ display: 'inline-flex' }}>
           {renderChildren}

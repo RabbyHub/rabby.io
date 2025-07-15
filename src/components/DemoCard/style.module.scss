@@ -74,6 +74,19 @@
     &.shakeUpper {
       animation: shakeUpper 0.8s ease-in-out both;
     }
+    
+    // 小屏幕去掉hover效果
+    @media screen and (max-width: 1024px) {
+      &:hover {
+        transform: none;
+        cursor: default;
+        z-index: 1;
+      }
+      
+      &.shakeUpper {
+        animation: none;
+      }
+    }
 }
 
 @keyframes spin {
@@ -104,7 +117,7 @@
 .mobileCard {
   width: 400px;
   height: 749px;
-  padding: 48px 34px 34px 34px;
+  padding: 48px 20px 34px 20px;
 }
 @media screen and (max-width: 1024px) {
   .demoCard {

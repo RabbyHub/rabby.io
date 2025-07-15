@@ -1,4 +1,4 @@
-import { HorizontalScroll } from "../HorizontalScroll";
+import { HorizontalScroll } from "../HorizontalScroll/HorizontalScroll";
 import CommentCard from "./CommentCard";
 import { COMMENT_RAW_ARRS } from "./constant";
 import styles from './style.module.scss';
