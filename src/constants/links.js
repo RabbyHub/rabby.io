@@ -26,7 +26,7 @@ export const LINKS = {
     HELP_CENTER: "https://support.rabby.io",
     RABBY_KIT: "https://rabbykit.rabby.io/",
     INTEGRATION_DOC: "/docs/integrating-rabby-wallet/",
-    CHAIN_DASHBOARD: "/page/chain-dashboard",
+    CHAIN_DASHBOARD: "/chain-dashboard",
   },
 
   // 安全相关链接
@@ -47,17 +47,17 @@ export const LINKS = {
 // 图标资源路径
 export const ICONS = {
   SOCIAL: {
-    TWITTER: "/assets/contact/x.svg",
-    DISCORD: "/assets/contact/discord.svg", 
-    GITHUB: "/assets/contact/github.svg",
+    TWITTER: "/assets/contact/x-new.svg",
+    DISCORD: "/assets/contact/discord-new.svg", 
+    GITHUB: "/assets/contact/github-new.svg",
     EMAIL: "/assets/contact/email.svg",
     DEBANK: "/assets/contact/debank.svg",
   },
   
   DOWNLOAD: {
-    CHROME: "/assets/images/chrome.svg",
+    CHROME: "/assets/images/chrome-new.svg",
     BRAVE: "/assets/images/brave.svg",
-    EDGE: "/assets/images/edge.svg",
+    EDGE: "/assets/images/edge-new.svg",
     APP_STORE: "/assets/download/app-store-origin.svg",
     GOOGLE_PLAY: "/assets/download/google-play-origin.svg",
     MACOS: "/assets/download/apple-origin.svg",

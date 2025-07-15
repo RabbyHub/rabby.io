@@ -9,7 +9,7 @@ const CardList = () => {
             thumbnail: 'https://static-assets.rabby.io/files/80a81992-2394-4405-81be-afce56c4ba93.png',
         },
         {
-            url: 'https://static-assets.rabby.io/files/20c67fe2-2644-45f5-a91e-4d6f0e4a8f0c.mp4',
+            url: 'https://static-assets.rabby.io/files/0010b762-8b4c-426f-a044-3d63ec462673.mp4',
             thumbnail: 'https://static-assets.rabby.io/files/042b7d5b-926a-43ec-80b1-6dc5186bc016.png',
         },
         {

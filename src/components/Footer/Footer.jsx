@@ -12,7 +12,7 @@ const Footer = () => {
           value: LINKS.SOCIAL.TWITTER,
         },
         {
-          title: "Github",
+          title: "GitHub",
           value: LINKS.SOCIAL.GITHUB,
         },
         {
@@ -24,7 +24,7 @@ const Footer = () => {
           value: LINKS.SOCIAL.EMAIL.replace('mailto:', ''),
         },
         {
-          title: "Debank Hi",
+          title: "DeBank Hi",
           value: LINKS.SOCIAL.DEBANK,
         }
       ]
@@ -66,7 +66,7 @@ const Footer = () => {
           value: LINKS.SUPPORT.RABBY_KIT,
         },
         {
-          title: "Integrated Doc",
+          title: "Integration Doc",
           value: LINKS.SUPPORT.INTEGRATION_DOC,
         },
         {
@@ -76,19 +76,19 @@ const Footer = () => {
       ]
     },
     {
-      sectionTitle: "Security",
+      sectionTitle: "Security & Transparency",
       items: [
         {
-          title: "Audit by SlowMist",
+          title: "Fully Open Source on GitHub",
+          value: LINKS.SECURITY.OPEN_SOURCE,
+        },
+        {
+          title: "Audited by SlowMist",
           value: LINKS.SECURITY.AUDIT_SLOWMIST,
         },
         {
-          title: "Audit by Least Authority",
+          title: "Audited by Least Authority",
           value: LINKS.SECURITY.AUDIT_LEAST_AUTHORITY,
-        },
-        {
-          title: "Open Source",
-          value: LINKS.SECURITY.OPEN_SOURCE,
         },
         {
           title: "Terms of Use",
@@ -105,7 +105,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerLogo}>
-        <img src="/assets/images/logo-white.svg" alt="rabby" />
+        <img src="/assets/images/logo-new.svg" alt="rabby" />
         <div className={styles.footerLogoText}>© 2025 rabby.io All rights reserved.</div>
       </div>
       <div className={styles.footerList}>

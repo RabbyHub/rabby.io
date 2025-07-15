@@ -18,9 +18,11 @@
     display: block;
     width: 32px;
     height: 32px;
+    border-radius: 50%;
+    border: 1px solid #fff;
   }
   div {
-    margin-left: 4px;
+    margin-left: 12px;
     font-size: 20px;
   }
   &:hover {
@@ -60,6 +62,7 @@
 .mobileTitle {
   font-weight: 500;
   font-size: 20px;
+  margin-left: 12px;
   line-height: normal;
 }
 .mobileButtonWithQR {

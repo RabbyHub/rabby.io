@@ -48,7 +48,7 @@ export const DownloadButton: React.FC<Props> = ({
         {...props}
       >
         <img src={icon} alt={title} />
-        <div>{title}</div>
+        <div className={styles.browserButtonTitle}>{title}</div>
       </button>
     </a>
   );

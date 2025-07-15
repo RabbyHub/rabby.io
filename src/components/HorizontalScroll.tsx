@@ -34,6 +34,12 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragStartScrollX, setDragStartScrollX] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchStartScrollX, setTouchStartScrollX] = useState(0);
+  const [isTouching, setIsTouching] = useState(false);
+  const [isTrackpadScrolling, setIsTrackpadScrolling] = useState(false);
+  const trackpadScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,14 +69,12 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     }
   }, [infiniteLoop]);
 
-  // 响应式处理
   useEffect(() => {
     if (!responsive) return;
     
     const handleResize = () => {
       calculateContentWidth();
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [responsive, calculateContentWidth]);
@@ -100,7 +104,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const animate = useCallback(() => {
     const container = containerRef.current;
     const content = contentRef.current;
-    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0) return;
+    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0 || isTouching || isTrackpadScrolling) return;
 
     let animationFrame: number;
     let pos = parseFloat(content.style.transform.replace('translateX(', '').replace('px)', '') || '0');
@@ -122,13 +126,22 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     };
     animationFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible]);
+  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTouching, isTrackpadScrolling]);
 
   // 启动动画
   useEffect(() => {
     const cleanup = animate();
     return cleanup;
   }, [animate]);
+
+  // 清理定时器
+  useEffect(() => {
+    return () => {
+      if (trackpadScrollTimerRef.current) {
+        clearTimeout(trackpadScrollTimerRef.current);
+      }
+    };
+  }, []);
 
   // 处理点击事件
   const handleItemClick = useCallback((index: number) => {
@@ -180,14 +193,41 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     setIsPaused(false);
   }, []);
 
-  // 处理触摸事件
-  const handleTouchStart = useCallback(() => {
-    setIsPaused(true);
+  // 处理触控板滑动事件
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    // 检测是否为水平滚动（触控板左右滑动）
+    // deltaX 表示水平滚动，deltaY 表示垂直滚动
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+      console.log('Trackpad scroll detected:', { deltaX: e.deltaX, deltaY: e.deltaY });
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const content = contentRef.current;
+      if (content) {
+        const currentTransform = content.style.transform;
+        const currentX = parseFloat(currentTransform.replace('translateX(', '').replace('px)', '') || '0');
+        const newX = currentX - e.deltaX;
+        content.style.transform = `translateX(${newX}px)`;
+        
+        // 暂停自动滚动
+        setIsPaused(true);
+        setIsTrackpadScrolling(true);
+        
+        // 清除之前的定时器
+        if (trackpadScrollTimerRef.current) {
+          clearTimeout(trackpadScrollTimerRef.current);
+        }
+        
+        // 500ms后恢复自动滚动
+        trackpadScrollTimerRef.current = setTimeout(() => {
+          setIsPaused(false);
+          setIsTrackpadScrolling(false);
+        }, 500);
+      }
+    }
   }, []);
 
-  const handleTouchEnd = useCallback(() => {
-    setIsPaused(false);
-  }, []);
+
 
   // 添加全局鼠标事件监听
   useEffect(() => {
@@ -234,18 +274,47 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       className={className}
       style={{
         overflowX: 'hidden',
-        overflowY: 'visible',
+        overflowY: 'hidden',
         width: '100%',
         position: 'relative',
         cursor: isDragging ? 'grabbing' : 'grab',
         userSelect: isDragging ? 'none' : 'auto',
+        touchAction: 'pan-x', // 只允许水平滑动，不影响垂直滚动
         ...style,
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      onTouchStart={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsPaused(true);
+        setIsTouching(true);
+        setTouchStartX(e.touches[0].clientX);
+        const content = contentRef.current;
+        if (content) {
+          const transform = content.style.transform;
+          const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
+          setTouchStartScrollX(currentX);
+        }
+      }}
+      onTouchMove={(e) => {
+        if (isTouching && e.touches.length > 0) {
+          e.preventDefault();
+          e.stopPropagation();
+          const deltaX = e.touches[0].clientX - touchStartX;
+          const content = contentRef.current;
+          if (content) {
+            const newX = touchStartScrollX + deltaX;
+            content.style.transform = `translateX(${newX}px)`;
+          }
+        }
+      }}
+      onTouchEnd={() => {
+        setIsPaused(false);
+        setIsTouching(false);
+      }}
+      onWheel={handleWheel}
       role="region"
       aria-label="Horizontal scrolling content"
     >
@@ -255,8 +324,8 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
           display: 'inline-flex',
           whiteSpace: 'nowrap',
           willChange: 'transform',
-          transition: isDragging ? 'none' : (isPaused ? 'transform 0.3s ease-out' : 'none'),
-          pointerEvents: isDragging ? 'none' : 'auto',
+          transition: isDragging || isTouching || isTrackpadScrolling ? 'none' : (isPaused ? 'transform 0.3s ease-out' : 'none'),
+          pointerEvents: isDragging || isTouching ? 'none' : 'auto',
         }}
       >
         <div style={{ display: 'inline-flex' }}>

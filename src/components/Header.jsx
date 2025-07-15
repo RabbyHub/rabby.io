@@ -41,7 +41,7 @@ const Header = ({ onDownloadClick, onContactClick }) => {
     <header>
       <div className="nav">
         <div className="nav-left">
-          <img src="/assets/images/logo-white.svg" alt="Rabby" className="logo" />
+          <img src="/assets/images/logo-new.svg" alt="Rabby" className="logo" />
           <ul className="menu">
             {menuLinks.map((link) => (
               <li key={link.href}>

@@ -21,6 +21,20 @@
     animation: shakeUpper 0.5s ease-in-out both;
   }
 }
+.commentRedirect {
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  
+  img {
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
 .commentItemTop {
     display: flex;
     justify-content: space-between;

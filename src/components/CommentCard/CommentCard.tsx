@@ -27,12 +27,19 @@ const CommentCard = ({ item }: { item: CommentItem }) => {
 
   return (
     <div
-      onClick={goToTweet}
       className={clsx(styles.commentItem, {
         [styles.shakeUpper]: isShaking
       })}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onMouseDown={(e) => {
+        // 如果点击的是跳转按钮，不阻止事件
+        if (e.target === e.currentTarget || !(e.target as HTMLElement).closest(`.${styles.commentRedirect}`)) {
+          // 只有点击非跳转区域时才允许拖拽
+          return;
+        }
+        e.stopPropagation();
+      }}
     >
       <div className={styles.commentItemTop}>
         <div className={styles.commentItemTopLeft}>
@@ -54,7 +61,15 @@ const CommentCard = ({ item }: { item: CommentItem }) => {
             </div>
         </div>
         <div className={styles.commentRedirect}>
-          <img src="/assets/images/redirect.svg" alt="redirect"/>  
+          <img 
+            src="/assets/images/redirect.svg" 
+            alt="redirect" 
+            onClick={(e) => {
+              e.stopPropagation();
+              goToTweet();
+            }}
+            onMouseDown={(e) => e.stopPropagation()}
+          />  
         </div>
       </div>
       <div className={styles.commentItemContent}>

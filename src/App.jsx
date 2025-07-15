@@ -28,11 +28,11 @@ function App() {
         <Header onDownloadClick={handleClickDownload} onContactClick={handleClickContact} />
       </div>
       <div className="section-title">
-        Simple, Fast, secure Everything on chain
+        Simple, Fast, Secure, Everything On-Chain
       </div>
       <CardList />
       <div className="section-title">
-        Best choice for all EVM Chains
+        Best Choice for All EVM Chains
       </div>
       <IntergrateChains chains={chains} rows={4}/>
       <div className="section-title">
@@ -41,7 +41,7 @@ function App() {
           src="/assets/images/twitter.svg"
           alt="twitter"
         />
-        <div>Widely acclaimed​ from Professional</div>
+        <div>Chosen, Used, Recommended — Across Web3</div>
       </div>
       <CommentList rows={2} />
       <Download ref={downloadRef} />

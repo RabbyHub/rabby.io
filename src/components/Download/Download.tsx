@@ -34,10 +34,10 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
 
   return (
     <div ref={ref} className={styles.download}>
-      <div className={styles.downloadTitle}>Download and get started</div>
+      <div className={styles.downloadTitle}>Get Started with Rabby Wallet</div>
       <div className={styles.section}>
         <div className={styles.sectionTitle}>
-          <img src="/assets/download/extension.svg" alt="Extension" />
+          <img src="/assets/download/extension-new.svg" alt="Extension" />
           Extension
         </div>
         <div className={styles.downloadCardList}>

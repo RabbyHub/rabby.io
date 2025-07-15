@@ -3,18 +3,18 @@
 }
 .demoCard {
     display: flex;
-    width: 480px;
-    height: 720px;
+    width: 400px;
+    height: 600px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    padding: 20px;
+    padding: 48px 20px 34px 20px;
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
     user-select: none;
-    
+    margin-right: 20px; // 添加卡片间距
     video {
       width: 100%;
       height: 100%;
@@ -23,7 +23,7 @@
       z-index: 2;
       position: relative;
       opacity: 1;
-      
+      clip-path: inset(1px round 20px);
       &.hidden {
         opacity: 0;
       }
@@ -31,10 +31,10 @@
     
     .thumbnail {
       position: absolute;
-      top: 20px;
+      top: 48px;
       left: 20px;
       width: calc(100% - 40px);
-      height: calc(100% - 40px);
+      height: calc(100% - 82px);
       object-fit: cover;
       border-radius: 20px;
       z-index: 1;
@@ -66,12 +66,13 @@
 
     
     &:hover {
-      transform: scale(1.01);
+      transform: scale(1.1);
       cursor: ew-resize;
+      z-index: 10;
     }
     
     &.shakeUpper {
-      animation: shakeUpper 0.4s ease-in-out both;
+      animation: shakeUpper 0.8s ease-in-out both;
     }
 }
 
@@ -82,21 +83,28 @@
 
 @keyframes shakeUpper {
   0% { 
-    transform: scale(1.01) translateY(0); 
+    transform: scale(1.1) translateY(0); 
+  }
+  20% { 
+    transform: scale(1.1) translateY(-15px); 
   }
   50% { 
-    transform: scale(1.01) translateY(-8px); 
+    transform: scale(1.1) translateY(0); 
+  }
+  75% { 
+    transform: scale(1.1) translateY(-5px); 
   }
   100% { 
-    transform: scale(1.01) translateY(0); 
+    transform: scale(1.1) translateY(0); 
   }
 }
 
 
 
 .mobileCard {
-  width: 470px;
-  height: 880px;
+  width: 400px;
+  height: 749px;
+  padding: 48px 34px 34px 34px;
 }
 @media screen and (max-width: 1024px) {
   .demoCard {
@@ -105,7 +113,7 @@
   }
   .mobileCard {
     width: 370px;
-    height: 644px;
+    height: 693px;
   }
   .cardList {
     padding-bottom: 63px;

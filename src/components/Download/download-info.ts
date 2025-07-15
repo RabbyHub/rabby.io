@@ -107,13 +107,13 @@ export const DOWNLOAD_INFO = {
     },
     macos: {
       title: "Mac",
-      icon: "/assets/download/apple.svg",
+      icon: "/assets/download/apple-new.svg",
       href: LINKS.DOWNLOAD.MACOS_INTEL,
       type: DownloadType.DESKTOP
     },
     windows: {
       title: "Windows",
-      icon: "/assets/download/windows.svg",
+      icon: "/assets/download/windows-new.svg",
       href: LINKS.DOWNLOAD.WINDOWS,
       type: DownloadType.DESKTOP
     }

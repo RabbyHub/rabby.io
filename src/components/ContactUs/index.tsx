@@ -29,7 +29,7 @@ const ContactUs = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div ref={ref}>
       <div className="section-title">
-        feel free to contact us
+        Find Us Here
       </div>
       <div className={styles.contactUs}>
         {followUsList.map((e) => (
