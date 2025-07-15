@@ -155,7 +155,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 />
             )}
             
-            {isVideoLoading && (
+            {isVideoLoading && isShaking && (
                 <div className={styles.loadingIndicator}>
                     <div className={styles.spinner}></div>
                 </div>
