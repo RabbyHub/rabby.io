@@ -155,16 +155,16 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理鼠标事件
   const handleMouseEnter = useCallback(() => {
-    if (pauseOnHover) {
+    if (pauseOnHover && !isSmallScreen) {
       setIsPaused(true);
     }
-  }, [pauseOnHover]);
+  }, [pauseOnHover, isSmallScreen]);
 
   const handleMouseLeave = useCallback(() => {
-    if (pauseOnHover) {
+    if (pauseOnHover && !isSmallScreen) {
       setIsPaused(false);
     }
-  }, [pauseOnHover]);
+  }, [pauseOnHover, isSmallScreen]);
 
   // 处理鼠标拖拽事件
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -260,19 +260,18 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         className={clsx(styles.item, {
           [styles.clickable]: onItemClick
         })}
-        onClick={() => handleItemClick(index)}
-        onMouseEnter={() => {
-          // 小屏幕hover时暂停轮播
+        onClick={() => {
+          // 小屏幕点击时暂停轮播
           if (isSmallScreen && pauseOnHover) {
             setIsPaused(true);
+            // 3秒后自动恢复轮播
+            setTimeout(() => {
+              setIsPaused(false);
+            }, 3000);
           }
+          handleItemClick(index);
         }}
-        onMouseLeave={() => {
-          // 小屏幕离开时恢复轮播
-          if (isSmallScreen && pauseOnHover) {
-            setIsPaused(false);
-          }
-        }}
+
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();

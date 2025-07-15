@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import styles from './style.module.scss';
 import React, { useRef, useCallback, useState, useEffect } from 'react';
+import { useIsSmallScreen } from '../../hooks/useIsSmallScreen';
 
 interface DemoCardProps {
     url: string;
@@ -21,6 +22,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     const [isPlaying, setIsPlaying] = useState(false);
     const [shouldHideThumbnail, setShouldHideThumbnail] = useState(false);
     const [isShaking, setIsShaking] = useState(false);
+    const isSmallScreen = useIsSmallScreen();
 
     // 组件挂载后立即开始加载视频
     useEffect(() => {
@@ -73,6 +75,9 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     }, []);
 
     const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+        // 小屏幕禁用hover效果
+        if (isSmallScreen) return;
+        
         setIsShaking(true);
         
         if (videoRef.current && isVideoLoaded && !hasError) {
@@ -83,9 +88,12 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 console.error('Video play error:', error);
             });
         }
-    }, [isVideoLoaded, hasError]);
+    }, [isVideoLoaded, hasError, isSmallScreen]);
 
     const handleMouseLeave = useCallback(() => {
+        // 小屏幕禁用hover效果
+        if (isSmallScreen) return;
+        
         setIsShaking(false);
         if (videoRef.current) {
             videoRef.current.pause();
@@ -93,7 +101,28 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             videoRef.current.loop = false;
             setIsPlaying(false);
         }
-    }, []);
+    }, [isSmallScreen]);
+
+    const handleClick = useCallback(() => {
+        // 小屏幕点击时播放视频
+        if (isSmallScreen && videoRef.current && isVideoLoaded && !hasError) {
+            if (isPlaying) {
+                // 如果正在播放，则停止
+                videoRef.current.pause();
+                videoRef.current.currentTime = 0;
+                videoRef.current.loop = false;
+                setIsPlaying(false);
+            } else {
+                // 如果未播放，则开始播放
+                videoRef.current.loop = true;
+                videoRef.current.play().then(() => {
+                    setIsPlaying(true);
+                }).catch((error) => {
+                    console.error('Video play error:', error);
+                });
+            }
+        }
+    }, [isVideoLoaded, hasError, isPlaying, isSmallScreen]);
 
     return (
         <div
@@ -107,6 +136,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
         >
             {thumbnail && (
                 <img 
