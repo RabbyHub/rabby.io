@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
-import { LINKS } from "../../constants/links";
+import { LINKS, EMAIL_LIST } from "../../constants/links";
+import { HoverPopup } from "../HoverPopup";
 
 const Footer = () => {
   const footerList = [
@@ -20,8 +21,7 @@ const Footer = () => {
           value: LINKS.SOCIAL.DISCORD,
         },
         {
-          title: "Email",
-          value: LINKS.SOCIAL.EMAIL.replace('mailto:', ''),
+          title: "Email"
         },
         {
           title: "DeBank Hi",
@@ -114,9 +114,29 @@ const Footer = () => {
             <div className={styles.footerItemTitle}>{item.sectionTitle}</div>
             <div>
               {item.items.map((item) => (
-                <div className={styles.footerItemList} key={item.title}>
-                  <a href={item.value} target="_blank" rel="noreferrer">{item.title}</a>
-                </div>
+                item.title === 'Email' ? (
+                  <HoverPopup
+                    children={
+                      <div className={styles.footerItemList} key={item.title}>
+                        <a target="_blank" rel="noreferrer">{item.title}</a>
+                      </div>
+                    }
+                    popup={
+                      <div className={styles.emailPopupContainer}>
+                        <div className={styles.emailPopup}>
+                          {EMAIL_LIST.map((email) => (
+                            <a key={email.name} href={email.link} target="_blank" rel="noreferrer">{email.name}</a>
+                          ))}
+                        </div>
+                        <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.emailPopupArrow}/>
+                      </div>
+                    }
+                  />
+                ) : (
+                  <div className={styles.footerItemList} key={item.title}>
+                    <a href={item.value} target="_blank" rel="noreferrer">{item.title}</a>
+                  </div>
+                )
               ))}
             </div>
           </div>

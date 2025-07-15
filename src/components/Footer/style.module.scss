@@ -4,6 +4,42 @@
     max-width: 1440px;
     padding: 40px 80px 80px 80px;
     margin: 0 auto;
+    .emailPopupContainer {
+      position: relative;
+      .emailPopup {
+        position: absolute;
+        top: -24px;
+        left: 40px;
+        width: 200px;
+        height: 120px;
+        background-color: #DEE3FF;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        a {
+            border-radius: 12px;
+            padding: 15px;
+            color: var(--r-blue-primary, #4C65FF);
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            background-color: var(--r-neutral-card1, #FFF);
+            margin-bottom: 8px;
+            z-index: 1;
+            &:hover {
+                background-color: #4C65FF33;
+            }
+        }
+      }
+    }
+    .emailPopupArrow {
+      position: absolute;
+      rotate: 90deg;
+      top: 20px;
+      left: 30px;
+    }
     .footerLogo {
         margin-right: 92px;
         .footerLogoText {

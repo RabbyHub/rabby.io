@@ -69,3 +69,14 @@ export const ICONS = {
     GOOGLE_PLAY: "/assets/download/google-play-qr.png",
   }
 }; 
+
+export const EMAIL_LIST = [
+  {
+    name: 'support@rabby.io',
+    link: 'mailto:support@rabby.io',
+  },
+  {
+    name: 'bd@rabby.io',
+    link: 'mailto:bd@rabby.io',
+  }
+]

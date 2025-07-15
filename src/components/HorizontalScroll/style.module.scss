@@ -60,11 +60,6 @@
     cursor: pointer;
   }
   
-  &:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-  }
-  
   // 小屏幕去掉hover效果
   @media screen and (max-width: 1024px) {
     cursor: default;

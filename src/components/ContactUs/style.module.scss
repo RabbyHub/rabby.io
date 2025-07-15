@@ -6,6 +6,30 @@
     max-width: 1440px;
     margin: 0 auto;
     border-bottom:1px solid var(--r-blue-disable, #DBE0FF);
+    .emailLogo {
+      display: block;
+      margin-right: 12px;
+    }
+    .emailListText {
+      display: none;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      background-color: var(--r-neutral-card1, #FFF);
+      a {
+        color: var(--r-blue-primary, #4C65FF);
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 15px;
+        text-decoration: none;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        &:hover {
+          background: rgba(76, 101, 255, 0.20);
+        }
+      }
+    }
     .followUsItem {
         display: flex;
         width: 236px;
@@ -22,7 +46,26 @@
         &:hover {
             cursor: pointer;
             background: rgba(76, 101, 255, 0.10);
+            .emailLogo {
+              display: none;
+            }
+            .emailList {
+              display: flex;
+            }
         }
+    }
+    .emailList {
+      background-color: var(--r-neutral-card1, #FFF);
+      padding: 8px;
+      &:hover {
+        background-color: var(--r-neutral-card1, #FFF);
+        .emailLogo {
+          display: none;
+        }
+        .emailListText {
+          display: flex;
+        }
+      }
     }
 }
 @media screen and (max-width: 1024px) {
