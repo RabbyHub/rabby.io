@@ -38,6 +38,16 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 setTimeout(() => {
                     setShouldHideThumbnail(true);
                 }, 100);
+                
+                // 小屏幕默认自动播放
+                if (isSmallScreen && videoRef.current && !hasError) {
+                    videoRef.current.loop = true;
+                    videoRef.current.play().then(() => {
+                        setIsPlaying(true);
+                    }).catch((error) => {
+                        console.error('Video auto play error:', error);
+                    });
+                }
             };
 
             const handleError = () => {
@@ -61,7 +71,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 }
             };
         }
-    }, [isVideoLoaded]);
+    }, [isVideoLoaded, isSmallScreen, hasError]);
 
     // 组件卸载时清理资源
     useEffect(() => {

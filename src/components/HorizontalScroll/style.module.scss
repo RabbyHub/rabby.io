@@ -18,7 +18,7 @@
 
   @media screen and (max-width: 1024px) {
     cursor: default;
-    touch-action: auto; // 恢复默认触摸行为
+    touch-action: pan-x;
     
     &:hover {
       cursor: default;

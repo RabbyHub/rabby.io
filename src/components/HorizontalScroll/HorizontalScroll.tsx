@@ -189,9 +189,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理鼠标拖拽事件
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    // 小屏幕禁用拖拽
-    if (isSmallScreen) return;
-    
     e.preventDefault();
     setIsDragging(true);
     setIsPaused(true);
@@ -202,7 +199,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
       setDragStartScrollX(currentX);
     }
-  }, [isSmallScreen]);
+  }, []);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
@@ -222,9 +219,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理触控板滑动事件
   const handleWheel = useCallback((e: React.WheelEvent) => {
-    // 小屏幕禁用触控板滑动
-    if (isSmallScreen) return;
-    
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
@@ -255,7 +249,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }, 500);
       }
     }
-  }, [isSmallScreen]);
+  }, []);
 
 
 
@@ -288,15 +282,15 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
           key={`item-${index}`}
           className={clsx(styles.item, {
             [styles.clickable]: onItemClick,
-            [styles.animate]: isInView && enableAnimation
+            [styles.animate]: isInView && enableAnimation && !isSmallScreen
           })}
           style={{
-            animationDelay: (isInView && enableAnimation) ? `${0.3 + index * 0.05}s` : '0s',
-            transform: enableAnimation ? `translateX(calc(-50% + ${index * 30}px))` : undefined,
+            animationDelay: (isInView && enableAnimation && !isSmallScreen) ? `${0.3 + index * 0.05}s` : '0s',
+            transform: (enableAnimation && !isSmallScreen) ? `translateX(calc(-50% + ${index * 30}px))` : undefined,
             '--final-position': `${finalTranslateX}px`,
             '--initial-offset': `${index * 30}px`,
-            opacity: enableAnimation ? (isInView ? 1 : 0) : 1, // 动画前隐藏，动画时显示
-            zIndex: enableAnimation ? (totalItems - index) : undefined // 最左边的卡片层级最高
+            opacity: (enableAnimation && !isSmallScreen) ? (isInView ? 1 : 0) : 1, // 小屏幕不展示动画
+            zIndex: (enableAnimation && !isSmallScreen) ? (totalItems - index) : undefined // 小屏幕不设置层级
           } as React.CSSProperties}
           data-debug={`index:${index}, finalTranslateX:${finalTranslateX}, enableAnimation:${enableAnimation}`}
           onClick={() => {
@@ -338,9 +332,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
       onTouchStart={(e) => {
-        // 小屏幕禁用触摸滑动
-        if (isSmallScreen) return;
-        
         e.preventDefault();
         e.stopPropagation();
         setIsPaused(true);
@@ -354,9 +345,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }
       }}
       onTouchMove={(e) => {
-        // 小屏幕禁用触摸滑动
-        if (isSmallScreen) return;
-        
         if (isTouching && e.touches.length > 0) {
           e.preventDefault();
           e.stopPropagation();
@@ -369,9 +357,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }
       }}
       onTouchEnd={() => {
-        // 小屏幕禁用触摸滑动
-        if (isSmallScreen) return;
-        
         setIsPaused(false);
         setIsTouching(false);
       }}
@@ -386,10 +371,10 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
           [styles.touching]: isTouching,
           [styles.trackpadScrolling]: isTrackpadScrolling,
           [styles.paused]: isPaused,
-          [styles.animate]: isInView && enableAnimation
+          [styles.animate]: isInView && enableAnimation && !isSmallScreen
         })}
         style={{
-          minHeight: (isInView && enableAnimation && cardHeight > 0) ? `${cardHeight}px` : undefined
+          minHeight: (isInView && enableAnimation && !isSmallScreen && cardHeight > 0) ? `${cardHeight}px` : undefined
         }}
       >
         <div style={{ display: 'inline-flex' }}>
