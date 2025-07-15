@@ -107,21 +107,17 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         // 小屏幕点击时播放视频
         if (isSmallScreen && videoRef.current && isVideoLoaded && !hasError) {
             if (isPlaying) {
-                // 如果正在播放，则停止
-                videoRef.current.pause();
-                videoRef.current.currentTime = 0;
-                videoRef.current.loop = false;
-                setIsPlaying(false);
-            } else {
-                // 如果未播放，则开始播放
-                videoRef.current.loop = true;
-                videoRef.current.play().then(() => {
-                    setIsPlaying(true);
-                }).catch((error) => {
-                    console.error('Video play error:', error);
-                });
+                return;
             }
+            // 如果未播放，则开始播放
+            videoRef.current.loop = true;
+            videoRef.current.play().then(() => {
+                setIsPlaying(true);
+            }).catch((error) => {
+                console.error('Video play error:', error);
+            });
         }
+        
     }, [isVideoLoaded, hasError, isPlaying, isSmallScreen]);
 
     return (

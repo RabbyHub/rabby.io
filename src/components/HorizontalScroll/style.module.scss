@@ -1,5 +1,5 @@
 .horizontalScroll {
-  overflow-x: hidden;
+  overflow-x: hidden; // 改为visible，确保所有卡片都能显示
   overflow-y: hidden;
   width: 100%;
   position: relative;
@@ -35,6 +35,8 @@
   display: inline-flex;
   white-space: nowrap;
   will-change: transform;
+  position: relative; // 为绝对定位的子元素提供参考
+  width: 100%; // 确保容器有足够的宽度
   
   &.dragging,
   &.touching,
@@ -46,11 +48,13 @@
   &.paused {
     transition: transform 0.3s ease-out;
   }
+
 }
 
 .item {
   display: inline-flex;
   cursor: default;
+  opacity: 1; // 默认可见
   
   &.clickable {
     cursor: pointer;
@@ -69,4 +73,26 @@
       cursor: default;
     }
   }
-} 
+  
+  // 只在启用动画时使用绝对定位
+  &.animate {
+    position: absolute !important; // 动画时使用绝对定位
+    left: 50% !important; // 从容器中心开始
+    animation: itemSlideIn 1s ease-out forwards;
+    z-index: 1; // 确保卡片在正确的层级
+  }
+}
+
+
+// 从中心向两边展开动画
+@keyframes itemSlideIn {
+  0% {
+    transform: translateX(calc(-50% + var(--initial-offset, 0))) !important; // 卡片错开排列
+  }
+  50% {
+    transform: translateX(calc(-50% + var(--initial-offset, 0))) !important; // 保持错开排列
+  }
+  100% {
+    transform: translateX(calc(-50% + var(--final-position, 0))) !important; // 展开到最终位置
+  }
+}

@@ -14,6 +14,9 @@ interface HorizontalScrollProps {
   responsive?: boolean;
   autoPlay?: boolean;
   onItemClick?: (index: number) => void;
+  enableAnimation?: boolean; // 新增：控制是否启用动画
+  itemWidth?: number; // 新增：子项宽度
+  itemSpacing?: number; // 新增：子项间距
 }
 
 export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
@@ -27,6 +30,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   responsive = true,
   autoPlay = true,
   onItemClick,
+  enableAnimation = false, // 默认不启用动画
+  itemWidth = 400, // 默认子项宽度
+  itemSpacing = 20, // 默认子项间距
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -42,12 +48,18 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [isTrackpadScrolling, setIsTrackpadScrolling] = useState(false);
   const trackpadScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isSmallScreen = useIsSmallScreen();
+  const [isInView, setIsInView] = useState(false);
+  const [cardHeight, setCardHeight] = useState(0);
 
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        // 当组件进入视口时，触发动画（仅在启用动画时）
+        if (entry.isIntersecting && !isInView && enableAnimation) {
+          setIsInView(true);
+        }
       },
       { threshold: 0.1 }
     );
@@ -57,7 +69,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isInView, enableAnimation]);
 
   // 计算内容宽度
   const calculateContentWidth = useCallback(() => {
@@ -82,11 +94,20 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [responsive, calculateContentWidth]);
 
-  // 初始化时计算宽度
+  // 初始化时计算宽度和高度
   useEffect(() => {
     // 延迟计算，确保DOM已经渲染
     const timer = setTimeout(() => {
       calculateContentWidth();
+      
+      // 计算卡片高度
+      const content = contentRef.current;
+      if (content && content.firstElementChild) {
+        const firstItem = content.firstElementChild.firstElementChild as HTMLElement;
+        if (firstItem) {
+          setCardHeight(firstItem.offsetHeight);
+        }
+      }
     }, 100);
     return () => clearTimeout(timer);
   }, [children, calculateContentWidth]);
@@ -254,44 +275,63 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   // 渲染子项目
   const renderChildren = useMemo(() => {
     const childrenArray = React.Children.toArray(children);
-    return childrenArray.map((child, index) => (
-      <div
-        key={`item-${index}`}
-        className={clsx(styles.item, {
-          [styles.clickable]: onItemClick
-        })}
-        onClick={() => {
-          // 小屏幕点击时暂停轮播
-          if (isSmallScreen && pauseOnHover) {
-            setIsPaused(true);
-            // 3秒后自动恢复轮播
-            setTimeout(() => {
-              setIsPaused(false);
-            }, 3000);
-          }
-          handleItemClick(index);
-        }}
+    const totalItems = childrenArray.length;
+    const centerIndex = Math.floor(totalItems / 2);
+    
+    return childrenArray.map((child, index) => {
+      // 计算每个子项从中心位置到正常位置的位移
+      const itemTotalWidth = itemWidth + itemSpacing; // 子项总宽度（宽度+间距）
+      const finalTranslateX = index * itemTotalWidth - (centerIndex * itemTotalWidth) + (itemWidth / 2);
 
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
+      return (
+        <div
+          key={`item-${index}`}
+          className={clsx(styles.item, {
+            [styles.clickable]: onItemClick,
+            [styles.animate]: isInView && enableAnimation
+          })}
+          style={{
+            animationDelay: (isInView && enableAnimation) ? `${0.3 + index * 0.05}s` : '0s',
+            transform: enableAnimation ? `translateX(calc(-50% + ${index * 30}px))` : undefined,
+            '--final-position': `${finalTranslateX}px`,
+            '--initial-offset': `${index * 30}px`,
+            opacity: enableAnimation ? (isInView ? 1 : 0) : 1, // 动画前隐藏，动画时显示
+            zIndex: enableAnimation ? (totalItems - index) : undefined // 最左边的卡片层级最高
+          } as React.CSSProperties}
+          data-debug={`index:${index}, finalTranslateX:${finalTranslateX}, enableAnimation:${enableAnimation}`}
+          onClick={() => {
+            // 小屏幕点击时暂停轮播
+            if (isSmallScreen && pauseOnHover) {
+              setIsPaused(true);
+              // 3秒后自动恢复轮播
+              setTimeout(() => {
+                setIsPaused(false);
+              }, 3000);
+            }
             handleItemClick(index);
-          }
-        }}
-        tabIndex={onItemClick ? 0 : -1}
-        role={onItemClick ? 'button' : undefined}
-        aria-label={onItemClick ? `Item ${index + 1}` : undefined}
-      >
-        {child}
-      </div>
-    ));
-  }, [children, onItemClick, handleItemClick, isSmallScreen, pauseOnHover]);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleItemClick(index);
+            }
+          }}
+          tabIndex={onItemClick ? 0 : -1}
+          role={onItemClick ? 'button' : undefined}
+          aria-label={onItemClick ? `Item ${index + 1}` : undefined}
+        >
+          {child}
+        </div>
+      );
+    });
+  }, [children, onItemClick, handleItemClick, isSmallScreen, pauseOnHover, isInView, enableAnimation, itemWidth, itemSpacing]);
 
   return (
     <div
       ref={containerRef}
       className={clsx(styles.horizontalScroll, className, {
-        [styles.dragging]: isDragging
+        [styles.dragging]: isDragging,
+        [styles.animate]: isInView && enableAnimation
       })}
       style={style}
       onMouseEnter={handleMouseEnter}
@@ -345,8 +385,12 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
           [styles.dragging]: isDragging,
           [styles.touching]: isTouching,
           [styles.trackpadScrolling]: isTrackpadScrolling,
-          [styles.paused]: isPaused
+          [styles.paused]: isPaused,
+          [styles.animate]: isInView && enableAnimation
         })}
+        style={{
+          minHeight: (isInView && enableAnimation && cardHeight > 0) ? `${cardHeight}px` : undefined
+        }}
       >
         <div style={{ display: 'inline-flex' }}>
           {renderChildren}
