@@ -30,13 +30,22 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
     timeoutRef.current = setTimeout(() => setShow(false), 120);
   };
 
-  const handleTouchStart = () => {
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.closest(`.${popupClassName}`)) {
+      return; // 如果点击的是弹窗内容，不处理
+    }
+    
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setShow(!show);
   };
+  // 处理弹窗内容的点击事件，阻止冒泡
+  const handlePopupClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    e.preventDefault();
+  const handlePopupTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation();
   };
 
   // 点击外部关闭弹窗
@@ -72,7 +81,6 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       {typeof children === 'function' ? (children as (active: boolean) => React.ReactNode)(show) : children}
       {show && (
@@ -86,6 +94,8 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
             zIndex: 20,
             ...popupStyle,
           }}
+          onClick={handlePopupClick}
+          onTouchStart={handlePopupTouchStart}
         >
           {popup}
         </div>
