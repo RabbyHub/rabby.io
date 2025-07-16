@@ -116,6 +116,7 @@ const Footer = () => {
               {item.items.map((item) => (
                 item.title === 'Email' ? (
                   <HoverPopup
+                    key={item.title}
                     children={
                       <div className={styles.footerItemList} key={item.title}>
                         <a target="_blank" rel="noreferrer">{item.title}</a>

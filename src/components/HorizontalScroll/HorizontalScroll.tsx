@@ -222,8 +222,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
-      console.log('Trackpad scroll detected:', { deltaX: e.deltaX, deltaY: e.deltaY });
-      e.preventDefault();
       e.stopPropagation();
       
       const content = contentRef.current;
