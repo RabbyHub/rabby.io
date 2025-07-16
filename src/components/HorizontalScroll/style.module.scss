@@ -5,7 +5,7 @@
   position: relative;
   cursor: grab;
   user-select: auto;
-  touch-action: pan-x; // 只允许水平滑动，不影响垂直滚动
+  touch-action: pan-x pan-y; // 允许水平和垂直滑动，不影响页面滚动
 
   &:hover {
     cursor: grab;
@@ -18,7 +18,7 @@
 
   @media screen and (max-width: 1024px) {
     cursor: default;
-    touch-action: pan-x;
+    touch-action: pan-x pan-y; // 移动端允许水平和垂直滑动
     
     &:hover {
       cursor: default;
@@ -27,6 +27,10 @@
     &.dragging {
       cursor: default;
       user-select: auto;
+    }
+    
+    &.touching {
+      touch-action: pan-x; // 触摸时只允许水平滑动
     }
   }
 }
@@ -53,6 +57,13 @@
   &.animate {
     position: relative;
   }
+  
+  // 移动端触摸时的特殊处理
+  @media screen and (max-width: 1024px) {
+    &.touching {
+      pointer-events: auto; // 移动端触摸时保持交互
+    }
+  }
 }
 
 .item {
@@ -70,6 +81,17 @@
     
     &.clickable {
       cursor: default;
+    }
+    
+    // 确保移动端视频和交互元素正常工作
+    video, iframe, button, a {
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+    
+    // 防止触摸事件被阻止
+    * {
+      touch-action: manipulation;
     }
   }
   

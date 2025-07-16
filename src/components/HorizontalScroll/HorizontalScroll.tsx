@@ -54,6 +54,13 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [isInfiniteLoopReady, setIsInfiniteLoopReady] = useState(false);
   const animationDuration = 400; // 动画持续时间0.4秒
 
+  // 触摸事件相关状态
+  const [isTouching, setIsTouching] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(0);
+  const [touchStartScrollX, setTouchStartScrollX] = useState(0);
+  const [isHorizontalSwipe, setIsHorizontalSwipe] = useState(false);
+
   // 计算边界限制的辅助函数
   const getBoundedPosition = useCallback((position: number): number => {
     const container = containerRef.current;
@@ -206,7 +213,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const animate = useCallback(() => {
     const container = containerRef.current;
     const content = contentRef.current;
-    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0 || isTrackpadScrolling) return;
+    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0 || isTrackpadScrolling || isTouching) return;
     
     // 如果启用了动画且动画未完成，不开始无限循环
     if (enableAnimation && !animationCompleted) return;
@@ -240,7 +247,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     };
     animationFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTrackpadScrolling, isSmallScreen, getBoundedPosition, enableAnimation, animationCompleted, isInfiniteLoopReady]);
+  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTrackpadScrolling, isTouching, isSmallScreen, getBoundedPosition, enableAnimation, animationCompleted, isInfiniteLoopReady]);
 
   // 启动动画
   useEffect(() => {
@@ -279,7 +286,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理鼠标拖拽事件
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    if (!enableDrag) return;
+    if (!enableDrag || isSmallScreen) return;
     e.preventDefault();
     setIsDragging(true);
     setIsPaused(true);
@@ -290,10 +297,10 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
       setDragStartScrollX(currentX);
     }
-  }, [enableDrag]);
+  }, [enableDrag, isSmallScreen]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!isDragging) return;
+    if (!isDragging || isSmallScreen) return;
     
     e.preventDefault(); // 阻止浏览器默认行为
     e.stopPropagation();
@@ -306,15 +313,73 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       const limitedX = getBoundedPosition(newX);
       content.style.transform = `translateX(${limitedX}px)`;
     }
-  }, [isDragging, dragStartX, dragStartScrollX, getBoundedPosition]);
+  }, [isDragging, dragStartX, dragStartScrollX, getBoundedPosition, isSmallScreen]);
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);
     setIsPaused(false);
   }, []);
 
-  // 处理触控板滑动事件
+  // 处理触摸事件
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (isSmallScreen) {
+      const touch = e.touches[0];
+      setTouchStartX(touch.clientX);
+      setTouchStartY(touch.clientY);
+      setIsTouching(true);
+      setIsPaused(true);
+      
+      const content = contentRef.current;
+      if (content) {
+        const transform = content.style.transform;
+        const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
+        setTouchStartScrollX(currentX);
+      }
+    }
+  }, [isSmallScreen]);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (!isTouching || !isSmallScreen) return;
+    
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+    
+    // 判断是否为水平滑动
+    if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+      setIsHorizontalSwipe(true);
+    }
+    
+    // 如果是水平滑动，阻止默认行为并处理滑动
+    if (isHorizontalSwipe && e.cancelable) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const content = contentRef.current;
+      if (content) {
+        const newX = touchStartScrollX + deltaX;
+        const limitedX = getBoundedPosition(newX);
+        content.style.transform = `translateX(${limitedX}px)`;
+      }
+    }
+  }, [isTouching, isSmallScreen, touchStartX, touchStartY, touchStartScrollX, isHorizontalSwipe, getBoundedPosition]);
+
+  const handleTouchEnd = useCallback(() => {
+    if (isSmallScreen) {
+      setIsTouching(false);
+      setIsHorizontalSwipe(false);
+      
+      // 延迟恢复自动播放，避免触摸结束后立即开始动画
+      setTimeout(() => {
+        setIsPaused(false);
+      }, 300);
+    }
+  }, [isSmallScreen]);
+
+  // 处理触控板滑动事件（仅桌面端）
   const handleWheel = useCallback((e: WheelEvent) => {
+    if (isSmallScreen) return; // 移动端不处理wheel事件
+    
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
@@ -348,10 +413,12 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }, 500);
       }
     }
-  }, [getBoundedPosition]);
+  }, [getBoundedPosition, isSmallScreen]);
 
-  // 手动添加wheel事件监听器，设置passive: false
+  // 手动添加wheel事件监听器，设置passive: false（仅桌面端）
   useEffect(() => {
+    if (isSmallScreen) return; // 移动端不添加wheel事件
+    
     const container = containerRef.current;
     if (!container) return;
 
@@ -365,12 +432,11 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     return () => {
       container.removeEventListener('wheel', wheelHandler);
     };
-  }, [handleWheel]);
+  }, [handleWheel, isSmallScreen]);
 
-
-  // 添加全局鼠标事件监听
+  // 添加全局鼠标事件监听（仅桌面端）
   useEffect(() => {
-    if (isDragging) {
+    if (isDragging && !isSmallScreen) {
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', handleMouseUp);
       
@@ -379,7 +445,20 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [isDragging, handleMouseMove, handleMouseUp]);
+  }, [isDragging, handleMouseMove, handleMouseUp, isSmallScreen]);
+
+  // 添加全局触摸事件监听（仅移动端）
+  useEffect(() => {
+    if (isTouching && isSmallScreen) {
+      document.addEventListener('touchmove', handleTouchMove, { passive: false });
+      document.addEventListener('touchend', handleTouchEnd);
+      
+      return () => {
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, [isTouching, handleTouchMove, handleTouchEnd, isSmallScreen]);
 
   // 渲染子项目
   const renderChildren = useMemo(() => {
@@ -454,12 +533,14 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       ref={containerRef}
       className={clsx(styles.horizontalScroll, className, {
         [styles.dragging]: isDragging,
+        [styles.touching]: isTouching,
         [styles.animate]: enableAnimation && isInView && !animationCompleted
       })}
       style={style}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
       role="region"
       aria-label="Horizontal scrolling content"
     >
@@ -467,6 +548,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         ref={contentRef}
         className={clsx(styles.content, {
           [styles.dragging]: isDragging,
+          [styles.touching]: isTouching,
           [styles.trackpadScrolling]: isTrackpadScrolling,
           [styles.paused]: isPaused,
           [styles.animate]: enableAnimation && isInView && !animationCompleted && !isSmallScreen,
