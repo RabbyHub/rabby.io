@@ -59,7 +59,8 @@
   }
 }
 .active {
-  background: rgba(76, 101, 255, 0.10);
+  background: var(--r-blue-light3, #4C65FF);
+  color: var(--r-neutral-card1, #FFF);
 }
 
 .mobileIcon {
