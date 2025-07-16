@@ -331,6 +331,7 @@
       }
     }
     .downloadCardList {
+      position: relative;
       display: flex;
       align-items: center;
     }
@@ -338,6 +339,7 @@
       display: none;
     }
     .downloadItem {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
