@@ -17,6 +17,7 @@ interface HorizontalScrollProps {
   enableAnimation?: boolean; // 新增：控制是否启用动画
   itemWidth?: number; // 新增：子项宽度
   itemSpacing?: number; // 新增：子项间距
+  enableDrag?: boolean; // 新增：控制是否支持左右拖拽
 }
 
 export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
@@ -33,6 +34,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   enableAnimation = false, // 默认不启用动画
   itemWidth = 400, // 默认子项宽度
   itemSpacing = 20, // 默认子项间距
+  enableDrag = false, // 默认不启用拖拽
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -42,14 +44,37 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragStartScrollX, setDragStartScrollX] = useState(0);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchStartScrollX, setTouchStartScrollX] = useState(0);
-  const [isTouching, setIsTouching] = useState(false);
   const [isTrackpadScrolling, setIsTrackpadScrolling] = useState(false);
   const trackpadScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isSmallScreen = useIsSmallScreen();
   const [isInView, setIsInView] = useState(false);
   const [cardHeight, setCardHeight] = useState(0);
+  const [paddingWidth, setPaddingWidth] = useState(80);
+  const [animationCompleted, setAnimationCompleted] = useState(false);
+  const [isInfiniteLoopReady, setIsInfiniteLoopReady] = useState(false);
+  const animationDuration = 400; // 动画持续时间0.4秒
+
+  // 计算边界限制的辅助函数
+  const getBoundedPosition = useCallback((position: number): number => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) return position;
+
+    const containerWidth = container.offsetWidth;
+    const contentWidth = content.scrollWidth;
+    const maxScrollLeft = paddingWidth; // 最左边边界
+    const minScrollLeft = -(contentWidth - containerWidth) - paddingWidth; // 最右边边界, 留出一些余量
+
+    return Math.max(minScrollLeft, Math.min(maxScrollLeft, position));
+  }, []);
+
+  // 设置容器高度的辅助函数
+  const setContainerHeight = useCallback((height: number) => {
+    const content = contentRef.current;
+    if (content && enableAnimation && !isSmallScreen && !isInView && height > 0) {
+      content.style.minHeight = `${height}px`;
+    }
+  }, [enableAnimation, isSmallScreen, isInView]);
 
 
   useEffect(() => {
@@ -89,10 +114,21 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     
     const handleResize = () => {
       calculateContentWidth();
+      
+      // 重新计算卡片高度
+      const content = contentRef.current;
+      if (content && content.firstElementChild) {
+        const firstItem = content.firstElementChild.firstElementChild as HTMLElement;
+        if (firstItem) {
+          const itemHeight = firstItem.offsetHeight;
+          setCardHeight(itemHeight);
+          setContainerHeight(itemHeight);
+        }
+      }
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [responsive, calculateContentWidth]);
+  }, [responsive, calculateContentWidth, setContainerHeight]);
 
   // 初始化时计算宽度和高度
   useEffect(() => {
@@ -105,30 +141,78 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       if (content && content.firstElementChild) {
         const firstItem = content.firstElementChild.firstElementChild as HTMLElement;
         if (firstItem) {
-          setCardHeight(firstItem.offsetHeight);
+          const itemHeight = firstItem.offsetHeight;
+          setCardHeight(itemHeight);
+          setContainerHeight(itemHeight);
         }
       }
     }, 100);
     return () => clearTimeout(timer);
-  }, [children, calculateContentWidth]);
+  }, [children, calculateContentWidth, setContainerHeight]);
+
+  // 监听动画完成
+  useEffect(() => {
+    if (enableAnimation && isInView && !animationCompleted) {
+      const timer = setTimeout(() => {
+        setAnimationCompleted(true);
+        // 动画完成后，重新计算内容宽度并准备无限循环
+        setTimeout(() => {
+          calculateContentWidth();
+          setIsInfiniteLoopReady(true);
+          
+          // 确保动画完成后，内容位置正确设置
+          const content = contentRef.current;
+          if (content && infiniteLoop) {
+            // 根据动画结束位置设置无限循环的初始位置
+            const currentTransform = content.style.transform;
+            const currentX = parseFloat(currentTransform.replace('translateX(', '').replace('px)', '') || '0');
+            
+            if (direction === 'right') {
+              // 向右滚动时，从当前位置开始
+              content.style.transform = `translateX(${currentX}px)`;
+            } else {
+              // 向左滚动时，从当前位置开始
+              content.style.transform = `translateX(${currentX}px)`;
+            }
+          }
+        }, 50); // 短暂延迟确保DOM更新
+      }, animationDuration);
+      
+      return () => clearTimeout(timer);
+    } else if (!enableAnimation) {
+      // 当动画未启用时，直接设置无限循环为准备就绪状态
+      setIsInfiniteLoopReady(true);
+      setAnimationCompleted(true);
+    }
+  }, [enableAnimation, isInView, animationCompleted, calculateContentWidth, infiniteLoop, direction, contentWidth]);
 
   // 初始化位置
   useEffect(() => {
     const content = contentRef.current;
-    if (content && infiniteLoop) {
-      if (direction === 'right') {
-        content.style.transform = `translateX(${-contentWidth}px)`;
-      } else {
-        content.style.transform = 'translateX(0px)';
+    if (content && infiniteLoop && contentWidth > 0) {
+      // 当动画未启用时，直接设置初始位置
+      // 当动画启用时，只有在动画已完成的情况下才设置初始位置
+      if (!enableAnimation || (enableAnimation && animationCompleted && isInfiniteLoopReady)) {
+        if (direction === 'right') {
+          content.style.transform = `translateX(${-contentWidth}px)`;
+        } else {
+          content.style.transform = 'translateX(0px)';
+        }
       }
     }
-  }, [infiniteLoop, direction, contentWidth]);
+  }, [infiniteLoop, direction, contentWidth, isInfiniteLoopReady, enableAnimation, animationCompleted]);
 
   // 动画函数
   const animate = useCallback(() => {
     const container = containerRef.current;
     const content = contentRef.current;
-    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0 || isTouching || isTrackpadScrolling) return;
+    if (!container || !content || !autoPlay || isPaused || !isVisible || contentWidth === 0 || isTrackpadScrolling) return;
+    
+    // 如果启用了动画且动画未完成，不开始无限循环
+    if (enableAnimation && !animationCompleted) return;
+    
+    // 如果启用了动画但无限循环未准备好，不开始动画
+    if (enableAnimation && !isInfiniteLoopReady) return;
 
     let animationFrame: number;
     let pos = parseFloat(content.style.transform.replace('translateX(', '').replace('px)', '') || '0');
@@ -138,11 +222,17 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         pos -= speed / 60;
         if (infiniteLoop && Math.abs(pos) >= contentWidth) {
           pos = 0;
+        } else if (!infiniteLoop) {
+          // 非无限循环时，使用边界限制函数
+          pos = getBoundedPosition(pos);
         }
       } else {
         pos += speed / 60;
         if (infiniteLoop && pos >= 0) {
           pos = -contentWidth;
+        } else if (!infiniteLoop) {
+          // 非无限循环时，使用边界限制函数
+          pos = getBoundedPosition(pos);
         }
       }
       content.style.transform = `translateX(${pos}px)`;
@@ -150,7 +240,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     };
     animationFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTouching, isTrackpadScrolling, isSmallScreen]);
+  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTrackpadScrolling, isSmallScreen, getBoundedPosition, enableAnimation, animationCompleted, isInfiniteLoopReady]);
 
   // 启动动画
   useEffect(() => {
@@ -189,6 +279,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   // 处理鼠标拖拽事件
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (!enableDrag) return;
     e.preventDefault();
     setIsDragging(true);
     setIsPaused(true);
@@ -199,18 +290,23 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
       setDragStartScrollX(currentX);
     }
-  }, []);
+  }, [enableDrag]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
     
+    e.preventDefault(); // 阻止浏览器默认行为
+    e.stopPropagation();
     const deltaX = e.clientX - dragStartX;
     const content = contentRef.current;
     if (content) {
       const newX = dragStartScrollX + deltaX;
-      content.style.transform = `translateX(${newX}px)`;
+      
+      // 使用边界限制函数
+      const limitedX = getBoundedPosition(newX);
+      content.style.transform = `translateX(${limitedX}px)`;
     }
-  }, [isDragging, dragStartX, dragStartScrollX]);
+  }, [isDragging, dragStartX, dragStartScrollX, getBoundedPosition]);
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);
@@ -218,10 +314,11 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   }, []);
 
   // 处理触控板滑动事件
-  const handleWheel = useCallback((e: React.WheelEvent) => {
+  const handleWheel = useCallback((e: WheelEvent) => {
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+      e.preventDefault(); // 阻止浏览器默认行为，防止后退操作
       e.stopPropagation();
       
       const content = contentRef.current;
@@ -229,12 +326,16 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         const currentTransform = content.style.transform;
         const currentX = parseFloat(currentTransform.replace('translateX(', '').replace('px)', '') || '0');
         const newX = currentX - e.deltaX;
-        content.style.transform = `translateX(${newX}px)`;
+        
+        // 使用边界限制函数
+        const limitedX = getBoundedPosition(newX);
+        content.style.transform = `translateX(${limitedX}px)`;
         
         // 暂停自动滚动
         setIsPaused(true);
         setIsTrackpadScrolling(true);
         
+
         // 清除之前的定时器
         if (trackpadScrollTimerRef.current) {
           clearTimeout(trackpadScrollTimerRef.current);
@@ -247,8 +348,24 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         }, 500);
       }
     }
-  }, []);
+  }, [getBoundedPosition]);
 
+  // 手动添加wheel事件监听器，设置passive: false
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const wheelHandler = (e: WheelEvent) => {
+      handleWheel(e);
+    };
+
+    // 添加事件监听器，设置passive: false以允许preventDefault
+    container.addEventListener('wheel', wheelHandler, { passive: false });
+
+    return () => {
+      container.removeEventListener('wheel', wheelHandler);
+    };
+  }, [handleWheel]);
 
 
   // 添加全局鼠标事件监听
@@ -273,24 +390,38 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     return childrenArray.map((child, index) => {
       // 计算每个子项从中心位置到正常位置的位移
       const itemTotalWidth = itemWidth + itemSpacing; // 子项总宽度（宽度+间距）
-      const finalTranslateX = index * itemTotalWidth - (centerIndex * itemTotalWidth) + (itemWidth / 2);
+      const finalTranslateX = index * itemTotalWidth - (centerIndex * itemTotalWidth) + (itemWidth / 2) - paddingWidth;
+
+      // 动画完成后，使用正常的inline-flex布局
+      const isAnimating = enableAnimation && isInView && !isSmallScreen && !animationCompleted;
+      
+      // 动画没出现时，确保卡片不可见
+      const shouldShowInitialState = enableAnimation && !isSmallScreen && !isInView;
+      
+      // 计算初始错开距离，让卡片在动画开始时有一定间距
+      const initialOffset = index * 20 - (totalItems - 1) * 10;
 
       return (
         <div
           key={`item-${index}`}
           className={clsx(styles.item, {
             [styles.clickable]: onItemClick,
-            [styles.animate]: isInView && enableAnimation && !isSmallScreen
+            [styles.animate]: isAnimating,
+            [styles.initialState]: shouldShowInitialState
           })}
           style={{
-            animationDelay: (isInView && enableAnimation && !isSmallScreen) ? `${0.3 + index * 0.05}s` : '0s',
-            transform: (enableAnimation && !isSmallScreen) ? `translateX(calc(-50% + ${index * 30}px))` : undefined,
+            animationDelay: isAnimating ? `${0.1 + index * 0.05}s` : '0s',
             '--final-position': `${finalTranslateX}px`,
-            '--initial-offset': `${index * 30}px`,
-            opacity: (enableAnimation && !isSmallScreen) ? (isInView ? 1 : 0) : 1, // 小屏幕不展示动画
-            zIndex: (enableAnimation && !isSmallScreen) ? (totalItems - index) : undefined // 小屏幕不设置层级
+            '--initial-offset': `${initialOffset}px`,
+            opacity: shouldShowInitialState ? 0 : (isAnimating ? (isInView ? 1 : 0) : 1), // 初始状态完全隐藏
+            zIndex: isAnimating ? (totalItems - index) : undefined, // 小屏幕不设置层级
+            // 动画完成后，确保位置正确
+            position: (enableAnimation && animationCompleted) ? 'static' : (shouldShowInitialState || isAnimating ? 'absolute' : undefined),
+            // 初始状态时居中显示
+            left: shouldShowInitialState ? '50%' : (isAnimating ? '50%' : undefined),
+            transform: shouldShowInitialState || isAnimating ? `translateX(calc(-50% + ${initialOffset}px))` : undefined
           } as React.CSSProperties}
-          data-debug={`index:${index}, finalTranslateX:${finalTranslateX}, enableAnimation:${enableAnimation}`}
+          data-debug={`index:${index}, finalTranslateX:${finalTranslateX}, enableAnimation:${enableAnimation}, animationCompleted:${animationCompleted}, isInView:${isInView}`}
           onClick={() => {
             // 小屏幕点击时暂停轮播
             if (isSmallScreen && pauseOnHover) {
@@ -316,49 +447,19 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         </div>
       );
     });
-  }, [children, onItemClick, handleItemClick, isSmallScreen, pauseOnHover, isInView, enableAnimation, itemWidth, itemSpacing]);
+  }, [children, onItemClick, handleItemClick, isSmallScreen, pauseOnHover, isInView, enableAnimation, itemWidth, itemSpacing, animationCompleted, paddingWidth]);
 
   return (
     <div
       ref={containerRef}
       className={clsx(styles.horizontalScroll, className, {
         [styles.dragging]: isDragging,
-        [styles.animate]: isInView && enableAnimation
+        [styles.animate]: enableAnimation && isInView && !animationCompleted
       })}
       style={style}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
-      onTouchStart={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsPaused(true);
-        setIsTouching(true);
-        setTouchStartX(e.touches[0].clientX);
-        const content = contentRef.current;
-        if (content) {
-          const transform = content.style.transform;
-          const currentX = parseFloat(transform.replace('translateX(', '').replace('px)', '') || '0');
-          setTouchStartScrollX(currentX);
-        }
-      }}
-      onTouchMove={(e) => {
-        if (isTouching && e.touches.length > 0) {
-          e.preventDefault();
-          e.stopPropagation();
-          const deltaX = e.touches[0].clientX - touchStartX;
-          const content = contentRef.current;
-          if (content) {
-            const newX = touchStartScrollX + deltaX;
-            content.style.transform = `translateX(${newX}px)`;
-          }
-        }
-      }}
-      onTouchEnd={() => {
-        setIsPaused(false);
-        setIsTouching(false);
-      }}
-      onWheel={handleWheel}
       role="region"
       aria-label="Horizontal scrolling content"
     >
@@ -366,19 +467,20 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
         ref={contentRef}
         className={clsx(styles.content, {
           [styles.dragging]: isDragging,
-          [styles.touching]: isTouching,
           [styles.trackpadScrolling]: isTrackpadScrolling,
           [styles.paused]: isPaused,
-          [styles.animate]: isInView && enableAnimation && !isSmallScreen
+          [styles.animate]: enableAnimation && isInView && !animationCompleted && !isSmallScreen,
+          [styles.initialState]: enableAnimation && !isSmallScreen && !isInView
         })}
         style={{
-          minHeight: (isInView && enableAnimation && !isSmallScreen && cardHeight > 0) ? `${cardHeight}px` : undefined
+          minHeight: (enableAnimation && isInView && !animationCompleted && !isSmallScreen && cardHeight > 0) ? `${cardHeight}px` : 
+                    (enableAnimation && !isSmallScreen && !isInView && cardHeight > 0) ? `${cardHeight}px` : undefined
         }}
       >
         <div style={{ display: 'inline-flex' }}>
           {renderChildren}
         </div>
-        {infiniteLoop && (
+        {infiniteLoop && (isInfiniteLoopReady || !enableAnimation) && (
           <div style={{ display: 'inline-flex' }}>
             {renderChildren}
           </div>

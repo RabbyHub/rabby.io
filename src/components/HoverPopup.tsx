@@ -1,4 +1,4 @@
-import React, { useState, useRef, ReactNode } from 'react';
+import React, { useState, useRef, ReactNode, useEffect } from 'react';
 
 interface HoverPopupProps {
   children: ReactNode | ((active: boolean) => ReactNode); // 支持render prop
@@ -19,21 +19,60 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
 }) => {
   const [show, setShow] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setShow(true);
   };
+  
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setShow(false), 120);
   };
 
+  const handleTouchStart = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setShow(!show);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    e.preventDefault();
+  };
+
+  // 点击外部关闭弹窗
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setShow(false);
+      }
+    };
+
+    const handleTouchOutside = (event: TouchEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setShow(false);
+      }
+    };
+
+    if (show) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleTouchOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleTouchOutside);
+    };
+  }, [show]);
+
   return (
     <div
+      ref={containerRef}
       className={childrenClassName}
       style={{ display: 'inline-block', position: 'relative' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {typeof children === 'function' ? (children as (active: boolean) => React.ReactNode)(show) : children}
       {show && (

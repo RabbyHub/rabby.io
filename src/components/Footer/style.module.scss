@@ -49,12 +49,14 @@
         }
     }
     .footerList {
+        margin-top: -40px;
         display: flex;
         flex-wrap: wrap;
         .footerItem {
-            width: 240px;
+            width: 230px;
             display: flex;
             flex-direction: column;
+            margin-top: 40px;
             .footerItemTitle {
                 color: var(--r-neutral-title1, #192945);
                 font-size: 16px;
@@ -108,7 +110,7 @@
         }
     }
     .footerItem {
-        width: 180px!important;
+        width: 179px!important;
         margin: 20px 0!important;
     }
     flex-direction: column-reverse;

@@ -114,10 +114,9 @@ header {
 }
 .nav-right {
   display: flex;
-  align-items: flex-start;
 }
 .round-button.primary {
-  color: var(--r-neutral-title2, #FFF);
+  color: var(--r-blue-light3, #4C65FF);
   text-align: center;
   font-size: 16px;
   font-weight: 500;
@@ -127,7 +126,8 @@ header {
   border: none;
   cursor: pointer;
   display: flex;
-  background: var(--r-blue-light3, #4C65FF);
+  background-color: transparent;
+  border: 2px solid var(--r-blue-light3, #4C65FF);
 }
 .download-btn {
   padding: 12px 24px;
@@ -253,7 +253,7 @@ header {
   }
   .menu-container {
     cursor: pointer;
-    display: block!important;
+    display: flex!important;
     margin-left: 16px;
   }
 }

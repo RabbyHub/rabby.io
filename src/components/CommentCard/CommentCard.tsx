@@ -1,6 +1,4 @@
 import styles from './style.module.scss';
-import { useState, useCallback } from 'react';
-import clsx from 'clsx';
 
 interface CommentItem {
   url: string;
@@ -11,35 +9,15 @@ interface CommentItem {
 }
 
 const CommentCard = ({ item }: { item: CommentItem }) => {
-  const [isShaking, setIsShaking] = useState(false);
 
   const goToTweet = () => {
     window.open(item.url)?.focus();
   }
 
-  const handleMouseEnter = useCallback(() => {
-    setIsShaking(true);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setIsShaking(false);
-  }, []);
-
   return (
     <div
-      className={clsx(styles.commentItem, {
-        [styles.shakeUpper]: isShaking
-      })}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseDown={(e) => {
-        // 如果点击的是跳转按钮，不阻止事件
-        if (e.target === e.currentTarget || !(e.target as HTMLElement).closest(`.${styles.commentRedirect}`)) {
-          // 只有点击非跳转区域时才允许拖拽
-          return;
-        }
-        e.stopPropagation();
-      }}
+      className={styles.commentItem}
+      onClick={goToTweet}
     >
       <div className={styles.commentItemTop}>
         <div className={styles.commentItemTopLeft}>
@@ -63,12 +41,7 @@ const CommentCard = ({ item }: { item: CommentItem }) => {
         <div className={styles.commentRedirect}>
           <img 
             src="/assets/images/redirect.svg" 
-            alt="redirect" 
-            onClick={(e) => {
-              e.stopPropagation();
-              goToTweet();
-            }}
-            onMouseDown={(e) => e.stopPropagation()}
+            alt="redirect"
           />  
         </div>
       </div>

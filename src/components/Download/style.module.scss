@@ -14,21 +14,30 @@
   justify-content: center;
   align-items: center;
   margin-right: 24px;
+  color: var(--r-blue-light3, #4C65FF);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  vertical-align: middle;
+  line-height: normal;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+  border: 2px solid var(--r-blue-light3, #4C65FF);
   img {
     display: block;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    border: 1px solid #fff;
   }
   div {
     margin-left: 12px;
     font-size: 20px;
   }
   &:hover {
-    transform: scale(1.06);
-    transition: transform 0.3s ease;
-    box-shadow: 0px 12.769px 25.538px 0px rgba(39, 57, 169, 0.12);
+    color: var(--r-neutral-card1, #FFF);
+    background-color: var(--r-blue-light3, #4C65FF);
   }
 }
 
@@ -36,17 +45,17 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 16px 35px;
+  padding: 18px 35px;
   background-color: transparent;
   cursor: pointer;
   border-radius: 16px;
   color: var(--r-blue-light3, #4C65FF);
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
   border: 2px solid var(--r-blue-light3, #4C65FF);
   &:hover {
-    background: rgba(76, 101, 255, 0.10);
+    background: var(--r-blue-light3, #4C65FF);
+    color: var(--r-neutral-card1, #FFF);
   }
 }
 .active {
@@ -85,6 +94,46 @@
     cursor: pointer;
     &:first-child {
       margin-right: 16px;
+    }
+    .qrItemContent {
+      display: flex;
+      width: 180px;
+      height: 180px;
+      background-color: var(--r-neutral-card1, #FFF);
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      .qrItemTitle {
+        color: var(--r-neutral-title1, #192945);
+        font-size: 18px;
+        font-weight: 590;
+        margin-top: 12px;
+      }
+    }
+    .qrAppIcon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 180px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    &:hover {
+      .qrItemContent {
+        opacity: 0;
+      }
+      .qrAppIcon {
+        display: block;
+        opacity: 1;
+      }
     }
   }
   .qrArrow {
@@ -355,6 +404,12 @@
     display: flex;
     align-items: center;
     padding: 14px 44.5px;
+    border-radius: 16px;
+    color: var(--r-blue-light3, #4C65FF);
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid var(--r-blue-light3, #4C65FF);
     img {
       margin-right: 8px;
     }

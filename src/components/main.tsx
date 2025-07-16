@@ -37,7 +37,7 @@ export const Main: React.FC = () => {
     <div className={styles.main}>
         <div className={styles.buttonGroup}>
                 {isSmallScreen ? (
-                    <button className={clsx("round-button primary", styles.downloadMobileButtonSmall)} onClick={() => {
+                    <button className={clsx(styles.downloadMobileButtonSmall)} onClick={() => {
                         window.open(currentMobile === 'googlePlay' ? DOWNLOAD_INFO_MOBILE.googlePlay.href : DOWNLOAD_INFO_MOBILE.appStore.href, '_blank');
                     }}>
                         <img src={currentMobile === 'googlePlay' ? '/assets/download/google-play-blue.svg' : '/assets/download/apple-store-blue.svg'}/>
@@ -46,7 +46,7 @@ export const Main: React.FC = () => {
                 ) : (
                         <>
                     <DownloadButton
-                    className={clsx( "round-button primary", styles.downloadBrowserButton)}
+                    className={clsx(styles.downloadBrowserButton)}
                     title={`Download for ${browserInfo.title}`}
                     icon={browserInfo.icon}
                     href={browserInfo.href}

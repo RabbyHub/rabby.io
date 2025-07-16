@@ -17,7 +17,16 @@ export const QRCodeSVG: React.FC<QRCodeSVGProps> = ({
   className
 }) => {
   return (
-    <div className={className} style={{ position: 'relative', display: 'inline-block' }}>
+    <div className={className} style={{ 
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <QRCode 
         value={href}
         size={size}

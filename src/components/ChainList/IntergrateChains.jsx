@@ -14,7 +14,7 @@ const IntergrateChains = ({ chains, rows = 4 }) => {
             speed={70}
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
             infiniteLoop
-            pauseOnHover={false}
+            pauseOnHover={true}
           >
             {rowChains.map(chain => (
               <img

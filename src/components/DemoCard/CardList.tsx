@@ -54,12 +54,13 @@ const CardList = () => {
                 <HorizontalScroll
                     speed={40}
                     direction="left"
-                    infiniteLoop={false}
+                    infiniteLoop={true}
                     autoPlay={true}
                     pauseOnHover={true}
                     enableAnimation={true}
                     itemWidth={400}
                     itemSpacing={0}
+                    enableDrag={true}
                 >
                 {cardListExtension.map((item, index) => (
                     <DemoCard key={index} url={item.url} thumbnail={item.thumbnail} />
@@ -70,12 +71,13 @@ const CardList = () => {
                 <HorizontalScroll
                     speed={40}
                     direction="right"
-                    infiniteLoop={false}
+                    infiniteLoop={true}
                     autoPlay={true}
                     pauseOnHover={true}
                     enableAnimation={true}
                     itemWidth={400}
                     itemSpacing={0}
+                    enableDrag={true}
                 >
                 {cardListMobile.map((item, index) => (
                     <DemoCard key={index} url={item.url} thumbnail={item.thumbnail} className={styles.mobileCard} />
