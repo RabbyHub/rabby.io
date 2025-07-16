@@ -18,6 +18,8 @@ export const DownloadMobileButton: React.FC<{
         {Object.entries(DOWNLOAD_INFO_MOBILE).map(([key, info]) => (
           <div className={styles.qrItem} key={key} onClick={() => handleQRClick(info.href)}>
             <div className={styles.qrItemContent}>
+              <img className={styles.qrTipsIcon} src="/assets/download/qr-code.svg" alt="qr-code" />
+              <div className={styles.foldTriangle}></div>
               <img src={info.icon} alt={info.title} />
               <div className={styles.qrItemTitle}>{info.title}</div>
             </div>

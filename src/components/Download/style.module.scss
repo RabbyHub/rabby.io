@@ -105,6 +105,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      position: relative;
       img {
         width: 60px;
         height: 60px;
@@ -114,6 +115,25 @@
         font-size: 18px;
         font-weight: 590;
         margin-top: 12px;
+      }
+      .qrTipsIcon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+      }
+      .foldTriangle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 70px 70px 0;
+        border-color: transparent rgba(76, 101, 255, 0.10) transparent transparent;
+        border-top-right-radius: 12px;
+        z-index: 2;
       }
     }
     .qrAppIcon {
