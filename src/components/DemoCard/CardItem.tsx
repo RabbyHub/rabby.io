@@ -22,11 +22,38 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     const [isPlaying, setIsPlaying] = useState(false);
     const [shouldHideThumbnail, setShouldHideThumbnail] = useState(false);
     const [isShaking, setIsShaking] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
     const isSmallScreen = useIsSmallScreen();
+
+    // Intersection Observer 检测视频是否在视口内
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                const isVisible = entry.isIntersecting;
+                setIsInView(isVisible);
+                
+                // 只有在视口内且未加载时才开始加载视频
+                if (isVisible && !isVideoLoaded && !shouldLoadVideo) {
+                    setShouldLoadVideo(true);
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px' // 提前50px开始加载
+            }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [isVideoLoaded, shouldLoadVideo]);
 
     // 组件挂载后立即开始加载视频
     useEffect(() => {
-        if (videoRef.current && !isVideoLoaded) {
+        if (videoRef.current && !isVideoLoaded && shouldLoadVideo) {
             setIsVideoLoading(true);
             setHasError(false);
             setShouldHideThumbnail(false);
@@ -71,7 +98,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 }
             };
         }
-    }, [isVideoLoaded, isSmallScreen, hasError]);
+    }, [isVideoLoaded, isSmallScreen, hasError, shouldLoadVideo]);
 
     // 组件卸载时清理资源
     useEffect(() => {
@@ -133,7 +160,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                     className={clsx(styles.thumbnail, {
                         [styles.hidden]: shouldHideThumbnail && !hasError
                     })}
-
                 />
             )}
             
@@ -143,18 +169,20 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 </div>
             )}
             
-            <video
-                ref={videoRef}
-                src={url}
-                muted
-                preload="auto"
-                playsInline
-                autoPlay={isSmallScreen}
-                loop={isSmallScreen}
-                className={clsx(styles.video, {
-                    [styles.hidden]: !isVideoLoaded || hasError
-                })}
-            />
+            {shouldLoadVideo && (
+                <video
+                    ref={videoRef}
+                    src={url}
+                    muted
+                    preload="auto"
+                    playsInline
+                    autoPlay={isSmallScreen}
+                    loop={isSmallScreen}
+                    className={clsx(styles.video, {
+                        [styles.hidden]: !isVideoLoaded || hasError
+                    })}
+                />
+            )}
         </div>
     )
 }
