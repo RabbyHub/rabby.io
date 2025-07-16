@@ -113,23 +113,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         }
     }, [isSmallScreen]);
 
-    const handleClick = useCallback(() => {
-        // 小屏幕点击时播放视频
-        if (isSmallScreen && videoRef.current && isVideoLoaded && !hasError) {
-            if (isPlaying) {
-                return;
-            }
-            // 如果未播放，则开始播放
-            videoRef.current.loop = true;
-            videoRef.current.play().then(() => {
-                setIsPlaying(true);
-            }).catch((error) => {
-                console.error('Video play error:', error);
-            });
-        }
-        
-    }, [isVideoLoaded, hasError, isPlaying, isSmallScreen]);
-
     return (
         <div
             ref={containerRef}
@@ -142,7 +125,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
         >
             {thumbnail && (
                 <img 
@@ -167,10 +149,11 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 muted
                 preload="auto"
                 playsInline
+                autoPlay={isSmallScreen}
+                loop={isSmallScreen}
                 className={clsx(styles.video, {
                     [styles.hidden]: !isVideoLoaded || hasError
                 })}
-
             />
         </div>
     )
