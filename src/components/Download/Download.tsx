@@ -104,6 +104,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                         }}
                         href={macValue.href}
                         target="_blank"
+                        rel="noreferrer"
                         className={styles.downloadItemMacosItem}
                       >
                         {macValue.title}

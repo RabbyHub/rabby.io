@@ -9,6 +9,7 @@ const LazyImage = ({ src, alt, title, className }) => {
   const imgRef = useRef(null);
 
   useEffect(() => {
+    const currentImg = imgRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,13 +23,13 @@ const LazyImage = ({ src, alt, title, className }) => {
       }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (currentImg) {
+      observer.observe(currentImg);
     }
-
+    
     return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current);
+      if (currentImg) {
+        observer.unobserve(currentImg);
       }
     };
   }, []);

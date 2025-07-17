@@ -40,7 +40,7 @@ export const Main: React.FC = () => {
                     <button className={clsx(styles.downloadMobileButtonSmall)} onClick={() => {
                         window.open(currentMobile === 'googlePlay' ? DOWNLOAD_INFO_MOBILE.googlePlay.href : DOWNLOAD_INFO_MOBILE.appStore.href, '_blank');
                     }}>
-                        <img src={currentMobile === 'googlePlay' ? '/assets/download/google-play-blue.svg' : '/assets/download/apple-store-blue.svg'}/>
+                        <img alt="download" src={currentMobile === 'googlePlay' ? '/assets/download/google-play-blue.svg' : '/assets/download/apple-store-blue.svg'}/>
                         <div>Download for {currentMobile === 'googlePlay' ? 'Android' : 'iOS'}</div>
                     </button>
                 ) : (

@@ -1,6 +1,7 @@
 .footer {
     background: var(--r-blue-light1, #EEF1FF);
     display: flex;
+    justify-content: space-between;
     max-width: 1440px;
     padding: 40px 80px 80px 80px;
     margin: 0 auto;

@@ -119,6 +119,7 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
         {Object.entries(MACOS_DOWNLOAD_INFO).map(([key, info]) => {
           return (
             <a key={key} href={info.href}
+              rel="noreferrer"
               onClick={(e) => {
                 e.preventDefault();
                 reportClickDownload(info.title);
