@@ -40,7 +40,7 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             },
             {
                 threshold: 0.1,
-                rootMargin: '200px' // 提前200px开始加载，避免loading状态
+                rootMargin: '400px' // 提前400px开始加载，避免loading状态
             }
         );
 

@@ -28,7 +28,7 @@ const CardList = () => {
 
     const cardListMobile = [
         {
-            url: 'https://static-assets.rabby.io/files/1b78d47b-52cb-42d6-8c8e-a153aab35b2b.mp4',
+            url: 'https://static-assets.rabby.io/files/0ed559a8-02d9-46cc-80b2-e356f941e915.mp4',
             thumbnail: 'https://static-assets.rabby.io/files/77a04411-dbc5-4197-96b8-4d2239bf6d58.png',
         },
         {
@@ -44,7 +44,7 @@ const CardList = () => {
             thumbnail: 'https://static-assets.rabby.io/files/32bb2ac2-060d-4cb8-8faf-24c2cd323b6b.png',
         },
         {
-            url: 'https://static-assets.rabby.io/files/f683b381-b1df-4241-a4dc-e078aa5baa02.mp4',
+            url: 'https://static-assets.rabby.io/files/d75024c2-2c63-4108-8e34-1ea1e1d33f87.mp4',
             thumbnail: 'https://static-assets.rabby.io/files/64656aec-8d65-4b6c-9212-e431eb689e3b.png',
         }
     ]
