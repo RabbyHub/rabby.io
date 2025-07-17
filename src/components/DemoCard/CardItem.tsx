@@ -184,12 +184,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 />
             )}
             
-            {isVideoLoading && (isShaking || isSmallScreen) && !isVideoLoaded && (
-                <div className={styles.loadingIndicator}>
-                    <div className={styles.spinner}></div>
-                </div>
-            )}
-            
             {shouldLoadVideo && (
                 <video
                     ref={videoRef}
