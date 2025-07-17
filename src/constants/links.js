@@ -2,7 +2,7 @@
 export const LINKS = {
   // 社交媒体链接
   SOCIAL: {
-    TWITTER: "https://twitter.com/Rabby_io",
+    TWITTER: "https://x.com/Rabby_io",
     DISCORD: "https://discord.gg/seFBCWmUre",
     GITHUB: "https://github.com/RabbyHub/Rabby",
     EMAIL: "mailto:rabby.io@gmail.com",

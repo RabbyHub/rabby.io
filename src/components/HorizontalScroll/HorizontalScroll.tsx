@@ -201,7 +201,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
       // 当动画启用时，只有在动画已完成的情况下才设置初始位置
       if (!enableAnimation || (enableAnimation && animationCompleted && isInfiniteLoopReady)) {
         if (direction === 'right') {
-          content.style.transform = `translateX(${-contentWidth}px)`;
+          content.style.transform = `translateX(${-contentWidth / 2}px)`;
         } else {
           content.style.transform = 'translateX(0px)';
         }
@@ -346,7 +346,8 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     const deltaY = touch.clientY - touchStartY;
     
     // 判断是否为水平滑动
-    if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+    if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 0) {
+      e.preventDefault();
       setIsHorizontalSwipe(true);
     }
     
@@ -379,10 +380,9 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   // 处理触控板滑动事件（仅桌面端）
   const handleWheel = useCallback((e: WheelEvent) => {
     if (isSmallScreen) return; // 移动端不处理wheel事件
-    
     // 检测是否为水平滚动（触控板左右滑动）
     // deltaX 表示水平滚动，deltaY 表示垂直滚动
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 0) {
       e.preventDefault(); // 阻止浏览器默认行为，防止后退操作
       e.stopPropagation();
       
