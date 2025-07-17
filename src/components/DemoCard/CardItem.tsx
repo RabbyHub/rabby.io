@@ -17,12 +17,9 @@ export const DemoCard: React.FC<DemoCardProps> = ({
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-    const [isVideoLoading, setIsVideoLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [shouldHideThumbnail, setShouldHideThumbnail] = useState(false);
     const [isShaking, setIsShaking] = useState(false);
-    const [isInView, setIsInView] = useState(false);
     const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
     const isSmallScreen = useIsSmallScreen();
 
@@ -31,7 +28,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         const observer = new IntersectionObserver(
             ([entry]) => {
                 const isVisible = entry.isIntersecting;
-                setIsInView(isVisible);
                 
                 // 提前开始加载视频，不等到完全进入视口
                 if (isVisible && !isVideoLoaded && !shouldLoadVideo) {
@@ -53,7 +49,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
 
     useEffect(() => {
         if (videoRef.current && !isVideoLoaded && shouldLoadVideo) {
-            setIsVideoLoading(true);
             setHasError(false);
             setShouldHideThumbnail(false);
             
@@ -64,7 +59,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             
             const handleCanPlay = () => {
                 setIsVideoLoaded(true);
-                setIsVideoLoading(false);
                 // 立即隐藏缩略图，减少闪烁
                 setShouldHideThumbnail(true);
                 
@@ -72,7 +66,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                 if (isSmallScreen && video && !hasError) {
                     video.loop = true;
                     video.play().then(() => {
-                        setIsPlaying(true);
                     }).catch((error) => {
                         console.error('Video auto play error:', error);
                     });
@@ -81,11 +74,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
 
             const handleError = () => {
                 setHasError(true);
-                setIsVideoLoading(false);
-            };
-
-            const handleLoadStart = () => {
-                setIsVideoLoading(true);
             };
 
             // 添加更多事件监听器以优化加载体验
@@ -99,7 +87,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             const handleCanPlayThrough = () => {
                 // 视频可以流畅播放，确保加载完成
                 setIsVideoLoaded(true);
-                setIsVideoLoading(false);
                 setShouldHideThumbnail(true);
             };
 
@@ -107,7 +94,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             video.addEventListener('canplaythrough', handleCanPlayThrough);
             video.addEventListener('loadeddata', handleLoadedData);
             video.addEventListener('error', handleError);
-            video.addEventListener('loadstart', handleLoadStart);
 
             return () => {
                 if (video) {
@@ -115,7 +101,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
                     video.removeEventListener('canplaythrough', handleCanPlayThrough);
                     video.removeEventListener('loadeddata', handleLoadedData);
                     video.removeEventListener('error', handleError);
-                    video.removeEventListener('loadstart', handleLoadStart);
                 }
             };
         }
@@ -123,11 +108,12 @@ export const DemoCard: React.FC<DemoCardProps> = ({
 
     // 组件卸载时清理资源
     useEffect(() => {
+        const currentVideo = videoRef.current;
         return () => {
-            if (videoRef.current) {
-                videoRef.current.pause();
-                videoRef.current.src = '';
-                videoRef.current.load();
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo.src = '';
+                currentVideo.load();
             }
         };
     }, []);
@@ -141,7 +127,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
         if (videoRef.current && isVideoLoaded && !hasError) {
             videoRef.current.loop = true;
             videoRef.current.play().then(() => {
-                setIsPlaying(true);
             }).catch((error) => {
                 console.error('Video play error:', error);
             });
@@ -157,7 +142,6 @@ export const DemoCard: React.FC<DemoCardProps> = ({
             videoRef.current.pause();
             videoRef.current.currentTime = 0;
             videoRef.current.loop = false;
-            setIsPlaying(false);
         }
     }, [isSmallScreen]);
 

@@ -49,7 +49,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
   const isSmallScreen = useIsSmallScreen();
   const [isInView, setIsInView] = useState(false);
   const [cardHeight, setCardHeight] = useState(0);
-  const [paddingWidth, setPaddingWidth] = useState(80);
+  const [paddingWidth] = useState(80);
   const [animationCompleted, setAnimationCompleted] = useState(false);
   const [isInfiniteLoopReady, setIsInfiniteLoopReady] = useState(false);
   const animationDuration = 400; // 动画持续时间0.4秒
@@ -73,7 +73,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     const minScrollLeft = -(contentWidth - containerWidth) - paddingWidth; // 最右边边界, 留出一些余量
 
     return Math.max(minScrollLeft, Math.min(maxScrollLeft, position));
-  }, []);
+  }, [paddingWidth]);
 
   // 设置容器高度的辅助函数
   const setContainerHeight = useCallback((height: number) => {
@@ -247,7 +247,7 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     };
     animationFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrame);
-  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTrackpadScrolling, isTouching, isSmallScreen, getBoundedPosition, enableAnimation, animationCompleted, isInfiniteLoopReady]);
+  }, [speed, direction, infiniteLoop, contentWidth, autoPlay, isPaused, isVisible, isTrackpadScrolling, isTouching, getBoundedPosition, enableAnimation, animationCompleted, isInfiniteLoopReady]);
 
   // 启动动画
   useEffect(() => {
@@ -347,7 +347,6 @@ export const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
     
     // 判断是否为水平滑动
     if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 0) {
-      e.preventDefault();
       setIsHorizontalSwipe(true);
     }
     
