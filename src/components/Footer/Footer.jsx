@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { LINKS, EMAIL_LIST } from "../../constants/links";
+import { MACOS_DOWNLOAD_INFO } from "../Download/download-info";
 import { HoverPopup } from "../HoverPopup";
+import { ga } from "../../ga";
 
 const Footer = () => {
   const footerList = [
@@ -37,15 +39,15 @@ const Footer = () => {
           value: LINKS.DOWNLOAD.CHROME,
         },
         {
-          title: "iOS",
+          title: "AppStore",
           value: LINKS.DOWNLOAD.APP_STORE,
         },
         {
-          title: "Android",
+          title: "Google Play",
           value: LINKS.DOWNLOAD.GOOGLE_PLAY,
         },
         {
-          title: "Mac",
+          title: "macOS",
           value: LINKS.DOWNLOAD.MACOS_INTEL,
         },
         {
@@ -102,6 +104,107 @@ const Footer = () => {
     },
   ];
 
+  const reportClickDownload = (report) => {
+    ga.event({
+      category: 'User',
+      action: 'clickDownload',
+      label: report
+    });
+  };
+
+  // 点击处理
+  const handleLinkClick = (e, href, title, shouldReport = false) => {
+    e.preventDefault();
+    if (shouldReport) {
+      reportClickDownload(title);
+    }
+    window.open(href, '_blank');
+  };
+
+  // 链接渲染
+  const renderLink = (href, title, shouldReport = false) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      onClick={(e) => handleLinkClick(e, href, title, shouldReport)}
+    >
+      {title}
+    </a>
+  );
+
+  // 弹窗容器渲染
+  const renderPopupContainer = (children, arrowClassName = styles.emailPopupArrow) => (
+    <div className={styles.emailPopupContainer}>
+      <div className={styles.emailPopup}>
+        {children}
+      </div>
+      <img src="/assets/images/polygon-2.svg" alt="arrow" className={arrowClassName}/>
+    </div>
+  );
+
+  // 渲染不同类型的链接
+  const renderFooterItem = (subItem, sectionTitle) => {
+    // Email 弹窗
+    if (subItem.title === 'Email') {
+      return (
+        <HoverPopup
+          key={subItem.title}
+          children={
+            <div className={styles.footerItemList}>
+              {renderLink('#', subItem.title)}
+            </div>
+          }
+          popup={renderPopupContainer(
+            EMAIL_LIST.map((email) => (
+              <a key={email.name} href={email.link} target="_blank" rel="noreferrer">
+                {email.name}
+              </a>
+            ))
+          )}
+        />
+      );
+    }
+
+    // macOS 下载弹窗
+    if (subItem.title === 'macOS') {
+      return (
+        <HoverPopup
+          key={subItem.title}
+          children={
+            <div className={styles.footerItemList}>
+              {renderLink('#', subItem.title)}
+            </div>
+          }
+          popup={renderPopupContainer(
+            Object.entries(MACOS_DOWNLOAD_INFO).map(([key, value]) => (
+              <a
+                key={key}
+                href={value.href}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => handleLinkClick(e, value.href, value.title, true)}
+              >
+                {value.title}
+              </a>
+            ))
+          )}
+        />
+      );
+    }
+
+    // 普通链接
+    return (
+      <div className={styles.footerItemList} key={subItem.title}>
+        {renderLink(
+          subItem.value,
+          subItem.title,
+          sectionTitle === 'Download'
+        )}
+      </div>
+    );
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerLogo}>
@@ -113,32 +216,7 @@ const Footer = () => {
           <div className={styles.footerItem} key={item.sectionTitle}>
             <div className={styles.footerItemTitle}>{item.sectionTitle}</div>
             <div>
-              {item.items.map((item) => (
-                item.title === 'Email' ? (
-                  <HoverPopup
-                    key={item.title}
-                    children={
-                      <div className={styles.footerItemList} key={item.title}>
-                        <a target="_blank" rel="noreferrer">{item.title}</a>
-                      </div>
-                    }
-                    popup={
-                      <div className={styles.emailPopupContainer}>
-                        <div className={styles.emailPopup}>
-                          {EMAIL_LIST.map((email) => (
-                            <a key={email.name} href={email.link} target="_blank" rel="noreferrer">{email.name}</a>
-                          ))}
-                        </div>
-                        <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.emailPopupArrow}/>
-                      </div>
-                    }
-                  />
-                ) : (
-                  <div className={styles.footerItemList} key={item.title}>
-                    <a href={item.value} target="_blank" rel="noreferrer">{item.title}</a>
-                  </div>
-                )
-              ))}
+              {item.items.map((subItem) => renderFooterItem(subItem, item.sectionTitle))}
             </div>
           </div>
         ))}

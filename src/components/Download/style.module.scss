@@ -294,15 +294,14 @@
     &:hover {
       background: rgba(76, 101, 255, 0.20);
     }
-    a {
-      color: var(--r-neutral-title1, #192945);
-      text-align: center;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      text-decoration: none;
-    }
+    
+    color: var(--r-neutral-title1, #192945);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
   }
   .qrArrow {
     position: absolute;
@@ -399,12 +398,11 @@
         &:first-child {
           margin-bottom: 12px;
         }
-        .downloadItemMacosItemTitleMacos {
-          color: var(--r-neutral-title1, #192945);
-          text-align: center;
-          font-size: 20px;
-          font-weight: 500;
-        }
+        color: var(--r-neutral-title1, #192945);
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        text-decoration: none;
         &:hover {
           background: rgba(76, 101, 255, 0.20);
         }

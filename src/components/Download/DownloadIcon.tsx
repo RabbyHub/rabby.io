@@ -40,11 +40,11 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   const isMobile = /mobile/i.test(navigator.userAgent);
   
 
-  const reportClickDownload = () => {
+  const reportClickDownload = (report: string) => {
     ga.event({
       category: 'User',
       action: 'clickDownload',
-      label: title
+      label: report
     });
   };
   // 处理点击事件
@@ -68,7 +68,7 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
     if (href) {
       window.open(href, '_blank', 'noopener,noreferrer');
     }
-    reportClickDownload();
+    reportClickDownload(title);
   };
   const renderIconContent = (active: boolean) => (
     <div
@@ -118,9 +118,13 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
       <div className={styles.macList}>
         {Object.entries(MACOS_DOWNLOAD_INFO).map(([key, info]) => {
           return (
-            <div className={styles.macItem} key={key}>
-              <a href={info.href} target="_blank">{info.title}</a>
-            </div>
+            <a key={key} href={info.href}
+              onClick={(e) => {
+                e.preventDefault();
+                reportClickDownload(info.title);
+                window.open(info.href, '_blank');
+              }}
+              target="_blank" className={styles.macItem}>{info.title}</a>
           )
         })}
         <img src="/assets/images/polygon-2.svg" alt="arrow" className={styles.qrArrow}/>

@@ -90,20 +90,24 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
               <div
                 key={key}
                 className={styles.downloadItem}
-                onClick={() => openBrowser(value.href, DownloadType.DESKTOP, value.title)}
                 onMouseEnter={() => { if (!isSmallScreen) setHoverKey(key); }}
                 onMouseLeave={() => { if (!isSmallScreen) setHoverKey(null); }}
               >
                 {(hoverKey === key && key === "macos") ? (
                   <div className={styles.downloadItemMacos}>
                     {Object.entries(MACOS_DOWNLOAD_INFO).map(([macKey, macValue]) => (
-                      <div
-                        key={macKey}
+                      <a key={macKey}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          reportClickDownload(macValue.title);
+                          window.open(macValue.href, '_blank');
+                        }}
+                        href={macValue.href}
+                        target="_blank"
                         className={styles.downloadItemMacosItem}
-                        onClick={() => openBrowser(macValue.href, DownloadType.DESKTOP, macValue.title)}
                       >
-                        <div className={styles.downloadItemMacosItemTitleMacos}>{macValue.title}</div>
-                      </div>
+                        {macValue.title}
+                      </a>
                     ))}
                   </div>
                 ) : (
