@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useMemo } from "react";  
 import CommentTweetItem from "./CommentTweetItem";  
-import { COMMENT_RAW_ARRS } from "./constant";  
+import { COMMENT_RAW_ARRS } from "../CommentCard/constant";  
 
   
 const TWEET_OPTIONS = {  

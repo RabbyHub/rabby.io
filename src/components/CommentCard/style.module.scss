@@ -1,0 +1,102 @@
+.commentList {
+    margin-bottom: 130px;
+}
+.commentRow {
+  padding: 12px 0;
+}
+.commentItem {
+  width: 360px;
+  height: 319px;
+  border-radius: 20px;
+  background: var(--r-neutral-card1, #FFF);
+  padding: 20px;
+  cursor: pointer;
+  margin-right: 24px;
+  transition: transform 0.3s ease;
+  &:hover {
+    background-color: rgba(76, 101, 255, 0.10);
+  }
+  
+  &.shakeUpper {
+    animation: shakeUpper 0.5s ease-in-out both;
+  }
+}
+.commentRedirect {
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  
+  img {
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.commentItemTop {
+    display: flex;
+    justify-content: space-between;
+}
+.commentItemTopLeft {
+    display: flex;
+    align-items: center;
+}
+.commentItemAvatar {
+    border-radius: 50%;
+}
+.commentItemTopHeader {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+  .commentItemAuthor {
+    color: var(--r-blue-light3, #4C65FF);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    img {
+        margin-left: 4px;
+    }
+  }
+  .commentItemSignature {
+    color: var(--r-neutral-foot, #6A7587);
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+.commentItemContent {
+    color: var(--r-neutral-title1, #192945);
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 12px;
+    line-height: 140%;
+    white-space: break-spaces;
+    overflow: hidden;
+    max-height: calc(100% - 40px);
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+@keyframes shakeUpper {
+  0% { 
+    transform: scale(1.01) translateY(0); 
+  }
+  50% { 
+    transform: scale(1.01) translateY(-4px); 
+  }
+  100% { 
+    transform: scale(1.01) translateY(0); 
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .commentList {
+    margin-bottom: 60px;
+  }
+  .commentItem:hover {
+    background-color: var(--r-neutral-card1, #FFF)!important;
+  }
+}

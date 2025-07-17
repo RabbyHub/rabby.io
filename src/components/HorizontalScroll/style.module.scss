@@ -1,0 +1,149 @@
+.horizontalScroll {
+  overflow-x: hidden; // 改为visible，确保所有卡片都能显示
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  cursor: grab;
+  user-select: auto;
+  touch-action: pan-x pan-y; // 允许水平和垂直滑动，不影响页面滚动
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &.dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    cursor: default;
+    touch-action: pan-x pan-y; // 移动端允许水平和垂直滑动
+    
+    &:hover {
+      cursor: default;
+    }
+    
+    &.dragging {
+      cursor: default;
+      user-select: auto;
+    }
+    
+    &.touching {
+      touch-action: pan-x; // 触摸时只允许水平滑动
+    }
+  }
+}
+
+.content {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  position: relative; // 为绝对定位的子元素提供参考
+  width: 100%; // 确保容器有足够的宽度
+  
+  &.dragging,
+  &.touching,
+  &.trackpadScrolling {
+    transition: none;
+    pointer-events: none;
+  }
+  
+  &.paused {
+    transition: transform 0.3s ease-out;
+  }
+
+  // 动画完成后，确保内容可以正常滚动
+  &.animate {
+    position: relative;
+  }
+  
+  // 移动端触摸时的特殊处理
+  @media screen and (max-width: 1024px) {
+    &.touching {
+      pointer-events: auto; // 移动端触摸时保持交互
+    }
+  }
+}
+
+.item {
+  display: inline-flex;
+  cursor: default;
+  opacity: 1; // 默认可见
+  
+  &.clickable {
+    cursor: pointer;
+  }
+  
+  // 小屏幕去掉hover效果
+  @media screen and (max-width: 1024px) {
+    cursor: default;
+    
+    &.clickable {
+      cursor: default;
+    }
+    
+    // 确保移动端视频和交互元素正常工作
+    video, iframe, button, a {
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+    
+    // 防止触摸事件被阻止
+    * {
+      touch-action: manipulation;
+    }
+  }
+  
+  // 只在启用动画时使用绝对定位
+  &.animate {
+    position: absolute !important; // 动画时使用绝对定位
+    left: 50% !important; // 从容器中心开始
+    animation: itemSlideIn 0.4s ease-out forwards;
+    z-index: 1; // 确保卡片在正确的层级
+    pointer-events: auto; // 动画开始后恢复交互
+    visibility: visible !important; // 确保动画时可见
+  }
+  
+  // 初始状态：动画开始前完全隐藏
+  &.initialState {
+    position: absolute !important;
+    left: 50% !important;
+    opacity: 0 !important;
+    z-index: 1;
+    pointer-events: none; // 防止初始状态时被点击
+    visibility: hidden; // 确保完全不可见
+  }
+}
+
+
+// 从中心向两边展开动画，确保第一张卡片最终位置为0
+@keyframes itemSlideIn {
+  0% {
+    transform: translateX(calc(-50% + var(--initial-offset, 0))) !important; // 卡片错开排列
+    opacity: 0 !important; // 确保开始时完全隐藏
+  }
+  20% {
+    opacity: 1 !important; // 逐渐显示
+  }
+  40% {
+    transform: translateX(calc(-50% + var(--initial-offset, 0))) !important; // 保持错开排列
+    opacity: 1 !important;
+  }
+  60% {
+    transform: translateX(calc(-50% + var(--final-position, 0) * 0.6)) !important; // 开始展开到60%位置
+    opacity: 1 !important;
+  }
+  80% {
+    transform: translateX(calc(-50% + var(--final-position, 0) * 0.85)) !important; // 展开到85%位置
+    opacity: 1 !important;
+  }
+  95% {
+    transform: translateX(calc(-50% + var(--final-position, 0) * 0.98)) !important; // 展开到98%位置
+    opacity: 1 !important;
+  }
+  100% {
+    transform: translateX(var(--final-position, 0)) !important; // 展开到最终位置，第一张卡片位置为0
+    opacity: 1 !important;
+  }
+}
