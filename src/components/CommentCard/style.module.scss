@@ -73,6 +73,8 @@
     margin-top: 12px;
     line-height: 140%;
     white-space: break-spaces;
+    overflow: hidden;
+    max-height: calc(100% - 50px);
 }
 @keyframes shakeUpper {
   0% { 

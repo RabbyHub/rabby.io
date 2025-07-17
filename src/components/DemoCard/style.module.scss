@@ -23,7 +23,7 @@
       z-index: 2;
       position: relative;
       opacity: 1;
-      clip-path: inset(1px round 20px);
+      clip-path: inset(3px round 20px);
       &.hidden {
         opacity: 0;
       }
@@ -33,8 +33,8 @@
       position: absolute;
       top: 48px;
       left: 20px;
-      width: calc(100% - 40px);
-      height: calc(100% - 82px);
+      width: calc(100% - 46px);
+      height: calc(100% - 88px);
       object-fit: cover;
       border-radius: 20px;
       z-index: 1;
