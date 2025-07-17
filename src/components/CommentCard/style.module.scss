@@ -75,6 +75,10 @@
     white-space: break-spaces;
     overflow: hidden;
     max-height: calc(100% - 50px);
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 @keyframes shakeUpper {
   0% { 
