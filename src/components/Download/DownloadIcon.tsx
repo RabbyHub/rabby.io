@@ -66,9 +66,9 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
     
     // 否则跳转到对应的链接
     if (href) {
+      reportClickDownload(title);
       window.open(href, '_blank', 'noopener,noreferrer');
     }
-    reportClickDownload(title);
   };
   const renderIconContent = (active: boolean) => (
     <div

@@ -108,7 +108,7 @@ export const DOWNLOAD_INFO = {
     macos: {
       title: "Mac",
       icon: "/assets/download/apple-new.svg",
-      href: LINKS.DOWNLOAD.MACOS_INTEL,
+      href: "",
       type: DownloadType.DESKTOP
     },
     windows: {

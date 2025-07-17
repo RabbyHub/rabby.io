@@ -48,7 +48,7 @@ const Footer = () => {
         },
         {
           title: "macOS",
-          value: LINKS.DOWNLOAD.MACOS_INTEL,
+          value: "",
         },
         {
           title: "Windows",
@@ -113,21 +113,23 @@ const Footer = () => {
   };
 
   // 点击处理
-  const handleLinkClick = (e, href, title, shouldReport = false) => {
+  const handleLinkClick = (e, href, title, shouldReport = false, shouldRedirect = true) => {
     e.preventDefault();
     if (shouldReport) {
       reportClickDownload(title);
     }
-    window.open(href, '_blank');
+    if (shouldRedirect) {
+      window.open(href, '_blank');
+    }
   };
 
   // 链接渲染
-  const renderLink = (href, title, shouldReport = false) => (
+  const renderLink = (href, title, shouldReport = false, shouldRedirect = true) => (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      onClick={(e) => handleLinkClick(e, href, title, shouldReport)}
+      onClick={(e) => handleLinkClick(e, href, title, shouldReport, shouldRedirect)}
     >
       {title}
     </a>
@@ -152,7 +154,7 @@ const Footer = () => {
           key={subItem.title}
           children={
             <div className={styles.footerItemList}>
-              {renderLink('#', subItem.title)}
+              {renderLink('#', subItem.title, false, false)}
             </div>
           }
           popup={renderPopupContainer(
@@ -173,7 +175,7 @@ const Footer = () => {
           key={subItem.title}
           children={
             <div className={styles.footerItemList}>
-              {renderLink('#', subItem.title)}
+              {renderLink('#', subItem.title, false, false)}
             </div>
           }
           popup={renderPopupContainer(

@@ -76,7 +76,7 @@ const IntergrateChains = ({ chains, rows = 4 }) => {
       {groupChains.map((rowChains, rowIdx) => (
         <div className={styles.chainsRow} key={rowIdx}>
           <HorizontalScroll
-            speed={7}
+            speed={70}
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
             infiniteLoop
             pauseOnHover={true}
