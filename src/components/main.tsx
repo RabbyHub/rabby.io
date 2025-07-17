@@ -44,14 +44,14 @@ export const Main: React.FC = () => {
                         <div>Download for {currentMobile === 'googlePlay' ? 'Android' : 'iOS'}</div>
                     </button>
                 ) : (
-                        <>
+                <>
                     <DownloadButton
-                    className={clsx(styles.downloadBrowserButton)}
-                    title={`Download for ${browserInfo.title}`}
-                    icon={browserInfo.icon}
-                    href={browserInfo.href}
-                    report={browserInfo.title}
-                />
+                        className={clsx(styles.downloadBrowserButton)}
+                        title={`Download for ${browserInfo.title}`}
+                        icon={browserInfo.icon}
+                        href={browserInfo.href}
+                        report={browserInfo.title}
+                    />
                     <DownloadMobileButton className={styles.downloadMobileButton} />
                 </>
             )} 

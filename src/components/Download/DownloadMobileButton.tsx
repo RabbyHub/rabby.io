@@ -4,19 +4,29 @@ import styles from './style.module.scss';
 import { DOWNLOAD_INFO_MOBILE } from './download-info';
 import { HoverPopup } from '../HoverPopup';
 import { QRCodeSVG } from './QRCodeSVG';
+import { ga } from '../../ga';
 
 export const DownloadMobileButton: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const handleQRClick = (url: string) => {
+  const handleQRClick = (url: string, title: string) => {
     window.open(url, '_blank');
+    reportClickDownload(title);
+  };
+
+  const reportClickDownload = (report: string) => {
+    ga.event({
+      category: 'User',
+      action: 'clickDownload',
+      label: report
+    });
   };
 
   const qrPanel = (
     <div className={styles.qrPanel}>
       <div className={styles.qrRow}>
         {Object.entries(DOWNLOAD_INFO_MOBILE).map(([key, info]) => (
-          <div className={styles.qrItem} key={key} onClick={() => handleQRClick(info.href)}>
+          <div className={styles.qrItem} key={key} onClick={() => handleQRClick(info.href, info.title)}>
             <div className={styles.qrItemContent}>
               <img className={styles.qrTipsIcon} src="/assets/download/qr-code.svg" alt="qr-code" />
               <div className={styles.foldTriangle}></div>

@@ -1,11 +1,61 @@
 .chainsContainer {
   padding-bottom: 80px;
 }
+.chainItemWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .chainItem {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-right: 64px;
+  transition: transform 0.3s ease;
+}
+
+.hoverOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.semiCircle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 36px;
+  background: var(--r-blue-light3, #4C65FF);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+.chainName {
+  position: relative;
+  height: 36px;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 16px;
+  max-width: 100px;
+  white-space: nowrap;
 }
 
 .loading {
@@ -46,6 +96,18 @@
     width: 40px;
     height: 40px;
     margin-right: 24px;
+  }
+  .semiCircle {
+    width: 50px;
+    height: 30px;
+    border-radius: 25px 25px 0 0;
+  }
+  .chainName {
+    font-size: 10px;
+    max-width: 45px;
+    padding: 2px 2px;
+    line-height: 12px;
+    height: 25px;
   }
   .chainsRow {
     margin-bottom: 24px;

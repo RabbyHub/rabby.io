@@ -5,6 +5,7 @@ import { DownloadType, DOWNLOAD_INFO_MOBILE, MACOS_DOWNLOAD_INFO } from './downl
 import { HoverPopup } from '../HoverPopup';
 import { showToast } from '../../toast';
 import { QRCodeSVG } from './QRCodeSVG';
+import { ga } from '../../ga';
 
 export interface DownloadIconProps {
   infoKey: string;
@@ -38,6 +39,14 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
   // 检测是否为移动端
   const isMobile = /mobile/i.test(navigator.userAgent);
   
+
+  const reportClickDownload = () => {
+    ga.event({
+      category: 'User',
+      action: 'clickDownload',
+      label: title
+    });
+  };
   // 处理点击事件
   const handleClick = () => {
     // 如果是移动端且是插件或桌面版，则显示提示
@@ -59,6 +68,7 @@ export const DownloadIcon: React.FC<DownloadIconProps> = ({
     if (href) {
       window.open(href, '_blank', 'noopener,noreferrer');
     }
+    reportClickDownload();
   };
   const renderIconContent = (active: boolean) => (
     <div
