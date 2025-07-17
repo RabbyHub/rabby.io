@@ -79,7 +79,7 @@ const Footer = () => {
       sectionTitle: "Security & Transparency",
       items: [
         {
-          title: "Fully Open Source on GitHub",
+          title: "Open Source on GitHub",
           value: LINKS.SECURITY.OPEN_SOURCE,
         },
         {
