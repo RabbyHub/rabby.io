@@ -8,7 +8,6 @@ html {
   background-color: #fafbfc;
   font-family: "SF Pro", sans-serif;
   scroll-behavior: smooth;
-  zoom: 0.8;
 }
 
 body {
@@ -42,7 +41,9 @@ h3 {
   color: #fff;
   text-decoration: none;
 }
-
+.main-container {
+  zoom: 0.8;
+}
 .round-button.transparent {
   width: 130px;
   line-height: 36px;
