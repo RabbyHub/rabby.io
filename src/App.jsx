@@ -7,6 +7,7 @@ import CommentList from "./components/CommentCard/CommentList";
 import Download from "./components/Download/Download";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer/Footer";
+import "./index.css";
 
 function App() {
   const downloadRef = useRef(null);
@@ -23,7 +24,7 @@ function App() {
   const chains = useFetchChainList();
 
   return (
-    <>
+    <div className="main-container">
       <div className="main">
         <Header onDownloadClick={handleClickDownload} onContactClick={handleClickContact} />
       </div>
@@ -47,7 +48,7 @@ function App() {
       <Download ref={downloadRef} />
       <ContactUs ref={contactRef} />
       <Footer />
-    </>
+    </div>
   );
 }
 
