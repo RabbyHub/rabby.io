@@ -84,7 +84,7 @@ const Header = ({ onDownloadClick, onContactClick }) => {
         </div>
       </div>
       <div className="header-content">
-        <img src="/assets/logos/symbol.svg" alt="Rabby" className="symbol" />
+        <img src="/assets/logos/symbol-new.svg" alt="Rabby" className="symbol" />
         <img src="/assets/images/slogon.svg" alt="slogon" className="slogan" />
         <Main />
       </div>
