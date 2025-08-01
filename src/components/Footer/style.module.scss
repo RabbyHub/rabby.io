@@ -63,7 +63,7 @@
         display: flex;
         flex-wrap: wrap;
         .footerItem {
-            width: 213px;
+            width: 215px;
             display: flex;
             flex-direction: column;
             margin-top: 40px;
@@ -79,8 +79,8 @@
                 a {
                     text-decoration: none;
                     color: var(--r-neutral-body, #3E495E);
-                    padding: 10px 14px;
-                    margin-left: -14px;
+                    padding: 10px 16px;
+                    margin-left: -16px;
                     &:hover {
                         cursor: pointer;
                         color: var(--r-blue-primary, #4C65FF);
