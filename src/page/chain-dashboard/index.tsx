@@ -67,6 +67,19 @@ export const ChainDashboard = () => {
 
   useTitle("Chain Dashboard - Rabby Wallet");
 
+  useEffect(() => {
+    const isDarkMode = document.body.classList.contains("dark");
+    if (!isDarkMode) {
+      document.body.classList.add("dark");
+    }
+
+    return () => {
+      if (!isDarkMode) {
+        document.body.classList.remove("dark");
+      }
+    };
+  }, []);
+
   return (
     <div
       className={style.page}
