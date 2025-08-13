@@ -15,7 +15,7 @@
   --rabby-light-green-light: rgba(216, 242, 231, 1);
   --rabby-light-orange-default: rgba(255, 176, 32, 1);
   --rabby-light-orange-light: rgba(255, 245, 226, 1);
-  --rabby-light-orange-DBK: rgba(255,124,96, 1);
+  --rabby-light-orange-DBK: rgba(255, 124, 96, 1);
   --rabby-light-red-default: rgba(227, 73, 53, 1);
   --rabby-light-red-light: rgba(255, 242, 240, 1);
   --rabby-light-red-dark: rgba(174, 42, 25, 1);
@@ -60,7 +60,7 @@
   --rabby-dark-green-light: rgba(57, 90, 90, 1);
   --rabby-dark-orange-default: rgba(255, 198, 74, 1);
   --rabby-dark-orange-light: rgba(72, 67, 57, 1);
-  --rabby-dark-orange-DBK: rgba(255,124,96, 1);
+  --rabby-dark-orange-DBK: rgba(255, 124, 96, 1);
   --rabby-dark-red-default: rgba(239, 92, 72, 1);
   --rabby-dark-red-light: rgba(79, 58, 66, 1);
   --rabby-dark-red-dark: rgba(174, 42, 25, 1);
@@ -87,11 +87,11 @@
   --rabby-dark-neutral-title2: rgba(255, 255, 255, 1);
   --rabby-dark-neutral-title-2: rgba(255, 255, 255, 1);
   --rabby-dark-neutral-black: rgba(0, 0, 0, 1);
-  --rabby-dark-sonic-card: rgba(33,34,38, 1);
-  --rabby-dark-sonic-card-foreground: rgba(255,255,255, 1);
-  --rabby-dark-sonic-card-border: rgba(50,51,55, 1);
-  --rabby-dark-sonic-background: rgba(20,20,22, 1);
-  --rabby-dark-sonic-foreground: rgba(255,255,255, 1);
+  --rabby-dark-sonic-card: rgba(33, 34, 38, 1);
+  --rabby-dark-sonic-card-foreground: rgba(255, 255, 255, 1);
+  --rabby-dark-sonic-card-border: rgba(50, 51, 55, 1);
+  --rabby-dark-sonic-background: rgba(20, 20, 22, 1);
+  --rabby-dark-sonic-foreground: rgba(255, 255, 255, 1);
   --rabby-dark-sonic-btn: rgba(254, 154, 76, 0.16);
   --rabby-dark-sonic-btn-foreground: rgba(254, 154, 76, 1);
 }
@@ -188,6 +188,99 @@
   --r-sonic-foreground: var(--rabby-light-sonic-foreground);
 }
 
+html.dark,
+body.dark {
+  /* -------------------- dark mode -------------------- */
+  --r-blue-default-rgb: 76, 101, 255;
+  --r-blue-default: var(--rabby-dark-blue-default);
+  --r-blue-light1-rgb: 33, 38, 64;
+  --r-blue-light1: var(--rabby-dark-blue-light1);
+  --r-blue-light-1-rgb: 33, 38, 64;
+  --r-blue-light-1: var(--rabby-dark-blue-light-1);
+  --r-blue-light2-rgb: 38, 45, 85;
+  --r-blue-light2: var(--rabby-dark-blue-light2);
+  --r-blue-light-2-rgb: 38, 45, 85;
+  --r-blue-light-2: var(--rabby-dark-blue-light-2);
+  --r-blue-disable-rgb: 47, 59, 128;
+  --r-blue-disable: var(--rabby-dark-blue-disable);
+  --r-green-default-rgb: 42, 187, 127;
+  --r-green-default: var(--rabby-dark-green-default);
+  --r-green-light-rgb: 57, 90, 90;
+  --r-green-light: var(--rabby-dark-green-light);
+  --r-orange-default-rgb: 255, 198, 74;
+  --r-orange-default: var(--rabby-dark-orange-default);
+  --r-orange-light-rgb: 72, 67, 57;
+  --r-orange-light: var(--rabby-dark-orange-light);
+  --r-orange-DBK-rgb: 255, 124, 96;
+  --r-orange-DBK: var(--rabby-dark-orange-DBK);
+  --r-red-default-rgb: 239, 92, 72;
+  --r-red-default: var(--rabby-dark-red-default);
+  --r-red-light-rgb: 79, 58, 66;
+  --r-red-light: var(--rabby-dark-red-light);
+  --r-red-dark-rgb: 174, 42, 25;
+  --r-red-dark: var(--rabby-dark-red-dark);
+  --r-red-light2-rgb: 79, 58, 66;
+  --r-red-light2: var(--rabby-dark-red-light2);
+  --r-red-light-2-rgb: 79, 58, 66;
+  --r-red-light-2: var(--rabby-dark-red-light-2);
+  --r-neutral-title1-rgb: 247, 250, 252;
+  --r-neutral-title1: var(--rabby-dark-neutral-title1);
+  --r-neutral-title-1-rgb: 247, 250, 252;
+  --r-neutral-title-1: var(--rabby-dark-neutral-title-1);
+  --r-neutral-body-rgb: 211, 216, 224;
+  --r-neutral-body: var(--rabby-dark-neutral-body);
+  --r-neutral-foot-rgb: 186, 190, 197;
+  --r-neutral-foot: var(--rabby-dark-neutral-foot);
+  --r-neutral-line-rgb: 255, 255, 255;
+  --r-neutral-line: var(--rabby-dark-neutral-line);
+  --r-neutral-bg1-rgb: 12, 15, 31;
+  --r-neutral-bg1: var(--rabby-dark-neutral-bg1);
+  --r-neutral-bg-1-rgb: 12, 15, 31;
+  --r-neutral-bg-1: var(--rabby-dark-neutral-bg-1);
+  --r-neutral-bg2-rgb: 12, 15, 31;
+  --r-neutral-bg2: var(--rabby-dark-neutral-bg2);
+  --r-neutral-bg-2-rgb: 12, 15, 31;
+  --r-neutral-bg-2: var(--rabby-dark-neutral-bg-2);
+  --r-neutral-bg3-rgb: 12, 15, 31;
+  --r-neutral-bg3: var(--rabby-dark-neutral-bg3);
+  --r-neutral-bg-3-rgb: 12, 15, 31;
+  --r-neutral-bg-3: var(--rabby-dark-neutral-bg-3);
+  --r-neutral-bg-4-rgb: 12, 15, 31;
+  --r-neutral-bg-4: var(--rabby-dark-neutral-bg-4);
+  --r-neutral-card1-rgb: 255, 255, 255;
+  --r-neutral-card1: var(--rabby-dark-neutral-card1);
+  --r-neutral-card-1-rgb: 255, 255, 255;
+  --r-neutral-card-1: var(--rabby-dark-neutral-card-1);
+  --r-neutral-card2-rgb: 255, 255, 255;
+  --r-neutral-card2: var(--rabby-dark-neutral-card2);
+  --r-neutral-card-2-rgb: 255, 255, 255;
+  --r-neutral-card-2: var(--rabby-dark-neutral-card-2);
+  --r-neutral-card3-rgb: 255, 255, 255;
+  --r-neutral-card3: var(--rabby-dark-neutral-card3);
+  --r-neutral-card-3-rgb: 255, 255, 255;
+  --r-neutral-card-3: var(--rabby-dark-neutral-card-3);
+  --r-neutral-title2-rgb: 255, 255, 255;
+  --r-neutral-title2: var(--rabby-dark-neutral-title2);
+  --r-neutral-title-2-rgb: 255, 255, 255;
+  --r-neutral-title-2: var(--rabby-dark-neutral-title-2);
+  --r-neutral-black-rgb: 0, 0, 0;
+  --r-neutral-black: var(--rabby-dark-neutral-black);
+  --r-sonic-card-rgb: 33, 34, 38;
+  --r-sonic-card: var(--rabby-dark-sonic-card);
+  --r-sonic-card-foreground-rgb: 255, 255, 255;
+  --r-sonic-card-foreground: var(--rabby-dark-sonic-card-foreground);
+  --r-sonic-card-border-rgb: 50, 51, 55;
+  --r-sonic-card-border: var(--rabby-dark-sonic-card-border);
+  --r-sonic-background-rgb: 20, 20, 22;
+  --r-sonic-background: var(--rabby-dark-sonic-background);
+  --r-sonic-foreground-rgb: 255, 255, 255;
+  --r-sonic-foreground: var(--rabby-dark-sonic-foreground);
+  --r-sonic-btn-rgb: 254, 154, 76;
+  --r-sonic-btn: var(--rabby-dark-sonic-btn);
+  --r-sonic-btn-foreground-rgb: 254, 154, 76;
+  --r-sonic-btn-foreground: var(--rabby-dark-sonic-btn-foreground);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -199,7 +292,7 @@ html {
 }
 
 body {
-  background: var(--r-blue-light1, #EEF1FF);
+  background: var(--r-blue-light1, #eef1ff);
 }
 
 ul {
@@ -291,7 +384,7 @@ h3 {
 }
 header {
   width: 100%;
-  zoom: 1.2
+  zoom: 1.2;
 }
 .nav {
   display: flex;
@@ -307,7 +400,7 @@ header {
   display: flex;
 }
 .round-button.primary {
-  color: var(--r-neutral-title2, #FFF);
+  color: var(--r-neutral-title2, #fff);
   text-align: center;
   font-size: 16px;
   font-weight: 500;
@@ -317,7 +410,7 @@ header {
   border: none;
   cursor: pointer;
   display: flex;
-  background: var(--r-blue-light3, #4C65FF);
+  background: var(--r-blue-light3, #4c65ff);
 }
 .download-btn {
   padding: 12px 24px;
@@ -333,7 +426,7 @@ header {
   align-items: center;
 }
 .menu li a {
-  color: var(--r-neutral-title1, #2D3033);
+  color: var(--r-neutral-title1, #2d3033);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -342,8 +435,8 @@ header {
   transition: all 0.3s;
 }
 .menu li a:hover {
-  color: var(--r-blue-light3, #4C65FF);
-  background: var(--r-blue-light2, rgba(76, 101, 255, 0.10));
+  color: var(--r-blue-light3, #4c65ff);
+  background: var(--r-blue-light2, rgba(76, 101, 255, 0.1));
 }
 
 .header-content {
@@ -394,7 +487,7 @@ header {
   right: 0;
   z-index: 1;
   border-radius: 8px;
-  background: var(--r-neutral-card1, #FFF);
+  background: var(--r-neutral-card1, #fff);
   box-shadow: 0px 8px 20px 0px rgba(41, 43, 113, 0.16);
 }
 .menu-container .menu-panel .menu-item {
@@ -402,7 +495,7 @@ header {
   text-align: center;
 }
 .menu-container .menu-panel .menu-item a {
-  color: var(--r-neutral-title1, #2D3033);
+  color: var(--r-neutral-title1, #2d3033);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -443,11 +536,10 @@ header {
   }
   .menu-container {
     cursor: pointer;
-    display: flex!important;
+    display: flex !important;
     margin-left: 16px;
   }
 }
-
 
 .white {
   color: #fff;
@@ -468,7 +560,7 @@ header {
   font-size: 16px;
   text-decoration: none;
   background-color: transparent;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   padding: 8px;
   border-radius: 8px;
   white-space: nowrap;
@@ -1266,7 +1358,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
 }
 
 .comment-title {
-  font-family: "SF Pro", sans-serif;;
+  font-family: "SF Pro", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 38.4px;
@@ -1351,7 +1443,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
 
   .comment-item-signature {
-    font-family: "SF Pro", sans-serif;;
+    font-family: "SF Pro", sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 15.6px;
@@ -1360,7 +1452,7 @@ footer .right .footer-links a:nth-last-child(1)::after {
   }
 
   .comment-item-content {
-    font-family: "SF Pro", sans-serif;;
+    font-family: "SF Pro", sans-serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
