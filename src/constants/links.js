@@ -31,8 +31,8 @@ export const LINKS = {
 
   // 安全相关链接
   SECURITY: {
-    AUDIT_SLOWMIST: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report-20250821.pdf",
-    AUDIT_LEAST_AUTHORITY: "https://github.com/RabbyHub/Rabby/blob/develop/docs/Least%20Authority%20-%20Rabby%20Wallet%20Wallet%20Extension%20Final%20Audit%20Report-20250903.pdf",
+    AUDIT_SLOWMIST: "https://github.com/RabbyHub/Rabby/blob/develop/audits/2025/%5B20250821%5DRabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf",
+    AUDIT_LEAST_AUTHORITY: "https://github.com/RabbyHub/Rabby/blob/develop/audits/2025/%5B20250903%5DLeast%20Authority%20-%20Rabby%20Wallet%20Wallet%20Extension%20Final%20Audit%20Report.pdf",
     OPEN_SOURCE: "https://github.com/RabbyHub",
     TERMS_OF_USE: "/docs/terms-of-use/",
     PRIVACY_POLICY: "/docs/privacy/",
