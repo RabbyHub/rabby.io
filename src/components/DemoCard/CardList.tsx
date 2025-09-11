@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 const CardList = () => {
     const cardListExtension = [
         {
-            url: 'https://static-assets.rabby.io/files/b2156af0-b29a-431e-8650-a72cb2ca65fa.mp4',
+            url: 'https://static-assets.rabby.io/files/9e4554df-f8f4-4705-be93-7949fcf4bb7b.mp4',
             thumbnail: 'https://static-assets.rabby.io/files/80a81992-2394-4405-81be-afce56c4ba93.png',
         },
         {
