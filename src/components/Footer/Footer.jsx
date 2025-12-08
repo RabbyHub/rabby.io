@@ -46,14 +46,6 @@ const Footer = () => {
           title: "Google Play",
           value: LINKS.DOWNLOAD.GOOGLE_PLAY,
         },
-        {
-          title: "macOS",
-          value: "",
-        },
-        {
-          title: "Windows",
-          value: LINKS.DOWNLOAD.WINDOWS,
-        },
       ]
     },
     {
