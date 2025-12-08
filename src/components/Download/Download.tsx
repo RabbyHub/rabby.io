@@ -11,6 +11,7 @@ import { useIsSmallScreen } from "../../hooks/useIsSmallScreen";
 import { showToast } from "../../toast";
 import { QRCodeSVG } from "./QRCodeSVG";
 import { ga } from "../../ga";
+import clsx from "clsx";
 
 const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
   const [hoverKey, setHoverKey] = useState<string | null>(null);
@@ -42,7 +43,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
   const renderItem = (key: string, value: any, type: DownloadType) => (
     <div
       key={key}
-      className={styles.downloadItem}
+      className={clsx(styles.downloadItem)}
       onClick={() => openBrowser(value.href, type, value.title)}
     >
       <img src={value.icon} alt={value.title} />
@@ -109,6 +110,9 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
               <div
                 key={key}
                 className={styles.downloadItem}
+                style={{
+                  cursor: 'default'
+                }}
                 onMouseEnter={() => {
                   if (!isSmallScreen) setHoverKey(key);
                 }}
@@ -118,10 +122,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
               >
                 {hoverKey === key ? (
                   <div className={styles.downloadItemMacos}>
-                    <img
-                      src="/assets/images/hourglass.svg"
-                      alt=""
-                    />
+                    <img src="/assets/images/hourglass.svg" alt="" />
                     In Development
                   </div>
                 ) : (
