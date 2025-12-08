@@ -9,7 +9,7 @@ const CommentList = ({rows = 2}) => {
     return (
       <div className={styles.commentList}>
       {groupComments.map((rowComments, rowIdx) => (
-        <div key={rowIdx}>
+        <div key={rowIdx} data-nosnippet>
           <HorizontalScroll
             speed={70}
             direction={rowIdx % 2 === 0 ? 'right' : 'left'}
