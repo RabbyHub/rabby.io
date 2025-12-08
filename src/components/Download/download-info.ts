@@ -33,7 +33,7 @@ export const DESKTOP_DOWNLOAD_INFO = {
   windows: {
     title: "Windows",
     icon: ICONS.DOWNLOAD.WINDOWS,
-    href: LINKS.DOWNLOAD.WINDOWS,
+    href: "",
   },
 }
 
@@ -114,7 +114,7 @@ export const DOWNLOAD_INFO = {
     windows: {
       title: "Windows",
       icon: "/assets/download/windows-new.svg",
-      href: LINKS.DOWNLOAD.WINDOWS,
+      href: "",
       type: DownloadType.DESKTOP
     }
 }
