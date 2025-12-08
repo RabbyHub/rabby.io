@@ -3,7 +3,6 @@ import {
   BROWSER_DOWNLOAD_INFO,
   DOWNLOAD_INFO_MOBILE,
   DESKTOP_DOWNLOAD_INFO,
-  MACOS_DOWNLOAD_INFO,
   DownloadType,
 } from "./download-info";
 import { useState, forwardRef } from "react";
@@ -111,7 +110,7 @@ const Download = forwardRef<HTMLDivElement, any>((props, ref) => {
                 key={key}
                 className={styles.downloadItem}
                 style={{
-                  cursor: 'default'
+                  cursor: "default",
                 }}
                 onMouseEnter={() => {
                   if (!isSmallScreen) setHoverKey(key);

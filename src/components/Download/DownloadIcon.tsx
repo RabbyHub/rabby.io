@@ -1,11 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./style.module.scss";
-import {
-  DownloadType,
-  DOWNLOAD_INFO_MOBILE,
-  DOWNLOAD_INFO,
-} from "./download-info";
+import { DownloadType, DOWNLOAD_INFO_MOBILE } from "./download-info";
 import { HoverPopup } from "../HoverPopup";
 import { showToast } from "../../toast";
 import { QRCodeSVG } from "./QRCodeSVG";
