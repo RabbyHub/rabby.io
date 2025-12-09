@@ -1,8 +1,8 @@
 # PRIVACY POLICY
 
-**Last Updated: Oct.9, 2024**
+**Last Updated: Dec.9, 2025**
 
-This privacy policy for **DEBANK GLOBAL PTE. LTD.** (together with our affiliates, “**Company**,” “**we**,” “**us**,” or “**our**”), describes how and why we might collect, store, use, and/or share (**“process”**) your information when you use our services (**“Services”**), such as when you:
+This privacy policy for **OPCODE LABS PTE. LTD.** (together with our affiliates, “**Company**,” “**we**,” “**us**,” or “**our**”), describes how and why we might collect, store, use, and/or share (**“process”**) your information when you use our services (**“Services”**), such as when you:
 
 - Visit our website at <https://rabby.io/>, or any website of ours (“**Website**”) that links to this privacy policy;
 - Engage with us in other related ways, including any sales, marketing, or events.
@@ -317,10 +317,10 @@ We may update this privacy policy from time to time. The updated version will be
 
 If you have questions about our approach to privacy or would like to make a complaint, please contact our Data Protection Officer, whose details are provided below. We will endeavor to respond to your complaint as soon as possible.
 
-| Address | 44-02A, 10 anson road, 079903 |
-| :------------ | :---------------------------- |
-| Email Address | <jeff@debank.com> |
-| Contact No. | +65-85288553 |
+| Address       | 3 PHILLIP STREET, #10-04, ROYAL GROUP BUILDING, SINGAPORE 048693 |
+| :------------ | :--------------------------------------------------------------- |
+| Email Address | <DPO@debank.com>                                          |
+| Contact No.   | +65-85288553                                                     |
 
 ## HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
 
