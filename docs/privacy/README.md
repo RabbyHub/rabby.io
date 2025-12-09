@@ -1,6 +1,6 @@
 # PRIVACY POLICY
 
-**Last Updated: Oct.9, 2024**
+**Last Updated: Dec.9, 2025**
 
 This privacy policy for **OPCODE LABS PTE. LTD.** (together with our affiliates, “**Company**,” “**we**,” “**us**,” or “**our**”), describes how and why we might collect, store, use, and/or share (**“process”**) your information when you use our services (**“Services”**), such as when you:
 

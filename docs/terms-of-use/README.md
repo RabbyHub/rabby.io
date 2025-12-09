@@ -2,7 +2,7 @@
 
 **OPCODE LABS PTE. LTD.**
 
-**Last updated: Oct.9, 2024**
+**Last Updated: Dec.9, 2025**
 
 **OPCODE LABS PTE. LTD.** (“**Rabby**”, the “**Company**”, “**we**”, “**us**” or “**our**”) is a blockchain development company, focused on utilizing decentralized technologies. Our software is powering a revolution in commerce and finance and helping to optimize business processes. The Company hosts a top-level domain website, **[https://rabby.io/](https://rabby.io/)**, that provides information regarding the Company and its service offerings, products and services, as well as sub-domains for our products or services (the top-level domain with the sub-domains collectively referred to as the “**Site**”), which include text, images, audio, code and other materials or third-party information.
 
