@@ -319,7 +319,7 @@ If you have questions about our approach to privacy or would like to make a comp
 
 | Address       | 3 PHILLIP STREET, #10-04, ROYAL GROUP BUILDING, SINGAPORE 048693 |
 | :------------ | :--------------------------------------------------------------- |
-| Email Address | <weidong.pi@debank.com>                                          |
+| Email Address | <DPO@debank.com>                                          |
 | Contact No.   | +65-85288553                                                     |
 
 ## HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
