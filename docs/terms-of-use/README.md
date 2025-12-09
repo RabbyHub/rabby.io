@@ -1,10 +1,10 @@
 # Terms of Service
 
-**DEBANK GLOBAL PTE. LTD.**
+**OPCODE LABS PTE. LTD.**
 
 **Last updated: Oct.9, 2024**
 
-**DEBANK GLOBAL PTE. LTD.** (“**Rabby**”, the “**Company**”, “**we**”, “**us**” or “**our**”) is a blockchain development company, focused on utilizing decentralized technologies. Our software is powering a revolution in commerce and finance and helping to optimize business processes. The Company hosts a top-level domain website, **[https://rabby.io/](https://rabby.io/)**, that provides information regarding the Company and its service offerings, products and services, as well as sub-domains for our products or services (the top-level domain with the sub-domains collectively referred to as the “**Site**”), which include text, images, audio, code and other materials or third-party information.
+**OPCODE LABS PTE. LTD.** (“**Rabby**”, the “**Company**”, “**we**”, “**us**” or “**our**”) is a blockchain development company, focused on utilizing decentralized technologies. Our software is powering a revolution in commerce and finance and helping to optimize business processes. The Company hosts a top-level domain website, **[https://rabby.io/](https://rabby.io/)**, that provides information regarding the Company and its service offerings, products and services, as well as sub-domains for our products or services (the top-level domain with the sub-domains collectively referred to as the “**Site**”), which include text, images, audio, code and other materials or third-party information.
 
 These Terms of Service, including their appendix (these “**Terms**” or this “**Agreement**”) (i) contain the terms and conditions that govern your access to and use of the Site and Offerings (as defined below) and (ii) constitute a legally binding agreement between us and you and/or the entity you represent (“**you**”, “**your**” or “**user**”).
 
@@ -22,9 +22,9 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
 
 1. Bridge. The bridge is one of the means of accessing the protocol, and it may not be the exclusive means of accessing the protocol, as there may be alternative bridges relying on different smart contracts and interfaces deployed by third parties which support bridging token and other assets. You may also access a bridge directly using these other third-party interfaces or even through command line instructions.
 
-    You accept all risks associated with using the bridge. Bridging is an extremely novel technical area and is subject to material risks which may lead to total loss of user assets. All bridges are smart contracts that are subject to many known and unknown risks, including smart contract exploits of the actual smart contract code to produce outcomes different than those the bridge was designed to achieve, and cyberattacks intended to gain unauthorized control of the smart contracts or associated systems.
+   You accept all risks associated with using the bridge. Bridging is an extremely novel technical area and is subject to material risks which may lead to total loss of user assets. All bridges are smart contracts that are subject to many known and unknown risks, including smart contract exploits of the actual smart contract code to produce outcomes different than those the bridge was designed to achieve, and cyberattacks intended to gain unauthorized control of the smart contracts or associated systems.
 
-    The bridges may impose a volume limitation of tokens flowing into and out of the protocol. All users of the bridge may be subject to the limitation, which may impact the time it takes you to bridge in or out of the protocol while using the bridge. That volume limitation may or may not be disclosed on **[https://rabby.io/](https://rabby.io/)**. The volume limitation is a security measure to limit harm in the event of a malicious third-party act, and it may be changed without notice. Additionally, you acknowledge the risk that the volume limitation may not be technically effective, or may even be compromised. You accept the risk that it will not function as intended and assume any Losses, direct, indirect, or consequential, stemming from the volume limitations.
+   The bridges may impose a volume limitation of tokens flowing into and out of the protocol. All users of the bridge may be subject to the limitation, which may impact the time it takes you to bridge in or out of the protocol while using the bridge. That volume limitation may or may not be disclosed on **[https://rabby.io/](https://rabby.io/)**. The volume limitation is a security measure to limit harm in the event of a malicious third-party act, and it may be changed without notice. Additionally, you acknowledge the risk that the volume limitation may not be technically effective, or may even be compromised. You accept the risk that it will not function as intended and assume any Losses, direct, indirect, or consequential, stemming from the volume limitations.
 
 1. In connection with Third Party Services such as swaps, you understand and agree that swap rates and prices are estimates only, and that they may change at any time. Accordingly, the prices or swap rates provided via Rabby are estimates only and may be inaccurate. The Company may not be held liable for, and you hereby forever release the Company from, any Losses or other liabilities arising from an inaccurate estimate of fees provided in connection with any use of any of the Offerings.
 
@@ -87,8 +87,9 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
    Your access to and use of the Site or Offering may be suspended at any time, for any reason, in our sole and absolute discretion, without incurring liability of any kind to you as a result of such suspension or termination.
 
    If we suspend your right to access or use any portion or all of an Offering:
-      1. you remain responsible for all fees and charges you incur during the period of suspension;
-      1. you will not be entitled to any fee credits for any period of suspension.
+
+   1. you remain responsible for all fees and charges you incur during the period of suspension;
+   1. you will not be entitled to any fee credits for any period of suspension.
 
 1. Limiting API Requests. We retain sole discretion to limit your API requests (“**API Requests**”) submitted in conjunction with your use of an Offering at any time if your usage of the Offering exceeds the usage threshold specified in your Paid Plan or otherwise on the Site or user interface of the Offering. Further, excessive API requests, as determined by the Company in our sole discretion, may result in the temporary or permanent suspension of your access to an account or to your use of the applicable Offering. The Company is not required but will endeavor, when reasonable, to warn an account owner or user prior to suspension.
 
@@ -105,13 +106,13 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
 1. Government End Users. You acknowledge that the Services were developed entirely at private expense and that no part of the Services was first produced in the performance of a government contract. You agree that the Services and any derivatives thereof are “Commercial Items” as defined in 48 C.F.R. § 1.101, and if you are the government, then such use, duplication, reproduction, release, modification, disclosure or transfer of this commercial product and data, is restricted in accordance with 48 C.F.R. § 1.211, 48 C.F.R. § 1.212, 48 C.F.R. § 1.7102-2, and 48 C.F.R. § 1.7202, as applicable. Consistent with 48 C.F.R. § 1.211, 48 C.F.R. § 1.212, 48 C.F.R. § 1.7102-1 through 48 C.F.R. § 1.7102-3, and 48 C.F.R. §§ 1.7202-1 through 1.7202-4, as applicable, the Services are licensed to government end users (i) only as Commercial Items and (ii) with only those rights as are granted to all other users pursuant to these Legal Terms and any related agreement(s), as applicable. Accordingly, you will have no rights in the Services except as expressly agreed to in writing by you and the Company.
 1. Monitoring and Enforcement. You acknowledge and agree that as the Services provider, we reserve the right to, without prior notice:
 
-      a. Take any action with respect to any User Content that we deem necessary or appropriate in our sole discretion, including if we believe that such User Content violates these Terms, infringes any intellectual property right or other right of any person or entity, threatens the personal safety of users of the Site or the public, or could create liability for the Company;
+   a. Take any action with respect to any User Content that we deem necessary or appropriate in our sole discretion, including if we believe that such User Content violates these Terms, infringes any intellectual property right or other right of any person or entity, threatens the personal safety of users of the Site or the public, or could create liability for the Company;
 
-      b. Disclose your identity or other information about you to any third party who claims that material posted by you violates their rights, including their intellectual property rights or their right to privacy;
+   b. Disclose your identity or other information about you to any third party who claims that material posted by you violates their rights, including their intellectual property rights or their right to privacy;
 
-      c. Take appropriate legal action, including without limitation, referral to law enforcement, for any illegal or unauthorized use of the Site; and
+   c. Take appropriate legal action, including without limitation, referral to law enforcement, for any illegal or unauthorized use of the Site; and
 
-      d. Terminate or suspend your access to all or part of the Site for any or no reason, including without limitation, any violation of these Legal Terms.
+   d. Terminate or suspend your access to all or part of the Site for any or no reason, including without limitation, any violation of these Legal Terms.
 
    Without limiting the foregoing, we have the right to cooperate fully with any law enforcement authorities or court order requesting or directing us to disclose the identity or other information of anyone posting any materials on or through the Site or Offerings. YOU WAIVE AND HOLD HARMLESS THE COMPANY, ITS AFFILIATES, LICENSEES, AND SERVICE PROVIDERS FROM ANY CLAIMS RESULTING FROM ANY ACTION TAKEN BY THE COMPANY OR ANY OF THE FOREGOING PARTIES DURING, OR TAKEN AS A CONSEQUENCE OF, INVESTIGATIONS BY ANYLAW ENFORCEMENT AUTHORITIES.
 
@@ -129,12 +130,12 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
 
    Our designated copyright agent to receive the DMCA Notices is:
 
-   | DEBANK GLOBAL PTE. LTD. |                                         |
-   | ---------------------------- | -------------------------------------------- |
-   | ATTN:                   | DMCA Designated Agent                   |
-   | Address:                | 44-02A, 10 anson road, 079903           |
-   | Phone:                  | +65-85288553                            |
-   | Email:                  | <support@rabby.io> |
+   | OPCODE LABS PTE. LTD. |                                                                  |
+   | ----------------------- | ---------------------------------------------------------------- |
+   | ATTN:                   | DMCA Designated Agent                                            |
+   | Address:                | 3 PHILLIP STREET, #10-04, ROYAL GROUP BUILDING, SINGAPORE 048693 |
+   | Phone:                  | +65-85288553                                                     |
+   | Email:                  | <support@rabby.io>                                               |
 
    If you fail to comply with all of the requirements of Section 512(c)(3) of the DMCA, your DMCA Notice may not be effective.
 
@@ -154,6 +155,7 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
 ## **Acceptable Use and Enforcement Rights.**
 
 1. As a condition to using the Site and/or Offerings, you agree not to use the Site or Offerings in ways that:
+
    1. Violate, misappropriate, or infringe the rights of the Company, its licensors, our users, or others, including privacy, publicity, intellectual property, or other rights;
    1. Are illegal, obscene, defamatory, threatening, intimidating, harassing, hateful or racially or ethnically offensive, or that instigate or encourage conduct that would be illegal or otherwise inappropriate, including promoting violent crimes;
    1. Involve falsehoods, misrepresentations, or misleading statements, including impersonating someone;
@@ -167,6 +169,7 @@ ARBITRATION NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AS DETAILED
    1. Encourage or enable any other individual to do any of the foregoing.
 
 1. By using the Site or the Offerings, you further represent, warrant and covenant that:
+
    1. Any Digital Assets you transfer using the Site or the Offerings have been legally obtained by, and belong to, you;
    1. You will not provide any false, inaccurate or misleading information while using the Site or the Offerings, or engage in any activity that operates to defraud the Company, other users of the Offerings, or any other person or entity;
    1. You will not use the Offerings to transmit or exchange Digital Assets that are the direct or indirect proceeds of any criminal or fraudulent activity, including, without limitation, terrorism or tax evasion;
@@ -284,7 +287,7 @@ The Recipient shall: (i) protect and safeguard the confidentiality of the Disclo
 
 **DATA PROCESSING AGREEMENT**
 
-This Data Processing Agreement (“**DPA**”) is incorporated into and made part of the Terms of Service (“**Legal Terms**”) between you (“**Customer**”) and **DEBANK GLOBAL PTE. LTD.** (collectively with its affiliates, the “**Provider**” or “**Company**”). Unless otherwise defined in this DPA, capitalized terms will have the meaning given to them in the Legal Terms. This DPA prevails over any conflicting term of the Legal Terms but does not otherwise modify the Legal Terms.
+This Data Processing Agreement (“**DPA**”) is incorporated into and made part of the Terms of Service (“**Legal Terms**”) between you (“**Customer**”) and **OPCODE LABS PTE. LTD.** (collectively with its affiliates, the “**Provider**” or “**Company**”). Unless otherwise defined in this DPA, capitalized terms will have the meaning given to them in the Legal Terms. This DPA prevails over any conflicting term of the Legal Terms but does not otherwise modify the Legal Terms.
 
 1. Definitions and Interpretation
 
@@ -426,6 +429,6 @@ This Data Processing Agreement (“**DPA**”) is incorporated into and made par
 
 **LIST OF SUBPROCESSORS**
 
-| Entity Name          | Subprocessing activities            | Entity Country |
-|----------------------|-------------------------------------|----------------|
-| Amazon Web Services (AWS) | Cloud Hosted Infrastructure and Data Hosting | United States   |
+| Entity Name               | Subprocessing activities                     | Entity Country |
+| ------------------------- | -------------------------------------------- | -------------- |
+| Amazon Web Services (AWS) | Cloud Hosted Infrastructure and Data Hosting | United States  |
