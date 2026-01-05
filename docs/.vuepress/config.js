@@ -17,5 +17,15 @@ module.exports = {
       "link",
       { rel: "icon", href: `https://rabby.io/assets/images/favicon.png` },
     ],
+    [
+      "meta",
+      {
+        "http-equiv": "Content-Security-Policy",
+        content:
+          "default-src 'self'; script-src 'self'" +
+          (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "") +
+          "; style-src 'self' 'unsafe-inline'; img-src https://*; child-src 'none'",
+      },
+    ],
   ],
 };
