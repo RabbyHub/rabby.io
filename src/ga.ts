@@ -1,16 +1,12 @@
-import ReactGA from 'react-ga';
-import ReactGA4 from 'react-ga4';
+import ReactGA4 from "react-ga4";
 
-ReactGA.initialize('UA-199755108-2');
-ReactGA4.initialize('G-H8G6S9KCTX');
+ReactGA4.initialize("G-H8G6S9KCTX");
 
 export const ga = {
   pageview: (path: string) => {
-    ReactGA.pageview(path);
-    ReactGA4.send({ hitType: 'pageview', path });
+    ReactGA4.send({ hitType: "pageview", path });
   },
-  event: (...params: Parameters<typeof ReactGA.event>) => {
-    ReactGA.event(...params);
+  event: (...params: Parameters<typeof ReactGA4.event>) => {
     ReactGA4.event(...params);
-  }
+  },
 };
