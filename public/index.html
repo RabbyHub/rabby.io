@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.google-analytics.com; connect-src 'self' https: wss: https://www.google-analytics.com https://www.googletagmanager.com; video-src 'self' https://static-assets.rabby.io; media-src 'self' https://static-assets.rabby.io blob:"
+    />
+    <meta
+      name="google-site-verification"
+      content="5Sga5VqXk5CSqDeDLW6HaFP8dMFVAqdL0ikHLzs2ak8"
+    />
+    <meta
+      name="google-site-verification"
+      content="RxI7Qf8pTK2djbYDArV6TJyyT6P2Yueeps5snjeAhjI"
+    />
+    <link
+      href="%PUBLIC_URL%/assets/images/favicon.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <title>Rabby Wallet | Your Go-to Wallet for Ethereum and EVM</title>
+    <meta
+      content="The game-changing wallet for Ethereum and all EVM chains"
+      name="description"
+    />
+    <meta name="twitter:title" content="Rabby" />
+    <meta
+      name="twitter:description"
+      content="Your Go-to Wallet for Ethereum and EVM"
+    />
+    <meta
+      name="twitter:image"
+      content="https://rabby.io/assets/logos/logo_twitter.png"
+    />
+    <meta name="twitter:site" content="@Rabby_io" />
+    <meta name="twitter:card" content="summary" />
+    <script>
+      if (
+        location.pathname.startsWith("/docs/") &&
+        location.pathname.endsWith("/")
+      ) {
+        location.pathname = location.pathname.slice(0, -1);
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport"
-    content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://www.google-analytics.com; connect-src 'self' https: wss: https://www.google-analytics.com https://www.googletagmanager.com">
-  <meta name="google-site-verification" content="5Sga5VqXk5CSqDeDLW6HaFP8dMFVAqdL0ikHLzs2ak8" />
-  <meta name="google-site-verification" content="RxI7Qf8pTK2djbYDArV6TJyyT6P2Yueeps5snjeAhjI" />
-  <link href="%PUBLIC_URL%/assets/images/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <title>Rabby Wallet | Your Go-to Wallet for Ethereum and EVM</title>
-  <meta content="The game-changing wallet for Ethereum and all EVM chains" name="description">
-  <meta name="twitter:title" content="Rabby">
-  <meta name="twitter:description" content="Your Go-to Wallet for Ethereum and EVM">
-  <meta name="twitter:image" content="https://rabby.io/assets/logos/logo_twitter.png">
-  <meta name="twitter:site" content="@Rabby_io">
-  <meta name="twitter:card" content="summary">
-  <script>
-    if (
-      location.pathname.startsWith("/docs/") &&
-      location.pathname.endsWith("/")
-    ) {
-      location.pathname = location.pathname.slice(0, -1)
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <div id="toast"></div>
-  <script src="/js/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="/js/jquery.scrollTo.min.js"></script>
-  <!--
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="toast"></div>
+    <script
+      src="/js/jquery.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/jquery.scrollTo.min.js"></script>
+    <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -49,6 +76,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-</body>
-
+  </body>
 </html>

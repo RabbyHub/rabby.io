@@ -203,7 +203,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerLogo}>
         <img src="/assets/images/logo-new.svg" alt="rabby" />
-        <div className={styles.footerLogoText}>© 2025 rabby.io All rights reserved.</div>
+        <div className={styles.footerLogoText}>© 2026 rabby.io All rights reserved.</div>
       </div>
       <div className={styles.footerList}>
         {footerList.map((item) => (
