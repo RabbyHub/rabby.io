@@ -1,8 +1,8 @@
 #cc-main {
   --cc-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  --cc-modal-border-radius: 8px;
-  --cc-btn-border-radius: 8px;
+  --cc-modal-border-radius: 16px;
+  --cc-btn-border-radius: 16px;
   --cc-bg: #fff;
   --cc-primary-color: var(--r-neutral-title1, #192945);
   --cc-secondary-color: var(--r-neutral-body, #3e495e);
@@ -76,6 +76,13 @@
 #cc-main .cm__btn {
   font-size: 14px;
   min-height: 40px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 #cc-main .cm__btn[data-role='necessary'] {
@@ -99,6 +106,9 @@
 #cc-main .cm__btns{
   padding: var(--cc-padding);
 }
+#cc-main .cm__title+.cm__desc{
+  margin-top: 0;
+}
 
 
 @media screen and (max-width: 640px) {
@@ -106,6 +116,6 @@
     --cc-modal-margin: 12px;
   }
   #cc-main .cm__btns{
-    border-top: none;
+    border-top: none!important;
   }
 }

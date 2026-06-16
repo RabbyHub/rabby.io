@@ -55,8 +55,8 @@ export const CookieConsentBanner = ({
           en: {
             consentModal: {
               label: "Cookie consent",
-              title: "",
-              description: `We use cookies to improve your experience. <br/><a href="${PRIVACY_POLICY_URL}" target="_blank" rel="noreferrer">Privacy Policy</a>`,
+              title: "We use cookies to improve your experience.",
+              description: `<a href="${PRIVACY_POLICY_URL}" target="_blank" rel="noreferrer">Privacy Policy</a>`,
               acceptAllBtn: "Accept",
               acceptNecessaryBtn: "Reject",
             },
