@@ -13,6 +13,22 @@ import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
 
+const TRADINGVIEW_URL = "https://www.tradingview.com/";
+
+const TradingViewExposure = () => {
+  return (
+    <p className={style.tradingViewExposure}>
+      Rabby uses{" "}
+      <a href={TRADINGVIEW_URL} target="_blank" rel="noreferrer">
+        TradingView
+      </a>{" "}
+      technology to visualize market data. TradingView is a charting platform
+      used by traders and investors worldwide, offering advanced charting tools,
+      screeners, chats, and trading preparation workflows.
+    </p>
+  );
+};
+
 export const ChainDashboard = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -142,6 +158,7 @@ export const ChainDashboard = () => {
             </div>
           </>
         )}
+        <TradingViewExposure />
       </div>
 
       {chainInfo && (
