@@ -13,18 +13,19 @@ import { NodeStatus } from "@rabby-wallet/rabby-api/dist/types";
 import clsx from "clsx";
 import { Toaster } from "react-hot-toast";
 
-const TRADINGVIEW_URL = "https://www.tradingview.com/";
+const BTCUSD_URL = "https://www.tradingview.com/symbols/BTCUSD/";
 
 const TradingViewExposure = () => {
   return (
     <p className={style.tradingViewExposure}>
-      Rabby uses{" "}
-      <a href={TRADINGVIEW_URL} target="_blank" rel="noreferrer">
-        TradingView
+      Rabby uses TradingView technology to visualize market data. TradingView is
+      a charting platform used by traders and investors worldwide, offering
+      charts for{" "}
+      <a href={BTCUSD_URL} target="_blank" rel="noreferrer">
+        BTCUSD
       </a>{" "}
-      technology to visualize market data. TradingView is a charting platform
-      used by traders and investors worldwide, offering advanced charting tools,
-      screeners, chats, and trading preparation workflows.
+      and more cryptocurrencies, screeners, financial calendars, and trading
+      preparation workflows.
     </p>
   );
 };
