@@ -42,6 +42,7 @@
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.26.3",
     "recharts": "^2.12.3",
+    "vanilla-cookieconsent": "^3.1.0",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {

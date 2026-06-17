@@ -1,0 +1,126 @@
+#cc-main {
+  --cc-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --cc-modal-border-radius: 16px;
+  --cc-btn-border-radius: 16px;
+  --cc-bg: #fff;
+  --cc-primary-color: var(--r-neutral-title1, #192945);
+  --cc-secondary-color: var(--r-neutral-body, #3e495e);
+  --cc-link-color: var(--r-blue-default, #4c65ff);
+  --cc-btn-primary-bg: var(--r-blue-default, #4c65ff);
+  --cc-btn-primary-color: #fff;
+  --cc-btn-primary-border-color: var(--r-blue-default, #4c65ff);
+  --cc-btn-primary-hover-bg: #3148d4;
+  --cc-btn-primary-hover-border-color: #3148d4;
+  --cc-btn-secondary-bg: var(--r-neutral-bg2, #f2f4f7);
+  --cc-btn-secondary-color: var(--r-neutral-title1, #192945);
+  --cc-btn-secondary-border-color: var(--r-neutral-line, #e0e5ec);
+  --cc-btn-secondary-hover-bg: #e9edf3;
+  --cc-btn-secondary-hover-border-color: #d7dee8;
+  --cc-separator-border-color: var(--r-neutral-line, #e0e5ec);
+  --cc-modal-margin: 40px;
+  --cc-padding: 24px
+}
+
+#cc-main .cc__link, #cc-main a{
+  transition: none;
+  text-decoration: underline;
+  color: var(--chat-window, #2A2E3D);
+  font-family: Lato;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+#cc-main .cc__link, #cc-main a:hover{
+
+  color: var(--cc-link-color);
+}
+
+#cc-main .cm {
+  box-shadow: 0 16px 48px rgba(25, 41, 69, 0.16);
+  max-width: 420px;
+}
+
+#cc-main .cm__title {
+  color: var(--mid-blue-title, #616B84);
+  font-family: Lato;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#cc-main .cm__desc {
+  font-size: 14px;
+  line-height: 20px;
+  padding-bottom: 0;
+}
+
+#cc-main .cm__desc a:hover {
+  color: var(--r-blue-default, #4c65ff);
+}
+
+#cc-main .cm__btns {
+  border-top: 0;
+  padding-top: 12px;
+}
+
+#cc-main .cm__btn {
+  font-size: 14px;
+  min-height: 40px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#cc-main .cm__btn[data-role='necessary'] {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--dialog, #E1ECFA);
+  color: var(--mid-blue-title, #616B84);
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+#cc-main .cm__btn[data-role='necessary']:hover {
+  border-color: var(--r-blue-default, #4c65ff);
+  color: var(--r-blue-default, #4c65ff);
+}
+
+#cc-main .cm__texts{
+  padding-top:var(--cc-padding);
+}
+#cc-main .cm__desc, #cc-main .cm__title{
+  padding: 0 var(--cc-padding);
+}
+
+#cc-main .cm__btns{
+  padding: var(--cc-padding);
+}
+#cc-main .cm__title+.cm__desc{
+  margin-top: 0;
+}
+
+
+@media screen and (max-width: 640px) {
+  #cc-main {
+    --cc-modal-margin: 12px;
+  }
+  #cc-main .cm__btns{
+    border-top: none!important;
+  }
+}

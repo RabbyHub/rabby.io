@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import App from "./App";
 import { MetaMaskExport } from "./page/metamask";
@@ -10,17 +10,29 @@ import { queryClient } from "./service";
 import { QueryClientProvider } from "react-query";
 import { Uninstalled } from "./page/uninstalled";
 import { MobileRedirect } from "./page/mobile-redirect";
+import { CookieConsentBanner } from "./components/CookieConsentBanner";
 
 export const MainRoutes = () => {
   let location = useLocation();
+  const [analyticsAccepted, setAnalyticsAccepted] = useState(false);
+  const handleAnalyticsConsentChange = useCallback((accepted: boolean) => {
+    setAnalyticsAccepted(accepted);
+  }, []);
 
   useEffect(() => {
+    if (!analyticsAccepted) {
+      return;
+    }
+
     // Google Analytics
     const path = window.location.pathname + window.location.search;
     ga.pageview(path);
-  }, [location]);
+  }, [analyticsAccepted, location]);
   return (
     <QueryClientProvider client={queryClient}>
+      <CookieConsentBanner
+        onAnalyticsConsentChange={handleAnalyticsConsentChange}
+      />
       <Routes>
         <Route path="/">
           <Route index element={<App />} />
