@@ -96,6 +96,11 @@
   font-weight: 700;
   line-height: normal;
 }
+#cc-main .cm__btn[data-role='necessary']:hover {
+  border-color: var(--r-blue-default, #4c65ff);
+  color: var(--r-blue-default, #4c65ff);
+}
+
 #cc-main .cm__texts{
   padding-top:var(--cc-padding);
 }
