@@ -3,7 +3,6 @@
   "description": "Sua frase-semente, chaves privadas e endereços foram removidos deste dispositivo. Você ainda pode acessá-los na blockchain.",
   "question": "Por que você está desinstalando a Rabby Wallet?",
   "reasons": {
-    "difficult": "Difícil de usar",
     "missing": "Faltam recursos",
     "issues": "Encontrei problemas",
     "other": "Outros motivos"

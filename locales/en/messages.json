@@ -3,10 +3,9 @@
   "description": "Your Seed Phrase, private keys and addresses have been successfully removed from this device. You can still access them on the blockchain.",
   "question": "Why are you uninstalling Rabby Wallet?",
   "reasons": {
-    "difficult": "Difficult to use",
-    "missing": "Missing features",
-    "issues": "Ran into issues",
-    "other": "Other reasons"
+    "issues": "Having issues while using",
+    "missing": "Missing features I want",
+    "other": "Other"
   },
   "detailsPlaceholder": "Please share more details",
   "selectReasonError": "Please select a reason",

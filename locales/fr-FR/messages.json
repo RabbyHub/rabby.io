@@ -3,7 +3,6 @@
   "description": "Votre phrase de récupération, vos clés privées et vos adresses ont bien été supprimées de cet appareil. Elles restent accessibles sur la blockchain.",
   "question": "Pourquoi désinstallez-vous Rabby Wallet ?",
   "reasons": {
-    "difficult": "Difficile à utiliser",
     "missing": "Fonctionnalités manquantes",
     "issues": "J'ai rencontré des problèmes",
     "other": "Autres raisons"

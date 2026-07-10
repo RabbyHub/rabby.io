@@ -3,7 +3,6 @@
   "description": "Kurtarma ifadeniz, özel anahtarlarınız ve adresleriniz bu cihazdan başarıyla kaldırıldı. Bunlara blok zincirinden erişmeye devam edebilirsiniz.",
   "question": "Rabby Wallet'ı neden kaldırıyorsunuz?",
   "reasons": {
-    "difficult": "Kullanımı zor",
     "missing": "Eksik özellikler",
     "issues": "Sorunlarla karşılaştım",
     "other": "Diğer nedenler"

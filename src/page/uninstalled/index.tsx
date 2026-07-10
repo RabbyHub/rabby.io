@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import i18n, { getSupportedLanguageCode } from "../../i18n";
 import { useTranslation } from "react-i18next";
 
-const reasonKeys = ["difficult", "missing", "issues", "other"] as const;
+const reasonKeys = ["issues", "missing", "other"] as const;
 type ReasonKey = (typeof reasonKeys)[number];
 
 export const Uninstalled = () => {
@@ -62,7 +62,7 @@ export const Uninstalled = () => {
       return;
     }
     if (input?.trim()) {
-      mutateAsync(`option: ${reason}
+      mutateAsync(`option: ${t(`reasons.${reason}`, { lng: "en" })}
 content: ${input.trim()}`)
         .then(() => {
           setDone(true);
@@ -131,12 +131,12 @@ content: ${input.trim()}`)
                     setInput("");
                     setError("");
                   }}
-              >
-                <span className={styles.reasonContent}>
-                  <span className={styles.reasonRadio} aria-hidden="true" />
-                  <span>{t(`reasons.${item}`)}</span>
-                </span>
-              </button>
+                >
+                  <span className={styles.reasonContent}>
+                    <span className={styles.reasonRadio} aria-hidden="true" />
+                    <span>{t(`reasons.${item}`)}</span>
+                  </span>
+                </button>
               ))}
           </div>
           {reason && (

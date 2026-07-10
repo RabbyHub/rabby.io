@@ -3,7 +3,6 @@
   "description": "Deine Seed-Phrase, privaten Schlüssel und Adressen wurden erfolgreich von diesem Gerät entfernt. Auf der Blockchain bleiben sie weiterhin verfügbar.",
   "question": "Warum deinstallierst du Rabby Wallet?",
   "reasons": {
-    "difficult": "Schwierig zu bedienen",
     "missing": "Fehlende Funktionen",
     "issues": "Probleme aufgetreten",
     "other": "Andere Gründe"

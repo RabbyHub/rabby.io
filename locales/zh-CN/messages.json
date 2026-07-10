@@ -3,8 +3,7 @@
   "description": "你的助记词、私钥和地址已成功从此设备中移除。你仍可在区块链上访问它们。",
   "question": "为什么要卸载 Rabby Wallet？",
   "reasons": {
-    "difficult": "不易使用",
-    "missing": "缺少功能",
+    "missing": "缺少需要的功能",
     "issues": "使用时遇到问题",
     "other": "其他原因"
   },
