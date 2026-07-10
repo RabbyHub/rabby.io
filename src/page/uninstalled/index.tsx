@@ -53,10 +53,6 @@ export const Uninstalled = () => {
     }
   }, [r]);
 
-  const close = () => {
-    window.close();
-  };
-
   const submit = useCallback(async () => {
     if (isLoading || error) {
       return;
@@ -135,16 +131,12 @@ content: ${input.trim()}`)
                     setInput("");
                     setError("");
                   }}
-                >
+              >
+                <span className={styles.reasonContent}>
+                  <span className={styles.reasonRadio} aria-hidden="true" />
                   <span>{t(`reasons.${item}`)}</span>
-                  {reason === item && (
-                    <img
-                      className={styles.expandReason}
-                      src="/assets/chain-dashboard/arrow-right.svg"
-                      alt={t<string>("showAllReasons")}
-                    />
-                  )}
-                </button>
+                </span>
+              </button>
               ))}
           </div>
           {reason && (
@@ -179,16 +171,6 @@ content: ${input.trim()}`)
         <div className={styles.submit} onClick={submit}>
           {t("submit")}
         </div>
-        <div className={styles.skip} onClick={close}>
-          {t("close")}
-        </div>
-
-        <footer className={styles.footer}>
-          {t("support")}{" "}
-          <a className={styles.email} href="mailto:support@rabby.io">
-            support@rabby.io
-          </a>
-        </footer>
       </div>
       <div className={styles.installBtnContainer}>
         <a
