@@ -8,7 +8,15 @@ import { useMutation } from "react-query";
 import { apiReady } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
 
+const uninstallReasons = [
+  "Difficult to use",
+  "Missing features",
+  "Ran into issues",
+  "Other reasons",
+] as const;
+
 export const Uninstalled = () => {
+  const [reason, setReason] = useState("");
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
@@ -46,8 +54,12 @@ export const Uninstalled = () => {
     if (isLoading || error) {
       return;
     }
+    if (!reason) {
+      setError("Please select a reason");
+      return;
+    }
     if (input?.trim()) {
-      mutateAsync(input)
+      mutateAsync(`${reason}: ${input.trim()}`)
         .then(() => {
           setDone(true);
         })
@@ -59,7 +71,7 @@ export const Uninstalled = () => {
     } else {
       setError("Please enter content");
     }
-  }, [isLoading, error, input, mutateAsync]);
+  }, [isLoading, error, input, mutateAsync, reason]);
 
   if (done) {
     return <UninstallFeedbackDone />;
@@ -102,27 +114,61 @@ export const Uninstalled = () => {
         <div className={styles.divider} />
 
         <div className={styles.sub}>Why are you uninstalling Rabby Wallet?</div>
-        <div className={styles.inputBox}>
-          <textarea
-            autoFocus
-            value={input}
-            onChange={(e) => {
-              setInput(e.target.value);
-              if (e?.target?.value?.length > 1000) {
-                setError(
-                  `Maximum word limit exceeded - ${e.target.value.length}`
-                );
-              } else {
-                setError("");
-              }
-            }}
-            className={clsx(styles.textarea, error && styles.err)}
-            spellCheck={false}
-            autoCapitalize="none"
-            autoComplete="off"
-            autoCorrect="off"
-            placeholder="Please share your reason for uninstalling. Rabby values your feedback!"
-          />
+        <div className={styles.feedbackBox}>
+          <div className={styles.reasonList}>
+            {uninstallReasons
+              .filter((item) => !reason || item === reason)
+              .map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={clsx(
+                  styles.reason,
+                  reason === item && styles.selectedReason
+                )}
+                onClick={() => {
+                  setReason((currentReason) =>
+                    currentReason === item ? "" : item
+                  );
+                  setInput("");
+                  setError("");
+                }}
+              >
+                <span>{item}</span>
+                {reason === item && (
+                  <img
+                    className={styles.expandReason}
+                    src="/assets/chain-dashboard/arrow-right.svg"
+                    alt="Show all reasons"
+                  />
+                )}
+              </button>
+              ))}
+          </div>
+          {reason && (
+            <div className={styles.inputBox}>
+              <textarea
+                autoFocus
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  if (e.target.value.length > 1000) {
+                    setError(
+                      `Maximum word limit exceeded - ${e.target.value.length}`
+                    );
+                  } else {
+                    setError("");
+                  }
+                }}
+                className={clsx(styles.textarea, error && styles.err)}
+                spellCheck={false}
+                autoCapitalize="none"
+                autoComplete="off"
+                autoCorrect="off"
+                placeholder="Please share more details"
+              />
+            </div>
+          )}
           {!!error && <div className={styles.error}>{error}</div>}
         </div>
 
