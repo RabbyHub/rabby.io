@@ -20,7 +20,7 @@
       content="RxI7Qf8pTK2djbYDArV6TJyyT6P2Yueeps5snjeAhjI"
     />
     <link
-      href="%PUBLIC_URL%/assets/images/favicon.png"
+      href="/assets/images/favicon.png"
       rel="shortcut icon"
       type="image/x-icon"
     />
@@ -42,8 +42,8 @@
     <meta name="twitter:card" content="summary" />
     <script>
       if (
-        location.pathname.startsWith("/docs/") &&
-        location.pathname.endsWith("/")
+        location.pathname.startsWith('/docs/') &&
+        location.pathname.endsWith('/')
       ) {
         location.pathname = location.pathname.slice(0, -1);
       }
@@ -66,15 +66,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="/js/jquery.scrollTo.min.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>

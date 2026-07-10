@@ -18,7 +18,7 @@ export const HoverPopup: React.FC<HoverPopupProps> = ({
   offsetY = 0,
 }) => {
   const [show, setShow] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
