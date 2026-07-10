@@ -97,7 +97,7 @@
 .reasonList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .reason {
@@ -152,12 +152,13 @@
 }
 
 .textarea {
+  box-sizing: border-box;
   resize: none;
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
-  min-height: 160px;
-  max-height: 160px;
+  min-height: 136px;
+  max-height: 136px;
   padding: 12px;
   color: var(--r-neutral-title1, #192945);
   font-size: 15px;
@@ -187,7 +188,7 @@
 
 .inputBox {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .error {
