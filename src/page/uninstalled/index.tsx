@@ -66,7 +66,8 @@ export const Uninstalled = () => {
       return;
     }
     if (input?.trim()) {
-      mutateAsync(`${t(`reasons.${reason}`)}: ${input.trim()}`)
+      mutateAsync(`option: ${reason}
+content: ${input.trim()}`)
         .then(() => {
           setDone(true);
         })
@@ -111,9 +112,7 @@ export const Uninstalled = () => {
           />
           <div className={styles.title}>{t("title")}</div>
         </div>
-        {showDesc && (
-          <div className={styles.desc}>{t("description")}</div>
-        )}
+        {showDesc && <div className={styles.desc}>{t("description")}</div>}
         <div className={styles.divider} />
 
         <div className={styles.sub}>{t("question")}</div>
@@ -122,30 +121,30 @@ export const Uninstalled = () => {
             {reasonKeys
               .filter((item) => !reason || item === reason)
               .map((item) => (
-              <button
-                key={item}
-                type="button"
-                className={clsx(
-                  styles.reason,
-                  reason === item && styles.selectedReason
-                )}
-                onClick={() => {
-                  setReason((currentReason) =>
-                    currentReason === item ? "" : item
-                  );
-                  setInput("");
-                  setError("");
-                }}
-              >
-                <span>{t(`reasons.${item}`)}</span>
-                {reason === item && (
-                  <img
-                    className={styles.expandReason}
-                    src="/assets/chain-dashboard/arrow-right.svg"
-                    alt={t<string>("showAllReasons")}
-                  />
-                )}
-              </button>
+                <button
+                  key={item}
+                  type="button"
+                  className={clsx(
+                    styles.reason,
+                    reason === item && styles.selectedReason
+                  )}
+                  onClick={() => {
+                    setReason((currentReason) =>
+                      currentReason === item ? "" : item
+                    );
+                    setInput("");
+                    setError("");
+                  }}
+                >
+                  <span>{t(`reasons.${item}`)}</span>
+                  {reason === item && (
+                    <img
+                      className={styles.expandReason}
+                      src="/assets/chain-dashboard/arrow-right.svg"
+                      alt={t<string>("showAllReasons")}
+                    />
+                  )}
+                </button>
               ))}
           </div>
           {reason && (
@@ -185,7 +184,7 @@ export const Uninstalled = () => {
         </div>
 
         <footer className={styles.footer}>
-          {t("support")} {" "}
+          {t("support")}{" "}
           <a className={styles.email} href="mailto:support@rabby.io">
             support@rabby.io
           </a>
