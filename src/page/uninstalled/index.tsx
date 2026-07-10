@@ -14,7 +14,9 @@ const reasonKeys = ["issues", "missing", "other"] as const;
 type ReasonKey = (typeof reasonKeys)[number];
 
 export const Uninstalled = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", {
+    keyPrefix: "page.uninstalled",
+  });
   const [reason, setReason] = useState<ReasonKey | "">("");
   const [input, setInput] = useState("");
   const [error, setError] = useState("");

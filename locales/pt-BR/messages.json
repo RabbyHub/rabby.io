@@ -1,22 +1,26 @@
 {
-  "title": "Sentimos ver você partir",
-  "description": "Sua frase-semente, chaves privadas e endereços foram removidos deste dispositivo. Você ainda pode acessá-los na blockchain.",
-  "question": "Por que você está desinstalando a Rabby Wallet?",
-  "reasons": {
-    "missing": "Faltam recursos",
-    "issues": "Encontrei problemas",
-    "other": "Outros motivos"
-  },
-  "detailsPlaceholder": "Conte mais detalhes",
-  "selectReasonError": "Selecione um motivo",
-  "enterContentError": "Insira mais detalhes",
-  "limitError": "Limite máximo excedido - {{length}}",
-  "tryAgain": "Tente novamente",
-  "showAllReasons": "Mostrar todos os motivos",
-  "submit": "Enviar",
-  "close": "Fechar",
-  "support": "Se tiver algum problema ou precisar de ajuda com a Rabby Wallet, entre em contato:",
-  "reinstall": "Reinstalar extensão",
-  "thanks": "Agradecemos seu feedback.",
-  "done": "Concluir"
+  "page": {
+    "uninstalled": {
+      "title": "Sentimos ver você partir",
+      "description": "Sua frase-semente, chaves privadas e endereços foram removidos deste dispositivo. Você ainda pode acessá-los na blockchain.",
+      "question": "Por que você está desinstalando a Rabby Wallet?",
+      "reasons": {
+        "missing": "Faltam recursos",
+        "issues": "Encontrei problemas",
+        "other": "Outros motivos"
+      },
+      "detailsPlaceholder": "Conte mais detalhes",
+      "selectReasonError": "Selecione um motivo",
+      "enterContentError": "Insira mais detalhes",
+      "limitError": "Limite máximo excedido - {{length}}",
+      "tryAgain": "Tente novamente",
+      "showAllReasons": "Mostrar todos os motivos",
+      "submit": "Enviar",
+      "close": "Fechar",
+      "support": "Se tiver algum problema ou precisar de ajuda com a Rabby Wallet, entre em contato:",
+      "reinstall": "Reinstalar extensão",
+      "thanks": "Agradecemos seu feedback.",
+      "done": "Concluir"
+    }
+  }
 }

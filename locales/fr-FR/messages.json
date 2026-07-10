@@ -1,22 +1,26 @@
 {
-  "title": "Nous sommes désolés de vous voir partir",
-  "description": "Votre phrase de récupération, vos clés privées et vos adresses ont bien été supprimées de cet appareil. Elles restent accessibles sur la blockchain.",
-  "question": "Pourquoi désinstallez-vous Rabby Wallet ?",
-  "reasons": {
-    "missing": "Fonctionnalités manquantes",
-    "issues": "J'ai rencontré des problèmes",
-    "other": "Autres raisons"
-  },
-  "detailsPlaceholder": "Donnez-nous plus de détails",
-  "selectReasonError": "Veuillez sélectionner une raison",
-  "enterContentError": "Veuillez saisir des détails",
-  "limitError": "Limite maximale dépassée - {{length}}",
-  "tryAgain": "Veuillez réessayer",
-  "showAllReasons": "Afficher toutes les raisons",
-  "submit": "Envoyer",
-  "close": "Fermer",
-  "support": "Si vous rencontrez un problème ou avez besoin d'aide avec Rabby Wallet, contactez-nous à",
-  "reinstall": "Réinstaller l'extension",
-  "thanks": "Merci pour votre retour.",
-  "done": "Terminé"
+  "page": {
+    "uninstalled": {
+      "title": "Nous sommes désolés de vous voir partir",
+      "description": "Votre phrase de récupération, vos clés privées et vos adresses ont bien été supprimées de cet appareil. Elles restent accessibles sur la blockchain.",
+      "question": "Pourquoi désinstallez-vous Rabby Wallet ?",
+      "reasons": {
+        "missing": "Fonctionnalités manquantes",
+        "issues": "J'ai rencontré des problèmes",
+        "other": "Autres raisons"
+      },
+      "detailsPlaceholder": "Donnez-nous plus de détails",
+      "selectReasonError": "Veuillez sélectionner une raison",
+      "enterContentError": "Veuillez saisir des détails",
+      "limitError": "Limite maximale dépassée - {{length}}",
+      "tryAgain": "Veuillez réessayer",
+      "showAllReasons": "Afficher toutes les raisons",
+      "submit": "Envoyer",
+      "close": "Fermer",
+      "support": "Si vous rencontrez un problème ou avez besoin d'aide avec Rabby Wallet, contactez-nous à",
+      "reinstall": "Réinstaller l'extension",
+      "thanks": "Merci pour votre retour.",
+      "done": "Terminé"
+    }
+  }
 }

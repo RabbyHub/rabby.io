@@ -17,7 +17,9 @@ const list = [
 ];
 
 export const UninstallFeedbackDone = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("translation", {
+    keyPrefix: "page.uninstalled",
+  });
 
   return (
     <div className={styles.container} lang={i18n.resolvedLanguage}>

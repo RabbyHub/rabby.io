@@ -1,22 +1,26 @@
 {
-  "title": "Ayrılmanıza üzüldük",
-  "description": "Kurtarma ifadeniz, özel anahtarlarınız ve adresleriniz bu cihazdan başarıyla kaldırıldı. Bunlara blok zincirinden erişmeye devam edebilirsiniz.",
-  "question": "Rabby Wallet'ı neden kaldırıyorsunuz?",
-  "reasons": {
-    "missing": "Eksik özellikler",
-    "issues": "Sorunlarla karşılaştım",
-    "other": "Diğer nedenler"
-  },
-  "detailsPlaceholder": "Lütfen daha fazla ayrıntı paylaşın",
-  "selectReasonError": "Lütfen bir neden seçin",
-  "enterContentError": "Lütfen ayrıntıları girin",
-  "limitError": "Maksimum sınır aşıldı - {{length}}",
-  "tryAgain": "Lütfen tekrar deneyin",
-  "showAllReasons": "Tüm nedenleri göster",
-  "submit": "Gönder",
-  "close": "Kapat",
-  "support": "Rabby Wallet ile ilgili bir sorun yaşar veya yardıma ihtiyaç duyarsanız bize ulaşın:",
-  "reinstall": "Uzantıyı yeniden yükle",
-  "thanks": "Geri bildiriminiz için teşekkürler.",
-  "done": "Bitti"
+  "page": {
+    "uninstalled": {
+      "title": "Ayrılmanıza üzüldük",
+      "description": "Kurtarma ifadeniz, özel anahtarlarınız ve adresleriniz bu cihazdan başarıyla kaldırıldı. Bunlara blok zincirinden erişmeye devam edebilirsiniz.",
+      "question": "Rabby Wallet'ı neden kaldırıyorsunuz?",
+      "reasons": {
+        "missing": "Eksik özellikler",
+        "issues": "Sorunlarla karşılaştım",
+        "other": "Diğer nedenler"
+      },
+      "detailsPlaceholder": "Lütfen daha fazla ayrıntı paylaşın",
+      "selectReasonError": "Lütfen bir neden seçin",
+      "enterContentError": "Lütfen ayrıntıları girin",
+      "limitError": "Maksimum sınır aşıldı - {{length}}",
+      "tryAgain": "Lütfen tekrar deneyin",
+      "showAllReasons": "Tüm nedenleri göster",
+      "submit": "Gönder",
+      "close": "Kapat",
+      "support": "Rabby Wallet ile ilgili bir sorun yaşar veya yardıma ihtiyaç duyarsanız bize ulaşın:",
+      "reinstall": "Uzantıyı yeniden yükle",
+      "thanks": "Geri bildiriminiz için teşekkürler.",
+      "done": "Bitti"
+    }
+  }
 }
