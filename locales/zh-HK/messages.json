@@ -1,0 +1,23 @@
+{
+  "title": "很遺憾看到你離開",
+  "description": "你的助記詞、私鑰和地址已成功從此裝置移除。你仍可在區塊鏈上存取它們。",
+  "question": "為甚麼要解除安裝 Rabby Wallet？",
+  "reasons": {
+    "difficult": "不易使用",
+    "missing": "缺少功能",
+    "issues": "使用時遇到問題",
+    "other": "其他原因"
+  },
+  "detailsPlaceholder": "請告訴我們更多詳情",
+  "selectReasonError": "請選擇一個原因",
+  "enterContentError": "請輸入具體內容",
+  "limitError": "已超出最大字數限制 - {{length}}",
+  "tryAgain": "請再試一次",
+  "showAllReasons": "顯示所有原因",
+  "submit": "提交",
+  "close": "關閉",
+  "support": "如果你遇到任何問題或需要 Rabby Wallet 的協助，請聯絡我們：",
+  "reinstall": "重新安裝擴充功能",
+  "thanks": "感謝你的意見。",
+  "done": "完成"
+}

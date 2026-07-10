@@ -1,0 +1,23 @@
+{
+  "title": "Sentimos que te vayas",
+  "description": "Tu frase semilla, claves privadas y direcciones se han eliminado correctamente de este dispositivo. Aún puedes acceder a ellas en la blockchain.",
+  "question": "¿Por qué desinstalas Rabby Wallet?",
+  "reasons": {
+    "difficult": "Difícil de usar",
+    "missing": "Faltan funciones",
+    "issues": "Tuve problemas",
+    "other": "Otros motivos"
+  },
+  "detailsPlaceholder": "Cuéntanos más detalles",
+  "selectReasonError": "Selecciona un motivo",
+  "enterContentError": "Introduce más información",
+  "limitError": "Se superó el límite máximo - {{length}}",
+  "tryAgain": "Inténtalo de nuevo",
+  "showAllReasons": "Mostrar todos los motivos",
+  "submit": "Enviar",
+  "close": "Cerrar",
+  "support": "Si tienes algún problema o necesitas ayuda con Rabby Wallet, contáctanos en",
+  "reinstall": "Reinstalar extensión",
+  "thanks": "Gracias por tus comentarios.",
+  "done": "Listo"
+}

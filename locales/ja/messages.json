@@ -1,0 +1,23 @@
+{
+  "title": "ご利用いただきありがとうございました",
+  "description": "シードフレーズ、秘密鍵、アドレスはこのデバイスから正常に削除されました。引き続きブロックチェーン上でアクセスできます。",
+  "question": "Rabby Wallet をアンインストールする理由を教えてください",
+  "reasons": {
+    "difficult": "使いにくい",
+    "missing": "必要な機能がない",
+    "issues": "問題が発生した",
+    "other": "その他の理由"
+  },
+  "detailsPlaceholder": "詳しい内容をお聞かせください",
+  "selectReasonError": "理由を選択してください",
+  "enterContentError": "詳しい内容を入力してください",
+  "limitError": "最大文字数を超えています - {{length}}",
+  "tryAgain": "もう一度お試しください",
+  "showAllReasons": "すべての理由を表示",
+  "submit": "送信",
+  "close": "閉じる",
+  "support": "問題が発生した場合や Rabby Wallet のサポートが必要な場合は、こちらまでご連絡ください：",
+  "reinstall": "拡張機能を再インストール",
+  "thanks": "フィードバックありがとうございます。",
+  "done": "完了"
+}

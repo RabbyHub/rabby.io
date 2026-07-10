@@ -7,16 +7,15 @@ import { ga } from "../../ga";
 import { useMutation } from "react-query";
 import { apiReady } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
+import i18n, { getSupportedLanguageCode } from "../../i18n";
+import { useTranslation } from "react-i18next";
 
-const uninstallReasons = [
-  "Difficult to use",
-  "Missing features",
-  "Ran into issues",
-  "Other reasons",
-] as const;
+const reasonKeys = ["difficult", "missing", "issues", "other"] as const;
+type ReasonKey = (typeof reasonKeys)[number];
 
 export const Uninstalled = () => {
-  const [reason, setReason] = useState("");
+  const { t } = useTranslation();
+  const [reason, setReason] = useState<ReasonKey | "">("");
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
@@ -25,10 +24,18 @@ export const Uninstalled = () => {
 
   const r = useMemo(() => search.get("r") || "", [search]);
   const version = useMemo(() => search.get("v") || "", [search]);
+  const languageCode = useMemo(
+    () => getSupportedLanguageCode(search.get("code")),
+    [search]
+  );
 
   const sendRef = useRef(false);
 
   const showDesc = useMemo(() => !!r?.includes("l"), [r]);
+
+  useEffect(() => {
+    void i18n.changeLanguage(languageCode);
+  }, [languageCode]);
 
   const { isLoading, mutateAsync } = useMutation(async (text: string) =>
     (await apiReady).uninstalledFeedback({ text: `${text}【${version}】` })
@@ -55,30 +62,30 @@ export const Uninstalled = () => {
       return;
     }
     if (!reason) {
-      setError("Please select a reason");
+      setError(t<string>("selectReasonError"));
       return;
     }
     if (input?.trim()) {
-      mutateAsync(`${reason}: ${input.trim()}`)
+      mutateAsync(`${t(`reasons.${reason}`)}: ${input.trim()}`)
         .then(() => {
           setDone(true);
         })
         .catch((error) => {
-          toast(error?.message || "Please try again", {
+          toast(error?.message || t<string>("tryAgain"), {
             duration: 1000,
           });
         });
     } else {
-      setError("Please enter content");
+      setError(t<string>("enterContentError"));
     }
-  }, [isLoading, error, input, mutateAsync, reason]);
+  }, [isLoading, error, input, mutateAsync, reason, t]);
 
   if (done) {
     return <UninstallFeedbackDone />;
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} lang={languageCode}>
       <Toaster
         containerStyle={{
           top: 165,
@@ -102,21 +109,17 @@ export const Uninstalled = () => {
             src="/assets/feedback/logo.svg"
             alt="Rabby"
           />
-          <div className={styles.title}>We're sorry to see you go</div>
+          <div className={styles.title}>{t("title")}</div>
         </div>
         {showDesc && (
-          <div className={styles.desc}>
-            Your Seed Phrase, private keys and addresses have been successfully
-            removed from this device. You can still access them on the
-            blockchain.
-          </div>
+          <div className={styles.desc}>{t("description")}</div>
         )}
         <div className={styles.divider} />
 
-        <div className={styles.sub}>Why are you uninstalling Rabby Wallet?</div>
+        <div className={styles.sub}>{t("question")}</div>
         <div className={styles.feedbackBox}>
           <div className={styles.reasonList}>
-            {uninstallReasons
+            {reasonKeys
               .filter((item) => !reason || item === reason)
               .map((item) => (
               <button
@@ -134,12 +137,12 @@ export const Uninstalled = () => {
                   setError("");
                 }}
               >
-                <span>{item}</span>
+                <span>{t(`reasons.${item}`)}</span>
                 {reason === item && (
                   <img
                     className={styles.expandReason}
                     src="/assets/chain-dashboard/arrow-right.svg"
-                    alt="Show all reasons"
+                    alt={t<string>("showAllReasons")}
                   />
                 )}
               </button>
@@ -154,7 +157,9 @@ export const Uninstalled = () => {
                   setInput(e.target.value);
                   if (e.target.value.length > 1000) {
                     setError(
-                      `Maximum word limit exceeded - ${e.target.value.length}`
+                      t<string>("limitError", {
+                        length: e.target.value.length,
+                      })
                     );
                   } else {
                     setError("");
@@ -165,7 +170,7 @@ export const Uninstalled = () => {
                 autoCapitalize="none"
                 autoComplete="off"
                 autoCorrect="off"
-                placeholder="Please share more details"
+                placeholder={t<string>("detailsPlaceholder")}
               />
             </div>
           )}
@@ -173,15 +178,14 @@ export const Uninstalled = () => {
         </div>
 
         <div className={styles.submit} onClick={submit}>
-          Submit
+          {t("submit")}
         </div>
         <div className={styles.skip} onClick={close}>
-          Close
+          {t("close")}
         </div>
 
         <footer className={styles.footer}>
-          If you experience any issues or require assistance with Rabby Wallet,
-          please contact us at{" "}
+          {t("support")} {" "}
           <a className={styles.email} href="mailto:support@rabby.io">
             support@rabby.io
           </a>
@@ -195,7 +199,7 @@ export const Uninstalled = () => {
           className={styles.installBtn}
         >
           <img src="/assets/images/chrome-2x.png" alt="" />
-          Reinstall Extension
+          {t("reinstall")}
         </a>
       </div>
     </div>

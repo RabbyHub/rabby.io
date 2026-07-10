@@ -28,6 +28,7 @@
     "clsx": "^1.1.1",
     "cpy-cli": "^5.0.0",
     "dayjs": "^1.11.10",
+    "i18next": "22.5.1",
     "normalize.css": "^8.0.1",
     "nuka-carousel": "^5.4.0",
     "qrcode.react": "^3.1.0",
@@ -36,6 +37,7 @@
     "react-ga": "^3.3.1",
     "react-ga4": "^2.1.0",
     "react-hot-toast": "^2.4.1",
+    "react-i18next": "12.3.1",
     "react-loading-skeleton": "^3.4.0",
     "react-modal": "^3.16.1",
     "react-query": "^3.39.3",
@@ -47,8 +49,8 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.3",
     "@types/react-modal": "^3.16.3",
+    "@vitejs/plugin-react": "^6.0.3",
     "sass": "^1.101.0",
     "typescript": "^4.9.5",
     "vite": "^8.1.4",

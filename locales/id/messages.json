@@ -1,0 +1,23 @@
+{
+  "title": "Kami sedih melihat Anda pergi",
+  "description": "Frasa seed, kunci privat, dan alamat Anda telah dihapus dari perangkat ini. Anda tetap dapat mengaksesnya di blockchain.",
+  "question": "Mengapa Anda menghapus Rabby Wallet?",
+  "reasons": {
+    "difficult": "Sulit digunakan",
+    "missing": "Fitur tidak lengkap",
+    "issues": "Mengalami masalah",
+    "other": "Alasan lainnya"
+  },
+  "detailsPlaceholder": "Ceritakan detail selengkapnya",
+  "selectReasonError": "Pilih salah satu alasan",
+  "enterContentError": "Masukkan detail",
+  "limitError": "Batas maksimum terlampaui - {{length}}",
+  "tryAgain": "Silakan coba lagi",
+  "showAllReasons": "Tampilkan semua alasan",
+  "submit": "Kirim",
+  "close": "Tutup",
+  "support": "Jika mengalami masalah atau memerlukan bantuan terkait Rabby Wallet, hubungi kami di",
+  "reinstall": "Instal ulang ekstensi",
+  "thanks": "Terima kasih atas masukan Anda.",
+  "done": "Selesai"
+}

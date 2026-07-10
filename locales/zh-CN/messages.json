@@ -1,0 +1,23 @@
+{
+  "title": "很遗憾看到你离开",
+  "description": "你的助记词、私钥和地址已成功从此设备中移除。你仍可在区块链上访问它们。",
+  "question": "为什么要卸载 Rabby Wallet？",
+  "reasons": {
+    "difficult": "不易使用",
+    "missing": "缺少功能",
+    "issues": "使用时遇到问题",
+    "other": "其他原因"
+  },
+  "detailsPlaceholder": "请告诉我们更多详情",
+  "selectReasonError": "请选择一个原因",
+  "enterContentError": "请输入具体内容",
+  "limitError": "已超出最大字数限制 - {{length}}",
+  "tryAgain": "请重试",
+  "showAllReasons": "显示所有原因",
+  "submit": "提交",
+  "close": "关闭",
+  "support": "如果你遇到任何问题或需要 Rabby Wallet 的帮助，请联系我们：",
+  "reinstall": "重新安装扩展程序",
+  "thanks": "感谢你的反馈。",
+  "done": "完成"
+}

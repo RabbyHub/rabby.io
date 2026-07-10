@@ -1,0 +1,23 @@
+{
+  "title": "Rất tiếc khi bạn rời đi",
+  "description": "Cụm từ khôi phục, khóa riêng tư và địa chỉ của bạn đã được xóa khỏi thiết bị này. Bạn vẫn có thể truy cập chúng trên blockchain.",
+  "question": "Tại sao bạn gỡ cài đặt Rabby Wallet?",
+  "reasons": {
+    "difficult": "Khó sử dụng",
+    "missing": "Thiếu tính năng",
+    "issues": "Gặp sự cố",
+    "other": "Lý do khác"
+  },
+  "detailsPlaceholder": "Vui lòng chia sẻ thêm chi tiết",
+  "selectReasonError": "Vui lòng chọn một lý do",
+  "enterContentError": "Vui lòng nhập chi tiết",
+  "limitError": "Đã vượt quá giới hạn tối đa - {{length}}",
+  "tryAgain": "Vui lòng thử lại",
+  "showAllReasons": "Hiển thị tất cả lý do",
+  "submit": "Gửi",
+  "close": "Đóng",
+  "support": "Nếu gặp sự cố hoặc cần hỗ trợ về Rabby Wallet, vui lòng liên hệ với chúng tôi tại",
+  "reinstall": "Cài đặt lại tiện ích",
+  "thanks": "Cảm ơn phản hồi của bạn.",
+  "done": "Hoàn tất"
+}
