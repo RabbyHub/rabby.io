@@ -27,7 +27,7 @@ export const Uninstalled = () => {
   const r = useMemo(() => search.get("r") || "", [search]);
   const version = useMemo(() => search.get("v") || "", [search]);
   const languageCode = useMemo(
-    () => getSupportedLanguageCode(search.get("code")),
+    () => getSupportedLanguageCode(search.get("lang")),
     [search]
   );
 

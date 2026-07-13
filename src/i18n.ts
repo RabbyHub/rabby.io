@@ -47,7 +47,7 @@ export const getSupportedLanguageCode = (code: string | null): LanguageCode =>
 void i18n.use(initReactI18next).init({
   resources,
   lng: getSupportedLanguageCode(
-    new URLSearchParams(window.location.search).get("code")
+    new URLSearchParams(window.location.search).get("lang")
   ),
   fallbackLng: "en",
   interpolation: {
