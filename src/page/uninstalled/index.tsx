@@ -154,6 +154,14 @@ export const Uninstalled = () => {
                     <span className={styles.reasonRadio} aria-hidden="true" />
                     <span>{t(`reasons.${item}`)}</span>
                   </span>
+                  {reason === item &&
+                    !reasonsWithoutDetails.includes(reason) && (
+                      <img
+                        className={styles.expandReason}
+                        src="/assets/chain-dashboard/arrow-right.svg"
+                        alt={t<string>("showAllReasons")}
+                      />
+                    )}
                 </button>
               ))}
           </div>
