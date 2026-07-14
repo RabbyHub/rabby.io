@@ -191,6 +191,12 @@ export const Uninstalled = () => {
           target="_blank"
           rel="noreferrer"
           className={styles.installBtn}
+          onClick={() => {
+            ga.event({
+              category: "User",
+              action: "Click_Reinstall_Extension",
+            });
+          }}
         >
           <img src="/assets/images/chrome-2x.png" alt="" />
           {t("reinstall")}
