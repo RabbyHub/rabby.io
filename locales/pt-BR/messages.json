@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "Sentimos ver você partir",
-      "description": "Sua frase-semente, chaves privadas e endereços foram removidos deste dispositivo. Você ainda pode acessá-los na blockchain.",
+      "description": "Sua frase-semente e suas chaves privadas foram excluídas permanentemente deste dispositivo.",
       "question": "Por que você está desinstalando a Rabby Wallet?",
       "reasons": {
-        "missing": "Faltam recursos",
-        "issues": "Encontrei problemas",
-        "other": "Outros motivos"
+        "issues": "Estou tendo problemas ao usar",
+        "missing": "Falta um recurso que eu quero",
+        "reinstalling": "Só estou reinstalando",
+        "noLongerNeeded": "Não preciso mais",
+        "other": "Outro"
       },
       "detailsPlaceholder": "Conte mais detalhes",
       "selectReasonError": "Selecione um motivo",

@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "Kami sedih melihat Anda pergi",
-      "description": "Frasa seed, kunci privat, dan alamat Anda telah dihapus dari perangkat ini. Anda tetap dapat mengaksesnya di blockchain.",
+      "description": "Frasa seed dan kunci privat Anda telah dihapus secara permanen dari perangkat ini.",
       "question": "Mengapa Anda menghapus Rabby Wallet?",
       "reasons": {
-        "missing": "Fitur tidak lengkap",
-        "issues": "Mengalami masalah",
-        "other": "Alasan lainnya"
+        "issues": "Mengalami masalah saat menggunakan",
+        "missing": "Fitur yang saya inginkan tidak tersedia",
+        "reinstalling": "Saya hanya menginstal ulang",
+        "noLongerNeeded": "Saya tidak membutuhkannya lagi",
+        "other": "Lainnya"
       },
       "detailsPlaceholder": "Ceritakan detail selengkapnya",
       "selectReasonError": "Pilih salah satu alasan",

@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "很遺憾看到你離開",
-      "description": "你的助記詞、私鑰和地址已成功從此裝置移除。你仍可在區塊鏈上存取它們。",
+      "description": "你的助記詞和私鑰已從此裝置永久刪除。",
       "question": "為甚麼要解除安裝 Rabby Wallet？",
       "reasons": {
-        "missing": "缺少功能",
         "issues": "使用時遇到問題",
-        "other": "其他原因"
+        "missing": "缺少我想要的功能",
+        "reinstalling": "我只是重新安裝",
+        "noLongerNeeded": "我不再需要它",
+        "other": "其他"
       },
       "detailsPlaceholder": "請告訴我們更多詳情",
       "selectReasonError": "請選擇一個原因",

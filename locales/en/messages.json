@@ -2,11 +2,13 @@
   "page": {
     "uninstalled": {
       "title": "We're sorry to see you go",
-      "description": "Your Seed Phrase, private keys and addresses have been successfully removed from this device. You can still access them on the blockchain.",
+      "description": "Your seed phrase and private keys have been permanently deleted from this device.",
       "question": "Why are you uninstalling Rabby Wallet?",
       "reasons": {
         "issues": "Having issues while using",
-        "missing": "Missing features I want",
+        "missing": "Missing feature I want",
+        "reinstalling": "I'm just reinstalling",
+        "noLongerNeeded": "I no longer need it",
         "other": "Other"
       },
       "detailsPlaceholder": "Please share more details",

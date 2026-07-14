@@ -10,8 +10,15 @@ import toast, { Toaster } from "react-hot-toast";
 import i18n, { getSupportedLanguageCode } from "../../i18n";
 import { useTranslation } from "react-i18next";
 
-const reasonKeys = ["issues", "missing", "other"] as const;
+const reasonKeys = [
+  "issues",
+  "missing",
+  "reinstalling",
+  "noLongerNeeded",
+  "other",
+] as const;
 type ReasonKey = (typeof reasonKeys)[number];
+const reasonsWithoutDetails: ReasonKey[] = ["reinstalling", "noLongerNeeded"];
 
 export const Uninstalled = () => {
   const { t } = useTranslation("translation", {
@@ -63,9 +70,13 @@ export const Uninstalled = () => {
       setError(t<string>("selectReasonError"));
       return;
     }
-    if (input?.trim()) {
-      mutateAsync(`option: ${t(`reasons.${reason}`, { lng: "en" })}
-content: ${input.trim()}`)
+    const requiresDetails = !reasonsWithoutDetails.includes(reason);
+    if (!requiresDetails || input?.trim()) {
+      const feedback = [`option: ${t(`reasons.${reason}`, { lng: "en" })}`];
+      if (requiresDetails) {
+        feedback.push(`content: ${input.trim()}`);
+      }
+      mutateAsync(feedback.join("\n"))
         .then(() => {
           setDone(true);
         })
@@ -141,7 +152,7 @@ content: ${input.trim()}`)
                 </button>
               ))}
           </div>
-          {reason && (
+          {reason && !reasonsWithoutDetails.includes(reason) && (
             <div className={styles.inputBox}>
               <textarea
                 autoFocus

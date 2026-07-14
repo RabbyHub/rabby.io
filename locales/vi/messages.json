@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "Rất tiếc khi bạn rời đi",
-      "description": "Cụm từ khôi phục, khóa riêng tư và địa chỉ của bạn đã được xóa khỏi thiết bị này. Bạn vẫn có thể truy cập chúng trên blockchain.",
+      "description": "Cụm từ khôi phục và khóa riêng tư của bạn đã bị xóa vĩnh viễn khỏi thiết bị này.",
       "question": "Tại sao bạn gỡ cài đặt Rabby Wallet?",
       "reasons": {
-        "missing": "Thiếu tính năng",
-        "issues": "Gặp sự cố",
-        "other": "Lý do khác"
+        "issues": "Gặp vấn đề khi sử dụng",
+        "missing": "Thiếu tính năng tôi muốn",
+        "reinstalling": "Tôi chỉ đang cài đặt lại",
+        "noLongerNeeded": "Tôi không còn cần nữa",
+        "other": "Khác"
       },
       "detailsPlaceholder": "Vui lòng chia sẻ thêm chi tiết",
       "selectReasonError": "Vui lòng chọn một lý do",

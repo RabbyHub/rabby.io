@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "Ayrılmanıza üzüldük",
-      "description": "Kurtarma ifadeniz, özel anahtarlarınız ve adresleriniz bu cihazdan başarıyla kaldırıldı. Bunlara blok zincirinden erişmeye devam edebilirsiniz.",
+      "description": "Kurtarma ifadeniz ve özel anahtarlarınız bu cihazdan kalıcı olarak silindi.",
       "question": "Rabby Wallet'ı neden kaldırıyorsunuz?",
       "reasons": {
-        "missing": "Eksik özellikler",
-        "issues": "Sorunlarla karşılaştım",
-        "other": "Diğer nedenler"
+        "issues": "Kullanırken sorun yaşıyorum",
+        "missing": "İstediğim bir özellik eksik",
+        "reinstalling": "Yalnızca yeniden yüklüyorum",
+        "noLongerNeeded": "Artık ihtiyacım yok",
+        "other": "Diğer"
       },
       "detailsPlaceholder": "Lütfen daha fazla ayrıntı paylaşın",
       "selectReasonError": "Lütfen bir neden seçin",

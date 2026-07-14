@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "Schade, dass du gehst",
-      "description": "Deine Seed-Phrase, privaten Schlüssel und Adressen wurden erfolgreich von diesem Gerät entfernt. Auf der Blockchain bleiben sie weiterhin verfügbar.",
+      "description": "Deine Seed-Phrase und privaten Schlüssel wurden dauerhaft von diesem Gerät gelöscht.",
       "question": "Warum deinstallierst du Rabby Wallet?",
       "reasons": {
-        "missing": "Fehlende Funktionen",
-        "issues": "Probleme aufgetreten",
-        "other": "Andere Gründe"
+        "issues": "Probleme bei der Verwendung",
+        "missing": "Eine gewünschte Funktion fehlt",
+        "reinstalling": "Ich installiere nur neu",
+        "noLongerNeeded": "Ich brauche es nicht mehr",
+        "other": "Sonstiges"
       },
       "detailsPlaceholder": "Bitte teile uns weitere Details mit",
       "selectReasonError": "Bitte wähle einen Grund",

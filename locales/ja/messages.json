@@ -2,12 +2,14 @@
   "page": {
     "uninstalled": {
       "title": "ご利用いただきありがとうございました",
-      "description": "シードフレーズ、秘密鍵、アドレスはこのデバイスから正常に削除されました。引き続きブロックチェーン上でアクセスできます。",
+      "description": "シードフレーズと秘密鍵はこのデバイスから完全に削除されました。",
       "question": "Rabby Wallet をアンインストールする理由を教えてください",
       "reasons": {
-        "missing": "必要な機能がない",
-        "issues": "問題が発生した",
-        "other": "その他の理由"
+        "issues": "使用中に問題が発生する",
+        "missing": "欲しい機能がない",
+        "reinstalling": "再インストールするだけ",
+        "noLongerNeeded": "もう必要ない",
+        "other": "その他"
       },
       "detailsPlaceholder": "詳しい内容をお聞かせください",
       "selectReasonError": "理由を選択してください",
