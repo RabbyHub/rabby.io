@@ -127,6 +127,7 @@
 }
 
 .reasonRadio {
+  position: relative;
   box-sizing: border-box;
   width: 20px;
   height: 20px;
@@ -134,6 +135,19 @@
   border: 2px solid var(--r-neutral-foot, #6a7587);
   border-radius: 50%;
   background: #fff;
+}
+
+.reasonRadio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #7084ff;
+  transform: translate(-50%, -50%);
+  opacity: 0;
 }
 
 .reason:hover {
@@ -148,7 +162,12 @@
 }
 
 .reason.selectedReason .reasonRadio {
-  border: 5px solid #7084ff;
+  border: 2px solid #fff;
+  background: #fff;
+}
+
+.reason.selectedReason .reasonRadio::after {
+  opacity: 1;
 }
 
 .textarea {
@@ -157,8 +176,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
-  min-height: 136px;
-  max-height: 136px;
+  min-height: 288px;
+  max-height: 288px;
   padding: 12px;
   color: var(--r-neutral-title1, #192945);
   font-size: 15px;

@@ -128,7 +128,12 @@ export const Uninstalled = () => {
         <div className={styles.feedbackBox}>
           <div className={styles.reasonList}>
             {reasonKeys
-              .filter((item) => !reason || item === reason)
+              .filter(
+                (item) =>
+                  !reason ||
+                  reasonsWithoutDetails.includes(reason) ||
+                  item === reason
+              )
               .map((item) => (
                 <button
                   key={item}
