@@ -186,9 +186,9 @@ export const Uninstalled = () => {
           {!!error && <div className={styles.error}>{error}</div>}
         </div>
 
-        <div className={styles.submit} onClick={submit}>
+        <button type="button" className={styles.submit} onClick={submit}>
           {t("submit")}
-        </div>
+        </button>
       </div>
       <div className={styles.installBtnContainer}>
         <a
