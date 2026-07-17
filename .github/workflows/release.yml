@@ -20,10 +20,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Use Node.js v18
-        uses: actions/setup-node@v1
+      - name: Use Node.js v22
+        uses: actions/setup-node@v4
         with:
-          node-version: v18.20.3
+          node-version: 22.18.0
+          cache: yarn
 
       - name: Build source code
         run: |
