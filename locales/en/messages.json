@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "We're sorry to see you go",
+      "description": "Your seed phrase and private keys have been permanently deleted from this device.",
+      "question": "Why are you uninstalling Rabby Wallet?",
+      "reasons": {
+        "issues": "Having issues while using",
+        "missing": "Missing feature I want",
+        "reinstalling": "I'm just reinstalling",
+        "noLongerNeeded": "I no longer need it",
+        "other": "Other"
+      },
+      "detailsPlaceholder": "Please share more details",
+      "selectReasonError": "Please select a reason",
+      "enterContentError": "Please enter content",
+      "limitError": "Maximum word limit exceeded - {{length}}",
+      "tryAgain": "Please try again",
+      "showAllReasons": "Show all reasons",
+      "submit": "Submit",
+      "close": "Close",
+      "support": "If you experience any issues or require assistance with Rabby Wallet, please contact us at",
+      "reinstall": "Reinstall Extension",
+      "thanks": "Thank you for your feedback.",
+      "done": "Done"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "떠나신다니 아쉽습니다",
+      "description": "시드 문구와 개인 키가 이 기기에서 영구적으로 삭제되었습니다.",
+      "question": "Rabby Wallet을 제거하는 이유가 무엇인가요?",
+      "reasons": {
+        "issues": "사용 중 문제가 발생함",
+        "missing": "원하는 기능이 없음",
+        "reinstalling": "재설치하려는 것뿐임",
+        "noLongerNeeded": "더 이상 필요하지 않음",
+        "other": "기타"
+      },
+      "detailsPlaceholder": "자세한 내용을 알려주세요",
+      "selectReasonError": "이유를 선택해 주세요",
+      "enterContentError": "자세한 내용을 입력해 주세요",
+      "limitError": "최대 글자 수를 초과했습니다 - {{length}}",
+      "tryAgain": "다시 시도해 주세요",
+      "showAllReasons": "모든 이유 보기",
+      "submit": "제출",
+      "close": "닫기",
+      "support": "Rabby Wallet 사용 중 문제가 있거나 도움이 필요하면 다음 주소로 문의해 주세요:",
+      "reinstall": "확장 프로그램 다시 설치",
+      "thanks": "의견을 보내주셔서 감사합니다.",
+      "done": "완료"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "Rất tiếc khi bạn rời đi",
+      "description": "Cụm từ khôi phục và khóa riêng tư của bạn đã bị xóa vĩnh viễn khỏi thiết bị này.",
+      "question": "Tại sao bạn gỡ cài đặt Rabby Wallet?",
+      "reasons": {
+        "issues": "Gặp vấn đề khi sử dụng",
+        "missing": "Thiếu tính năng tôi muốn",
+        "reinstalling": "Tôi chỉ đang cài đặt lại",
+        "noLongerNeeded": "Tôi không còn cần nữa",
+        "other": "Khác"
+      },
+      "detailsPlaceholder": "Vui lòng chia sẻ thêm chi tiết",
+      "selectReasonError": "Vui lòng chọn một lý do",
+      "enterContentError": "Vui lòng nhập chi tiết",
+      "limitError": "Đã vượt quá giới hạn tối đa - {{length}}",
+      "tryAgain": "Vui lòng thử lại",
+      "showAllReasons": "Hiển thị tất cả lý do",
+      "submit": "Gửi",
+      "close": "Đóng",
+      "support": "Nếu gặp sự cố hoặc cần hỗ trợ về Rabby Wallet, vui lòng liên hệ với chúng tôi tại",
+      "reinstall": "Cài đặt lại tiện ích",
+      "thanks": "Cảm ơn phản hồi của bạn.",
+      "done": "Hoàn tất"
+    }
+  }
+}

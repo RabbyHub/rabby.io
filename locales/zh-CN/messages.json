@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "很遗憾看到你离开",
+      "description": "你的助记词和私钥已从此设备中永久删除。",
+      "question": "为什么要卸载 Rabby Wallet？",
+      "reasons": {
+        "issues": "使用时遇到问题",
+        "missing": "缺少我想要的功能",
+        "reinstalling": "我只是重新安装",
+        "noLongerNeeded": "我不再需要它",
+        "other": "其他"
+      },
+      "detailsPlaceholder": "请告诉我们更多详情",
+      "selectReasonError": "请选择一个原因",
+      "enterContentError": "请输入具体内容",
+      "limitError": "已超出最大字数限制 - {{length}}",
+      "tryAgain": "请重试",
+      "showAllReasons": "显示所有原因",
+      "submit": "提交",
+      "close": "关闭",
+      "support": "如果你遇到任何问题或需要 Rabby Wallet 的帮助，请联系我们：",
+      "reinstall": "重新安装扩展程序",
+      "thanks": "感谢你的反馈。",
+      "done": "完成"
+    }
+  }
+}

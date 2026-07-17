@@ -7,8 +7,24 @@ import { ga } from "../../ga";
 import { useMutation } from "react-query";
 import { apiReady } from "../../service";
 import toast, { Toaster } from "react-hot-toast";
+import i18n, { getSupportedLanguageCode } from "../../i18n";
+import { useTranslation } from "react-i18next";
+
+const reasonKeys = [
+  "issues",
+  "missing",
+  "reinstalling",
+  "noLongerNeeded",
+  "other",
+] as const;
+type ReasonKey = (typeof reasonKeys)[number];
+const reasonsWithoutDetails: ReasonKey[] = ["reinstalling", "noLongerNeeded"];
 
 export const Uninstalled = () => {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "page.uninstalled",
+  });
+  const [reason, setReason] = useState<ReasonKey | "">("");
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
@@ -17,10 +33,18 @@ export const Uninstalled = () => {
 
   const r = useMemo(() => search.get("r") || "", [search]);
   const version = useMemo(() => search.get("v") || "", [search]);
+  const languageCode = useMemo(
+    () => getSupportedLanguageCode(search.get("lang")),
+    [search]
+  );
 
   const sendRef = useRef(false);
 
   const showDesc = useMemo(() => !!r?.includes("l"), [r]);
+
+  useEffect(() => {
+    void i18n.changeLanguage(languageCode);
+  }, [languageCode]);
 
   const { isLoading, mutateAsync } = useMutation(async (text: string) =>
     (await apiReady).uninstalledFeedback({ text: `${text}【${version}】` })
@@ -38,35 +62,40 @@ export const Uninstalled = () => {
     }
   }, [r]);
 
-  const close = () => {
-    window.close();
-  };
-
   const submit = useCallback(async () => {
     if (isLoading || error) {
       return;
     }
-    if (input?.trim()) {
-      mutateAsync(input)
+    if (!reason) {
+      setError(t<string>("selectReasonError"));
+      return;
+    }
+    const requiresDetails = !reasonsWithoutDetails.includes(reason);
+    if (!requiresDetails || input?.trim()) {
+      const feedback = [`option: ${t(`reasons.${reason}`, { lng: "en" })}`];
+      if (requiresDetails) {
+        feedback.push(`content: ${input.trim()}`);
+      }
+      mutateAsync(feedback.join("\n"))
         .then(() => {
           setDone(true);
         })
         .catch((error) => {
-          toast(error?.message || "Please try again", {
+          toast(error?.message || t<string>("tryAgain"), {
             duration: 1000,
           });
         });
     } else {
-      setError("Please enter content");
+      setError(t<string>("enterContentError"));
     }
-  }, [isLoading, error, input, mutateAsync]);
+  }, [isLoading, error, input, mutateAsync, reason, t]);
 
   if (done) {
     return <UninstallFeedbackDone />;
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} lang={languageCode}>
       <Toaster
         containerStyle={{
           top: 165,
@@ -90,56 +119,84 @@ export const Uninstalled = () => {
             src="/assets/feedback/logo.svg"
             alt="Rabby"
           />
-          <div className={styles.title}>We're sorry to see you go</div>
+          <div className={styles.title}>{t("title")}</div>
         </div>
-        {showDesc && (
-          <div className={styles.desc}>
-            Your Seed Phrase, private keys and addresses have been successfully
-            removed from this device. You can still access them on the
-            blockchain.
-          </div>
-        )}
+        {showDesc && <div className={styles.desc}>{t("description")}</div>}
         <div className={styles.divider} />
 
-        <div className={styles.sub}>Why are you uninstalling Rabby Wallet?</div>
-        <div className={styles.inputBox}>
-          <textarea
-            autoFocus
-            value={input}
-            onChange={(e) => {
-              setInput(e.target.value);
-              if (e?.target?.value?.length > 1000) {
-                setError(
-                  `Maximum word limit exceeded - ${e.target.value.length}`
-                );
-              } else {
-                setError("");
-              }
-            }}
-            className={clsx(styles.textarea, error && styles.err)}
-            spellCheck={false}
-            autoCapitalize="none"
-            autoComplete="off"
-            autoCorrect="off"
-            placeholder="Please share your reason for uninstalling. Rabby values your feedback!"
-          />
+        <div className={styles.sub}>{t("question")}</div>
+        <div className={styles.feedbackBox}>
+          <div className={styles.reasonList}>
+            {reasonKeys
+              .filter(
+                (item) =>
+                  !reason ||
+                  reasonsWithoutDetails.includes(reason) ||
+                  item === reason
+              )
+              .map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className={clsx(
+                    styles.reason,
+                    reason === item && styles.selectedReason
+                  )}
+                  onClick={() => {
+                    setReason((currentReason) =>
+                      currentReason === item ? "" : item
+                    );
+                    setInput("");
+                    setError("");
+                  }}
+                >
+                  <span className={styles.reasonContent}>
+                    <span className={styles.reasonRadio} aria-hidden="true" />
+                    <span>{t(`reasons.${item}`)}</span>
+                  </span>
+                  {reason === item &&
+                    !reasonsWithoutDetails.includes(reason) && (
+                      <img
+                        className={styles.expandReason}
+                        src="/assets/chain-dashboard/arrow-right.svg"
+                        alt={t<string>("showAllReasons")}
+                      />
+                    )}
+                </button>
+              ))}
+          </div>
+          {reason && !reasonsWithoutDetails.includes(reason) && (
+            <div className={styles.inputBox}>
+              <textarea
+                autoFocus
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  if (e.target.value.length > 1000) {
+                    setError(
+                      t<string>("limitError", {
+                        length: e.target.value.length,
+                      })
+                    );
+                  } else {
+                    setError("");
+                  }
+                }}
+                className={clsx(styles.textarea, error && styles.err)}
+                spellCheck={false}
+                autoCapitalize="none"
+                autoComplete="off"
+                autoCorrect="off"
+                placeholder={t<string>("detailsPlaceholder")}
+              />
+            </div>
+          )}
           {!!error && <div className={styles.error}>{error}</div>}
         </div>
 
-        <div className={styles.submit} onClick={submit}>
-          Submit
-        </div>
-        <div className={styles.skip} onClick={close}>
-          Close
-        </div>
-
-        <footer className={styles.footer}>
-          If you experience any issues or require assistance with Rabby Wallet,
-          please contact us at{" "}
-          <a className={styles.email} href="mailto:support@rabby.io">
-            support@rabby.io
-          </a>
-        </footer>
+        <button type="button" className={styles.submit} onClick={submit}>
+          {t("submit")}
+        </button>
       </div>
       <div className={styles.installBtnContainer}>
         <a
@@ -147,9 +204,15 @@ export const Uninstalled = () => {
           target="_blank"
           rel="noreferrer"
           className={styles.installBtn}
+          onClick={() => {
+            ga.event({
+              category: "User",
+              action: "Click_Reinstall_Extension",
+            });
+          }}
         >
           <img src="/assets/images/chrome-2x.png" alt="" />
-          Reinstall Extension
+          {t("reinstall")}
         </a>
       </div>
     </div>

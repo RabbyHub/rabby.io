@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "Kami sedih melihat Anda pergi",
+      "description": "Frasa seed dan kunci privat Anda telah dihapus secara permanen dari perangkat ini.",
+      "question": "Mengapa Anda menghapus Rabby Wallet?",
+      "reasons": {
+        "issues": "Mengalami masalah saat menggunakan",
+        "missing": "Fitur yang saya inginkan tidak tersedia",
+        "reinstalling": "Saya hanya menginstal ulang",
+        "noLongerNeeded": "Saya tidak membutuhkannya lagi",
+        "other": "Lainnya"
+      },
+      "detailsPlaceholder": "Ceritakan detail selengkapnya",
+      "selectReasonError": "Pilih salah satu alasan",
+      "enterContentError": "Masukkan detail",
+      "limitError": "Batas maksimum terlampaui - {{length}}",
+      "tryAgain": "Silakan coba lagi",
+      "showAllReasons": "Tampilkan semua alasan",
+      "submit": "Kirim",
+      "close": "Tutup",
+      "support": "Jika mengalami masalah atau memerlukan bantuan terkait Rabby Wallet, hubungi kami di",
+      "reinstall": "Instal ulang ekstensi",
+      "thanks": "Terima kasih atas masukan Anda.",
+      "done": "Selesai"
+    }
+  }
+}

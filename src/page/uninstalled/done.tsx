@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import styles from "./style.module.css";
+import { useTranslation } from "react-i18next";
 
 const list = [
   { src: "/assets/feedback/x.svg", link: "https://x.com/Rabby_io", name: "X" },
@@ -16,15 +17,19 @@ const list = [
 ];
 
 export const UninstallFeedbackDone = () => {
+  const { t, i18n } = useTranslation("translation", {
+    keyPrefix: "page.uninstalled",
+  });
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} lang={i18n.resolvedLanguage}>
       <div className={styles.box}>
         <img
           className={clsx(styles.logo, styles.done)}
           src="/assets/feedback/logo.svg"
           alt="Rabby"
         />
-        <div className={styles.title2}>Thank you for your feedback.</div>
+        <div className={styles.title2}>{t("thanks")}</div>
 
         <div className={styles.links}>
           {list.map((item) => {
@@ -43,7 +48,7 @@ export const UninstallFeedbackDone = () => {
         </div>
 
         <div className={styles.submit} onClick={() => window.close()}>
-          Done
+          {t("done")}
         </div>
       </div>
     </div>

@@ -1,0 +1,28 @@
+{
+  "page": {
+    "uninstalled": {
+      "title": "Ayrılmanıza üzüldük",
+      "description": "Kurtarma ifadeniz ve özel anahtarlarınız bu cihazdan kalıcı olarak silindi.",
+      "question": "Rabby Wallet'ı neden kaldırıyorsunuz?",
+      "reasons": {
+        "issues": "Kullanırken sorun yaşıyorum",
+        "missing": "İstediğim bir özellik eksik",
+        "reinstalling": "Yalnızca yeniden yüklüyorum",
+        "noLongerNeeded": "Artık ihtiyacım yok",
+        "other": "Diğer"
+      },
+      "detailsPlaceholder": "Lütfen daha fazla ayrıntı paylaşın",
+      "selectReasonError": "Lütfen bir neden seçin",
+      "enterContentError": "Lütfen ayrıntıları girin",
+      "limitError": "Maksimum sınır aşıldı - {{length}}",
+      "tryAgain": "Lütfen tekrar deneyin",
+      "showAllReasons": "Tüm nedenleri göster",
+      "submit": "Gönder",
+      "close": "Kapat",
+      "support": "Rabby Wallet ile ilgili bir sorun yaşar veya yardıma ihtiyaç duyarsanız bize ulaşın:",
+      "reinstall": "Uzantıyı yeniden yükle",
+      "thanks": "Geri bildiriminiz için teşekkürler.",
+      "done": "Bitti"
+    }
+  }
+}
