@@ -6,6 +6,7 @@ export const LINKS = {
     DISCORD: "https://discord.gg/seFBCWmUre",
     GITHUB: "https://github.com/RabbyHub/Rabby",
     EMAIL: "mailto:rabby.io@gmail.com",
+    BUG_BOUNTY: "mailto:bugbounty@debank.com",
     DEBANK: "https://debank.com/hi/0a110032",
   },
 

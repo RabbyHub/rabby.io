@@ -28,6 +28,10 @@ const Footer = () => {
         {
           title: "DeBank Hi",
           value: LINKS.SOCIAL.DEBANK,
+        },
+        {
+          title: "Bug Bounty",
+          value: LINKS.SOCIAL.BUG_BOUNTY,
         }
       ]
     },
