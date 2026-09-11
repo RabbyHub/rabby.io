@@ -1,0 +1,72 @@
+import { useUpdateBridge } from "./useUpdateBridge";
+import { useVersionChangelog } from "./useVersionChangelog";
+import styles from "./style.module.scss";
+
+export function Updating() {
+  const {
+    ready,
+    opening,
+    error,
+    version,
+    openWallet,
+    retry,
+  } = useUpdateBridge();
+  const changelog = useVersionChangelog(version);
+  return (
+    <main className={styles.page}>
+      <section className={styles.card} aria-labelledby="update-title">
+        <div className={styles.status} role="status" aria-live="polite">
+          <img
+            className={ready ? undefined : styles.spinner}
+            src={`/assets/updating/${ready ? "success" : "loading"}.svg`}
+            width="40"
+            height="40"
+            alt=""
+          />
+          <h1 id="update-title">Update {ready ? "Completed" : "Processing"}</h1>
+        </div>
+        <div className={styles.notes}>
+          <h2>What’s New ?</h2>
+          {version && <p className={styles.version}>Version {version}</p>}
+          <div className={styles.changelog} aria-live="polite">
+            {!version ? (
+              "Waiting for version information…"
+            ) : changelog.isLoading ? (
+              "Loading release notes…"
+            ) : changelog.isError ? (
+              <>
+                Could not load release notes.{" "}
+                <button
+                  className={styles.retry}
+                  onClick={() => void changelog.refetch()}
+                  disabled={changelog.isFetching}
+                >
+                  Retry
+                </button>
+              </>
+            ) : (
+              changelog.data || "No release notes available for this version."
+            )}
+          </div>
+        </div>
+        {error && (
+          <div className={styles.error} role="alert">
+            {error} <button onClick={retry}>Check again</button>
+          </div>
+        )}
+        <button
+          className={styles.open}
+          disabled={!ready || opening}
+          onClick={openWallet}
+        >
+          {opening ? "Opening…" : "Open Wallet"}
+        </button>
+      </section>
+      <img
+        className={styles.logo}
+        src="/assets/updating/logo.svg"
+        alt="Rabby Wallet"
+      />
+    </main>
+  );
+}
