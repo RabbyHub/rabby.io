@@ -1,13 +1,15 @@
+import { useSearchParams } from "react-router-dom";
 import { useUpdateBridge } from "./useUpdateBridge";
 import { useVersionChangelog } from "./useVersionChangelog";
 import styles from "./style.module.scss";
 
 export function Updating() {
+  const [searchParams] = useSearchParams();
+  const version = searchParams.get("version") ?? "";
   const {
     ready,
     opening,
     error,
-    version,
     openWallet,
     retry,
   } = useUpdateBridge();
