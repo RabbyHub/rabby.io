@@ -48,6 +48,9 @@
   margin-bottom: 24px;
   background: #f7fafc;
   border-radius: 8px;
+  overflow: auto;
+  max-height: 250px;
+
   h2 {
     font-size: 15px;
     font-weight: 500;
@@ -58,18 +61,54 @@
     font-size: 15px;
     line-height: 18px;
     color: #6a7587;
-    margin: 0 0 12px;
+    margin-bottom: 12px 0;
   }
   .changelog {
     margin: 0;
     color: #3e495e;
     font-size: 14px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 17px;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     max-height: 240px;
-    overflow-y: auto;
+  }
+  .noteListItem {
+    position: relative;
+    padding-left: 16px;
+    margin: 12px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &::before {
+      content: " ";
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: #6a7587;
+      border-radius: 50%;
+      position: absolute;
+      left: 6px;
+      top: 0.5em;
+    }
+  }
+  .noteLine {
+    margin: 12px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .noteTitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #192945;
   }
   .retry {
     background: none;

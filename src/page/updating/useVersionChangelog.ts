@@ -10,9 +10,8 @@ export function useVersionChangelog(version: string) {
       const info = await (await apiReady).getVersionInfo({
         version_id: version,
       });
-      // Do not substitute the server's latest version: it may be newer than
-      // the update Chrome is currently installing on this page.
-      return info.version?.id === version ? info.version.changelog : null;
+      // Display the latest release while querying with the installed version.
+      return info.latest_version;
     },
     staleTime: 60_000,
     cacheTime: 5 * 60_000,

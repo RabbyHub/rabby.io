@@ -12,6 +12,10 @@ export function Updating() {
     retry,
   } = useUpdateBridge();
   const changelog = useVersionChangelog(version);
+  const latestVersion = changelog.data;
+  const changelogContent = latestVersion?.changelog?.trim()
+    ? latestVersion.changelog
+    : "- Fixed some bugs and optimized user experience";
   return (
     <main className={styles.page}>
       <section className={styles.card} aria-labelledby="update-title">
@@ -27,7 +31,9 @@ export function Updating() {
         </div>
         <div className={styles.notes}>
           <h2>What’s New ?</h2>
-          {version && <p className={styles.version}>Version {version}</p>}
+          {latestVersion?.id && (
+            <p className={styles.version}>Version {latestVersion.id}</p>
+          )}
           <div className={styles.changelog} aria-live="polite">
             {!version ? (
               "Waiting for version information…"
@@ -45,7 +51,27 @@ export function Updating() {
                 </button>
               </>
             ) : (
-              changelog.data || "No release notes available for this version."
+              changelogContent.split("\n").map((line, i) => {
+                if (line.startsWith("- ")) {
+                  return (
+                    <div key={i} className={styles.noteListItem}>
+                      {line.slice(2)}
+                    </div>
+                  );
+                }
+                if (line.startsWith("# ")) {
+                  return (
+                    <div key={i} className={styles.noteTitle}>
+                      {line.slice(2)}
+                    </div>
+                  );
+                }
+                return (
+                  <div key={i} className={styles.noteLine}>
+                    {line}
+                  </div>
+                );
+              })
             )}
           </div>
         </div>
