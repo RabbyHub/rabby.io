@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { isAtLeastVersion, isVersion, UPDATE_CHANNEL } from "./protocol";
 
+type UpdateBridgeError = "" | "errors.updateTimeout" | "errors.openWallet";
+
 export function useUpdateBridge() {
   const [ready, setReady] = useState(false);
   const [opening, setOpening] = useState(false);
-  const [error, setError] = useState("");
+  // Keep error keys in state so language changes do not restart the bridge.
+  const [error, setError] = useState<UpdateBridgeError>("");
   const [attempt, setAttempt] = useState(0);
   const [version, setVersion] = useState(() => {
     const value = new URLSearchParams(window.location.search).get("version");
@@ -28,9 +31,7 @@ export function useUpdateBridge() {
       frame?.remove();
       frame = undefined;
       if (Date.now() - started >= 120_000) {
-        setError(
-          "Unable to confirm the update. Make sure Rabby is enabled, then try again."
-        );
+        setError("errors.updateTimeout");
         return;
       }
       nonce = crypto.randomUUID();
@@ -44,9 +45,7 @@ export function useUpdateBridge() {
     const failedOpen = () => {
       requestId = "";
       setOpening(false);
-      setError(
-        "Could not open the wallet. Try again, or open Rabby from your browser toolbar."
-      );
+      setError("errors.openWallet");
       readyNow = false;
       setReady(false);
       next();

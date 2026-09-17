@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "업데이트 중",
+      "completed": "업데이트 완료",
+      "whatsNew": "새로운 기능",
+      "version": "버전 {{version}}",
+      "waitingVersion": "버전 정보를 기다리는 중…",
+      "loadingChangelog": "업데이트 내용을 불러오는 중…",
+      "changelogError": "업데이트 내용을 불러오지 못했습니다.",
+      "retry": "다시 시도",
+      "checkAgain": "다시 확인",
+      "openWallet": "지갑 열기",
+      "opening": "여는 중…",
+      "defaultChangelog": "- 일부 버그를 수정하고 사용자 경험을 개선했습니다",
+      "errors": {
+        "updateTimeout": "업데이트 완료 여부를 확인할 수 없습니다. Rabby가 활성화되어 있는지 확인한 후 다시 시도해 주세요.",
+        "openWallet": "지갑을 열지 못했습니다. 다시 시도하거나 브라우저 도구 모음에서 Rabby를 열어 주세요."
+      }
+    },
     "uninstalled": {
       "title": "떠나신다니 아쉽습니다",
       "description": "시드 문구와 개인 키가 이 기기에서 영구적으로 삭제되었습니다.",

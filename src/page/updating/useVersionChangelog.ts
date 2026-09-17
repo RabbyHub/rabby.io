@@ -1,8 +1,12 @@
 import { useQuery } from "react-query";
+import type { WalletVersionInfo } from "@rabby-wallet/rabby-api/dist/types";
 import { apiReady } from "../../service";
 
+// Compatible with SDK versions that predate the Chinese changelog field.
+type VersionChangelog = WalletVersionInfo & { changelog_cn?: string };
+
 export function useVersionChangelog(version: string) {
-  return useQuery({
+  return useQuery<VersionChangelog | null>({
     queryKey: ["walletVersionInfo", version],
     // The backend accepts x.y.z, not Chrome's optional fourth version segment.
     enabled: /^\d+\.\d+\.\d+$/.test(version),

@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Đang cập nhật",
+      "completed": "Cập nhật hoàn tất",
+      "whatsNew": "Có gì mới?",
+      "version": "Phiên bản {{version}}",
+      "waitingVersion": "Đang chờ thông tin phiên bản…",
+      "loadingChangelog": "Đang tải ghi chú phát hành…",
+      "changelogError": "Không thể tải ghi chú phát hành.",
+      "retry": "Thử lại",
+      "checkAgain": "Kiểm tra lại",
+      "openWallet": "Mở ví",
+      "opening": "Đang mở…",
+      "defaultChangelog": "- Đã sửa một số lỗi và tối ưu hóa trải nghiệm người dùng",
+      "errors": {
+        "updateTimeout": "Không thể xác nhận cập nhật đã hoàn tất. Hãy đảm bảo Rabby đã được bật rồi thử lại.",
+        "openWallet": "Không thể mở ví. Hãy thử lại hoặc mở Rabby từ thanh công cụ của trình duyệt."
+      }
+    },
     "uninstalled": {
       "title": "Rất tiếc khi bạn rời đi",
       "description": "Cụm từ khôi phục và khóa riêng tư của bạn đã bị xóa vĩnh viễn khỏi thiết bị này.",

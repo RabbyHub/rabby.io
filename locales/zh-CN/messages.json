@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "正在更新",
+      "completed": "更新完成",
+      "whatsNew": "更新内容",
+      "version": "版本 {{version}}",
+      "waitingVersion": "正在等待版本信息…",
+      "loadingChangelog": "正在加载更新说明…",
+      "changelogError": "无法加载更新说明。",
+      "retry": "重试",
+      "checkAgain": "重新检查",
+      "openWallet": "打开钱包",
+      "opening": "正在打开…",
+      "defaultChangelog": "- 修复了一些问题并优化了用户体验",
+      "errors": {
+        "updateTimeout": "无法确认更新是否完成。请确保已启用 Rabby，然后重试。",
+        "openWallet": "无法打开钱包。请重试，或从浏览器工具栏打开 Rabby。"
+      }
+    },
     "uninstalled": {
       "title": "很遗憾看到你离开",
       "description": "你的助记词和私钥已从此设备中永久删除。",

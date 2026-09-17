@@ -1,25 +1,35 @@
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
+import i18n, { getSupportedLanguageCode } from "../../i18n";
 import { useUpdateBridge } from "./useUpdateBridge";
 import { useVersionChangelog } from "./useVersionChangelog";
 import styles from "./style.module.scss";
 
 export function Updating() {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "page.updating",
+  });
   const [searchParams] = useSearchParams();
   const version = searchParams.get("version") ?? "";
-  const {
-    ready,
-    opening,
-    error,
-    openWallet,
-    retry,
-  } = useUpdateBridge();
+  const languageCode = getSupportedLanguageCode(searchParams.get("lang"));
+  const { ready, opening, error, openWallet, retry } = useUpdateBridge();
+
+  useEffect(() => {
+    void i18n.changeLanguage(languageCode);
+  }, [languageCode]);
+
   const changelog = useVersionChangelog(version);
   const latestVersion = changelog.data;
-  const changelogContent = latestVersion?.changelog?.trim()
-    ? latestVersion.changelog
-    : "- Fixed some bugs and optimized user experience";
+  const localizedChangelog =
+    languageCode === "zh-CN"
+      ? latestVersion?.changelog_cn
+      : latestVersion?.changelog;
+  const changelogContent = localizedChangelog?.trim()
+    ? localizedChangelog
+    : t<string>("defaultChangelog");
   return (
-    <main className={styles.page}>
+    <main className={styles.page} lang={languageCode}>
       <section className={styles.card} aria-labelledby="update-title">
         <div className={styles.status} role="status" aria-live="polite">
           <img
@@ -29,27 +39,29 @@ export function Updating() {
             height="40"
             alt=""
           />
-          <h1 id="update-title">Update {ready ? "Completed" : "Processing"}</h1>
+          <h1 id="update-title">{t(ready ? "completed" : "processing")}</h1>
         </div>
         <div className={styles.notes}>
-          <h2>What’s New ?</h2>
+          <h2>{t("whatsNew")}</h2>
           {latestVersion?.id && (
-            <p className={styles.version}>Version {latestVersion.id}</p>
+            <p className={styles.version}>
+              {t("version", { version: latestVersion.id })}
+            </p>
           )}
           <div className={styles.changelog} aria-live="polite">
             {!version ? (
-              "Waiting for version information…"
+              t("waitingVersion")
             ) : changelog.isLoading ? (
-              "Loading release notes…"
+              t("loadingChangelog")
             ) : changelog.isError ? (
               <>
-                Could not load release notes.{" "}
+                {t("changelogError")}{" "}
                 <button
                   className={styles.retry}
                   onClick={() => void changelog.refetch()}
                   disabled={changelog.isFetching}
                 >
-                  Retry
+                  {t("retry")}
                 </button>
               </>
             ) : (
@@ -79,7 +91,7 @@ export function Updating() {
         </div>
         {error && (
           <div className={styles.error} role="alert">
-            {error} <button onClick={retry}>Check again</button>
+            {t(error)} <button onClick={retry}>{t("checkAgain")}</button>
           </div>
         )}
         <button
@@ -87,7 +99,7 @@ export function Updating() {
           disabled={!ready || opening}
           onClick={openWallet}
         >
-          {opening ? "Opening…" : "Open Wallet"}
+          {t(opening ? "opening" : "openWallet")}
         </button>
       </section>
       <img

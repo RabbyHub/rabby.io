@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Mise à jour en cours",
+      "completed": "Mise à jour terminée",
+      "whatsNew": "Nouveautés",
+      "version": "Version {{version}}",
+      "waitingVersion": "En attente des informations de version…",
+      "loadingChangelog": "Chargement des notes de version…",
+      "changelogError": "Impossible de charger les notes de version.",
+      "retry": "Réessayer",
+      "checkAgain": "Vérifier à nouveau",
+      "openWallet": "Ouvrir le portefeuille",
+      "opening": "Ouverture en cours…",
+      "defaultChangelog": "- Correction de bugs et amélioration de l’expérience utilisateur",
+      "errors": {
+        "updateTimeout": "Impossible de confirmer la mise à jour. Vérifiez que Rabby est activé, puis réessayez.",
+        "openWallet": "Impossible d’ouvrir le portefeuille. Réessayez ou ouvrez Rabby depuis la barre d’outils de votre navigateur."
+      }
+    },
     "uninstalled": {
       "title": "Nous sommes désolés de vous voir partir",
       "description": "Votre phrase de récupération et vos clés privées ont été définitivement supprimées de cet appareil.",

@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Update Processing",
+      "completed": "Update Completed",
+      "whatsNew": "What’s New?",
+      "version": "Version {{version}}",
+      "waitingVersion": "Waiting for version information…",
+      "loadingChangelog": "Loading release notes…",
+      "changelogError": "Could not load release notes.",
+      "retry": "Retry",
+      "checkAgain": "Check again",
+      "openWallet": "Open Wallet",
+      "opening": "Opening…",
+      "defaultChangelog": "- Fixed some bugs and optimized user experience",
+      "errors": {
+        "updateTimeout": "Unable to confirm the update. Make sure Rabby is enabled, then try again.",
+        "openWallet": "Could not open the wallet. Try again, or open Rabby from your browser toolbar."
+      }
+    },
     "uninstalled": {
       "title": "We're sorry to see you go",
       "description": "Your seed phrase and private keys have been permanently deleted from this device.",
