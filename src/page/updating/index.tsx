@@ -25,9 +25,13 @@ export function Updating() {
     languageCode === "zh-CN"
       ? latestVersion?.changelog_cn
       : latestVersion?.changelog;
+  const defaultChangelog =
+    i18n.language.toLowerCase() === "zh-cn"
+      ? "- 修复了一些已知问题"
+      : "- Fixed some bugs and optimized user experience";
   const changelogContent = localizedChangelog?.trim()
     ? localizedChangelog
-    : t<string>("defaultChangelog");
+    : defaultChangelog;
   return (
     <main className={styles.page} lang={languageCode}>
       <section className={styles.card} aria-labelledby="update-title">

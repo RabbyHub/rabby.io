@@ -12,7 +12,7 @@
       "checkAgain": "重新检查",
       "openWallet": "打开钱包",
       "opening": "正在打开…",
-      "defaultChangelog": "- 修复了一些问题并优化了用户体验",
+      "defaultChangelog": "- 修复了一些已知问题",
       "errors": {
         "updateTimeout": "无法确认更新是否完成。请确保已启用 Rabby，然后重试。",
         "openWallet": "无法打开钱包。请重试，或从浏览器工具栏打开 Rabby。"
