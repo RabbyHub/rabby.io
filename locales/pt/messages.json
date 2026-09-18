@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Atualização em curso",
+      "completed": "Atualização concluída",
+      "whatsNew": "Novidades",
+      "version": "Versão {{version}}",
+      "waitingVersion": "A aguardar informações da versão…",
+      "loadingChangelog": "A carregar notas da versão…",
+      "changelogError": "Não foi possível carregar as notas da versão.",
+      "retry": "Tentar novamente",
+      "checkAgain": "Verificar novamente",
+      "openWallet": "Abrir carteira",
+      "opening": "A abrir…",
+      "defaultChangelog": "- Correção de alguns erros e melhoria da experiência do utilizador",
+      "errors": {
+        "updateTimeout": "Não foi possível confirmar a atualização. Certifique-se de que o Rabby está ativado e tente novamente.",
+        "openWallet": "Não foi possível abrir a carteira. Tente novamente ou abra o Rabby na barra de ferramentas do navegador."
+      }
+    },
     "uninstalled": {
       "title": "Lamentamos que te vás embora",
       "description": "A tua frase-semente e as chaves privadas foram eliminadas permanentemente deste dispositivo.",

@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "更新中",
+      "completed": "更新完了",
+      "whatsNew": "更新内容",
+      "version": "バージョン {{version}}",
+      "waitingVersion": "バージョン情報を待っています…",
+      "loadingChangelog": "更新内容を読み込み中…",
+      "changelogError": "更新内容を読み込めませんでした。",
+      "retry": "再試行",
+      "checkAgain": "再確認",
+      "openWallet": "ウォレットを開く",
+      "opening": "開いています…",
+      "defaultChangelog": "- 不具合を修正し、使いやすさを改善しました",
+      "errors": {
+        "updateTimeout": "更新の完了を確認できません。Rabby が有効になっていることを確認して、もう一度お試しください。",
+        "openWallet": "ウォレットを開けませんでした。もう一度試すか、ブラウザのツールバーから Rabby を開いてください。"
+      }
+    },
     "uninstalled": {
       "title": "ご利用いただきありがとうございました",
       "description": "シードフレーズと秘密鍵はこのデバイスから完全に削除されました。",

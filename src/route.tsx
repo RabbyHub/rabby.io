@@ -11,6 +11,8 @@ import { QueryClientProvider } from "react-query";
 import { Uninstalled } from "./page/uninstalled";
 import { MobileRedirect } from "./page/mobile-redirect";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
+import { Updating } from "./page/updating";
+import { UpdatingBridge } from "./page/updating/bridge";
 
 export const MainRoutes = () => {
   let location = useLocation();
@@ -28,16 +30,23 @@ export const MainRoutes = () => {
     const path = window.location.pathname + window.location.search;
     ga.pageview(path);
   }, [analyticsAccepted, location]);
+  const isUpdatingPage =
+    location.pathname === "/updating" ||
+    location.pathname === "/updating/bridge";
   return (
     <QueryClientProvider client={queryClient}>
-      <CookieConsentBanner
-        onAnalyticsConsentChange={handleAnalyticsConsentChange}
-      />
+      {!isUpdatingPage && (
+        <CookieConsentBanner
+          onAnalyticsConsentChange={handleAnalyticsConsentChange}
+        />
+      )}
       <Routes>
         <Route path="/">
           <Route index element={<App />} />
           <Route path="/metamask-export" element={<MetaMaskExport />} />
           <Route path="/update-extension" element={<UpdateExtension />} />
+          <Route path="/updating" element={<Updating />} />
+          <Route path="/updating/bridge" element={<UpdatingBridge />} />
           <Route path="/desktop" element={<DesktopPage />} />
           <Route path="/chain-dashboard" element={<ChainDashboard />} />
           <Route path="/uninstalled" element={<Uninstalled />} />

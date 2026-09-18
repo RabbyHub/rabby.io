@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Pembaruan Berlangsung",
+      "completed": "Pembaruan Selesai",
+      "whatsNew": "Apa yang Baru?",
+      "version": "Versi {{version}}",
+      "waitingVersion": "Menunggu informasi versi…",
+      "loadingChangelog": "Memuat catatan rilis…",
+      "changelogError": "Tidak dapat memuat catatan rilis.",
+      "retry": "Coba lagi",
+      "checkAgain": "Periksa lagi",
+      "openWallet": "Buka Dompet",
+      "opening": "Membuka…",
+      "defaultChangelog": "- Memperbaiki beberapa bug dan mengoptimalkan pengalaman pengguna",
+      "errors": {
+        "updateTimeout": "Tidak dapat memastikan pembaruan selesai. Pastikan Rabby diaktifkan, lalu coba lagi.",
+        "openWallet": "Tidak dapat membuka dompet. Coba lagi atau buka Rabby dari bilah alat browser Anda."
+      }
+    },
     "uninstalled": {
       "title": "Kami sedih melihat Anda pergi",
       "description": "Frasa seed dan kunci privat Anda telah dihapus secara permanen dari perangkat ini.",

@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Güncelleniyor",
+      "completed": "Güncelleme Tamamlandı",
+      "whatsNew": "Yenilikler",
+      "version": "Sürüm {{version}}",
+      "waitingVersion": "Sürüm bilgisi bekleniyor…",
+      "loadingChangelog": "Sürüm notları yükleniyor…",
+      "changelogError": "Sürüm notları yüklenemedi.",
+      "retry": "Tekrar dene",
+      "checkAgain": "Tekrar kontrol et",
+      "openWallet": "Cüzdanı Aç",
+      "opening": "Açılıyor…",
+      "defaultChangelog": "- Bazı hatalar düzeltildi ve kullanıcı deneyimi iyileştirildi",
+      "errors": {
+        "updateTimeout": "Güncellemenin tamamlandığı doğrulanamadı. Rabby'nin etkin olduğundan emin olun ve tekrar deneyin.",
+        "openWallet": "Cüzdan açılamadı. Tekrar deneyin veya Rabby'yi tarayıcınızın araç çubuğundan açın."
+      }
+    },
     "uninstalled": {
       "title": "Ayrılmanıza üzüldük",
       "description": "Kurtarma ifadeniz ve özel anahtarlarınız bu cihazdan kalıcı olarak silindi.",

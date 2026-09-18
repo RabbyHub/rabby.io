@@ -1407,10 +1407,10 @@
     lodash "^4.17.21"
     qss "^2.0.3"
 
-"@rabby-wallet/rabby-api@0.8.6":
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.8.6.tgz#a883219f37ca921c6f0d52d7eb7f66716daac38a"
-  integrity sha512-v4WqIWItDvUKHJKYAfP/PT0AL6w3fR1O2xLIYxX0lwte8wiRZLQaUE+W6IlLvmF96dMH1T2Gs2Zg33VuMzaJ9w==
+"@rabby-wallet/rabby-api@0.9.67":
+  version "0.9.67"
+  resolved "https://registry.yarnpkg.com/@rabby-wallet/rabby-api/-/rabby-api-0.9.67.tgz#23951a801be7a82dec29eb46847b6d57be537d0f"
+  integrity sha512-GAaqYnLKfkPwBOmRDmj8YoxVNgsIPxIUEFm7Bvtb2YT6FGTDMNOi0uZ5OqAJFW5QZBhQM6+qQB8rBSyb3zsysA==
   dependencies:
     "@rabby-wallet/rabby-sign" "0.4.0"
     axios "^0.27.2"

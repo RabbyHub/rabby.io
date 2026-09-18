@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Actualización en curso",
+      "completed": "Actualización completada",
+      "whatsNew": "¿Qué hay de nuevo?",
+      "version": "Versión {{version}}",
+      "waitingVersion": "Esperando información de la versión…",
+      "loadingChangelog": "Cargando notas de la versión…",
+      "changelogError": "No se pudieron cargar las notas de la versión.",
+      "retry": "Reintentar",
+      "checkAgain": "Comprobar de nuevo",
+      "openWallet": "Abrir billetera",
+      "opening": "Abriendo…",
+      "defaultChangelog": "- Se corrigieron algunos errores y se optimizó la experiencia de usuario",
+      "errors": {
+        "updateTimeout": "No se pudo confirmar la actualización. Asegúrate de que Rabby esté habilitado e inténtalo de nuevo.",
+        "openWallet": "No se pudo abrir la billetera. Inténtalo de nuevo o abre Rabby desde la barra de herramientas del navegador."
+      }
+    },
     "uninstalled": {
       "title": "Sentimos que te vayas",
       "description": "Tu frase semilla y tus claves privadas se han eliminado permanentemente de este dispositivo.",

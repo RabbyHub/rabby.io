@@ -1,5 +1,23 @@
 {
   "page": {
+    "updating": {
+      "processing": "Update läuft",
+      "completed": "Update abgeschlossen",
+      "whatsNew": "Was ist neu?",
+      "version": "Version {{version}}",
+      "waitingVersion": "Warten auf Versionsinformationen…",
+      "loadingChangelog": "Versionshinweise werden geladen…",
+      "changelogError": "Versionshinweise konnten nicht geladen werden.",
+      "retry": "Erneut versuchen",
+      "checkAgain": "Erneut prüfen",
+      "openWallet": "Wallet öffnen",
+      "opening": "Wird geöffnet…",
+      "defaultChangelog": "- Einige Fehler behoben und die Benutzerfreundlichkeit verbessert",
+      "errors": {
+        "updateTimeout": "Das Update konnte nicht bestätigt werden. Stelle sicher, dass Rabby aktiviert ist, und versuche es erneut.",
+        "openWallet": "Die Wallet konnte nicht geöffnet werden. Versuche es erneut oder öffne Rabby über die Symbolleiste deines Browsers."
+      }
+    },
     "uninstalled": {
       "title": "Schade, dass du gehst",
       "description": "Deine Seed-Phrase und privaten Schlüssel wurden dauerhaft von diesem Gerät gelöscht.",
