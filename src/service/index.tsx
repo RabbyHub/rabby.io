@@ -1,6 +1,7 @@
 import { OpenApiService } from "@rabby-wallet/rabby-api";
 import { WebSignApiPlugin } from "@rabby-wallet/rabby-api/dist/plugins/web-sign";
 import { QueryClient } from "react-query";
+import { OpenapiStore } from "./openapiStore";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,11 +17,7 @@ export const queryClient = new QueryClient({
 });
 
 export const api = new OpenApiService({
-  store: {
-    host: "https://api.rabby.io",
-    apiKey: null,
-    apiTime: null,
-  },
+  store: new OpenapiStore(),
   plugin: WebSignApiPlugin,
 });
 
