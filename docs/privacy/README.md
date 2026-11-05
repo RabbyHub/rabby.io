@@ -154,18 +154,17 @@ If this definition of “resident” applies to you, we must adhere to certain r
 
 **_What Categories of Personal Information Do We Collect?_**
 
-In the past twelve (12) months we have collected the categories of personal information below. The sections “Rabby Wallet Users: What This Means for You”, “Personal Information That You Disclose to Us” and “Information We Collect Through Automatic Data Collection Technologies” above describe this information in more detail.
+We have collected the categories of personal information below in the past twelve (12) months. See “Rabby Wallet Users: What This Means for You”, “Personal Information That You Disclose to Us” and “Information We Collect Through Automatic Data Collection Technologies” above for more specific information. We collect personal information directly from you, automatically when you use the Services, and from public blockchains, such as the balances and transaction history of the addresses you add.
 
-- **Identifiers**, such as the wallet addresses you add to Rabby Wallet (including watch-only addresses), which we receive to provide wallet features; your IP address; and the random install IDs used for analytics and error reports.
-- **Commercial information**, such as the transactions and signature requests you ask us to explain, simulate or broadcast, and Gas Account deposits.
-- **Internet or other electronic network activity information**, such as the domains of websites that ask your wallet to connect or sign, website log data and, if you turn on Data Analysis, usage events and error reports.
-- **Geolocation data**, limited to the country, region or city estimated from your IP address.
-- **Personal information described in California Civil Code Section 1798.80(e)**, such as your name and email address, only when you contact us.
-- **Audio, electronic, visual or similar information**, such as screenshots you send with feedback.
+- **Identifiers** (such as wallet addresses, IP address, device identifiers, name and email address)
+- **Commercial information** (such as transaction data)
+- **Internet or other electronic network activity information** (such as usage data, log data and error reports)
+- **Geolocation data** (such as general location inferred from IP address)
+- **Audio, electronic, visual or similar information** (such as screenshots you send with feedback)
 
-We have not collected biometric information, protected classification characteristics, professional or employment-related information, education information, or sensitive personal information, and we do not draw inferences about you to create a profile.
+We do not collect sensitive personal information, and we do not use personal information to infer characteristics about you.
 
-We keep each category of personal information only as long as necessary to provide the Services and for the other purposes described in this privacy policy, as set out in “HOW LONG DO WE KEEP YOUR INFORMATION?”.
+We retain personal information for as long as necessary to carry out the purposes for which we collected it and for the other purposes described in this privacy policy.
 
 We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:
 
@@ -175,7 +174,28 @@ We may also collect other personal information outside of these categories throu
 
 ### How Do We Use and Share Your Personal Information?
 
-More information about our data collection and sharing practices can be found in this privacy policy.
+**_Use of Personal Information_**
+
+We use the categories of personal information described above to:
+
+- provide and operate the Services, such as showing your balances and history, explaining and simulating transactions, and broadcasting the transactions you sign;
+- keep the Services safe, such as running security checks and detecting and preventing fraud, phishing, abuse and security incidents;
+- improve and develop the Services, including through Data Analysis if you turn it on;
+- communicate with you and respond to your feedback and requests;
+- comply with legal obligations, such as sanctions laws, and enforce our terms.
+
+**_Categories of Recipients_**
+
+We may disclose the categories of personal information described above to the following categories of recipients:
+
+- our affiliates, including our subsidiaries;
+- service providers, such as cloud hosting and data storage, analytics and error monitoring providers;
+- Swap and Bridge providers, to get quotes and routes for the trades you request;
+- third parties you choose to interact with through the Services, such as websites you connect your wallet to, blockchain networks when you broadcast a transaction, and third-party features such as Perps (Hyperliquid), WalletConnect and hardware wallets;
+- a buyer or other successor in a merger, acquisition or other transfer of our business;
+- law enforcement, courts, regulators or other government authorities, where required by law or to protect rights, property or safety.
+
+Transactions you broadcast are recorded on public blockchains and can be seen by anyone.
 
 You may contact us via the contact information provided in “HOW CAN YOU CONTACT US ABOUT THIS NOTICE?”.
 
