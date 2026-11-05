@@ -21,7 +21,7 @@ This section applies to users of the Rabby Wallet browser extension and mobile a
 - do not require your name, email address or phone number to create or use a wallet;
 - do not sell your personal information or share it for targeted advertising;
 - do not collect or retain personal information unless we need it to provide the wallet, keep it safe or meet our legal obligations;
-- send analytics and error reports only while Data Analysis is on, and never include your wallet addresses, transaction hashes or keys in them.
+- send analytics and error reports only while Data Analysis is on. These reports never include your wallet addresses, transaction hashes or keys.
 
 **Your IP address.** Like any internet service, our servers receive your IP address with each request from the wallet. We process it only where necessary:
 
@@ -36,7 +36,7 @@ If you want to limit what we and other services can see, you can use a VPN.
 - **Wallet and transaction information.** We process the wallet addresses you add, including watch-only addresses, and the transactions and signature requests you make. We use them to show your assets and history, to explain and simulate transactions before you sign, to run security checks (including on websites that ask to connect or sign), to broadcast transactions, and to provide Swap, Bridge and Gas Account.
 - **Preferences and settings.** Your address book, labels, connected sites and settings are stored on your device.
 - **Feedback and survey responses**, where you choose to provide them.
-- **Data Analysis.** If you turn on Data Analysis, we collect usage events and error reports to improve the product experience and understand how Rabby Wallet is used. We do not collect wallet addresses or transaction hashes as part of Data Analysis, and we do not link this data to your wallet addresses, transaction hashes or other personal information. You may turn it off at any time.
+- **Data Analysis.** If you turn on Data Analysis, we collect usage events and error reports to improve the product experience and understand how Rabby Wallet is used. These reports do not include your wallet addresses or transaction hashes, and we do not link them to your wallet addresses, transaction hashes or other personal information. You may turn it off at any time.
 
 **Default settings.** The above applies when you use the wallet’s default settings, under which our servers are the default RPC for built-in networks. You can set a custom RPC for any network, remove an address to stop requests about it, and turn off Data Analysis at any time. Third-party features such as Perps (Hyperliquid), WalletConnect and hardware wallets connect you to those providers, which receive your requests and IP address under their own privacy policies.
 
@@ -156,7 +156,7 @@ If this definition of “resident” applies to you, we must adhere to certain r
 
 In the past twelve (12) months we have collected the categories of personal information below. The sections “Rabby Wallet Users: What This Means for You”, “Personal Information That You Disclose to Us” and “Information We Collect Through Automatic Data Collection Technologies” above describe this information in more detail.
 
-- **Identifiers**, such as the wallet addresses you add to Rabby Wallet (including watch-only addresses), your IP address, and the random install IDs used for analytics and error reports.
+- **Identifiers**, such as the wallet addresses you add to Rabby Wallet (including watch-only addresses), which we receive to provide wallet features; your IP address; and the random install IDs used for analytics and error reports.
 - **Commercial information**, such as the transactions and signature requests you ask us to explain, simulate or broadcast, and Gas Account deposits.
 - **Internet or other electronic network activity information**, such as the domains of websites that ask your wallet to connect or sign, website log data and, if you turn on Data Analysis, usage events and error reports.
 - **Geolocation data**, limited to the country, region or city estimated from your IP address.
