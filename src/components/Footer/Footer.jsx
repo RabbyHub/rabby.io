@@ -19,10 +19,6 @@ const Footer = () => {
           value: LINKS.SOCIAL.GITHUB,
         },
         {
-          title: "Discord",
-          value: LINKS.SOCIAL.DISCORD,
-        },
-        {
           title: "Email"
         },
         {

@@ -3,7 +3,6 @@ export const LINKS = {
   // 社交媒体链接
   SOCIAL: {
     TWITTER: "https://x.com/Rabby_io",
-    DISCORD: "https://discord.gg/seFBCWmUre",
     GITHUB: "https://github.com/RabbyHub/Rabby",
     EMAIL: "mailto:rabby.io@gmail.com",
     BUG_BOUNTY: "mailto:bugbounty@debank.com",
@@ -49,7 +48,6 @@ export const LINKS = {
 export const ICONS = {
   SOCIAL: {
     TWITTER: "/assets/contact/x-new.svg",
-    DISCORD: "/assets/contact/discord-new.svg", 
     GITHUB: "/assets/contact/github-new.svg",
     EMAIL: "/assets/contact/email.svg",
     DEBANK: "/assets/contact/debank.svg",

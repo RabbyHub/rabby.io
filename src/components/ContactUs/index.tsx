@@ -12,11 +12,6 @@ const followUsList = [
     link: LINKS.SOCIAL.TWITTER,
   },
   {
-    name: 'Discord',
-    logo: ICONS.SOCIAL.DISCORD,
-    link: LINKS.SOCIAL.DISCORD,
-  },
-  {
     name: 'Github',
     logo: ICONS.SOCIAL.GITHUB,
     link: LINKS.SOCIAL.GITHUB,
