@@ -600,11 +600,6 @@ header {
 .actions .download-btn {
   display: none;
 }
-.actions .round-button .icon-discord {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
 .actions .round-button.orange {
   margin-right: 16px;
 }

@@ -5,11 +5,6 @@ import { useTranslation } from "react-i18next";
 const list = [
   { src: "/assets/feedback/x.svg", link: "https://x.com/Rabby_io", name: "X" },
   {
-    src: "/assets/feedback/discord.svg",
-    link: "https://discord.gg/seFBCWmUre",
-    name: "Discord",
-  },
-  {
     src: "/assets/feedback/email.svg",
     link: "mailto:support@rabby.io",
     name: "Email",
