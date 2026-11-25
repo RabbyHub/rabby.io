@@ -94,7 +94,7 @@ We may disclose personal information that we collect or you provide as described
 We may also disclose your personal information:
 
 1. To comply with any court order, law, or legal process, including to respond to any government or regulatory request;
-1. To enforce or apply our terms of services at <https://rabby.io/docs/terms/> and other agreements;
+1. To enforce or apply our terms of services at <https://rabby.io/docs/terms-of-use/> and other agreements;
 1. If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others. This includes exchanging information with other companies and organizations for the purposes of fraud protection.
 
 ## HOW LONG DO WE KEEP YOUR INFORMATION?
